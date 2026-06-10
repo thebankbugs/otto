@@ -76,8 +76,27 @@
             <p>Reach out to us to gain access to our data infrastructure. We filter out genuine New PNG Traders during onboarding to prevent server overload.</p>
             
             <div class="copy-box">
-                <span class="box-label">Copy this exact message to send us:</span>
-                <p id="copyText">"I’m ready to come onboard. Show me EXACTLY where."</p>
+                <!-- Replace your current copy-box with this slightly enhanced version -->
+<div class="copy-box" onclick="copySnippet()" style="cursor: pointer;">
+    <span class="box-label">👉 Tap anywhere inside this box to copy message:</span>
+    <p id="copyText">"I’m ready to come onboard. Show me EXACTLY where."</p>
+</div>
+
+<!-- Add this script right before your closing </body> tag -->
+<script>
+function copySnippet() {
+    const text = document.getElementById("copyText").innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        const label = document.querySelector(".box-label");
+        label.innerText = "✅ COPIED TO CLIPBOARD!";
+        label.style.color = "#00ff66";
+        setTimeout(() => {
+            label.innerText = "👉 Tap anywhere inside this box to copy message:";
+            label.style.color = "var(--accent-red)";
+        }, 2000);
+    });
+}
+</script>
             </div>
 
             <a href="https://tiktok.com" target="_blank" class="btn btn-primary btn-wide">
