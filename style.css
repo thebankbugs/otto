@@ -260,27 +260,34 @@ html {
     margin-bottom: 1rem;
 }
 
-.funnel-card {
-    background: linear-gradient(135deg, var(--bg-card) 0%, #171a26 100%);
-    border: 1px solid var(--border-color);
-    max-width: 650px;
-    width: 100%;
-    padding: 3rem;
-    border-radius: 12px;
-    text-align: center;
-    
-    /* These layout engines force everything to stack cleanly */
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
+.funnel-card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 2rem;
 }
 
-.btn-wide {
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-    margin-top: 2rem; /* Creates breathing space under the box */
-    clear: both;      /* Blocks items from laying over it */
+.copy-box {
+    background-color: var(--bg-main);
+    border: 1px dashed var(--accent-red);
+    padding: 1.2rem;
+    border-radius: 6px;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.box-label {
+    font-size: 0.75rem;
+    color: var(--accent-red);
+    text-transform: uppercase;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+#copyText {
+    color: #fff;
+    font-family: monospace;
+    font-size: 1.05rem;
 }
 
 /* Footer structure */
@@ -313,3 +320,4 @@ html {
     .hero h1 { font-size: 2.2rem; }
     .funnel-card { padding: 1.5rem; }
 }
+
