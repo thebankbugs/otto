@@ -8,19 +8,44 @@
 
 body {
     background-color: #000000;
+    /* Generates a live digital trading chart grid using pure linear gradients */
+    background-image: 
+        linear-gradient(rgba(255, 204, 0, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 204, 0, 0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center;
     color: #ffffff;
     min-height: 100vh;
     overflow-x: hidden;
     padding-bottom: 60px;
+    position: relative;
 }
 
-/* Color Variables */
-:root {
-    --gold: #FFD700;
-    --neon-gold: #ffcc00;
-    --red: #ff3333;
-    --dark-grey: #121212;
-    --border-grey: #222222;
+/* Advanced PNG Niche Background Elements */
+body::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    /* Generates a deep, glowing ambient light using PNG Red and Neon Gold */
+    background: radial-gradient(circle, rgba(255, 51, 51, 0.15) 0%, rgba(255, 204, 0, 0.05) 50%, transparent 80%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    bottom: -10%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    /* Bottom glow balancing out the network nodes theme */
+    background: radial-gradient(circle, rgba(255, 204, 0, 0.08) 0%, transparent 70%);
+    z-index: 1;
+    pointer-events: none;
 }
 
 /* Active Nodes in Top Right Background */
@@ -31,7 +56,7 @@ body {
     width: 400px;
     height: 400px;
     pointer-events: none;
-    z-index: 1;
+    z-index: 2;
 }
 
 .node {
@@ -40,6 +65,19 @@ body {
     border-radius: 50%;
     filter: blur(1px);
     box-shadow: 0 0 15px var(--neon-gold);
+    animation: nodePulse 4s infinite ease-in-out;
+}
+
+/* Distribute nodes to look like an active market server framework */
+.node-1 { width: 8px; height: 8px; top: 60px; right: 80px; animation-delay: 0s; }
+.node-2 { width: 6px; height: 6px; top: 140px; right: 190px; animation-delay: 1.5s; }
+.node-3 { width: 10px; height: 10px; top: 200px; right: 70px; animation-delay: 0.7s; }
+
+/* Injected dynamic animation for the active server node indicators */
+@keyframes nodePulse {
+    0%, 100% { transform: scale(1); opacity: 0.4; box-shadow: 0 0 8px var(--neon-gold); }
+    50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 20px var(--neon-gold), 0 0 30px var(--red); }
+
 }
 
 .node-1 { width: 8px; height: 8px; top: 40px; right: 50px; opacity: 0.8; }
