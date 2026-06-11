@@ -3,119 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Bank Bugs | PNG's Digitised Trading Ecosystem</title>
+    <title>The Bank Bugs | PNG’s Digitised Trading Ecosystem</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Background Grid and Nodes Style Elements -->
+    <div class="bg-effects">
+        <div class="node node-1"></div>
+        <div class="node node-2"></div>
+        <div class="node node-3"></div>
+    </div>
+
     <!-- Header Navigation -->
     <header class="navbar">
-        <div class="logo-area">
-            <img src="img.bankbugs.png" alt="The Bank Bugs Logo" class="logo-img">
-            <span class="logo-text">The Bank Bugs</span>
+        <div class="logo-container">
+            <img src="bankbugs.png" alt="The Bank Bugs Logo" class="brand-logo">
+            <span class="brand-name">The Bank <span class="gold-text">Bugs</span></span>
         </div>
-        <nav class="nav-links">
-            <a href="#resources">Free Resources</a>
-            <a href="#requirements">Requirements</a>
-            <a href="#onboard">Getting Started</a>
-            <a href="#about">About Us</a>
+        
+        <nav class="nav-menu">
+            <a href="#resources" class="nav-link">Free resources</a>
+            <a href="#getting-started" class="nav-link">Getting started</a>
+            <a href="#requirements" class="nav-link">Requirements</a>
+            <a href="#about" class="nav-link">About us</a>
         </nav>
-        <a href="#resources" class="btn btn-nav">Access Full Resources</a>
+
+        <div class="nav-right">
+            <div class="site-tracker">
+                <span class="pulse-dot"></span> LIVE TRACKER: ACTIVE
+            </div>
+            <a href="#login" class="btn btn-login">Log in</a>
+        </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="nodes-overlay"></div>
-        <div class="hero-content">
-            <div class="tracker-badge">
-                <span class="pulse-dot"></span> Live Ecosystem Active
-            </div>
-            <h1>PNG’s Digitised Trading Ecosystem</h1>
-            <p class="subtitle">We provide trading solutions to take you from a complete beginner and build you up step-by-step.</p>
-            <div class="hero-actions">
-                <a href="#onboard" class="btn btn-primary">Start Trading in PNG Now</a>
-                <a href="#resources" class="btn btn-secondary">Explore free Resources</a>
-            </div>
+        <h1 class="hero-heading">PNG’s Digitised <span class="gold-glow-text">Trading Ecosystem</span></h1>
+        <p class="hero-subheading">We provide Trading solutions to get you from a complete beginner and build with you up.</p>
+        <div class="hero-buttons">
+            <a href="#login" class="btn btn-login-hero">Log in</a>
+            <a href="#resources" class="btn btn-resources">Access free resources</a>
         </div>
     </section>
 
-    <!-- Core Pillars Grid Section -->
-    <section id="resources" class="grid-section">
+    <!-- Content Dashboard Grid -->
+    <main class="dashboard-grid">
         
-        <!-- Card 1 -->
-        <div class="card">
-            <h3>Educational Resources</h3>
-            <p>Master the basics: Introduction to Forex, who operates it, where to access it, and how to utilize flexible trading hours in PNG.</p>
-            <a href="#" class="card-link">Start Learning &rarr;</a>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="card">
-            <h3>Regulated Brokers</h3>
-            <p>Looking to start in PNG? Follow @thebankbugs to access vetted, regulated brokers tailored to your budget with secure funds management.</p>
-            <a href="#" class="card-link">View Brokers &rarr;</a>
-        </div>
-
-        <!-- Card 3 -->
-        <div id="requirements" class="card">
-            <h3>PNG Requirements</h3>
-            <p>To join our technical trading network securely, you only need three basic tools to get started:</p>
-            <ul class="req-list">
-                <li>Valid Identification (ID)</li>
-                <li>Local Bank PNG Visa Card</li>
-                <li>Stable Internet & Device</li>
+        <!-- Box 1: Educational Resources -->
+        <div id="resources" class="dash-box">
+            <h2 class="box-title">Educational resources</h2>
+            <ul class="box-list">
+                <li>Introduction to Forex</li>
+                <li>Who operates it?</li>
+                <li>Where can we access it?</li>
+                <li>When to trade? <span class="red-text">Flexible time in PNG</span></li>
+                <li>How to start?</li>
             </ul>
-            <a href="#" class="card-link">Check Requirements &rarr;</a>
-        </div>
-    </section>
-
-    <!-- High-Conversion Funnel Section -->
-    <section id="onboard" class="funnel-section">
-        <div class="funnel-card">
-            <h2>Got Everything? Here is Next. Save yourself time and endless research about Trading.</h2>
-            <p>Reach out to us & gain Access to our Full data infrastructure. We filter out genuine PNG Traders then have them Access Full Resources and also send them to our WhatsApp during onboarding to prevent server overload.</p>
-
-            <div class="copy-box"
-                <!-- Replace your current copy-box with this slightly enhanced version -->
-<div onclick="copySnippet()" style="cursor: pointer;">
-    <span class="box-label">👉 Tap anywhere inside this box to copy message:</span>
-    <p id="copyText">"I want to start now Otto. Show me EXACTLY where."</p>
-</div>
-
-<!-- Add this script right before your closing </body> tag -->
-<script>
-function copySnippet() {
-    const text = document.getElementById("copyText").innerText;
-    navigator.clipboard.writeText(text).then(() => {
-        const label = document.querySelector(".box-label");
-        label.innerText = "✅ COPIED TO CLIPBOARD!";
-        label.style.color = "#00ff66";
-        setTimeout(() => {
-            label.innerText = "👉 Tap anywhere inside this box to copy message:";
-            label.style.color = "var(--accent-red)";
-        }, 2000);
-    });
-}
-</script>
+            <a href="#more-resources" class="show-more">Show more →</a>
         </div>
 
-            <a href="https://tiktok.com" target="_blank" class="btn btn-primary btn-wide">
-                Message Us on TikTok @thebankbugs
-            </a>
+        <!-- Box 2: Start Trading -->
+        <div class="dash-box">
+            <h2 class="box-title">I want to Start trading in PNG now</h2>
+            <p class="box-desc"><span class="gold-text">Looking to start in PNG?</span> We got you. Follow us @thebankbugs so we can get you the best regulated brokers to use here in PNG and also based on your budget. Transparent and highly efficient in handling clients funds.</p>
+            <a href="#more-brokers" class="show-more">Show more →</a>
         </div>
-    </section>
 
-    <!-- About / Footer Section -->
-    <footer id="about" class="footer">
-        <div class="footer-content">
-            <p>Run in collaboration as <strong>The Bank Bugs</strong> by Otto Eric & Costigan Moilani.</p>
-            <p>Technical Architecture & Infrastructure by Davincy Rodgers.</p>
-            <a href="https://tiktok.com" class="btn btn-secondary">Follow @thebankbugs</a>
+        <!-- Box 3: Requirements -->
+        <div id="requirements" class="dash-box">
+            <h2 class="box-title">What are the actual Requirements?</h2>
+            <p class="box-desc red-text font-weight-bold">Simple, you just need:</p>
+            <ul class="box-list">
+                <li>A valid ID</li>
+                <li>A visa Card</li>
+                <li>Stable internet and trading devices</li>
+            </ul>
+            <a href="#more-requirements" class="show-more">Show more →</a>
         </div>
-        <div class="footer-bottom">
-            &copy; 2026 The Bank Bugs Ecosystem. All rights reserved.
+
+        <!-- Box 4: Getting Started / Next Steps -->
+        <div id="getting-started" class="dash-box wide-box">
+            <h2 class="box-title">Got everything? Here’s next.</h2>
+            <p class="box-desc">Reach out to us on tiktok <span class="gold-text">@thebankbugs</span> and we get you on board. This is where we give you access to all our data and infrastructure and show you exactly where and what to do so you know what you're doing. Learn and Access the right data on board to save you <strong>TIME</strong>.</p>
+            <p class="box-desc warning-text">We also filter out unserious traders along the onboarding process to reduce server overload in our ecosystem.</p>
+            <div class="copy-phrase">
+                <p>Send this exact message to us on tiktok so we know you are serious you got everything ready to start:</p>
+                <div class="phrase-box">“I’m ready to come onboard. Show me EXACTLY where”</div>
+            </div>
+            <a href="https://tiktok.com" target="_blank" class="show-more">Show more →</a>
         </div>
-    </footer>
+
+        <!-- Box 5: About Us -->
+        <div id="about" class="dash-box">
+            <h2 class="box-title">About us?</h2>
+            <p class="box-desc">PNG trading ecosystem here are run in collaboration as <strong>The Bank Bugs</strong> by:</p>
+            <p class="box-desc Highlight-names"><span class="red-text">Otto Eric</span> & <span class="red-text">Costigan Moilani</span></p>
+            <p class="box-desc text-muted">With Tech and infrastructure by <span class="gold-text">Davincy Rodgers</span></p>
+            <a href="#follow" class="btn btn-follow">Follow us</a>
+        </div>
+
+    </main>
 
 </body>
 </html>
