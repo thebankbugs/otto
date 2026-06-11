@@ -103,3 +103,29 @@ if ('serviceWorker' in navigator) {
             .catch(err => console.log('PWA registration failed: ', err));
     });
 }
+// ==========================================
+// 4. FRONTEND LIVE TRACKER UPDATER
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const trackerContainer = document.querySelector('.site-tracker');
+    if (trackerContainer) {
+        // Clear old text but keep the green pulsing dot
+        trackerContainer.innerHTML = '<span class="pulse-dot"></span> LIVE TRADERS: <span id="liveCount" style="color: #ffcc00; font-weight: bold; margin-left: 4px;">42</span>';
+        
+        const countElement = document.getElementById('liveCount');
+        
+        // Simulates real traders jumping on and off the platform in PNG
+        setInterval(() => {
+            let currentCount = parseInt(countElement.textContent);
+            // Random flux between -3 and +3 traders
+            let change = Math.floor(Math.random() * 7) - 3; 
+            let newCount = currentCount + change;
+            
+            // Keep the baseline active community size between 35 and 65
+            if (newCount < 35) newCount = 35;
+            if (newCount > 65) newCount = 65;
+            
+            countElement.textContent = newCount;
+        }, 4000); // Updates every 4 seconds
+    }
+});
