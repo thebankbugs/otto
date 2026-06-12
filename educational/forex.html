@@ -4,190 +4,141 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Introduction to Forex | The Bank Bugs</title>
-    <!-- Relative link looks up one folder level to fetch your neon gold master style -->
     <link rel="stylesheet" href="../style.css">
-    <style>
-        /* Educational Dashboard Specific Layout Additions */
-        body.no-sidebar {
-            padding-left: 0 !important;
-        }
-        
-        .edu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-            max-width: 1300px;
-            margin: 40px auto;
-            padding: 0 30px;
-        }
-
-        .edu-box {
-            background-color: #121212;
-            border: 1px solid #222222;
-            border-radius: 8px;
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 250px;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
-        .edu-box:hover {
-            border-color: #ffcc00;
-            box-shadow: 0 0 25px rgba(255, 204, 0, 0.15);
-            transform: translateY(-3px);
-        }
-
-        .box-num {
-            font-size: 0.8rem;
-            font-weight: 800;
-            color: #ff3333;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
-        }
-
-        .edu-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
-
-        .edu-preview {
-            font-size: 0.9rem;
-            color: #888888;
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
-
-        /* Dynamic Pop-up Modal Context Overlay */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(8px);
-            z-index: 1000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .modal-content {
-            background-color: #0d0d0d;
-            border: 1px solid #ffcc00;
-            box-shadow: 0 0 40px rgba(255, 204, 0, 0.2);
-            border-radius: 8px;
-            max-width: 600px;
-            width: 100%;
-            padding: 35px;
-            position: relative;
-            animation: modalFade 0.3s ease;
-        }
-
-        @keyframes modalFade {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            background: none;
-            border: none;
-            color: #ff3333;
-            font-size: 1.5rem;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .modal-list {
-            list-style: none;
-            margin: 20px 0;
-        }
-
-        .modal-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid #1a1a1a;
-            font-size: 0.95rem;
-            color: #dddddd;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .modal-list strong {
-            color: #ffcc00;
-        }
-
-        .disclaimer-footer {
-            max-width: 1100px;
-            margin: 60px auto 20px auto;
-            padding: 25px;
-            border-top: 1px solid #1a1a1a;
-            text-align: center;
-        }
-
-        .disclaimer-text {
-            font-size: 0.75rem;
-            color: #555555;
-            line-height: 1.6;
-        }
-    </style>
 </head>
 <body class="no-sidebar">
 
-    <!-- Navbar Container -->
     <header class="navbar">
         <div class="logo-container">
             <span class="brand-name"><a href="../index.html" style="color: inherit; text-decoration: none;">← Back to Dashboard</a></span>
         </div>
         <div class="nav-right">
-            <a href="../index.html" class="btn btn-login" style="font-size: 0.8rem; padding: 8px 18px;">Home Dashboard</a>
+            <a href="../index.html" class="btn btn-login">Home Dashboard</a>
         </div>
     </header>
 
-    <!-- Main Section Header -->
-    <section class="hero" style="padding-top: 60px; padding-bottom: 20px;">
-        <h1 class="hero-heading" style="font-size: 2.8rem;">PNG Forex <span class="gold-glow-text">Education Matrix</span></h1>
-        <p class="hero-subheading" style="font-size: 1.1rem; max-width: 750px; margin: 0 auto;">To trade Forex successfully from Papua New Guinea (PNG), you must understand both global market mechanics and local financial regulations.</p>
+    <section class="hero">
+        <h1 class="hero-heading">PNG Forex <span class="gold-glow-text">Education Matrix</span></h1>
+        <p class="hero-subheading">To trade Forex successfully from Papua New Guinea (PNG), you must understand both global market mechanics and local financial regulations.</p>
     </section>
 
-    <!-- 20-Box Interactive Content Dashboard Grid -->
-    <main class="edu-grid" id="matrixGrid"></main>
-
-    <!-- Reusable Dynamic Content Lightbox Modal -->
-    <div class="modal-overlay" id="infoModal">
-        <div class="modal-content">
-            <button class="close-modal" id="closeModal">×</button>
-            <div class="box-num" id="modalNum">BOX 00</div>
-            <h2 class="edu-title" id="modalTitle" style="font-size: 1.6rem; color: #ffffff;">Template Title</h2>
-            <ul class="modal-list" id="modalList"></ul>
-            <p id="modalDetail" style="color: #aaaaaa; font-size: 0.95rem; line-height: 1.6;"></p>
+    <main class="dashboard-grid">
+        
+        <div class="dash-box">
+            <h2 class="box-title">1. Introduction to the Global Forex Market</h2>
+            <p class="box-desc"><strong>Definition:</strong> What Forex is and how currency pairs work.</p>
+            <p class="box-desc"><strong>Scale:</strong> Understanding the $7+ trillion daily trading volume market.</p>
+            <p class="box-desc"><strong>Participants:</strong> The role of central banks, commercial banks, and retail traders.</p>
+            <a href="#more-1" class="btn btn-learn">Learn in-depth →</a>
         </div>
-    </div>
 
-    <!-- Risk Disclaimer Footer -->
-    <footer class="disclaimer-footer">
-        <p class="disclaimer-text">
-            <strong>RISK WARNING & REGULATORY DISCLAIMER:</strong> Trading Foreign Exchange (Forex) on margin carries a high level of risk and may not be suitable for all investors. The high degree of leverage can work against you as well as for you. Before deciding to trade foreign exchange, you should carefully consider your investment objectives, level of experience, and risk appetite. All educational resources provided by The Bank Bugs are for informational purposes only and do not constitute formal financial advice. Residents of Papua New Guinea must independently verify compliance with the Bank of Papua New Guinea (BPNG) foreign exchange management regulations and Internal Revenue Commission (IRC) tax laws before funding any external retail brokerage accounts.
-        </p>
-        <p style="font-size: 0.75rem; color: #333333; margin-top: 15px;">© 2026 The Bank Bugs Ecosystem. All Rights Reserved.</p>
-    </footer>
+        <div class="dash-box">
+            <h2 class="box-title">2. Base vs. Quote Currencies and the PGK</h2>
+            <p class="box-desc"><strong>Mechanics:</strong> How to read currency pairs (e.g., EUR/USD).</p>
+            <p class="box-desc"><strong>Local Context:</strong> Understanding the Papua New Guinea Kina (PGK) position in global trade.</p>
+            <p class="box-desc"><strong>Exotic Pairs:</strong> Why trading the PGK directly is rare and expensive for retail traders.</p>
+            <a href="#more-2" class="btn btn-learn">Learn in-depth →</a>
+        </div>
 
-    <!-- Isolated Internal Automation Array Mapping -->
-    <script>
-        const contentData = [
-            { id: 1, title: "Introduction to the Global Forex Market", preview: "Definition, scale dynamics, and global operational infrastructure.", details: [ { label: "Definition", text: "What Forex is and how currency pairs work across global networks." }, { label: "Scale", text: "Understanding the massive $7+ trillion daily trading volume market." }, { label: "Participants", text: "The tier-1 roles of central banks, commercial banks, and retail networks." } ] },
-            { id: 2, title: "Base vs. Quote Currencies and the PGK", preview: "Reading major financial pairs and interpreting your local currency position.", details: [ { label: "Mechanics", text: "How to read base and quote currency metrics (e.g., EUR/USD pricing structures)." }, { label: "Local Context", text: "Understanding the Papua New Guinea Kina (PGK) position in global balance of trade rules." }, { label: "Exotic Pairs", text: "Why trading the PGK directly is rare, highly illiquid, and highly expensive for retail platforms." } ] },
-            { id: 3, title: "BPNG Regulations and Compliance", preview: "Navigating central bank exchange controls and local legislative barriers.", details: [ { label: "Central Bank", text: "The regulatory role of the Bank of Papua New Guinea (BPNG) in monitoring foreign exchange markets." }, { label: "Exchange Control", text: "Local legal frameworks regarding moving capital out of PNG for external trading access." }, { label: "Legality", text: "Key procedures required to stay 100% compliant with PNG financial regulatory laws." } ] },
-            { id: 4, title: "Choosing a Forex Broker from PNG", preview: "Securing tier-1 regulated market routing with accessible local funding methods.", details: [ { label: "Regulation", text: "Identifying international tier-1 regulated authorities (e.g., ASIC, FCA, CySEC)." }, { label: "Account Funding", text: "Finding international clearing brokers that cleanly accept accessible deposit/withdrawal pipelines for PNG accounts." }, { label: "Spreads & Fees", text: "Comparing dynamic transactional spreads, margin parameters, and baseline minimum asset limits." } ] },
-            { id: 5, title: "Forex Market Hours and PNG Time Zones", preview: "Optimizing global trading sessions to Port Moresby local time coordinates.", details: [ { label: "Trading Sessions", text: "Tracking the 4 main international cycles: Sydney, Tokyo, London, and New York market blocks." }, { label: "Local Optimization", text: "Mapping volatile overlapping sessions directly into local Port Moresby Time frames (AEST / GMT+10)." }, { label: "Peak Liquidity", text: "Isolating the most profitable daily time frames to execute high-volume system strategies from PNG." } ] },
-           
+        <div class="dash-box">
+            <h2 class="box-title">3. BPNG Regulations and Compliance</h2>
+            <p class="box-desc"><strong>Central Bank:</strong> The role of the Bank of Papua New Guinea (BPNG) in foreign exchange.</p>
+            <p class="box-desc"><strong>Exchange Control:</strong> Local laws regarding moving money overseas for trading.</p>
+            <p class="box-desc"><strong>Legality:</strong> How to stay fully compliant with PNG financial regulations.</p>
+            <a href="#more-3" class="btn btn-learn">Learn in-depth →</a>
+        </div>
+
+        <div class="dash-box">
+            <h2 class="box-title">4. Choosing a Forex Broker from PNG</h2>
+            <p class="box-desc"><strong>Regulation:</strong> Identifying tier-1 regulated brokers (e.g., ASIC, FCA).</p>
+            <p class="box-desc"><strong>Account Funding:</strong> Finding brokers that accept convenient deposit methods for PNG residents.</p>
+            <p class="box-desc"><strong>Spreads and Fees:</strong> Comparing transaction costs, leverage options, and minimum deposit limits.</p>
+            <a href="#more-4" class="btn btn-learn">Learn in-depth →</a>
+        </div>
+
+        <div class="dash-box">
+            <h2 class="box-title">5. Forex Market Hours and PNG Time Zones</h2>
+            <p class="box-desc"><strong>Trading Sessions:</strong> The 4 major sessions (Sydney, Tokyo, London, New York).</p>
+            <p class="box-desc"><strong>Local Optimization:</strong> Mapping these sessions to Port Moresby time (AEST/GMT+10).</p>
+            <p class="box-desc"><strong>Peak Liquidity:</strong> Identifying the best hours of the day to trade from PNG.</p>
+            <a href="#more-5" class="btn btn-learn">Learn in-depth →</a>
+        </div>
+
+        <div class="dash-box">
+            <h2 class="box-title">6. Fundamental Analysis and Macroeconomics</h2>
+            <p class="box-desc"><strong>Economic Indicators:</strong> How interest rates, inflation, and GDP move currency values.</p>
+            <p class="box-desc"><strong>Commodity Correlation:</strong> How PNG’s primary exports (gold, oil, gas, copper) impact commodity currencies like the Australian Dollar (AUD).</p>
+            <a href="#more-6" class="btn btn-learn">Learn in-depth →</a>
+        </div>
+
+        <div class="dash-box">
+            <h2 class="box-title">7. Technical Analysis Basics</h2>
+            <p class="box-desc"><strong>Chart Types:</strong> Reading line, bar, and candlestick charts.</p>
+            <p class="box-desc"><strong>Market Structure:</strong> Identifying support, resistance, and market trends.</p>
+            <p class="box-desc"><strong>Indicators:</strong> Introduction to tools like Moving Averages and the Relative Strength Index (RSI).</p>
+            <a href="#more-7" class="btn btn-learn">Learn in-depth →</a>
+        </div>
+
+        <div class="dash-box">
+            <h2 class="box-title">8. Risk Management Strategies</h2>
+            <p class="box-desc"><strong>Capital Protection:</strong> The golden rule of never risking more than 1-2% per trade.</p>
+            <p class="box-desc"><strong>Order Types:</strong> Utilizing Stop-Loss and Take-Profit orders automatically.</p>
+            <p class="box-desc"><strong>Leverage:</strong> Understanding how leverage amplifies both profits and losses.</p>
+            <a href="#more-8" class="btn btn-learn">Learn in-depth →</a>
+        </div>
+
+        <div class="dash-box">
+            <h2 class="box-title">9. Trading Psychology and Discipline</h2>
+            <p class="box-desc"><strong>Emotional Control:</strong> Overcoming greed, fear, and the urge to revenge-trade.</p>
+            <p class="box-desc"><strong>Trading Plan:</strong> Building a structured, rule-based approach to the markets.</p>
+            <p class="box-desc"><strong>Consistency:</strong> Treating Forex as a business rather than a hobby or gambling.</p>
+            <a href="#more-9" class="btn btn-learn">Learn in-depth →</a>
+        </div>
+
+        <div class="dash-box">
+            <h2 class="box-title">10. Navigating Tax Obligations in PNG</h2>
+            <p class="box-desc"><strong>IRC Compliance:</strong> Understanding how trading profits are treated by the Internal Revenue Commission (IRC).</p>
+            <p class="box-desc"><strong>Record Keeping:</strong> Logging your trades, bank statements, and conversion rates.</p>
+            <p class="box-desc"><strong>Classification:</strong> Distinguishing between capital gains and personal income tax.</p>
+            <a href="#more-10" class="btn btn-learn">Learn in-depth →</a>
+        </div>
+
+        <div class="dash-box">
+            <h2 class="box-title">11. Forex Order Types and Execution</h2>
+            <p class="box-desc"><strong>Market Orders:</strong> Buying or selling instantly at the current market price.</p>
+            <p class="box-desc"><strong>Pending Orders:</strong> Setting automatic entries via Buy/Sell Limits and Buy/Sell Stops.</p>
+            <p class="box-desc"><strong>Slippage:</strong> Understanding why entry prices can sometimes change during high volatility.</p>
+            <a href="#more-11" class="btn btn-learn">Learn in-depth →</a>
+        </div>
+
+        <div class="dash-box">
+            <h2 class="box-title">12. Pips, Lots, and Order Sizing</h2>
+            <p class="box-desc"><strong>Pip Calculation:</strong> Measuring the smallest price move in a currency pair.</p>
+            <p class="box-desc"><strong>Lot Sizes:</strong> Differentiating between Standard, Mini, Micro, and Nano lots.</p>
+            <p class="box-desc"><strong>Position Sizing:</strong> Calculating the exact dollar amount to risk based on account size.</p>
+            <a href="#more-12" class="btn btn-learn">Learn in-depth →</a>
+        </div>
+
+        <div class="dash-box">
+            <h2 class="box-title">13. Navigating Local Bank Fees and Forex Crises</h2>
+            <p class="box-desc"><strong>Kina Liquidity:</strong> Understanding PNG's structural foreign currency shortage challenges.</p>
+            <p class="box-desc"><strong>Transfer Costs:</strong> Factoring in high local bank fees for international wire transfers.</p>
+            <p class="box-desc"><strong>Alternative Funding:</strong> Exploring electronic wallets (e-wallets) or card deposits available in PNG.</p>
+            <a href="#more-13" class="btn btn-learn">Learn in-depth →</a>
+        </div>
+
+        <div class="dash-box">
+            <h2 class="box-title">14. Setting Up a Trading Terminal</h2>
+            <p class="box-desc"><strong>Platforms:</strong> Navigating MetaTrader 4 (MT4), MetaTrader 5 (MT5), or cTrader.</p>
+            <p class="box-desc"><strong>Interface Setup:</strong> Customizing charts, timeframes, and adding technical indicators.</p>
+            <p class="box-desc"><strong>Mobile Trading:</strong> Managing active trades on-the-go using mobile applications.</p>
+            <a href="#more-14" class="btn btn-learn">Learn in-depth →</a>
+        </div>
+
+        <div class="dash-box">
+            <h2 class="box-title">15. The Role of Major Crosses (AUD and NZD)</h2>
+            <p class="box-desc"><strong>Regional Currencies:</strong> Why the Australian Dollar (AUD) and New Zealand Dollar (NZD) matter to PNG.</p>
+            <p class="box-desc"><strong>Economic Ties:</strong> How trade relationships with Australia and New Zealand impact local exchange rates.</p>
+            <p class="box-desc"><strong>Liquidity:</strong> Trading AUD and NZD pairs during the daytime in PNG.</p>
+            <a href="#more-15" class="btn btn-learn">Learn in-depth →</a>
+        </div>
