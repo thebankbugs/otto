@@ -4,37 +4,245 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Introduction to Forex | The Bank Bugs</title>
-    <!-- Links back to the main style file one folder up -->
+    <!-- Relative link looks up one folder level to fetch your neon gold master style -->
     <link rel="stylesheet" href="../style.css">
-</head>
-<body class="resources-page">
+    <style>
+        /* Educational Dashboard Specific Layout Additions */
+        body.no-sidebar {
+            padding-left: 0 !important;
+        }
+        
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            max-width: 1300px;
+            margin: 40px auto;
+            padding: 0 30px;
+        }
 
-    <!-- Simple Nav back to home -->
+        .edu-box {
+            background-color: #121212;
+            border: 1px solid #222222;
+            border-radius: 8px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 250px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .edu-box:hover {
+            border-color: #ffcc00;
+            box-shadow: 0 0 25px rgba(255, 204, 0, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .box-num {
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: #ff3333;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .edu-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .edu-preview {
+            font-size: 0.9rem;
+            color: #888888;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        /* Dynamic Pop-up Modal Context Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background-color: #0d0d0d;
+            border: 1px solid #ffcc00;
+            box-shadow: 0 0 40px rgba(255, 204, 0, 0.2);
+            border-radius: 8px;
+            max-width: 600px;
+            width: 100%;
+            padding: 35px;
+            position: relative;
+            animation: modalFade 0.3s ease;
+        }
+
+        @keyframes modalFade {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #ff3333;
+            font-size: 1.5rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .modal-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .modal-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #1a1a1a;
+            font-size: 0.95rem;
+            color: #dddddd;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .modal-list strong {
+            color: #ffcc00;
+        }
+
+        .disclaimer-footer {
+            max-width: 1100px;
+            margin: 60px auto 20px auto;
+            padding: 25px;
+            border-top: 1px solid #1a1a1a;
+            text-align: center;
+        }
+
+        .disclaimer-text {
+            font-size: 0.75rem;
+            color: #555555;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body class="no-sidebar">
+
+    <!-- Navbar Container -->
     <header class="navbar">
         <div class="logo-container">
             <span class="brand-name"><a href="../index.html" style="color: inherit; text-decoration: none;">← Back to Dashboard</a></span>
         </div>
+        <div class="nav-right">
+            <a href="../index.html" class="btn btn-login" style="font-size: 0.8rem; padding: 8px 18px;">Home Dashboard</a>
+        </div>
     </header>
 
-    <main class="hero" style="text-align: left; max-width: 800px; padding-top: 40px;">
-        <h1 class="hero-heading" style="font-size: 2.5rem; margin-bottom: 10px;">Introduction to <span class="gold-glow-text">Forex Trading</span></h1>
-        <p class="box-desc" style="font-size: 1.1rem; color: var(--gold); margin-bottom: 40px;">Free Educational Resource • The Bank Bugs Ecosystem</p>
+    <!-- Main Section Header -->
+    <section class="hero" style="padding-top: 60px; padding-bottom: 20px;">
+        <h1 class="hero-heading" style="font-size: 2.8rem;">PNG Forex <span class="gold-glow-text">Education Matrix</span></h1>
+        <p class="hero-subheading" style="font-size: 1.1rem; max-width: 750px; margin: 0 auto;">To trade Forex successfully from Papua New Guinea (PNG), you must understand both global market mechanics and local financial regulations.</p>
+    </section>
 
-        <section class="dash-box" style="margin-bottom: 30px; min-height: auto;">
-            <h2 class="box-title" style="color: var(--neon-gold);">1. What is Forex?</h2>
-            <p class="box-desc">Forex (Foreign Exchange) is the global marketplace for exchanging national currencies against one another. It is the largest, most liquid financial market in the world.</p>
-        </section>
+    <!-- 20-Box Interactive Content Dashboard Grid -->
+    <main class="edu-grid" id="matrixGrid"></main>
 
-        <section class="dash-box" style="margin-bottom: 30px; min-height: auto;">
-            <h2 class="box-title" style="color: var(--neon-gold);">2. Who Operates It?</h2>
-            <p class="box-desc">The market is run by a global network of banks, financial institutions, central banks (like the Bank of PNG), hedge funds, commercial corporations, and retail traders.</p>
-        </section>
+    <!-- Reusable Dynamic Content Lightbox Modal -->
+    <div class="modal-overlay" id="infoModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">×</button>
+            <div class="box-num" id="modalNum">BOX 00</div>
+            <h2 class="edu-title" id="modalTitle" style="font-size: 1.6rem; color: #ffffff;">Template Title</h2>
+            <ul class="modal-list" id="modalList"></ul>
+            <p id="modalDetail" style="color: #aaaaaa; font-size: 0.95rem; line-height: 1.6;"></p>
+        </div>
+    </div>
 
-        <section class="dash-box" style="margin-bottom: 30px; min-height: auto;">
-            <h2 class="box-title" style="color: var(--neon-gold);">3. Flexible Time in PNG</h2>
-            <p class="box-desc">Because the market operates 24 hours a day, 5 days a week across different global sessions (Sydney, Tokyo, London, New York), traders in PNG have total flexibility to trade in the mornings, evenings, or late at night.</p>
-        </section>
-    </main>
+    <!-- Risk Disclaimer Footer -->
+    <footer class="disclaimer-footer">
+        <p class="disclaimer-text">
+            <strong>RISK WARNING & REGULATORY DISCLAIMER:</strong> Trading Foreign Exchange (Forex) on margin carries a high level of risk and may not be suitable for all investors. The high degree of leverage can work against you as well as for you. Before deciding to trade foreign exchange, you should carefully consider your investment objectives, level of experience, and risk appetite. All educational resources provided by The Bank Bugs are for informational purposes only and do not constitute formal financial advice. Residents of Papua New Guinea must independently verify compliance with the Bank of Papua New Guinea (BPNG) foreign exchange management regulations and Internal Revenue Commission (IRC) tax laws before funding any external retail brokerage accounts.
+        </p>
+        <p style="font-size: 0.75rem; color: #333333; margin-top: 15px;">© 2026 The Bank Bugs Ecosystem. All Rights Reserved.</p>
+    </footer>
 
-</body>
-</html>
+    <!-- Isolated Internal Automation Array Mapping -->
+    <script>
+        const contentData = [
+            { id: 1, title: "Introduction to the Global Forex Market", preview: "Definition, scale dynamics, and global operational infrastructure.", details: [ { label: "Definition", text: "What Forex is and how currency pairs work across global networks." }, { label: "Scale", text: "Understanding the massive $7+ trillion daily trading volume market." }, { label: "Participants", text: "The tier-1 roles of central banks, commercial banks, and retail networks." } ] },
+            { id: 2, title: "Base vs. Quote Currencies and the PGK", preview: "Reading major financial pairs and interpreting your local currency position.", details: [ { label: "Mechanics", text: "How to read base and quote currency metrics (e.g., EUR/USD pricing structures)." }, { label: "Local Context", text: "Understanding the Papua New Guinea Kina (PGK) position in global balance of trade rules." }, { label: "Exotic Pairs", text: "Why trading the PGK directly is rare, highly illiquid, and highly expensive for retail platforms." } ] },
+            { id: 3, title: "BPNG Regulations and Compliance", preview: "Navigating central bank exchange controls and local legislative barriers.", details: [ { label: "Central Bank", text: "The regulatory role of the Bank of Papua New Guinea (BPNG) in monitoring foreign exchange markets." }, { label: "Exchange Control", text: "Local legal frameworks regarding moving capital out of PNG for external trading access." }, { label: "Legality", text: "Key procedures required to stay 100% compliant with PNG financial regulatory laws." } ] },
+            { id: 4, title: "Choosing a Forex Broker from PNG", preview: "Securing tier-1 regulated market routing with accessible local funding methods.", details: [ { label: "Regulation", text: "Identifying international tier-1 regulated authorities (e.g., ASIC, FCA, CySEC)." }, { label: "Account Funding", text: "Finding international clearing brokers that cleanly accept accessible deposit/withdrawal pipelines for PNG accounts." }, { label: "Spreads & Fees", text: "Comparing dynamic transactional spreads, margin parameters, and baseline minimum asset limits." } ] },
+            { id: 5, title: "Forex Market Hours and PNG Time Zones", preview: "Optimizing global trading sessions to Port Moresby local time coordinates.", details: [ { label: "Trading Sessions", text: "Tracking the 4 main international cycles: Sydney, Tokyo, London, and New York market blocks." }, { label: "Local Optimization", text: "Mapping volatile overlapping sessions directly into local Port Moresby Time frames (AEST / GMT+10)." }, { label: "Peak Liquidity", text: "Isolating the most profitable daily time frames to execute high-volume system strategies from PNG." } ] },
+            { id: 6, title: "Fundamental Analysis and Macroeconomics", preview: "Tracing how global indicators and local export pricing control asset trends.", details: [ { label: "Indicators", text: "How central bank interest rate distributions, inflation shifts, and sovereign GDP data spark long-term trends." }, { label: "Commodity Correlation", text: "Analyzing how PNG’s primary industrial exports (gold, oil, gas, copper) directly move regional commodity pairs like the Australian Dollar (AUD)." } ] },
+{ id: 7, title: "Technical Analysis Basics", preview: "Reading price charts and applying basic market structure indicators.", details: [ { label: "Chart Types", text: "Deconstructing visual price structures through line, bar, and candlestick layouts." }, { label: "Market Structure", text: "Identifying structural support thresholds, resistance zones, and algorithmic trends." }, { label: "Indicators", text: "Introduction to momentum trackers including Moving Averages and the Relative Strength Index (RSI)." } ] },
+{ id: 8, title: "Risk Management Strategies", preview: "The core blueprint for capital survival and strategic leverage execution.", details: [ { label: "Capital Protection", text: "The foundational mathematical rule of risking no more than 1-2% of overall balance allocations per trade." }, { label: "Order Types", text: "Utilizing automated, server-side Stop-Loss and Take-Profit protocols on every execution." }, { label: "Leverage Rules", text: "Deconstructing how margin ratios exponentially scale both baseline profit payouts and account losses." } ] },
+{ id: 9, title: "Trading Psychology and Discipline", preview: "Mastering cognitive biases, fear management, and systemic emotional rules.", details: [ { label: "Emotional Control", text: "Systems to target and suppress cognitive greed, system fear, and destructive revenge-trading spikes." }, { label: "Trading Plan", text: "Building an objective, strictly rule-governed routine to dictate market actions before opening charts." }, { label: "Consistency", text: "Shifting mentality to operate financial trading as an analytical business project instead of a recreational hobby." } ] },
+{ id: 10, title: "Navigating Tax Obligations in PNG", preview: "Tracking compliance reporting rules under local IRC frameworks.", details: [ { label: "IRC Compliance", text: "How incoming trading capital gains are assessed under the Internal Revenue Commission (IRC) of PNG." }, { label: "Record Keeping", text: "Systematically auditing transaction data logs, currency conversion steps, and clearing statements." }, { label: "Classification", text: "Isolating structural barriers between long-term capital distributions and standard personal income tax rules." } ] },
+{ id: 11, title: "Forex Order Types and Execution", preview: "Understanding instant executions vs. conditional pending operations.", details: [ { label: "Market Orders", text: "Executing instant order fills directly at current real-time global interbank offer rates." }, { label: "Pending Orders", text: "Configuring systematic entries using Buy/Sell Limits and conditional Buy/Sell Stops." }, { label: "Slippage Factors", text: "Why entry fills can experience price gaps during intense high-volatility economic announcements." } ] },
+{ id: 12, title: "Pips, Lots, and Order Sizing", preview: "Deciphering fractional price increments and accurate mathematical sizing.", details: [ { label: "Pip Calculation", text: "Measuring fourth-decimal percentage-in-point price fluctuations within specific pairs." }, { label: "Lot Sizes", text: "Differentiating between Standard volume units, Mini, Micro, and Nano fractional position contracts." }, { label: "Position Sizing", text: "Calculating custom asset risk volumes accurately mapped to localized account balances." } ] },
+{ id: 13, title: "Navigating Local Bank Fees and Forex Crises", preview: "Handling structural currency limitations and alternative processing routes.", details: [ { label: "Kina Liquidity", text: "Adapting system pipelines around Papua New Guinea's systemic structural foreign currency accessibility limits." }, { label: "Transfer Costs", text: "Factoring in premium local bank tariff structures when managing international wire clearances." }, { label: "Alternative Funding", text: "Utilizing approved international debit cards and verified digital payment methods inside PNG." } ] },
+{ id: 14, title: "Setting Up a Trading Terminal", preview: "Configuring charting software engines across desktop and mobile devices.", details: [ { label: "Platforms", text: "Configuring industrial trading software engines including MetaTrader 4 (MT4), MT5, or cTrader layouts." }, { label: "Interface Setup", text: "Customizing individual time frame charts, graphical tools, and overlaying programmatic indicators." }, { label: "Mobile Trading", text: "Safely tracking active market exposures on-the-go via direct mobile server app integrations." } ] },
+{ id: 15, title: "The Role of Major Crosses (AUD and NZD)", preview: "Analyzing regional market dependencies and local daylight trading windows.", details: [ { label: "Regional Currencies", text: "Why ocean-bound assets like the Australian Dollar (AUD) and New Zealand Dollar (NZD) dictate regional trends." }, { label: "Economic Ties", text: "How deep trade reliance with Australia and New Zealand impacts baseline PNG currency valuation rules." }, { label: "Daylight Liquidity", text: "Capitalizing on high-volume asset fluctuations during standard daytime working hours in PNG." } ] },
+{ id: 16, title: "Demo Trading vs. Live Trading", preview: "Navigating the deep psychological shift between sandbox tests and real capital risk.", details: [ { label: "Risk-Free Tests", text: "Leveraging paper-trading systems to test algorithmic scripts using simulated balances." }, { label: "Psychological Shift", text: "Managing the physiological stress changes that occur when placing real Kina capital into live markets." }, { label: "Transition Plan", text: "A step-by-step roadmap to graduate from demo servers onto mini live accounts before scaling up size." } ] },
+{ id: 17, title: "Identifying and Avoiding Forex Scams", preview: "Protecting personal wealth from predatory platforms and unverified signal groups.", details: [ { label: "Red Flags", text: "Filtering out illegal 'guaranteed return' investment schemes, unauthorized fund managers, and Ponzi setups." }, { label: "Signal Sellers", text: "Evaluating the severe operational risks of paying for system entries from unverified social media mentors." }, { label: "Self-Reliance", text: "Why acquiring independent analytical capabilities is significantly safer than outsourcing capital control." } ] },
+{ id: 18, title: "Price Action Trading Strategies", preview: "Interpreting raw candlestick patterns and clean market behavior mechanics.", details: [ { label: "Candlesticks", text: "Reading raw market psychology via Pin Bars, Engulfing Patterns, and structural Doji indecision bars." }, { label: "Chart Formations", text: "Mapping macro pattern configurations including Head & Shoulders, Double Bottoms, and breakouts." }, { label: "Clean Layouts", text: "Stripping away conflicting graphical indicators to isolate pure price movement behavior." } ] },
+{ id: 19, title: "Developing a Trading Journal", preview: "Structuring historical data metrics to refine system performance edges.", details: [ { label: "Data Tracking", text: "Logging execution prices, system exits, risk levels, and psychological markers during open trades." }, { label: "Review Metrics", text: "Averaging out performance win ratios, drawdowns, and systemic errors over multi-month blocks." }, { label: "Optimization", text: "Using personal statistical trend metrics to continually identify mistakes and improve edge parameters." } ] },
+{ id: 20, title: "Advanced Risk Management: Correlation and Hedging", preview: "Managing systemic portfolio variables and cross-pair risk exposures.", details: [ { label: "Pair Correlation", text: "Tracking mathematical directional dependencies between opposing pairs (e.g., EUR/USD vs. USD/CHF)." }, { label: "Over-Exposure", text: "Preventing accidental account strain by closing overlapping trades tied to the identical index drivers." }, { label: "Hedging Basics", text: "Applying risk counter-balances by securing opposing market parameters during highly volatile cycles." } ] }
+];
+const matrixGrid = document.getElementById('matrixGrid');
+const infoModal = document.getElementById('infoModal');
+const closeModal = document.getElementById('closeModal');
+const modalNum = document.getElementById('modalNum');
+const modalTitle = document.getElementById('modalTitle');
+const modalList = document.getElementById('modalList');
+// Dynamically compile the grid layouts inside the DOM
+contentData.forEach(item => {
+const card = document.createElement('div');
+card.className = 'edu-box';
+card.innerHTML = <div> <div class="box-num">TOPIC ${String(item.id).padStart(2, '0')}</div> <h3 class="edu-title">${item.title}</h3> <p class="edu-preview">${item.preview}</p> </div> <button class="btn btn-learn" style="width: 100%; text-align: center; font-size: 0.7rem; margin-top: auto;" onclick="openTopic(${item.id})">Learn In-Depth →</button>;
+matrixGrid.appendChild(card);
+});
+// Trigger dynamic lightbox viewport popup content mapping
+window.openTopic = function(id) {
+const data = contentData.find(x => x.id === id);
+if(data) {
+modalNum.textContent = TOPIC ${String(data.id).padStart(2, '0')} • INDEPTH PATHWAY;
+modalTitle.textContent = data.title;
+modalList.innerHTML = '';
+data.details.forEach(detail => {
+const li = document.createElement('li');
+li.innerHTML = <strong>${detail.label}:</strong> <span>${detail.text}</span>;
+modalList.appendChild(li);
+});
+infoModal.style.display = 'flex';
+document.body.style.overflow = 'hidden'; // Lock base scroll
+}
+}
+// Close functions
+closeModal.addEventListener('click', () => {
+infoModal.style.display = 'none';
+document.body.style.overflow = 'auto';
+});
+window.addEventListener('click', (e) => {
+if (e.target === infoModal) {
+infoModal.style.display = 'none';
+document.body.style.overflow = 'auto';
+}
+});
