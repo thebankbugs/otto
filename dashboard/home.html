@@ -1,1 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEMBER DASHBOARD | The Bank Bugs Portal</title>
+    <!-- Relative link taps into your master neon gold design elements -->
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* Premium Paid Member Area Visual Layout Refinements */
+        body.member-portal {
+            background-image: 
+                linear-gradient(rgba(255, 51, 51, 0.01) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 204, 0, 0.01) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
 
+        .portal-header {
+            border-bottom: 2px solid #ffcc00;
+            box-shadow: 0 4px 20px rgba(255, 204, 0, 0.05);
+        }
+
+        .member-badge {
+            background-color: rgba(255, 204, 0, 0.1);
+            border: 1px solid #ffcc00;
+            color: #ffcc00;
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            text-shadow: 0 0 5px #ffcc00;
+        }
+
+        .metrics-bar {
+            max-width: 1200px;
+            margin: 30px auto 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .metric-card {
+            background-color: #080808;
+            border: 1px solid #1a1a1a;
+            border-radius: 6px;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .metric-val {
+            font-family: monospace;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body class="member-portal no-sidebar">
+
+    <!-- Premium Secured Portal Top Bar -->
+    <header class="navbar portal-header">
+        <div class="logo-container">
+            <span class="brand-name">BUGS<span class="gold-text">PORTAL</span></span>
+            <span class="member-badge">PAID PRO NODE</span>
+        </div>
+        
+        <nav class="nav-menu">
+            <a href="data-feeds.html" class="nav-link">Infrastructure Feeds</a>
+            <a href="signals.html" class="nav-link">Broker Integrations</a>
+            <a href="https://tiktok.com" target="_blank" class="nav-link red-text">VIP Support</a>
+        </nav>
+
+        <div class="nav-right">
+            <div class="site-tracker" style="color: #ffcc00;">
+                <span class="pulse-dot" style="background-color: #ffcc00; box-shadow: 0 0 8px #ffcc00;"></span> INFRASTRUCTURE: LIVE
+            </div>
+            <a href="../index.html" class="btn btn-login" style="font-size: 0.75rem; padding: 6px 14px; border-color: #ff3333; color: #ff3333;">SECURE LOGOUT</a>
+        </div>
+    </header>
+
+    <!-- Real-Time Account Metrics Row -->
+    <div class="metrics-bar">
+        <div class="metric-card">
+            <span style="font-size: 0.8rem; color: #666666; font-weight: bold; text-transform: uppercase;">Server Latency</span>
+            <span class="metric-val" style="color: #00ff66;">12ms</span>
+        </div>
+        <div class="metric-card">
+            <span style="font-size: 0.8rem; color: #666666; font-weight: bold; text-transform: uppercase;">Active Data Nodes</span>
+            <span class="metric-val">3 / 3</span>
+        </div>
+        <div class="metric-card">
+            <span style="font-size: 0.8rem; color: #666666; font-weight: bold; text-transform: uppercase;">Filter Status</span>
+            <span class="metric-val" style="color: #ffcc00;">OPTIMIZED</span>
+        </div>
+        <div class="metric-card">
+            <span style="font-size: 0.8rem; color: #666666; font-weight: bold; text-transform: uppercase;">Ecosystem Load</span>
+            <span class="metric-val" style="color: #ff3333;">14%</span>
+        </div>
+    </div>
+
+    <!-- Main Private Welcome Section -->
+    <section class="hero" style="padding-top: 50px; padding-bottom: 30px;">
+        <h1 class="hero-heading" style="font-size: 3rem;">Welcome to the Private <span class="gold-glow-text">Ecosystem Shell</span></h1>
+        <p class="hero-subheading" style="max-width: 750px; margin: 0 auto;">Your onboarding is complete. Below is your direct operational gateway to the high-tier data arrays, server tracking tools, and filtered trade parameters run by Otto Eric, Costigan Moilani, and Davincy Rodgers.</p>
+    </section>
+
+    <!-- Paid Members Functional Dashboard Grid -->
+    <main class="dashboard-grid" style="margin-bottom: 60px;">
+        
+        <!-- Box 1: Live Infrastructure & Master Data -->
+        <div class="dash-box">
+            <div>
+                <div class="box-num" style="color: #ffcc00; font-weight: 800; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 5px;">STREAM 01 • INFRASTRUCTURE</div>
+                <h2 class="box-title">Elite Data & System Architecture</h2>
+                <p class="box-desc">Access institutional data feeds, processing files, and proprietary chart mapping parameters designed to save you time and maximize execution parameters.</p>
+            </div>
+            <a href="data-feeds.html" style="display: block; width: 100%; text-align: center; background: rgba(255, 204, 0, 0.05); border: 2px solid #ffcc00; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 12px; border-radius: 4px; box-shadow: 0 0 15px rgba(255, 204, 0, 0.3); text-shadow: 0 0 5px #ffcc00; margin-top: 20px;">ENTER DATA ARRAY →</a>
+        </div>
+
+        <!-- Box 2: Regulated Broker Pipelines & Sizing Tools -->
+        <div class="dash-box">
+            <div>
+                <div class="box-num" style="color: #ff3333; font-weight: 800; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 5px;">STREAM 02 • ALIGNMENT</div>
+                <h2 class="box-title">Regulated Broker Verification</h2>
+                <p class="box-desc">Connect securely with our pre-filtered tier-1 regulated partner brokers matching your localized PNG budget constraints, capital thresholds, and deployment speeds.</p>
+            </div>
+            <a href="signals.html" style="display: block; width: 100%; text-align: center; background: rgba(255, 51, 51, 0.05); border: 2px solid #ff3333; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 12px; border-radius: 4px; box-shadow: 0 0 15px rgba(255, 51, 51, 0.3); text-shadow: 0 0 5px #ff3333; margin-top: 20px;">ACCESS PIPELINES →</a>
+        </div>
+
+        <!-- Box 3: Server Optimization Warning -->
+        <div class="dash-box wide-box">
+            <div>
+                <div class="box-num" style="color: #666666; font-weight: 800; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 5px;">SYSTEM BULLETIN • NOTICE</div>
+                <h2 class="box-title">Ecosystem Load Filtration Alert</h2>
+                <p class="box-desc" style="margin-bottom: 12px;">To guarantee peak processing performance and zero connection execution delays for our active community core, non-operational accounts are audited weekly. Ensure your integrated terminal profiles remain linked to prevent automated server clearance policies from recycling inactive nodes.</p>
+                <p class="box-desc warning-text" style="color: #ff3333; font-weight: bold;">Unserious behaviors or failure to maintain system data safety rules will trigger instant access termination to protect overall cloud server resources.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Portal Base Signature Footer -->
+    <footer style="text-align: center; padding: 30px; border-top: 1px solid #111111; max-width: 1200px; margin: 0 auto;">
+        <p style="font-size: 0.8rem; color: #444444; font-family: monospace; letter-spacing: 1px;">THE BANK BUGS PRO OPERATIONS TERMINAL • RUN BY ERIC, MOILANI & RODGERS</p>
+    </footer>
+
+</body>
+</html>
