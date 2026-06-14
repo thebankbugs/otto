@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Bank Bugs | PNG’s Digitised Trading Ecosystem</title>
+    <title>The Bank Bugs | Welcome</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="no-sidebar" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; text-align: center; padding: 40px 20px;">
 
     <!-- Background Grid and Nodes Style Elements -->
     <div class="bg-effects">
@@ -15,94 +15,47 @@
         <div class="node node-3"></div>
     </div>
 
-    <!-- Header Navigation -->
-    <header class="navbar">
-        <div class="logo-container">
-            <img src="img.bankbugs.png" alt="The Bank Bugs Logo" class="brand-logo">
-            <span class="brand-name">The Bank <span class="gold-text">Bugs</span></span>
-        </div>
+    <!-- Centered Brand Name on Top -->
+    <div style="margin-bottom: 40px; z-index: 10;">
+        <h2 class="brand-name" style="font-size: 1.8rem; letter-spacing: 2px;">The Bank <span class="gold-text">Bugs</span></h2>
+    </div>
 
-        <div class="nav-right">
-            <div class="site-tracker">
-                <span class="pulse-dot"></span> LIVE TRACKER: ACTIVE
-            </div>
-            <a href="dashboard/home.html" class="btn btn-login">Log in</a>
-        </div>
+    <!-- Welcome Hero Section -->
+    <header style="max-width: 800px; margin-bottom: 50px; z-index: 10;">
+        <h1 class="hero-heading" style="font-size: 2.8rem; margin-bottom: 15px; line-height: 1.2;">Welcome to PNG’s Digitised <span class="gold-glow-text">Trading Ecosystem</span></h1>
+        <p class="hero-subheading" style="font-size: 1.2rem; color: #aaaaaa;">Your Trading Partner here in PNG</p>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1 class="hero-heading">PNG’s Digitised <span class="gold-glow-text">Trading Ecosystem</span></h1>
-        <p class="hero-subheading">We provide Trading solutions to get you from a complete beginner and build with you up.</p>
-        <div class="hero-buttons">
-            <a href="dashboard/home.html" class="btn btn-login-hero">Log in</a>
-            <a href="#resources" class="btn btn-resources">Access free resources</a>
-        </div>
-    </section>
+    <!-- Sub-Heading for Action Framework -->
+    <div style="margin-bottom: 30px; z-index: 10;">
+        <h3 style="font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; color: #ffffff;">Build your trade base level</h3>
+    </div>
 
-    <!-- Content Dashboard Grid -->
-    <main class="dashboard-grid">
-        
-        <!-- Box 1: Educational Resources -->
-        <div id="resources" class="dash-box">
-            <h2 class="box-title">Educational resources</h2>
-            <ul class="box-list">
-                <li>Introduction to the Global Forex Market</li>
-                <li>Base vs Quote Currencies and PGK</li>
-                <li>BPNG Regulations and Compliance</li>
-                <li>Choosing a forex Broker from PNG <span class="red-text">Recommended Brokers</span></li>
-                <li>Forex Market hours and PNG Time Zones</li>
-            </ul>
-            <a href="/educational/forex.html" class="show-more">Show more →</a>
-        </div>
+    <!-- Four Sleek Navigation App Buttons Grid -->
+    <nav style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; max-width: 600px; width: 100%; margin-bottom: 60px; z-index: 10;">
+        <a href="educational/forex.html" style="display: block; text-align: center; background: rgba(255, 204, 0, 0.03); border: 2px solid #ffcc00; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 16px; border-radius: 4px; box-shadow: 0 0 15px rgba(255, 204, 0, 0.2); text-shadow: 0 0 5px #ffcc00; transition: all 0.3s ease;">Free Resources</a>
+        <a href="index.html#getting-started" style="display: block; text-align: center; background: rgba(255, 204, 0, 0.03); border: 2px solid #ffcc00; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 16px; border-radius: 4px; box-shadow: 0 0 15px rgba(255, 204, 0, 0.2); text-shadow: 0 0 5px #ffcc00; transition: all 0.3s ease;">Start Your Trading Journey</a>
+        <a href="index.html#requirements" style="display: block; text-align: center; background: rgba(255, 204, 0, 0.03); border: 2px solid #ffcc00; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 16px; border-radius: 4px; box-shadow: 0 0 15px rgba(255, 204, 0, 0.2); text-shadow: 0 0 5px #ffcc00; transition: all 0.3s ease;">Actual Requirements</a>
+        <a href="index.html#getting-started" style="display: block; text-align: center; background: rgba(255, 204, 0, 0.03); border: 2px solid #ffcc00; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 16px; border-radius: 4px; box-shadow: 0 0 15px rgba(255, 204, 0, 0.2); text-shadow: 0 0 5px #ffcc00; transition: all 0.3s ease;">Whats Next?</a>
+        <a href="index.html#about" style="display: block; grid-column: 1 / -1; text-align: center; background: rgba(255, 204, 0, 0.03); border: 2px solid #ffcc00; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 16px; border-radius: 4px; box-shadow: 0 0 15px rgba(255, 204, 0, 0.2); text-shadow: 0 0 5px #ffcc00; transition: all 0.3s ease;">About Us</a>
+    </nav>
 
-        <!-- Box 2: Start Trading -->
-        <div class="dash-box">
-            <h2 class="box-title">I want to Start trading in PNG now</h2>
-            <p class="box-desc"><span class="gold-text">Looking to start in PNG?</span> We got you. Follow us @thebankbugs so we can get you the best regulated brokers to use here in PNG and also based on your budget. Transparent and highly efficient in handling clients funds.</p>
-            <a href="#more-brokers" class="show-more">Show more →</a>
-        </div>
+    <!-- Secure Infrastructure Paid Gateway Section -->
+    <div class="dash-box" style="max-width: 500px; width: 100%; padding: 30px; min-height: auto; margin-bottom: 60px; z-index: 10;">
+        <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; text-transform: uppercase; letter-spacing: 1px;">Log in to Access Full Data Infrastructure</h4>
+        <a href="dashboard/home.html" style="display: block; width: 100%; text-align: center; background: #ffffff; border: 2px solid #ffffff; color: #000000; font-weight: 800; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 14px; border-radius: 4px; box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); transition: all 0.3s ease;">SECURE LOGIN →</a>
+    </div>
 
-        <!-- Box 3: Requirements -->
-        <div id="requirements" class="dash-box">
-            <h2 class="box-title">What are the actual Requirements?</h2>
-            <p class="box-desc red-text font-weight-bold">Simple, you just need:</p>
-            <ul class="box-list">
-                <li>A valid ID</li>
-                <li>A visa Card</li>
-                <li>Stable internet and trading devices</li>
-            </ul>
-            <a href="#more-requirements" class="show-more">Show more →</a>
-        </div>
-
-        <!-- Box 4: Getting Started / Next Steps -->
-        <div id="getting-started" class="dash-box wide-box">
-            <h2 class="box-title">Got everything? Here’s next.</h2>
-            <p class="box-desc">Reach out to us on tiktok <span class="gold-text">@thebankbugs</span> and we get you on board. This is where we give you access to all our data and infrastructure and show you exactly where and what to do so you know what you're doing. Learn and Access the right data on board to save you <strong>TIME</strong>.</p>
-            <p class="box-desc warning-text">We also filter out unserious traders along the onboarding process to reduce server overload in our ecosystem.</p>
-            <div class="copy-phrase">
-                <p>Send this exact message to us on tiktok so we know you are serious you got everything ready to start:</p>
-                <div class="phrase-box">“I’m ready to come onboard. Show me EXACTLY where”</div>
-            </div>
-            <a href="https://tiktok.com" target="_blank" class="btn btn-follow">Whatsapp for direct support</a>
-        </div>
-
-        <!-- Box 5: About Us -->
-        <div id="about" class="dash-box">
-            <h2 class="box-title">About us?</h2>
-            <p class="box-desc">PNG trading ecosystem here are run in collaboration as <strong>The Bank Bugs</strong> by:</p>
-            <p class="box-desc Highlight-names"><span class="red-text">Otto Eric</span> & <span class="red-text">Costigan Moilani</span></p>
-            <p class="box-desc text-muted">With Tech and infrastructure by <span class="gold-text">Davincy Rodgers</span></p>
-            <a href="#follow" class="btn btn-follow">Follow us</a>
-        </div>
-
-    </main>
-<script src="script.js" defer></script>
-   <!-- Cohesive Project Disclaimer Footer -->
-    <footer class="disclaimer-footer" style="max-width: 1100px; margin: 0 auto 20px auto; padding: 25px; border-top: 1px solid #1a1a1a; text-align: center;">
-        <p class="disclaimer-text" style="font-size: 0.75rem; color: #555555; line-height: 1.6;">
-            <strong>RISK WARNING & REGULATORY DISCLAIMER:</strong> Foreign Exchange (Forex) trading involves extreme capital exposure variables and is not suitable for all demographics. Educational modules hosted by The Bank Bugs are engineered for informational framework tracking only and do not serve as commercial transaction advice.
+    <!-- App System Risk Disclaimer Footer -->
+    <footer style="max-width: 800px; width: 100%; margin-top: auto; padding-top: 30px; border-top: 1px solid #111111; z-index: 10;">
+        <p style="font-size: 0.7rem; color: #444444; line-height: 1.6; text-align: center;">
+            <strong>RISK DISCLAIMER:</strong> Trading Foreign Exchange (Forex) on margin involves an extreme degree of financial risk and is not suitable for all individuals. High leverage can accelerate losses as rapidly as profits. The digital tools, infrastructure trackers, and educational matrix architectures run by The Bank Bugs are compiled solely for informational workflow tracking and do not constitute authorized transaction recommendations or commercial investment advice. Ensure full legal compliance with the Bank of Papua New Guinea (BPNG) capital management policies and local Internal Revenue Commission (IRC) tax classifications before allocating active assets.
         </p>
+        <p style="font-size: 0.7rem; color: #222222; margin-top: 15px;">© 2026 The Bank Bugs. All Rights Reserved.</p>
     </footer>
+
+    <!-- Link your master script line before the closing body tag -->
+    <script src="script.js" defer></script>
+
 </body>
 </html>
