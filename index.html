@@ -74,6 +74,29 @@
     <div style="margin-bottom: 40px; z-index: 10;">
         <h2 class="brand-name" style="font-size: 1.8rem; letter-spacing: 2px;">The Bank <span class="gold-text">Bugs</span></h2>
     </div>
+<!-- Live Market Ticker Tape Banner Module -->
+<div class="tradingview-widget-container" style="width: 100%; background-color: #000000; border-bottom: 1px solid #141414; padding: 4px 0;">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {
+    "symbols": [
+        { "proName": "FX:EURUSD", "title": "EUR/USD" },
+        { "proName": "FX:GBPUSD", "title": "GBP/USD" },
+        { "proName": "FX:AUDUSD", "title": "AUD/USD" },
+        { "proName": "FX:USDJPY", "title": "USD/JPY" },
+        { "proName": "GLOBALPRIME:XAUUSD", "title": "Gold / USD" },
+        { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500" },
+        { "proName": "FOREXCOM:NSXUSD", "title": "Nasdaq 100" },
+        { "proName": "FOREXCOM:DJI", "title": "Dow 30" }
+    ],
+    "showSymbolLogo": false,
+    "colorTheme": "dark",
+    "isTransparent": true,
+    "displayMode": "adaptive",
+    "locale": "en"
+    }
+    </script>
+</div>
 
     <!-- Welcome Hero Section -->
     <header style="max-width: 800px; margin-bottom: 50px; z-index: 10;">
