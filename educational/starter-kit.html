@@ -3,101 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Starter Kit Vault - The Bank Bugs</title>
-    <!-- Level 1 Relative Path to Master Stylesheet -->
+    <title>Starter Kit Vault | The Bank Bugs</title>
+    <!-- Relative link looks one folder level up to fetch your neon gold master style -->
     <link rel="stylesheet" href="../style.css">
+    <style>
+        /* Document Layout Fixes for informational pages */
+        body.no-sidebar {
+            padding-left: 0 !important;
+        }
+        
+        .toolkit-container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 40px 20px 80px 20px;
+            text-align: left;
+        }
+
+        .toolkit-badge {
+            background-color: rgba(255, 51, 51, 0.1);
+            border: 1px solid #ff3333;
+            color: #ff3333;
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 12px;
+            text-shadow: 0 0 5px #ff3333;
+        }
+
+        .software-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .software-card {
+            background-color: #050505;
+            border: 1px solid #141414;
+            padding: 20px;
+            border-radius: 6px;
+            border-top: 2px solid var(--neon-gold);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .software-title {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .software-meta {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--red);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .toolkit-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 15px;
+        }
+
+        .toolkit-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #111111;
+            font-size: 0.9rem;
+            color: #dddddd;
+        }
+    </style>
 </head>
 <body class="no-sidebar">
 
-    <!-- Unified Navigation Bar -->
+    <!-- Top Navigation Navbar Header -->
     <header class="navbar">
         <div class="logo-container">
-            <img src="../img.bankbugs.png" alt="The Bank Bugs Logo" class="brand-logo">
+            <span class="brand-name"><a href="../index.html" style="color: inherit; text-decoration: none;">← BACK TO APP</a></span>
+        </div>
+        <div class="nav-right">
+            <a href="../index.html" class="btn btn-login">Home Dashboard</a>
         </div>
     </header>
 
-    <!-- Hero Introduction Header Section -->
-    <section class="hero">
-        <h1 class="hero-heading">PNG Forex Starter Kit</h1>
-        <p class="hero-subheading">Your localized, threat-protected onboarding deployment vault. Built specifically for Papua New Guinea retail market dynamics.</p>
-    </section>
-
-    <!-- Main Operational Grid Architecture -->
-    <main class="dashboard-grid">
-
-        <!-- Component 1: Anti-Scam Verification Tool -->
-        <div class="dash-box">
-            <h2 class="box-title">🚨 The "Anti-Scam" Verification Tool</h2>
-            <p class="box-desc">Isolate your deployment from clone pages. Instantly verify official WhatsApp groups, broker linkages, and secure asset channels before executing any deposits or transmissions.</p>
-            <a href="#" style="display: block; width: 100%; text-align: center; background: rgba(255, 204, 0, 0.05); border: 2px solid #ffcc00; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 14px; border-radius: 4px; box-shadow: 0 0 15px rgba(255, 204, 0, 0.4); text-shadow: 0 0 8px #ffcc00; margin-top: auto;">Verify Official Channels</a>
+    <!-- Main Content Wrapper -->
+    <main class="toolkit-container">
+        
+        <!-- Hero Header -->
+        <div style="margin-bottom: 50px;">
+            <span class="toolkit-badge">Onboarding Core</span>
+            <h1 class="hero-heading" style="font-size: 2.8rem; line-height: 1.2; text-align: left; margin-bottom: 15px;">PNG Forex <span class="gold-glow-text">Starter Kit Vault</span></h1>
+            <p class="box-desc" style="font-size: 1.1rem; color: #aaaaaa; line-height: 1.6;">Your localized, threat-protected onboarding deployment system. Built to protect and linearize your progression path within the Papua New Guinea retail market dynamics.</p>
         </div>
 
-        <!-- Component 2: Step-by-Step PNG Onboarding Roadmap -->
-        <div class="dash-box">
-            <h2 class="box-title">🗺️ The "Step-by-Step" PNG Onboarding Roadmap</h2>
-            <p class="box-desc">Eliminate informational overload with a structured, linear baseline progression pathway.</p>
-            <ul class="roadmap-checklist" style="list-style: none; padding: 0; margin: 15px 0;">
-                <li style="padding: 8px 0; border-bottom: 1px solid #1a1a1a; color: #ffffff;"><input type="checkbox" disabled checked style="margin-right: 10px;"> Watch the 10-minute "What is Forex" video</li>
-                <li style="padding: 8px 0; border-bottom: 1px solid #1a1a1a; color: #ffffff;"><input type="checkbox" disabled style="margin-right: 10px;"> Download the recommended trading app (e.g., MT4/MT5)</li>
-                <li style="padding: 8px 0; color: #ffffff;"><input type="checkbox" disabled style="margin-right: 10px;"> Open a Demo Account (not live money)</li>
-            </ul>
-            <a href="journey.html" style="display: block; width: 100%; text-align: center; background: rgba(255, 204, 0, 0.05); border: 2px solid #ffcc00; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 14px; border-radius: 4px; box-shadow: 0 0 15px rgba(255, 204, 0, 0.4); text-shadow: 0 0 8px #ffcc00; margin-top: auto;">Access Full Journey</a>
+        <!-- SECTION 1: ANTI-SCAM, ROADMAP & BANKING -->
+        <div style="margin-bottom: 40px;">
+            <h2 class="box-title" style="font-size: 1.4rem; color: #ffffff; margin-bottom: 10px;">1. Operational Deployment Protocols</h2>
+            <p class="box-desc">Isolate your learning environment from modern digital threats, structure your daily progression milestones, and configure your localized funding channels with zero ambiguity.</p>
+            
+            <div class="software-grid">
+                <!-- Tool 1: Anti-Scam -->
+                <div class="software-card">
+                    <div>
+                        <div class="software-title">🚨 Anti-Scam Verification Tool</div>
+                        <div class="software-meta">Security • Verification Anchor</div>
+                        <p style="font-size: 0.85rem; color: #888888; line-height: 1.5; margin-bottom: 15px;">Designed specifically for PNG beginners to eliminate risk from Facebook and TikTok clone accounts. Instantly cross-reference and verify official WhatsApp groups, broker linkages, and valid channels before depositing money.</p>
+                    </div>
+                    <a href="#" style="display: block; width: 100%; text-align: center; background: rgba(255, 204, 0, 0.05); border: 2px solid #ffcc00; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 14px; border-radius: 4px; box-shadow: 0 0 15px rgba(255, 204, 0, 0.4); text-shadow: 0 0 8px #ffcc00; margin-top: auto;">Verify Official Channels</a>
+                </div>
+
+                <!-- Tool 2: Step-by-Step Roadmap -->
+                <div class="software-card">
+                    <div>
+                        <div class="software-title">🗺️ Step-by-Step Onboarding Roadmap</div>
+                        <div class="software-meta">Linear Progress • Action Plan</div>
+                        <p style="font-size: 0.85rem; color: #888888; line-height: 1.5; margin-bottom: 15px;">Eliminates entry fatigue with an exact linear blueprint mapping your first deployment sequences:</p>
+                        <ul class="toolkit-list" style="margin-top: 0; margin-bottom: 15px;">
+                            <li style="font-size: 0.8rem; padding: 4px 0;"><input type="checkbox" disabled checked style="margin-right: 5px;"> Watch 10-Min "What is Forex" Video</li>
+                            <li style="font-size: 0.8rem; padding: 4px 0;"><input type="checkbox" disabled style="margin-right: 5px;"> Download Trading App (MT4/MT5)</li>
+                            <li style="font-size: 0.8rem; padding: 4px 0; border: none;"><input type="checkbox" disabled style="margin-right: 5px;"> Open Risk-Free Demo Account</li>
+                        </ul>
+                    </div>
+                    <a href="journey.html" style="display: block; width: 100%; text-align: center; background: rgba(255, 204, 0, 0.05); border: 2px solid #ffcc00; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 14px; border-radius: 4px; box-shadow: 0 0 15px rgba(255, 204, 0, 0.4); text-shadow: 0 0 8px #ffcc00; margin-top: auto;">View Onboarding Path</a>
+                </div>
+
+                <!-- Tool 3: Banking & Broker Guide -->
+                <div class="software-card">
+                    <div>
+                        <div class="software-title">🏦 PNG Banking & Broker Guide</div>
+                        <div class="software-meta">Capital Gateway • Localized Funding</div>
+                        <p style="font-size: 0.85rem; color: #888888; line-height: 1.5; margin-bottom: 15px;">Conquer your biggest local hurdle. Clear instructions outlining which offshore brokers accept PNG retail accounts, step-by-step paths to deploy capital using BSP or Kina Bank Visa cards, and exact minimum requirements to budget your Kina effectively.</p>
+                    </div>
+                    <a href="requirements.html" style="display: block; width: 100%; text-align: center; background: rgba(255, 204, 0, 0.05); border: 2px solid #ffcc00; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 14px; border-radius: 4px; box-shadow: 0 0 15px rgba(255, 204, 0, 0.4); text-shadow: 0 0 8px #ffcc00; margin-top: auto;">Open Funding Guide</a>
+                </div>
+            </div>
         </div>
 
-        <!-- Component 3: The PNG Banking & Broker Guide -->
-        <div class="dash-box">
-            <h2 class="box-title">🏦 The PNG Banking & Broker Guide</h2>
-            <p class="box-desc">Master the local capital pipeline. Access clear, localized instructions covering approved PNG brokers, precise BSP or Kina Bank Visa card deposit channels, and minimum capital requirements to anchor your budget.</p>
-            <a href="requirements.html" style="display: block; width: 100%; text-align: center; background: rgba(255, 204, 0, 0.05); border: 2px solid #ffcc00; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 14px; border-radius: 4px; box-shadow: 0 0 15px rgba(255, 204, 0, 0.4); text-shadow: 0 0 8px #ffcc00; margin-top: auto;">View Funding Matrix</a>
+        <!-- SECTION 2: TIMING, GLOSSARY & DEMO CHALLENGE -->
+        <div style="margin-bottom: 40px;">
+            <h2 class="box-title" style="font-size: 1.4rem; color: #ffffff; margin-bottom: 10px;">2. Analytical Anchors & Skill Calibration</h2>
+            <p class="box-desc">Synchronize international volatility structures with your local 9-to-5 job timeline, translate retail jargon instantly, and condition your emotional execution limits through risk-free practice vectors.</p>
+            
+            <div class="software-grid">
+                <!-- Tool 4: Session Clock -->
+                <div class="software-card">
+                    <div>
+                        <div class="software-title">⏱️ The PNG Trading Session Clock</div>
+                        <div class="software-meta">GMT+10 Tracker • Session Alignment</div>
+                        <p style="font-size: 0.85rem; color: #888888; line-height: 1.5; margin-bottom: 15px;">A live visual countdown optimized to Port Moresby time. See exactly when London or New York sessions open and close, allowing you to accurately pinpoint high-liquidity intervals around your workspace schedules.</p>
+                    </div>
+                    <a href="#" style="display: block; width: 100%; text-align: center; background: rgba(255, 204, 0, 0.05); border: 2px solid #ffcc00; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 14px; border-radius: 4px; box-shadow: 0 0 15px rgba(255, 204, 0, 0.4); text-shadow: 0 0 8px #ffcc00; margin-top: auto;">Launch Session Clock</a>
+                </div>
+
+                    <!-- Tool 5: Forex Dictionary -->
+                <div class="software-card">
+                    <div>
+                        <div class="software-title">📚 "Forex Dictionary" Cheat Sheet</div>
+                        <div class="software-meta">Reference Glossary • Jargon Translation</div>
+                        <p style="font-size: 0.85rem; color: #888888; line-height: 1.5; margin-bottom: 15px;">Never get confused by social media feeds or instructional content. An on-demand dictionary to instantly look up complex structural variables including Pips, Leverage, Lot Size, Margin, and Candlestick metrics.</p>
+                    </div>
+                    <a href="forex.html" style="display: block; width: 100%; text-align: center; background: rgba(255, 204, 0, 0.05); border: 2px solid #ffcc00; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 14px; border-radius: 4px; box-shadow: 0 0 15px rgba(255, 204, 0, 0.4); text-shadow: 0 0 8px #ffcc00; margin-top: auto;">Open Cheat Sheet</a>
+                </div>
+
+                <!-- Tool 6: Demo Challenge -->
+                <div class="software-card">
+                    <div>
+                        <div class="software-title">📉 "Risk-Free" Demo Challenge Checklist</div>
+                        <div class="software-meta">Execution Sandbox • Fear Mitigation</div>
+                        <p style="font-size: 0.85rem; color: #888888; line-height: 1.5; margin-bottom: 15px;">Eliminate the paralyzing fear of capital loss. Gamified framework guiding you systematically through your first 10 live-market mock trades on virtual practice accounts to construct technical consistency blueprints.</p>
+                    </div>
+                    <a href="../whats-next.html" style="display: block; width: 100%; text-align: center; background: rgba(255, 204, 0, 0.05); border: 2px solid #ffcc00; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 14px; border-radius: 4px; box-shadow: 0 0 15px rgba(255, 204, 0, 0.4); text-shadow: 0 0 8px #ffcc00; margin-top: auto;">Unlock Master Playbook</a>
+                </div>
+            </div>
         </div>
 
-        <!-- Component 4: The PNG Trading Session Clock -->
-        <div class="dash-box">
-            <h2 class="box-title">⏱️ The PNG Trading Session Clock</h2>
-            <p class="box-desc">Track active liquidity cycles customized to Port Moresby time (GMT+10). Align London and New York session volatility surges seamlessly with your 9-to-5 job constraints.</p>
-            <a href="#" style="display: block; width: 100%; text-align: center; background: rgba(255, 204, 0, 0.05); border: 2px solid #ffcc00; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 14px; border-radius: 4px; box-shadow: 0 0 15px rgba(255, 204, 0, 0.4); text-shadow: 0 0 8px #ffcc00; margin-top: auto;">Launch Live Session Clock</a>
+        <!-- SECTION 3: DAILY WATCHLIST, JOURNAL & NEWS ENGINE -->
+        <div style="margin-bottom: 50px;">
+            <h2 class="box-title" style="font-size: 1.4rem; color: #ffffff; margin-bottom: 10px;">3. Institutional Intelligence Feed & Safety Systems</h2>
+            <p class="box-desc">Track real-time market perspectives modeled by industry professionals, maintain execution discipline, and dynamically shield your sandbox environment from high-volatility flash crashes.</p>
+            
+            <div class="software-grid">
+                <!-- Tool 7: Daily Watchlist -->
+                <div class="software-card">
+                    <div>
+                        <div class="software-title">🗓️ Daily "Market Outlook" Watchlist</div>
+                        <div class="software-meta">Professional View • Read-Only Terminal</div>
+                        <p style="font-size: 0.85rem; color: #888888; line-height: 1.5; margin-bottom: 15px;">Observe how an institutional mind reviews active assets. A daily bulleted monitor spotlighting 2-3 core currency pairs alongside direct warning briefs regarding critical global economic news hazards to avoid.</p>
+                    </div>
+                    <a href="../whats-next.html" style="display: block; width: 100%; text-align: center; background: rgba(255, 204, 0, 0.05); border: 2px solid #ffcc00; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 14px; border-radius: 4px; box-shadow: 0 0 15px rgba(255, 204, 0, 0.4); text-shadow: 0 0 8px #ffcc00; margin-top: auto;">Upgrade to Playbook Tier</a>
+                </div>
+
+                <!-- Tool 8: Emotion Check Journal -->
+                <div class="software-card">
+                    <div>
+                        <div class="software-title">🧠 "Emotion Check" Daily Journal</div>
+                        <div class="software-meta">Psychology Log • Discipline Engine</div>
+                        <p style="font-size: 0.85rem; color: #888888; line-height: 1.5; margin-bottom: 15px;">A critical interactive checklist that forces you to slow down before and after placing an order. Isolates patterns of greed, revenge trading, and target execution slips to map clear psychological behavioral analytics.</p>
+                    </div>
+                    <a href="../whats-next.html" style="display: block; width: 100%; text-align: center; background: rgba(255, 204, 0, 0.05); border: 2px solid #ffcc00; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 14px; border-radius: 4px; box-shadow: 0 0 15px rgba(255, 204, 0, 0.4); text-shadow: 0 0 8px #ffcc00; margin-top: auto;">Acquire Mechanical Edge</a>
+                </div>
+
+                <!-- Tool 9: News Dashboard -->
+                <div class="software-card">
+                    <div>
+                        <div class="software-title">📰 PNG "High-Impact News" Dashboard</div>
+                        <div class="software-meta">Capital Shield • Live Economic Feed</div>
+                        <p style="font-size: 0.85rem; color: #888888; line-height: 1.5; margin-bottom: 15px;">Protects retail accounts from flash wipeouts caused by global data releases (US NFP, inflation data). Converts structural schedules to Port Moresby local intervals with an explicit color-coded risk flag system.</p>
+                    </div>
+                    <a href="../whats-next.html" style="display: block; width: 100%; text-align: center; background: rgba(255, 204, 0, 0.05); border: 2px solid #ffcc00; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 14px; border-radius: 4px; box-shadow: 0 0 15px rgba(255, 204, 0, 0.4); text-shadow: 0 0 8px #ffcc00; margin-top: auto;">Access Premium Terminal</a>
+                </div>
+            </div>
         </div>
 
-        <!-- Component 5: Forex Dictionary Cheat Sheet -->
-        <div class="dash-box">
-            <h2 class="box-title">📚 A "Forex Dictionary" Cheat Sheet</h2>
-            <p class="box-desc">Demystify premium institutional nomenclature. Quick reference lexicon tracking terms including Pips, Leverage, Lot Size, Margin, and Candlestick data points while absorbing content feeds.</p>
-            <a href="forex.html" style="display: block; width: 100%; text-align: center; background: rgba(255, 204, 0, 0.05); border: 2px solid #ffcc00; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 14px; border-radius: 4px; box-shadow: 0 0 15px rgba(255, 204, 0, 0.4); text-shadow: 0 0 8px #ffcc00; margin-top: auto;">Open Glossary</a>
-        </div>
-
-        <!-- Component 6: Risk-Free Demo Challenge Checklist -->
-        <div class="dash-box">
-            <h2 class="box-title">📉 The "Risk-Free" Demo Challenge Checklist</h2>
-            <p class="box-desc">Conquer market paralysis via structural homework. Complete 10 disciplined mock executions on practice capital before endangering hard-earned Kina liquidity metrics.</p>
-            <a href="../whats-next.html" style="display: block; width: 100%; text-align: center; background: rgba(255, 204, 0, 0.05); border: 2px solid #ffcc00; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 14px; border-radius: 4px; box-shadow: 0 0 15px rgba(255, 204, 0, 0.4); text-shadow: 0 0 8px #ffcc00; margin-top: auto;">Unlock Master Playbook</a>
-        </div>
-
-        <!-- Component 7: Daily Market Outlook Watchlist -->
-        <div class="dash-box">
-            <h2 class="box-title">🗓️ Daily "Market Outlook" Watchlist (Read-Only)</h2>
-            <p class="box-desc">Observe live macro engineering. Review a dedicated stream of 2–3 premium asset profiles monitored daily by market professionals, including alerts for volatile tier-1 economic events.</p>
-            <a href="../whats-next.html" style="display: block; width: 100%; text-align: center; background: rgba(255, 204, 0, 0.05); border: 2px solid #ffcc00; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 14px; border-radius: 4px; box-shadow: 0 0 15px rgba(255, 204, 0, 0.4); text-shadow: 0 0 8px #ffcc00; margin-top: auto;">Upgrade to Playbook Tier</a>
-        </div>
-
-        <!-- Component 8: Emotion Check Daily Trading Journal Template -->
-        <div class="dash-box">
-            <h2 class="box-title">🧠 The "Emotion Check" Daily Trading Journal Template</h2>
-            <p class="box-desc">Enforce cognitive execution discipline. Track psychological blind spots, revenge trading markers, and leverage parameters using a systematic routine before and after sessions.</p>
-            <a href="../whats-next.html" style="display: block; width: 100%; text-align: center; background: rgba(255, 204, 0, 0.05); border: 2px solid #ffcc00; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 14px; border-radius: 4px; box-shadow: 0 0 15px rgba(255, 204, 0, 0.4); text-shadow: 0 0 8px #ffcc00; margin-top: auto;">Acquire Mechanical Edge</a>
-        </div>
-
-        <!-- Component 9: PNG High-Impact News Dashboard -->
-        <div class="dash-box">
-            <h2 class="box-title">📰 The PNG "High-Impact News" Dashboard</h2>
-            <p class="box-desc">Shield your trading capital from flash crashes. Review a color-coded warning stream mapping core international reports directly to localized Port Moresby intervals.</p>
-            <a href="../whats-next.html" style="display: block; width: 100%; text-align: center; background: rgba(255, 204, 0, 0.05); border: 2px solid #ffcc00; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 14px; border-radius: 4px; box-shadow: 0 0 15px rgba(255, 204, 0, 0.4); text-shadow: 0 0 8px #ffcc00; margin-top: auto;">Access Premium Terminal</a>
-        </div>
-
-    </main>
-
-      <!-- Custom PNG Compliance & Risk Disclaimer Footer Module -->
+    <!-- Custom PNG Compliance & Risk Disclaimer Footer Module -->
     <footer style="margin-top: 40px; padding: 20px; background-color: #121212; border-top: 2px solid #ff3333; text-align: justify; font-size: 0.75rem; color: #aaaaaa; line-height: 1.5;">
         <p style="margin: 0 0 10px 0; color: #ffffff; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">High-Risk Financial Risk Disclaimer & Compliance Statement</p>
         <p>Trading foreign exchange (Forex) on margin carries elevated risk vectors and may not be suitable for all marketplace participants. Retail traders can experience swift, total capital liquidation due to leverage volatility and localized tracking constraints. The Bank Bugs provides premium technical educational curriculum pathways and execution frameworks; we do not operate as a licensed brokerage, deposit-taking institution, or investment fund manager.</p>
         <p style="margin-top: 10px;">All platform users within Papua New Guinea are personally responsible for verifying compliance parameters regarding international outward capital remittances, Bank of Papua New Guinea (BPNG) exchange control limitations, and Internal Revenue Commission (IRC) fiscal declarations. Past performance metrics offer zero predictive correlation for prospective capital results. Protect your capital by verifying links via our tools prior to fund routing.</p>
     </footer>
+
