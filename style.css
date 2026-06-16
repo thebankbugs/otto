@@ -513,11 +513,12 @@ body.welcome-layout {
 .compliance-title {
     font-size: 0.75rem;
     color: #ffffff;
-    font-weight: bold;
+    font-weight: 400; /* Reset from bold back to clean low-profile regular weight */
     letter-spacing: 1px;
     margin-bottom: 10px;
     text-align: center;
 }
+
 
 .compliance-text {
     font-size: 0.75rem;
