@@ -4,62 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Bank Bugs | Welcome</title>
+    <!-- Master layout CSS system handles all styling parameters globally -->
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Interactive Hover Glow Animations for Mobile App Welcome Page */
-        .app-btn {
-            display: block; 
-            text-align: center; 
-            background: rgba(255, 204, 0, 0.03); 
-            border: 2px solid #ffcc00; 
-            color: #ffffff; 
-            font-weight: 800; 
-            font-size: 0.8rem; 
-            letter-spacing: 2px; 
-            text-transform: uppercase; 
-            text-decoration: none; 
-            padding: 16px; 
-            border-radius: 4px; 
-            box-shadow: 0 0 15px rgba(255, 204, 0, 0.2); 
-            text-shadow: 0 0 5px #ffcc00; 
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
-        .app-btn:hover {
-            background: #000000;
-            border-color: #ffcc00;
-            color: #ffffff;
-            box-shadow: 0 0 25px rgba(255, 204, 0, 0.6), inset 0 0 10px rgba(255, 204, 0, 0.2);
-            text-shadow: 0 0 10px #ffcc00;
-            transform: translateY(-2px);
-        }
-
-        .login-btn {
-            display: block; 
-            width: 100%; 
-            text-align: center; 
-            background: #ffffff; 
-            border: 2px solid #ffffff; 
-            color: #000000; 
-            font-weight: 800; 
-            font-size: 0.85rem; 
-            letter-spacing: 2px; 
-            text-transform: uppercase; 
-            text-decoration: none; 
-            padding: 14px; 
-            border-radius: 4px; 
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); 
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
-        .login-btn:hover {
-            background: #000000;
-            border-color: #ffffff;
-            color: #ffffff;
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
-            transform: translateY(-2px);
-        }
-    </style>
 </head>
 <body class="no-sidebar" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; text-align: center; padding: 40px 20px;">
 
@@ -73,29 +19,31 @@
     <!-- Centered Brand Name on Top -->
     <div style="margin-bottom: 40px; z-index: 10;">
         <h2 class="brand-name" style="font-size: 1.8rem; letter-spacing: 2px;">The Bank <span class="gold-text">Bugs</span></h2>
-<!-- Live Market Ticker Tape Banner Module -->
-<div class="tradingview-widget-container" style="width: 100%; background-color: #000000; border-bottom: 1px solid #141414; padding: 4px 0;">
-    <div class="tradingview-widget-container__widget"></div>
-    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-    {
-    "symbols": [
-        { "proName": "FX:EURUSD", "title": "EUR/USD" },
-        { "proName": "FX:GBPUSD", "title": "GBP/USD" },
-        { "proName": "FX:AUDUSD", "title": "AUD/USD" },
-        { "proName": "FX:USDJPY", "title": "USD/JPY" },
-        { "proName": "FOREXCOM:XAUUSD", "title": "XAU/USD" },
-        { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500" },
-        { "proName": "FOREXCOM:NSXUSD", "title": "Nasdaq 100" },
-        { "proName": "FOREXCOM:DJI", "title": "Dow 30" }
-    ],
-    "showSymbolLogo": false,
-    "colorTheme": "dark",
-    "isTransparent": true,
-    "displayMode": "adaptive",
-    "locale": "en"
-    }
-    </script>
-</div>
+    </div>
+
+    <!-- Live Market Ticker Tape Banner Module -->
+    <div class="tradingview-widget-container" style="width: 100%; background-color: #000000; border-bottom: 1px solid #1c1c1c; padding: 4px 0; margin-bottom: 40px; z-index: 10;">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+        {
+        "symbols": [
+            { "proName": "FX:EURUSD", "title": "EUR/USD" },
+            { "proName": "FX:GBPUSD", "title": "GBP/USD" },
+            { "proName": "FX:AUDUSD", "title": "AUD/USD" },
+            { "proName": "FX:USDJPY", "title": "USD/JPY" },
+            { "proName": "FOREXCOM:XAUUSD", "title": "XAU/USD" },
+            { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500" },
+            { "proName": "FOREXCOM:NSXUSD", "title": "Nasdaq 100" },
+            { "proName": "FOREXCOM:DJI", "title": "Dow 30" }
+        ],
+        "showSymbolLogo": false,
+        "colorTheme": "dark",
+        "isTransparent": true,
+        "displayMode": "adaptive",
+        "locale": "en"
+        }
+        </script>
+    </div>
 
     <!-- Welcome Hero Section -->
     <header style="max-width: 800px; margin-bottom: 50px; z-index: 10;">
@@ -108,35 +56,37 @@
         <h3 style="font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; color: #ffffff;">Build your trade base here in PNG. Use our Free Resources.</h3>
     </div>
 
-<!-- Eight Sleek Navigation App Buttons Grid Stacked One By One -->
-<nav style="display: grid; grid-template-columns: 1fr; justify-content: center; justify-items: center; gap: 20px; max-width: 400px; width: 100%; margin: 0 auto 60px auto; z-index: 10;">
-    <a href="educational/forex.html" class="app-btn">Free Resources</a>
-    <a href="educational/journey.html" class="app-btn">Start Your Trading Journey</a>
-    <a href="educational/requirements.html" class="app-btn">Actual Requirements</a>
-    <a href="educational/toolkit.html" class="app-btn">Free Trading Toolkit</a>
-    <a href="educational/whats-next.html" class="app-btn">Whats Next?</a>
-    <a href="educational/make-money.html" class="app-btn">How do I actually make money?</a>
-    <a href="educational/faq.html" class="app-btn">Tiktok FAQ (New PNGTraders)</a>
-    <a href="educational/starter-kit.html" class="app-btn">Starter Kit for PNG Traders</a>
-</nav>
+    <!-- Eight Sleek Navigation App Buttons Grid Stacked One By One -->
+    <nav style="display: grid; grid-template-columns: 1fr; justify-content: center; justify-items: center; gap: 20px; max-width: 400px; width: 100%; margin: 0 auto 60px auto; z-index: 10;">
+        <a href="educational/forex.html" class="app-btn">Free Resources</a>
+        <a href="educational/journey.html" class="app-btn">Start Your Trading Journey</a>
+        <a href="educational/requirements.html" class="app-btn">Actual Requirements</a>
+        <a href="educational/toolkit.html" class="app-btn">Free Trading Toolkit</a>
+        <a href="educational/whats-next.html" class="app-btn">Whats Next?</a>
+        <a href="educational/make-money.html" class="app-btn">How do I actually make money?</a>
+        <a href="educational/faq.html" class="app-btn">Tiktok FAQ (New PNGTraders)</a>
+        <a href="educational/starter-kit.html" class="app-btn">Starter Kit for PNG Traders</a>
+    </nav>
 
-<!-- Secure Infrastructure Paid Gateway Section Centered Perfectly -->
-<div class="dash-box" style="max-width: 500px; width: 100%; padding: 30px; min-height: auto; margin: 0 auto 60px auto; text-align: center; z-index: 10; border-top: 3px solid var(--neon-gold);">
-    <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; text-transform: uppercase; letter-spacing: 1px;">Log in to Access Full Data Infrastructure</h4>
-    <a href="https://authpro.com" class="login-btn">SECURE LOGIN →</a>
-</div>
-
+    <!-- Secure Infrastructure Paid Gateway Section Centered Perfectly -->
+    <div class="dash-box" style="max-width: 500px; width: 100%; padding: 30px; min-height: auto; margin: 0 auto 60px auto; text-align: center; z-index: 10; border-top: 3px solid var(--neon-gold);">
+        <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; text-transform: uppercase; letter-spacing: 1px;">Log in to Access Full Data Infrastructure</h4>
+        <a href="https://authpro.com" class="login-btn">SECURE LOGIN →</a>
+    </div>
 
     <!-- App System Risk Disclaimer Footer -->
-    <footer style="max-width: 800px; width: 100%; margin-top: auto; padding-top: 30px; border-top: 1px solid #111111; z-index: 10;">
-        <p style="font-size: 0.7rem; color: #444444; line-height: 1.6; text-align: center;">
-            <strong>RISK DISCLAIMER:</strong> Trading Foreign Exchange (Forex) on margin involves an extreme degree of financial risk and is not suitable for all individuals. High leverage can accelerate losses as rapidly as profits. The digital tools, infrastructure trackers, and educational matrix architectures run by The Bank Bugs are compiled solely for informational workflow tracking and do not constitute authorized transaction recommendations or commercial investment advice. Ensure full legal compliance with the Bank of Papua New Guinea (BPNG) capital management policies and local Internal Revenue Commission (IRC) tax classifications before allocating active assets.
+    <footer style="max-width: 800px; width: 100%; margin-top: auto; padding: 40px 20px 20px 20px; background-color: #121212; border-top: 2px solid var(--red); z-index: 10; text-align: justify;">
+        <p style="font-size: 0.75rem; color: #ffffff; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; text-align: center;">High-Risk Financial Risk Disclaimer & Compliance Statement</p>
+        <p style="font-size: 0.75rem; color: #aaaaaa; line-height: 1.5; margin-bottom: 15px;">
+            Trading Foreign Exchange (Forex) on margin involves an extreme degree of financial risk vectors and is not suitable for all individuals. High leverage metrics can accelerate losses as rapidly as profits, leading to swift, total capital liquidation. The digital tools, infrastructure trackers, and educational matrix architectures run by The Bank Bugs are compiled solely for informational workflow tracking and do not constitute authorized transaction recommendations or commercial investment advice.
         </p>
-        <p style="font-size: 0.7rem; color: #222222; margin-top: 15px;">© 2026 The Bank Bugs. All Rights Reserved.</p>
+        <p style="font-size: 0.75rem; color: #aaaaaa; line-height: 1.5; margin-bottom: 15px;">
+            All platform users within Papua New Guinea are personally responsible for verifying compliance parameters regarding international outward capital remittances, Bank of Papua New Guinea (BPNG) exchange control limitations, and local Internal Revenue Commission (IRC) tax classifications before allocating active assets. Past performance metrics offer zero predictive correlation for prospective capital results.
+        </p>
+        <p style="font-size: 0.7rem; color: #666666; text-align: center; margin-top: 20px;">© 2026 The Bank Bugs. All Rights Reserved.</p>
     </footer>
 
-    <!-- Link your master script line before the closing body tag -->
+    <!-- Master Unified Script Injected at Closing Layer -->
     <script src="script.js" defer></script>
-
 </body>
 </html>
