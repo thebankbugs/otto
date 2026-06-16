@@ -1,3 +1,6 @@
+/* Import Google Fonts - Montserrat Integration */
+@import url('https://googleapis.com');
+
 /* Core Styling & Total Black Theme */
 html {
     scroll-behavior: smooth;
@@ -7,7 +10,9 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Updated to match IC Markets Primary Font Stack */
+    font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: -0.2px; /* Tight text layout alignment tracking */
 }
 
 body {
@@ -76,9 +81,9 @@ body {
 }
 
 .brand-name {
-    font-weight: 800;
+    font-weight: 900; /* Pushed weight to anchor branding elements */
     font-size: 1.4rem;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
 }
 
@@ -139,7 +144,7 @@ body {
     font-size: 3.5rem;
     font-weight: 900;
     margin-bottom: 20px;
-    letter-spacing: -1px;
+    letter-spacing: -1.5px; /* Aggressive geometric font spacing */
     line-height: 1.2;
 }
 
@@ -148,6 +153,7 @@ body {
     color: #aaaaaa;
     margin-bottom: 40px;
     line-height: 1.6;
+    font-weight: 400;
 }
 
 /* Interactive Utility Elements (Buttons) */
@@ -156,10 +162,12 @@ body {
     padding: 12px 28px;
     border-radius: 4px;
     font-size: 0.95rem;
-    font-weight: 600;
+    font-weight: 700;
     text-decoration: none;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .btn-login {
@@ -240,7 +248,7 @@ body {
 
 .dash-box:hover {
     border-color: var(--neon-gold);
-    box-shadow: 0 0 30px rgba(0, 255, 0, 0.25); /* Standout Lime Box Glow */
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.25);
     transform: translateY(-5px);
 }
 
@@ -256,7 +264,7 @@ body {
 
 .box-title {
     font-size: 1.35rem;
-    font-weight: 700;
+    font-weight: 800; /* Pushed for sharper text contrast */
     margin-bottom: 20px;
     line-height: 1.3;
 }
@@ -271,6 +279,7 @@ body {
     border-bottom: 1px solid #1a1a1a;
     font-size: 0.95rem;
     color: #dddddd;
+    font-weight: 400;
 }
 
 .box-desc {
@@ -278,6 +287,7 @@ body {
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 20px;
+    font-weight: 400;
 }
 
 /* Action Hyperlinks */
@@ -286,9 +296,9 @@ body {
     color: var(--neon-gold);
     text-decoration: none;
     font-size: 0.85rem;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     margin-top: auto;
     transition: transform 0.2s ease;
 }
@@ -299,12 +309,13 @@ body {
 }
 
 /* Special Highlight Modifiers */
-.gold-text { color: var(--gold); }
+.gold-text { color: var(--gold); font-weight: 600; }
 .gold-glow-text {
     color: var(--gold);
-    text-shadow: 0 0 20px rgba(0, 255, 0, 0.4); /* Lime Green Glow Variant */
+    font-weight: 900;
+    text-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
 }
-.red-text { color: var(--red); }
+.red-text { color: var(--red); font-weight: 600; }
 .warning-text {
     border-left: 2px solid var(--red);
     padding-left: 10px;
