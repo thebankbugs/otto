@@ -463,38 +463,20 @@ body.welcome-layout {
    6. TEXT HIGHLIGHT MODIFIERS & CRYPTO BOXES
    ========================================================================== */
 
-.gold-text { color: var(--gold); font-weight: 600; }
+.gold-text { color: var(--gold); font-weight: 400; }
 .gold-glow-text {
     color: var(--gold);
-    font-weight: 900;
+    font-weight: 400; /* Reset from 900 to match normal heading weight parameters */
 }
-.red-text { color: var(--red); font-weight: 600; }
-.warning-text {
-    border-left: 2px solid var(--red);
-    padding-left: 10px;
-    font-style: italic;
-}
-
-.copy-phrase {
-    background-color: #080808;
-    border: 1px dashed #222222;
-    padding: 15px;
-    border-radius: 4px;
-    margin-bottom: 20px;
-}
-
-.copy-phrase p {
-    font-size: 0.85rem;
-    color: #888888;
-    margin-bottom: 8px;
-}
+.red-text { color: var(--red); font-weight: 400; }
 
 .phrase-box {
     color: #ffffff;
-    font-weight: bold;
+    font-weight: 400; /* Reset from bold back to regular text weight */
     font-family: monospace;
     background-color: #000000;
 }
+
 
 /* ==========================================================================
    7. DISCLAIMER & COMPLIANCE FOOTERS
