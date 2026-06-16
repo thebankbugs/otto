@@ -55,7 +55,7 @@ body.welcome-layout {
     background: rgba(0, 255, 0, 0.05); 
     border: 2px solid var(--neon-gold); 
     color: #ffffff; 
-    font-weight: 800; 
+    font-weight: 500; /* Reset from 800 to normal regular weight */
     font-size: 0.8rem; 
     letter-spacing: 2px; 
     text-decoration: none; 
@@ -79,7 +79,7 @@ body.welcome-layout {
     color: #000000; 
     padding: 12px 24px; 
     text-decoration: none; 
-    font-weight: 800; 
+    font-weight: 500; /* Reset from 800 to normal regular weight */
     font-size: 0.85rem; 
     letter-spacing: 1px; 
     border-radius: 4px; 
@@ -99,55 +99,11 @@ body.welcome-layout {
     padding: 12px 28px;
     border-radius: 4px;
     font-size: 0.95rem;
-    font-weight: 700;
+    font-weight: 500; /* Reset from 700 to normal regular weight */
     text-decoration: none;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     cursor: pointer;
     letter-spacing: 1px;
-}
-
-.btn-login {
-    background-color: transparent;
-    color: #ffffff;
-    border: 1px solid #ffffff;
-}
-
-.btn-login:hover, .btn-login-hero:hover {
-    background-color: #ffffff;
-    color: #000000;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
-}
-
-.btn-login-hero {
-    background-color: transparent;
-    color: #ffffff;
-    border: 1px solid #ffffff;
-}
-
-.btn-resources {
-    background-color: var(--gold);
-    color: #000000;
-    border: 1px solid var(--gold);
-}
-
-.btn-resources:hover {
-    background-color: transparent;
-    color: var(--neon-gold);
-    box-shadow: 0 0 20px var(--neon-gold);
-}
-
-.btn-follow {
-    background-color: transparent;
-    border: 1px solid var(--red);
-    color: #ffffff;
-    width: 100%;
-    text-align: center;
-    margin-top: 15px;
-}
-
-.btn-follow:hover {
-    background-color: var(--red);
-    box-shadow: 0 0 15px var(--red);
 }
 
 /* Action Hyperlinks */
@@ -156,11 +112,12 @@ body.welcome-layout {
     color: var(--neon-gold);
     text-decoration: none;
     font-size: 0.85rem;
-    font-weight: 700;
+    font-weight: 500; /* Reset from 700 to normal regular weight */
     letter-spacing: 1px;
     margin-top: auto;
     transition: transform 0.2s ease;
 }
+
 
 .show-more:hover {
     transform: translateX(5px);
