@@ -2,9 +2,6 @@
    1. CORE STYLING & VARIABLES
    ========================================================================== */
 
-/* Import Google Fonts - Montserrat Asset Integration Matrix */
-@import url('https://googleapis.com');
-
 /* IC Markets Lime Green Corporate Color Palette Variables */
 :root {
     --gold: #00ff00;         /* Pure Standout Lime Green */
@@ -22,7 +19,7 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif; /* Forces Montserrat globally on everything */
+    font-family: sans-serif; /* Completely forces clean system sans-serif globally */
     letter-spacing: -0.2px;
 }
 
