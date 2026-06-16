@@ -1,15 +1,10 @@
-/* ==========================================================================
-   THE BANK BUGS SYSTEM - MASTER ARCHITECT BLUEPRINT STYLESHEET
-   NATIVE ANDROID MOBILE & TABLET PWA OPTIMIZATION LAYER
-   ========================================================================== */
-
 /* Import Google Fonts - Montserrat Integration */
 @import url('https://googleapis.com');
 
-/* Core Styling & Layout Alignment Base */
+/* Core Styling & Total Black Theme */
 html {
     scroll-behavior: smooth;
-    text-size-adjust: 100%; /* Prevents automatic font resizing bugs on Android Chrome */
+    text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
 }
 
@@ -19,24 +14,21 @@ html {
     box-sizing: border-box;
     font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     letter-spacing: -0.2px;
-    /* Native PWA Webkit Optimization: Removes Android blue tap highlight flash */
     -webkit-tap-highlight-color: transparent;
-    -webkit-font-smoothing: antialiased;
 }
 
 body {
     background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.95)), 
-                url('/background.webp') no-repeat center center fixed;
+                url('/background.webp.png') no-repeat center center fixed;
     background-size: cover;
     color: #ffffff;
     min-height: 100vh;
     overflow-x: hidden;
     padding-bottom: 60px;
-    /* Native App Control: Prevents erratic browser pull-to-refresh pull gestures on Android Chrome */
     overscroll-behavior-y: contain;
 }
 
-/* IC Markets-Inspired Corporate Theme Variables */
+/* IC Markets Lime Green Corporate Color Palette Variables */
 :root {
     --gold: #00ff00;         /* Pure Standout Lime Green */
     --neon-gold: #00ff00;    /* Pure Standout Lime Green Accent */
@@ -46,21 +38,18 @@ body {
 }
 
 /* ==========================================================================
-   TERMINAL SIDEBAR INFRASTRUCTURE & COLLAPSIBLE SYSTEM
+   ADDED ANDROID PWA SIDEBAR LAYOUT INFRASTRUCTURE
    ========================================================================== */
-
-/* Primary Application Grid Viewport Split-Screen Channels */
 .app-viewport-wrapper {
     display: grid;
-    grid-template-columns: 280px 1fr; /* Fixed left terminal box + variable right canvas channel */
+    grid-template-columns: 280px 1fr;
     min-height: 100vh;
     width: 100%;
     position: relative;
 }
 
-/* Sidebar Container Panel Drawer Layer */
 .terminal-sidebar {
-    background-color: rgba(18, 18, 18, 0.98); /* Denser background for cleaner tablet layer masking */
+    background-color: rgba(18, 18, 18, 0.98);
     border-right: 1px solid var(--border-grey);
     padding: 40px 24px;
     display: flex;
@@ -72,7 +61,6 @@ body {
     backdrop-filter: blur(10px);
 }
 
-/* Sidebar Navigational Link Loops */
 .sidebar-nav-list {
     list-style: none;
     display: flex;
@@ -90,15 +78,14 @@ body {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    padding: 16px; /* Expanded touch zone space targeting Android devices */
-    min-height: 48px; /* Android touch targets compliance metric */
+    padding: 16px;
+    min-height: 48px;
     border-radius: 4px;
     border-left: 3px solid transparent;
     background: rgba(255, 255, 255, 0.01);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Standout Lime Green Hover and Navigation Route Tracker States */
 .sidebar-nav-item:hover, 
 .sidebar-nav-item.active-route {
     color: #ffffff;
@@ -108,7 +95,6 @@ body {
     text-shadow: 0 0 8px var(--neon-gold);
 }
 
-/* Primary Elastic Operational Canvas Panel Right Side */
 .main-terminal-canvas {
     flex: 1;
     width: 100%;
@@ -116,7 +102,6 @@ body {
     overflow-y: auto;
 }
 
-/* Global Class to instantly override sidebar constraints when necessary */
 body.no-sidebar .app-viewport-wrapper {
     grid-template-columns: 1fr !important;
 }
@@ -124,11 +109,7 @@ body.no-sidebar .terminal-sidebar {
     display: none !important;
 }
 
-/* ==========================================================================
-   GLOBAL UTILITY COMPONENTS & APPS CLASSES
-   ========================================================================== */
-
-/* GLOBAL APP ENTRY ACTION BUTTONS MATRIX (Lime Theme Active) */
+/* GLOBAL APP BUTTON CLASS - Cleaner HTML Injection */
 .app-btn {
     display: block; 
     width: 100%; 
@@ -141,12 +122,11 @@ body.no-sidebar .terminal-sidebar {
     letter-spacing: 2px; 
     text-transform: uppercase; 
     text-decoration: none; 
-    padding: 16px; /* Upgraded sizing to perfectly handle native android screen widths */
-    min-height: 48px; /* Android touch targets specification matched */
+    padding: 16px;
+    min-height: 48px;
     border-radius: 4px; 
     box-shadow: 0 0 15px rgba(0, 255, 0, 0.2); 
     text-shadow: 0 0 8px var(--neon-gold);
-    /* Employs hardware-acceleration to prevent sliding lag on older Android chipsets */
     will-change: transform, box-shadow;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
@@ -157,7 +137,7 @@ body.no-sidebar .terminal-sidebar {
     transform: translateY(-2px);
 }
 
-/* GLOBAL PREMIUM INTERACTION AUTHENTICATION BUTTON CLASS */
+/* GLOBAL LOGIN BUTTON CLASS */
 .login-btn {
     display: inline-block; 
     margin: 0 auto; 
@@ -182,7 +162,7 @@ body.no-sidebar .terminal-sidebar {
     transform: translateY(-2px);
 }
 
-/* Background Node Effects Points */
+/* Active Nodes in Top Right Background */
 .bg-effects {
     position: absolute;
     top: 0;
@@ -205,7 +185,7 @@ body.no-sidebar .terminal-sidebar {
 .node-2 { width: 6px; height: 6px; top: 90px; right: 120px; opacity: 0.5; }
 .node-3 { width: 10px; height: 10px; top: 130px; right: 40px; opacity: 0.6; }
 
-/* Navigation Ribbon Module Bar Elements */
+/* Navigation Bar */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -237,7 +217,31 @@ body.no-sidebar .terminal-sidebar {
     text-transform: uppercase;
 }
 
-/* Local User Site Community Tracker Components */
+.nav-menu {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--neon-gold);
+    text-shadow: 0 0 8px var(--neon-gold);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+/* Live Site Tracker */
 .site-tracker {
     font-size: 0.75rem;
     letter-spacing: 1px;
@@ -256,7 +260,7 @@ body.no-sidebar .terminal-sidebar {
     animation: pulse 2s infinite;
 }
 
-/* Master Hero Header Callout Configurations */
+/* Hero Section */
 .hero {
     text-align: center;
     padding: 60px 20px 40px 20px;
@@ -267,11 +271,10 @@ body.no-sidebar .terminal-sidebar {
 }
 
 .hero-heading {
-    /* Fluid typography scaling: adapts dynamically across phones, tablets and widescreen desktop displays */
     font-size: clamp(2rem, 6vw, 3.5rem); 
     font-weight: 900;
     margin-bottom: 20px;
-    letter-spacing: -1px;
+    letter-spacing: -1.5px;
     line-height: 1.2;
 }
 
@@ -283,20 +286,83 @@ body.no-sidebar .terminal-sidebar {
     font-weight: 400;
 }
 
-/* Dashboard Matrix Sub-Grids Framework */
+/* Interactive Utility Elements (Buttons) */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-login {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.btn-login:hover, .btn-login-hero:hover {
+    background-color: #ffffff;
+    color: #000000;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-login-hero {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.btn-resources {
+    background-color: var(--gold);
+    color: #000000;
+    border: 1px solid var(--gold);
+}
+
+.btn-resources:hover {
+    background-color: transparent;
+    color: var(--neon-gold);
+    box-shadow: 0 0 20px var(--neon-gold);
+}
+
+.btn-follow {
+    background-color: transparent;
+    border: 1px solid var(--red);
+    color: #ffffff;
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.btn-follow:hover {
+    background-color: var(--red);
+    box-shadow: 0 0 15px var(--red);
+}
+
+/* Dashboard Grid Layout */
 .dashboard-grid {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
     display: grid;
-    /* Grid scaling tracks evenly between mobile and high-resolution tablets */
     grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
     gap: 20px;
     position: relative;
     z-index: 2;
 }
 
-/* Custom Standard Operational Panel Grid Cells */
+/* Custom Boxed Panels */
 .dash-box {
     background-color: var(--dark-grey);
     border: 1px solid var(--border-grey);
@@ -327,9 +393,9 @@ body.no-sidebar .terminal-sidebar {
 }
 
 .box-title {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     font-weight: 800;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     line-height: 1.3;
 }
 
@@ -354,7 +420,7 @@ body.no-sidebar .terminal-sidebar {
     font-weight: 400;
 }
 
-/* Action Links Navigation Modifiers */
+/* Action Hyperlinks */
 .show-more {
     align-self: flex-end;
     color: var(--neon-gold);
@@ -372,7 +438,7 @@ body.no-sidebar .terminal-sidebar {
     text-shadow: 0 0 8px var(--neon-gold);
 }
 
-/* Special Design Modifier Indicators */
+/* Special Highlight Modifiers */
 .gold-text { color: var(--gold); font-weight: 600; }
 .gold-glow-text {
     color: var(--gold);
@@ -417,7 +483,7 @@ body.no-sidebar .terminal-sidebar {
 
 .text-muted { color: #666666 !important; }
 
-/* Global System Animations Layers */
+/* Animations */
 @keyframes pulse {
     0% { opacity: 0.4; }
     50% { opacity: 1; }
@@ -450,9 +516,7 @@ body.no-sidebar .terminal-sidebar {
         flex-direction: column;
     }
     
-    /* Responsive margins to safeguard UI elements against absolute toggle button clipping */
     .hero {
         padding-top: 80px;
     }
 }
-
