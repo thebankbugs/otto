@@ -9,12 +9,17 @@
 </head>
 <body>
 
+    <!-- SIDEBAR DYNAMIC TOGGLE ACTION BUTTON (LIME THEME ACTIVE) -->
+    <button id="sidebarToggle" style="position: fixed; top: 15px; left: 15px; z-index: 1000; background: #121212; border: 2px solid #00ff00; color: #00ff00; padding: 10px 14px; font-weight: 800; font-size: 0.8rem; border-radius: 4px; cursor: pointer; box-shadow: 0 0 10px rgba(0, 255, 0, 0.2); letter-spacing: 1px; text-transform: uppercase;">Menu ☰</button>
+
     <!-- Primary Application Split-Screen Viewport Wrapper -->
-    <div class="app-viewport-wrapper">
+    <!-- Transition added to dynamically slide columns smoothly when triggered -->
+    <div class="app-viewport-wrapper" id="viewportWrapper" style="transition: grid-template-columns 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);">
 
         <!-- TERMINAL SIDEBAR NAVIGATION BAR (LEFT SIDE CHANNEL) -->
-        <aside class="terminal-sidebar">
-            <div class="logo-container">
+        <!-- Assigned ID for click state monitoring -->
+        <aside class="terminal-sidebar" id="appSidebar" style="transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); transform: translateX(0);">
+            <div class="logo-container" style="margin-top: 40px;">
                 <h2 class="brand-name">THE BANK <span class="gold-text">BUGS</span></h2>
             </div>
             
@@ -37,7 +42,7 @@
         </aside>
 
         <!-- MAIN TERMINAL CONTENT CANVAS REGION (RIGHT SIDE CHANNEL) -->
-        <main class="main-terminal-canvas" style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 40px 20px 0 20px; text-align: center;">
+        <main class="main-terminal-canvas" style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 80px 20px 0 20px; text-align: center;">
 
             <!-- Background FX Nodes Container Elements -->
             <div class="bg-effects">
@@ -80,7 +85,7 @@
                 <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; text-transform: uppercase; letter-spacing: 1px;">
                     Log in to Access Full Data Infrastructure
                 </h4>
-                <a href="https://www.authpro.com/auth/thebankbugs/" class="login-btn">SECURE LOGIN →</a>
+                <a href="https://authpro.com" class="login-btn">SECURE LOGIN →</a>
             </div>
 
             <!-- Regional PNG Compliance Asset Regulations & Risk Shield Footer -->
