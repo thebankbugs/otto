@@ -315,6 +315,7 @@ body.welcome-layout {
     font-size: 1.1rem;
     letter-spacing: 2px;
     color: #ffffff;
+    font-weight: 400; /* Overrides default browser bolding to make h3 regular weight */
 }
 
 /* ==========================================================================
