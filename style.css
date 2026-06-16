@@ -18,10 +18,10 @@ body {
     padding-bottom: 60px;
 }
 
-/* IC Markets Corporate Color Palette Variables */
+/* IC Markets Lime Green Corporate Color Palette Variables */
 :root {
-    --gold: #7ac143;         /* Official IC Markets Standout Green */
-    --neon-gold: #7ac143;    /* Official IC Markets Branding Accent */
+    --gold: #00ff00;         /* Pure Standout Lime Green */
+    --neon-gold: #00ff00;    /* Pure Standout Lime Green Accent */
     --red: #ff3333;          /* High-Risk Warning Crimson Red */
     --dark-grey: #121212;     /* Core Premium Dark Box Layer */
     --border-grey: #1c1c1c;    /* Clean Low-Profile Grid Borders */
@@ -119,9 +119,9 @@ body {
 .pulse-dot {
     width: 8px;
     height: 8px;
-    background-color: #7ac143;
+    background-color: #00ff00;
     border-radius: 50%;
-    box-shadow: 0 0 8px #7ac143;
+    box-shadow: 0 0 8px #00ff00;
     animation: pulse 2s infinite;
 }
 
@@ -240,7 +240,7 @@ body {
 
 .dash-box:hover {
     border-color: var(--neon-gold);
-    box-shadow: 0 0 30px rgba(122, 193, 67, 0.25); /* IC Markets Green Box Glow */
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.25); /* Standout Lime Box Glow */
     transform: translateY(-5px);
 }
 
@@ -302,7 +302,7 @@ body {
 .gold-text { color: var(--gold); }
 .gold-glow-text {
     color: var(--gold);
-    text-shadow: 0 0 20px rgba(122, 193, 67, 0.4); /* Green Glow Variant */
+    text-shadow: 0 0 20px rgba(0, 255, 0, 0.4); /* Lime Green Glow Variant */
 }
 .red-text { color: var(--red); }
 .warning-text {
