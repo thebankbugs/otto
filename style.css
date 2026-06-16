@@ -1,7 +1,19 @@
+/* ==========================================================================
+   1. CORE STYLING & VARIABLES
+   ========================================================================== */
+
 /* Import Google Fonts - Montserrat Integration */
 @import url('https://googleapis.com');
 
-/* Core Styling & Total Black Theme */
+/* IC Markets Lime Green Corporate Color Palette Variables */
+:root {
+    --gold: #00ff00;         /* Pure Standout Lime Green */
+    --neon-gold: #00ff00;    /* Pure Standout Lime Green Accent */
+    --red: #ff3333;          /* High-Risk Warning Crimson Red */
+    --dark-grey: #121212;     /* Core Premium Dark Box Layer */
+    --border-grey: #1c1c1c;    /* Clean Low-Profile Grid Borders */
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -24,14 +36,19 @@ body {
     padding-bottom: 60px;
 }
 
-/* IC Markets Lime Green Corporate Color Palette Variables */
-:root {
-    --gold: #00ff00;         /* Pure Standout Lime Green */
-    --neon-gold: #00ff00;    /* Pure Standout Lime Green Accent */
-    --red: #ff3333;          /* High-Risk Warning Crimson Red */
-    --dark-grey: #121212;     /* Core Premium Dark Box Layer */
-    --border-grey: #1c1c1c;    /* Clean Low-Profile Grid Borders */
+/* Specialized centered welcome page body layout configuration */
+body.welcome-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
 }
+
+/* ==========================================================================
+   2. GLOBAL INTERACTIVE COMPONENTS (BUTTONS & LINKS)
+   ========================================================================== */
 
 /* GLOBAL APP BUTTON CLASS - Cleaner HTML Injection */
 .app-btn {
@@ -82,6 +99,97 @@ body {
     transform: translateY(-2px);
 }
 
+/* Standard Utility Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-login {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.btn-login:hover, .btn-login-hero:hover {
+    background-color: #ffffff;
+    color: #000000;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.btn-login-hero {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.btn-resources {
+    background-color: var(--gold);
+    color: #000000;
+    border: 1px solid var(--gold);
+}
+
+.btn-resources:hover {
+    background-color: transparent;
+    color: var(--neon-gold);
+    box-shadow: 0 0 20px var(--neon-gold);
+}
+
+.btn-follow {
+    background-color: transparent;
+    border: 1px solid var(--red);
+    color: #ffffff;
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.btn-follow:hover {
+    background-color: var(--red);
+    box-shadow: 0 0 15px var(--red);
+}
+
+/* Action Hyperlinks */
+.show-more {
+    align-self: flex-end;
+    color: var(--neon-gold);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: auto;
+    transition: transform 0.2s ease;
+}
+
+.show-more:hover {
+    transform: translateX(5px);
+    text-shadow: 0 0 8px var(--neon-gold);
+}
+
+/* ==========================================================================
+   3. STRUCTURAL VISUAL EFFECTS & NAVIGATION
+   ========================================================================== */
+
+/* Layer Isolation Elements */
+.header-brand-container,
+.ticker-tape-banner,
+.welcome-hero,
+.action-framework-heading,
+.app-btn-grid,
+.secure-gateway-box,
+.compliance-footer {
+    z-index: 10;
+}
+
 /* Active Nodes in Top Right Background */
 .bg-effects {
     position: absolute;
@@ -105,7 +213,7 @@ body {
 .node-2 { width: 6px; height: 6px; top: 90px; right: 120px; opacity: 0.5; }
 .node-3 { width: 10px; height: 10px; top: 130px; right: 40px; opacity: 0.6; }
 
-/* Navigation Bar */
+/* Dashboard Navigation Bar */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -180,7 +288,30 @@ body {
     animation: pulse 2s infinite;
 }
 
-/* Hero Section */
+/* ==========================================================================
+   4. WELCOME & HERO SECTIONS
+   ========================================================================== */
+
+/* Brand Header Adjustments */
+.header-brand-container {
+    margin-bottom: 40px;
+}
+
+.header-brand-title {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+}
+
+/* TradingView Banner Strip */
+.ticker-tape-banner {
+    width: 100%;
+    background-color: #000000;
+    border-bottom: 1px solid var(--border-grey);
+    padding: 4px 0;
+    margin-bottom: 40px;
+}
+
+/* Dashboard Default Hero Layout */
 .hero {
     text-align: center;
     padding: 100px 20px 60px 20px;
@@ -206,68 +337,55 @@ body {
     font-weight: 400;
 }
 
-/* Interactive Utility Elements (Buttons) */
-.btn {
-    display: inline-block;
-    padding: 12px 28px;
-    border-radius: 4px;
-    font-size: 0.95rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.btn-login {
-    background-color: transparent;
-    color: #ffffff;
-    border: 1px solid #ffffff;
-}
-
-.btn-login:hover, .btn-login-hero:hover {
-    background-color: #ffffff;
-    color: #000000;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
-}
-
 .hero-buttons {
     display: flex;
     justify-content: center;
     gap: 20px;
 }
 
-.btn-login-hero {
-    background-color: transparent;
+/* Welcome Page Hero Layout Variants */
+.welcome-hero {
+    max-width: 1000px;
+    margin-bottom: 30px;
+}
+
+.welcome-hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.welcome-hero-sub {
+    font-size: 1.2rem;
+    color: #aaaaaa;
+}
+
+/* Welcome Page Action Callout */
+.action-framework-heading {
+    margin-bottom: 20px;
+}
+
+.action-framework-heading h3 {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     color: #ffffff;
-    border: 1px solid #ffffff;
 }
 
-.btn-resources {
-    background-color: var(--gold);
-    color: #000000;
-    border: 1px solid var(--gold);
-}
+/* ==========================================================================
+   5. DASHBOARD LAYOUT & CARD BOXES
+   ========================================================================== */
 
-.btn-resources:hover {
-    background-color: transparent;
-    color: var(--neon-gold);
-    box-shadow: 0 0 20px var(--neon-gold);
-}
-
-.btn-follow {
-    background-color: transparent;
-    border: 1px solid var(--red);
-    color: #ffffff;
+/* App Link Grid Stacked Layout */
+.app-btn-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    justify-items: center;
+    gap: 10px;
+    max-width: 600px;
     width: 100%;
-    text-align: center;
-    margin-top: 15px;
-}
-
-.btn-follow:hover {
-    background-color: var(--red);
-    box-shadow: 0 0 15px var(--red);
+    margin: 0 auto 60px auto;
 }
 
 /* Dashboard Grid Layout */
@@ -306,10 +424,24 @@ body {
     grid-column: span 2;
 }
 
-@media (max-width: 900px) {
-    .wide-box {
-        grid-column: span 1;
-    }
+/* Welcome Page Secure Gateway Panel Override */
+.secure-gateway-box {
+    max-width: 500px;
+    width: 100%;
+    padding: 30px;
+    min-height: auto;
+    margin: 0 auto 60px auto;
+    text-align: center;
+    border-top: 3px solid var(--neon-gold);
+}
+
+.secure-gateway-box h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .box-title {
@@ -340,25 +472,10 @@ body {
     font-weight: 400;
 }
 
-/* Action Hyperlinks */
-.show-more {
-    align-self: flex-end;
-    color: var(--neon-gold);
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: auto;
-    transition: transform 0.2s ease;
-}
+/* ==========================================================================
+   6. TEXT HIGHLIGHT MODIFIERS & CRYPTO BOXES
+   ========================================================================== */
 
-.show-more:hover {
-    transform: translateX(5px);
-    text-shadow: 0 0 8px var(--neon-gold);
-}
-
-/* Special Highlight Modifiers */
 .gold-text { color: var(--gold); font-weight: 600; }
 .gold-glow-text {
     color: var(--gold);
@@ -391,22 +508,52 @@ body {
     font-weight: bold;
     font-family: monospace;
     background-color: #000000;
-    padding: 8px;
-    border-left: 3px solid var(--neon-gold);
-    font-size: 0.95rem;
 }
 
-.highlight-names {
-    font-size: 1.1rem;
+/* ==========================================================================
+   7. DISCLAIMER & COMPLIANCE FOOTERS
+   ========================================================================== */
+
+.compliance-footer {
+    max-width: 1000px;
+    width: 100%;
+    margin-top: auto;
+    padding: 40px 20px 20px 20px;
+    background-color: var(--dark-grey);
+    border-top: 2px solid var(--red);
+    text-align: justify;
+}
+
+.compliance-title {
+    font-size: 0.75rem;
+    color: #ffffff;
     font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
-.text-muted { color: #666666 !important; }
-
-/* Animations */
-@keyframes pulse {
-    0% { opacity: 0.4; }
-    50% { opacity: 1; }
-    100% { opacity: 0.4; }
+.compliance-text {
+    font-size: 0.75rem;
+    color: #aaaaaa;
+    line-height: 1.5;
+    margin-bottom: 15px;
 }
 
+.copyright-text {
+    font-size: 0.7rem;
+    color: #666666;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* ==========================================================================
+   8. MEDIA QUERIES (RESPONSIVE CONFIGURATIONS)
+   ========================================================================== */
+
+@media (max-width: 900px) {
+    .wide-box {
+        grid-column: span 1;
+    }
+}
