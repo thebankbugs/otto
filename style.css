@@ -4,8 +4,6 @@
 /* Core Styling & Total Black Theme */
 html {
     scroll-behavior: smooth;
-    text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
 }
 
 * {
@@ -14,7 +12,6 @@ html {
     box-sizing: border-box;
     font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     letter-spacing: -0.2px;
-    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -25,7 +22,6 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     padding-bottom: 60px;
-    overscroll-behavior-y: contain;
 }
 
 /* IC Markets Lime Green Corporate Color Palette Variables */
@@ -35,78 +31,6 @@ body {
     --red: #ff3333;          /* High-Risk Warning Crimson Red */
     --dark-grey: #121212;     /* Core Premium Dark Box Layer */
     --border-grey: #1c1c1c;    /* Clean Low-Profile Grid Borders */
-}
-
-/* ==========================================================================
-   ADDED ANDROID PWA SIDEBAR LAYOUT INFRASTRUCTURE
-   ========================================================================== */
-.app-viewport-wrapper {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    min-height: 100vh;
-    width: 100%;
-    position: relative;
-}
-
-.terminal-sidebar {
-    background-color: rgba(18, 18, 18, 0.98);
-    border-right: 1px solid var(--border-grey);
-    padding: 40px 24px;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    backdrop-filter: blur(10px);
-}
-
-.sidebar-nav-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 40px;
-}
-
-.sidebar-nav-item {
-    display: flex;
-    align-items: center;
-    color: #aaaaaa;
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 16px;
-    min-height: 48px;
-    border-radius: 4px;
-    border-left: 3px solid transparent;
-    background: rgba(255, 255, 255, 0.01);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.sidebar-nav-item:hover, 
-.sidebar-nav-item.active-route {
-    color: #ffffff;
-    background: rgba(0, 255, 0, 0.03);
-    border-left: 3px solid var(--neon-gold);
-    box-shadow: inset 5px 0 15px rgba(0, 255, 0, 0.02);
-    text-shadow: 0 0 8px var(--neon-gold);
-}
-
-.main-terminal-canvas {
-    flex: 1;
-    width: 100%;
-    padding-bottom: 60px;
-    overflow-y: auto;
-}
-
-body.no-sidebar .app-viewport-wrapper {
-    grid-template-columns: 1fr !important;
-}
-body.no-sidebar .terminal-sidebar {
-    display: none !important;
 }
 
 /* GLOBAL APP BUTTON CLASS - Cleaner HTML Injection */
@@ -122,16 +46,14 @@ body.no-sidebar .terminal-sidebar {
     letter-spacing: 2px; 
     text-transform: uppercase; 
     text-decoration: none; 
-    padding: 16px;
-    min-height: 48px;
+    padding: 14px; 
     border-radius: 4px; 
     box-shadow: 0 0 15px rgba(0, 255, 0, 0.2); 
     text-shadow: 0 0 8px var(--neon-gold);
-    will-change: transform, box-shadow;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: all 0.3s ease;
 }
 
-.app-btn:hover, .app-btn:active {
+.app-btn:hover {
     background: rgba(0, 255, 0, 0.15);
     box-shadow: 0 0 25px rgba(0, 255, 0, 0.4);
     transform: translateY(-2px);
@@ -143,8 +65,7 @@ body.no-sidebar .terminal-sidebar {
     margin: 0 auto; 
     background-color: var(--neon-gold); 
     color: #000000; 
-    padding: 14px 28px; 
-    min-height: 48px;
+    padding: 12px 24px; 
     text-decoration: none; 
     font-weight: 800; 
     font-size: 0.85rem; 
@@ -152,11 +73,10 @@ body.no-sidebar .terminal-sidebar {
     text-transform: uppercase; 
     border-radius: 4px; 
     box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
-    will-change: transform, box-shadow;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: all 0.3s ease;
 }
 
-.login-btn:hover, .login-btn:active {
+.login-btn:hover {
     background-color: #ffffff;
     box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
     transform: translateY(-2px);
@@ -263,7 +183,7 @@ body.no-sidebar .terminal-sidebar {
 /* Hero Section */
 .hero {
     text-align: center;
-    padding: 60px 20px 40px 20px;
+    padding: 100px 20px 60px 20px;
     max-width: 900px;
     margin: 0 auto;
     position: relative;
@@ -271,7 +191,7 @@ body.no-sidebar .terminal-sidebar {
 }
 
 .hero-heading {
-    font-size: clamp(2rem, 6vw, 3.5rem); 
+    font-size: 3.5rem;
     font-weight: 900;
     margin-bottom: 20px;
     letter-spacing: -1.5px;
@@ -279,7 +199,7 @@ body.no-sidebar .terminal-sidebar {
 }
 
 .hero-subheading {
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-size: 1.2rem;
     color: #aaaaaa;
     margin-bottom: 40px;
     line-height: 1.6;
@@ -354,10 +274,10 @@ body.no-sidebar .terminal-sidebar {
 .dashboard-grid {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 40px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 30px;
     position: relative;
     z-index: 2;
 }
@@ -367,19 +287,19 @@ body.no-sidebar .terminal-sidebar {
     background-color: var(--dark-grey);
     border: 1px solid var(--border-grey);
     border-radius: 8px;
-    padding: 24px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 260px;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    min-height: 280px;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     position: relative;
 }
 
-.dash-box:hover, .dash-box:active {
+.dash-box:hover {
     border-color: var(--neon-gold);
     box-shadow: 0 0 30px rgba(0, 255, 0, 0.25);
-    transform: translateY(-3px);
+    transform: translateY(-5px);
 }
 
 .wide-box {
@@ -405,7 +325,7 @@ body.no-sidebar .terminal-sidebar {
 }
 
 .box-list li {
-    padding: 10px 0;
+    padding: 8px 0;
     border-bottom: 1px solid #1a1a1a;
     font-size: 0.95rem;
     color: #dddddd;
@@ -490,33 +410,3 @@ body.no-sidebar .terminal-sidebar {
     100% { opacity: 0.4; }
 }
 
-/* ==========================================================================
-   RESPONSIVE BREAKPOINT SYSTEM FOR COLLAPSIBLE MENU
-   Optimized specifically for Android Tablets & Phones
-   ========================================================================== */
-@media (max-width: 1024px) {
-    .app-viewport-wrapper {
-        grid-template-columns: 1fr !important;
-    }
-    
-    .terminal-sidebar {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 280px;
-        height: 100vh;
-        z-index: 999;
-        border-right: 1px solid var(--border-grey);
-        box-shadow: 5px 0 30px rgba(0,0,0,0.8);
-    }
-    
-    .sidebar-nav-list {
-        margin-top: 30px;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .hero {
-        padding-top: 80px;
-    }
-}
