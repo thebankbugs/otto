@@ -35,28 +35,25 @@ const menuOpenBtn = document.getElementById('menu-open-btn');
 const menuCloseBtn = document.getElementById('menu-close-btn');
 
 // ==========================================================================
-// 3. SECURE AUTHENTICATION SCREEN ENTRY & EXIT ROUTING ACTIONS
+// 3. MAIN SCREEN ENTRY & EXIT ROUTING ACTIONS
 // ==========================================================================
 function enterAppWorkspace(role) {
-    currentUserRole = role; // "free" or "premium"
+    currentUserRole = role; // Set the global safety barrier
     authScreenLayer.classList.remove('active-layer');
     appWorkspaceShell.classList.add('active-layer');
     
+    // Auto-adjust header branding to reflect membership state
     const brandingTitle = document.querySelector('.app-branding-title');
     if (currentUserRole === "premium") {
-        brandingTitle.innerHTML = 'EduDocs <span style="color:#eab308; font-size:0.75rem; vertical-align:middle;">⚡ PRO</span>';
+        brandingTitle.innerHTML = 'TheBankBugs <span style="color:#eab308; font-size:0.75rem; vertical-align:middle;">⚡ PRO</span>';
     } else {
-        brandingTitle.innerHTML = 'EduDocs <span style="color:#64748b; font-size:0.75rem; vertical-align:middle;">🌱 FREE</span>';
+        brandingTitle.innerHTML = 'TheBankBugs <span style="color:#64748b; font-size:0.75rem; vertical-align:middle;">🌱 FREE</span>';
     }
     
     resetToInitialView();
 }
 
-// Global Sign Out System Handler
-async function logoutAndExitApp() {
-    // Gracefully terminate active session token logs inside Supabase server engine
-    await supabase.auth.signOut();
-
+function logoutAndExitApp() {
     appWorkspaceShell.classList.remove('active-layer');
     authScreenLayer.classList.add('active-layer');
     authLoginForm.reset(); 
@@ -64,46 +61,10 @@ async function logoutAndExitApp() {
     resetToInitialView();
 }
 
-// Path A: Free Beginner Path continues to bypass login gate instantly
-btnFreeBeginner.addEventListener('click', () => {
-    enterAppWorkspace("free");
-});
-
-// Path B: Real Premium Authentication Form Processor
-authLoginForm.addEventListener('submit', async (e) => {
-    e.preventDefault(); // Stop page reload behavior
-    
-    const emailField = document.getElementById('login-email').value;
-    const passwordField = document.getElementById('login-password').value;
-    const submitButton = authLoginForm.querySelector('button[type="submit"]');
-
-    // Visual loading state updates
-    submitButton.textContent = "Verifying Secure Access...";
-    submitButton.disabled = true;
-
-    // Execute live secure database checking routine
-    const { data, error } = await supabase.auth.signInWithPassword({
-        email: emailField,
-        password: passwordField,
-    });
-
-    if (error) {
-        // Halt entry sequence if username credentials are completely invalid
-        alert("🔒 Access Denied: " + error.message);
-        submitButton.textContent = "Sign In Securely 🔑";
-        submitButton.disabled = false;
-        return;
-    }
-
-    // Success! Route verified user straight into private premium tracking widgets
-    console.log("Successfully logged in user ID: ", data.user.id);
-    submitButton.textContent = "Sign In Securely 🔑";
-    submitButton.disabled = false;
-    
-    enterAppWorkspace("premium");
-});
-
+btnFreeBeginner.addEventListener('click', () => enterAppWorkspace("free"));
+authLoginForm.addEventListener('submit', (e) => { e.preventDefault(); enterAppWorkspace("premium"); });
 headerLogoutBtn.addEventListener('click', logoutAndExitApp);
+
 
 // ==========================================================================
 // 4. SLIDING NAVIGATION SIDEBAR MECHANICS
