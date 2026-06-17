@@ -66,42 +66,58 @@
             </nav>
 
             <!-- PERMANENT MIDDLE TEXT READING DISPLAY WINDOW -->
-            <main class="central-content-canvas">
-                <div id="search-results-output" class="interior-content-box">
+<main class="central-content-canvas">
+    
+    <!-- Inner Box Dynamic Search Results Slot -->
+    <div id="search-results-output" class="interior-content-box">
         <h2>Search Results</h2>
         <div id="search-results-list"></div>
     </div>
-                <!-- Inner Box Module 1: Intro -->
-                <div id="box-intro" class="interior-content-box active-box">
-                    <h2>Welcome to the App Platform</h2>
-                    <p>This middle reading zone handles your core learning materials. Tap the top hamburger menu icon to reveal your courses sidebar menu.</p>
-                </div>
 
-                <!-- Inner Box Module 2: HTML -->
-                <div id="box-html" class="interior-content-box">
-                    <h2>Section 2: HTML Structural Layouts</h2>
-                    <p>The layout frame code container wraps everything perfectly.</p>
-                </div>
+    <!-- 1. HOME MODULE CONTAINER (Active on load) -->
+    <div id="box-intro" class="interior-content-box active-box">
+        <h2>Welcome to the App Platform</h2>
+        <p>This middle reading zone handles your core learning materials. Tap the top hamburger menu icon to reveal your courses sidebar menu.</p>
+    </div>
 
-                <!-- Inner Box Module 3: CSS -->
-                <div id="box-css" class="interior-content-box">
-                    <h2>Section 3: Structural CSS Engineering</h2>
-                    <p>CSS layout modules freeze the screen viewports entirely.</p>
-                </div>
+    <!-- 2. WATCHLIST WORKSPACE CONTAINER -->
+    <div id="box-watchlist" class="interior-content-box">
+        <h2>Market Watchlist</h2>
+        <p>Private asset ticker rows and tracked pairs live here.</p>
+    </div>
 
-                <!-- Inner Box Module 4: Saves -->
-                <div id="box-saves" class="interior-content-box">
-                    <h2>Your Saved Bookmarks</h2>
-                    <p>Articles or lessons you choose to bookmark will display neatly inside this saved container slot.</p>
-                </div>
+    <!-- 3. TRADES & CHART BREAK-DOWNS COMBINED FEED -->
+    <div id="box-trades" class="interior-content-box">
+        <h2>Active Trades & Break-downs</h2>
+        <p>Algorithmic signals, execution entries, and stop-loss coordinates linked with chart analysis projections.</p>
+    </div>
 
-            </main>
+    <!-- 4. TRADING JOURNAL CONTAINER -->
+    <div id="box-journal" class="interior-content-box">
+        <h2>Trading Journal</h2>
+        <p>Log your execution rules, daily mindset, and performance metrics.</p>
+    </div>
+
+    <!-- KEEP INDEPENDENT SYLLABUS BOXES BELOW SO SIDEBAR CONTINUES TO WORK -->
+    <div id="box-html" class="interior-content-box">
+        <h2>Section 2: HTML Foundations</h2>
+        <p>The HTML layout frame code container wraps everything perfectly. It sets up rigid blocks for layouts.</p>
+    </div>
+    <div id="box-css" class="interior-content-box">
+        <h2>Section 3: Structural CSS</h2>
+        <p>CSS layout modules freeze the screen viewports entirely. We utilize flexbox layouts to lock panels.</p>
+    </div>
+
+</main>
+
         </div>
 
         <!-- C. LOCKED PERMANENT BOTTOM TAB NAVIGATION BAR -->
         <nav class="permanent-bottom-tab-bar">
             <button class="bottom-nav-item active" data-target="box-intro">🏠<span>Home</span></button>
-            <button class="bottom-nav-item" data-target="box-saves">🔖<span>Saves</span></button>
+            <button class="bottom-nav-item" data-target="box-watchlist">📊<span>Watchlist</span></button>
+            <button class="bottom-nav-item" data-target="box-trades">⚡<span>Trades</span></button>
+            <button class="bottom-nav-item" data-target="box-journal">📓<span>Journal</span></button>
         </nav>
 
     </div>
