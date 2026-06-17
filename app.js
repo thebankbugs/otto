@@ -1,13 +1,4 @@
 // ==========================================================================
-// 1. SUPABASE SECURE CLIENT INITIALIZATION
-// ==========================================================================
-const SUPABASE_URL = "https://supabase.co"; // Replace with your real URL
-const SUPABASE_ANON_KEY = "your-anon-public-key";sb_secret_gZTMZ5FEqt6EEke84JCa0g_7yUYwNP3           // Replace with your real anon key
-
-const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-
-// ==========================================================================
 // 1. DYNAMIC INTERNAL CONTENT DATABASE (With Protection Tier Markers)
 // ==========================================================================
 const courseContentDatabase = [
