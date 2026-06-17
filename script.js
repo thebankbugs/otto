@@ -166,3 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 4000);
     }
 });
+// Waits for the HTML structural layer to load completely before executing visuals
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Institutional Ecosystem Initialized Successfully.");
+});
