@@ -1,28 +1,87 @@
-// 1. Target the top-level layers using their IDs
+// ==========================================================================
+// 1. DOM SELECTORS ARCHITECTURE
+// ==========================================================================
 const authScreenLayer = document.getElementById('auth-screen-layer');
 const appWorkspaceShell = document.getElementById('app-workspace-shell');
-
-// 2. Target the entry buttons
 const btnFreeBeginner = document.getElementById('btn-free-beginner');
 const authLoginForm = document.getElementById('auth-login-form');
 
-// 3. Central Function to route user past the login gate
-function enterAppWorkspace(isRegisteredUser) {
-    authScreenLayer.classList.remove('active-layer');  // Pulls the curtain down on the login view
-    appWorkspaceShell.classList.add('active-layer');  // Lifts the curtain up on the workspace frame
-    
-    console.log("User entered the workspace. Registered status: " + isRegisteredUser);
+// Header Action Selectors
+const headerLogoutBtn = document.getElementById('header-logout-btn');
+
+// Sidebar Specific Selectors
+const slidingLeftMenu = document.getElementById('sliding-left-menu');
+const sidebarBackdrop = document.getElementById('sidebar-backdrop');
+const menuOpenBtn = document.getElementById('menu-open-btn');
+const menuCloseBtn = document.getElementById('menu-close-btn');
+
+// ==========================================================================
+// 2. MAIN SCREEN ENTRY & EXIT ROUTING ACTIONS
+// ==========================================================================
+function enterAppWorkspace() {
+    authScreenLayer.classList.remove('active-layer');
+    appWorkspaceShell.classList.add('active-layer');
 }
 
-// 4. Listen for the Beginner Path Click
-btnFreeBeginner.addEventListener('click', () => {
-    enterAppWorkspace(false); // Router registers them as a free user
+function logoutAndExitApp() {
+    appWorkspaceShell.classList.remove('active-layer');
+    authScreenLayer.classList.add('active-layer');
+    authLoginForm.reset(); // Wipe old input data values safely
+}
+
+btnFreeBeginner.addEventListener('click', enterAppWorkspace);
+
+authLoginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    enterAppWorkspace();
 });
 
-// 5. Listen for the Login Form Submit Click
-authLoginForm.addEventListener('submit', (e) => {
-    e.preventDefault(); // Prevents the webpage from reloading
-    
-    // In the future, your Supabase verification code lines will sit right here!
-    enterAppWorkspace(true); // Router registers them as a registered user
+// Bind Header Top Right Logout Interaction
+headerLogoutBtn.addEventListener('click', logoutAndExitApp);
+
+// ==========================================================================
+// 3. SLIDING NAVIGATION SIDEBAR MECHANICS
+// ==========================================================================
+function openSidebar() {
+    slidingLeftMenu.classList.add('open');
+    sidebarBackdrop.classList.add('open');
+}
+
+function closeSidebar() {
+    slidingLeftMenu.classList.remove('open');
+    sidebarBackdrop.classList.remove('open');
+}
+
+menuOpenBtn.addEventListener('click', openSidebar);
+menuCloseBtn.addEventListener('click', closeSidebar);
+sidebarBackdrop.addEventListener('click', closeSidebar);
+
+// ==========================================================================
+// 4. INTERIOR CONTENT BOX CONTAINER SWAPPING CORE
+// ==========================================================================
+const globalNavTriggers = document.querySelectorAll('.syllabus-tab, .bottom-nav-item');
+
+globalNavTriggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+        const selectedBoxTargetId = trigger.dataset.target;
+        if (!selectedBoxTargetId) return;
+
+        // Step A: Clean up highlighted tab lines
+        document.querySelectorAll('.syllabus-tab.active, .bottom-nav-item.active').forEach(item => {
+            item.classList.remove('active');
+        });
+
+        // Step B: Mask the old active text block
+        document.querySelector('.interior-content-box.active-box').classList.remove('active-box');
+
+        // Step C: Open target dashboard element box
+        document.getElementById(selectedBoxTargetId).classList.add('active-box');
+        trigger.classList.add('active');
+
+        // Step D: Automatically slide menu away clean if user clicked an item inside it
+        closeSidebar();
+        
+        // Step E: Jump scroll canvas frame right back to top line reading view
+        document.querySelector('.central-content-canvas').scrollTop = 0;
+    });
 });
