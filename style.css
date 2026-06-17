@@ -132,3 +132,33 @@ body, html {
 
 /* Utilities Buttons and Micro Assets */
 .icon-btn { background: none; border: none; font-size: 1.4rem; cursor: pointer; color: #475569; }
+
+/* Search Result Components */
+.search-result-item {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: transform 0.15s, border-color 0.15s;
+}
+.search-result-item:active {
+    transform: scale(0.98);
+    background-color: #f8f9fa;
+}
+.search-result-item h4 {
+    font-size: 1.1rem;
+    color: #3b82f6;
+    margin-bottom: 4px;
+}
+.search-result-item p {
+    font-size: 0.9rem;
+    color: #64748b;
+    /* Clips text preview to 2 lines máximo */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
