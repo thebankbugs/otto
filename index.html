@@ -1,1 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>EduDocs App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <!-- ========================================================== -->
+    <!-- FOUNDATION BLOCK 1: ENTRY SCREEN (Visible first)           -->
+    <!-- ========================================================== -->
+    <div id="auth-screen-layer" class="app-screen-layer active-layer">
+        <div class="auth-card">
+            <h2>Welcome to EduDocs</h2>
+            <p>Select your learning path to begin</p>
+            
+            <!-- Option A: Beginners go to free resources -->
+            <button id="btn-free-beginner" class="auth-btn free-btn">Explore Free Content ✨</button>
+            
+            <div class="auth-divider">OR</div>
+            
+            <!-- Option B: Registered users login -->
+            <form id="auth-login-form">
+                <input type="email" placeholder="Email Address" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" class="auth-btn login-btn">Sign In Securely 🔑</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========================================================== -->
+    <!-- FOUNDATION BLOCK 2: THE PERMANENT WORKSPACE (Hidden)       -->
+    <!-- ========================================================== -->
+    <div id="app-workspace-shell" class="app-screen-layer">
+        <!-- 
+           Your locked header, permanent search bar, sliding menu, 
+           middle content window, and bottom navigation will be pasted 
+           directly in here later. For now, leave it empty to test.
+        -->
+        <div style="padding: 24px; text-align: center;">
+            <h2>🎉 Inside Locked Workspace Shell Frame!</h2>
+            <p>You have successfully bypassed the login wall.</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
