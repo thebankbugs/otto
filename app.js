@@ -1,4 +1,13 @@
 // ==========================================================================
+// 1. SUPABASE SECURE CLIENT INITIALIZATION
+// ==========================================================================
+const SUPABASE_URL = "https://supabase.co"; // Replace with your real URL
+const SUPABASE_ANON_KEY = "your-anon-public-key";sb_secret_gZTMZ5FEqt6EEke84JCa0g_7yUYwNP3           // Replace with your real anon key
+
+const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+
+// ==========================================================================
 // 1. DYNAMIC INTERNAL CONTENT DATABASE (With Protection Tier Markers)
 // ==========================================================================
 const courseContentDatabase = [
@@ -35,25 +44,28 @@ const menuOpenBtn = document.getElementById('menu-open-btn');
 const menuCloseBtn = document.getElementById('menu-close-btn');
 
 // ==========================================================================
-// 3. MAIN SCREEN ENTRY & EXIT ROUTING ACTIONS
+// 3. SECURE AUTHENTICATION SCREEN ENTRY & EXIT ROUTING ACTIONS
 // ==========================================================================
 function enterAppWorkspace(role) {
-    currentUserRole = role; // Set the global safety barrier
+    currentUserRole = role; // "free" or "premium"
     authScreenLayer.classList.remove('active-layer');
     appWorkspaceShell.classList.add('active-layer');
     
-    // Auto-adjust header branding to reflect membership state
     const brandingTitle = document.querySelector('.app-branding-title');
     if (currentUserRole === "premium") {
-        brandingTitle.innerHTML = 'TheBankBugs <span style="color:#eab308; font-size:0.75rem; vertical-align:middle;">⚡ PRO</span>';
+        brandingTitle.innerHTML = 'EduDocs <span style="color:#eab308; font-size:0.75rem; vertical-align:middle;">⚡ PRO</span>';
     } else {
-        brandingTitle.innerHTML = 'TheBankBugs <span style="color:#64748b; font-size:0.75rem; vertical-align:middle;">🌱 FREE</span>';
+        brandingTitle.innerHTML = 'EduDocs <span style="color:#64748b; font-size:0.75rem; vertical-align:middle;">🌱 FREE</span>';
     }
     
     resetToInitialView();
 }
 
-function logoutAndExitApp() {
+// Global Sign Out System Handler
+async function logoutAndExitApp() {
+    // Gracefully terminate active session token logs inside Supabase server engine
+    await supabase.auth.signOut();
+
     appWorkspaceShell.classList.remove('active-layer');
     authScreenLayer.classList.add('active-layer');
     authLoginForm.reset(); 
@@ -61,8 +73,45 @@ function logoutAndExitApp() {
     resetToInitialView();
 }
 
-btnFreeBeginner.addEventListener('click', () => enterAppWorkspace("free"));
-authLoginForm.addEventListener('submit', (e) => { e.preventDefault(); enterAppWorkspace("premium"); });
+// Path A: Free Beginner Path continues to bypass login gate instantly
+btnFreeBeginner.addEventListener('click', () => {
+    enterAppWorkspace("free");
+});
+
+// Path B: Real Premium Authentication Form Processor
+authLoginForm.addEventListener('submit', async (e) => {
+    e.preventDefault(); // Stop page reload behavior
+    
+    const emailField = document.getElementById('login-email').value;
+    const passwordField = document.getElementById('login-password').value;
+    const submitButton = authLoginForm.querySelector('button[type="submit"]');
+
+    // Visual loading state updates
+    submitButton.textContent = "Verifying Secure Access...";
+    submitButton.disabled = true;
+
+    // Execute live secure database checking routine
+    const { data, error } = await supabase.auth.signInWithPassword({
+        email: emailField,
+        password: passwordField,
+    });
+
+    if (error) {
+        // Halt entry sequence if username credentials are completely invalid
+        alert("🔒 Access Denied: " + error.message);
+        submitButton.textContent = "Sign In Securely 🔑";
+        submitButton.disabled = false;
+        return;
+    }
+
+    // Success! Route verified user straight into private premium tracking widgets
+    console.log("Successfully logged in user ID: ", data.user.id);
+    submitButton.textContent = "Sign In Securely 🔑";
+    submitButton.disabled = false;
+    
+    enterAppWorkspace("premium");
+});
+
 headerLogoutBtn.addEventListener('click', logoutAndExitApp);
 
 // ==========================================================================
