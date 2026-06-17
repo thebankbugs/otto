@@ -1,3 +1,21 @@
+/* 1. CENTRAL COLOR CONTROL SYSTEM */
+:root {
+    /* Main Background Colors */
+    --bg-app: #080808;          /* Main page background color */
+    --bg-card: #353839;         /* Background color for cards, header, and sidebar */
+    
+    /* Font/Text Colors */
+    --text-main: #0f172a;       /* Primary bold headers and titles text color */
+    --text-muted: #64748b;      /* Smaller, lighter paragraph description text color */
+    
+    /* Branding Accent Colors */
+    --accent-blue: #00ff00;     /* Primary button and active tab highlight color */
+    --accent-free: #10b981;     /* Free tier branding color */
+    --accent-pro: #eab308;      /* Pro member branding color */
+    --danger-red: #ef4444;      /* Logout and delete text color */
+}
+
+
 /* Core Structural Reset Matrix */
 * {
     box-sizing: border-box;
