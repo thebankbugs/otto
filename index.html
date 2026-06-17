@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>EduDocs App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>EduDocs Workspace</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,33 +16,91 @@
             <h2>Welcome to EduDocs</h2>
             <p>Select your learning path to begin</p>
             
-            <!-- Option A: Beginners go to free resources -->
             <button id="btn-free-beginner" class="auth-btn free-btn">Explore Free Content ✨</button>
             
             <div class="auth-divider">OR</div>
             
-            <!-- Option B: Registered users login -->
             <form id="auth-login-form">
-                <input type="email" placeholder="Email Address" required>
-                <input type="password" placeholder="Password" required>
+                <input type="email" id="login-email" placeholder="Email Address" required>
+                <input type="password" id="login-password" placeholder="Password" required>
                 <button type="submit" class="auth-btn login-btn">Sign In Securely 🔑</button>
             </form>
         </div>
     </div>
 
     <!-- ========================================================== -->
-    <!-- FOUNDATION BLOCK 2: THE PERMANENT WORKSPACE (Hidden)       -->
+    <!-- FOUNDATION BLOCK 2: THE PERMANENT LOCKED WORKSPACE FRAMES  -->
     <!-- ========================================================== -->
     <div id="app-workspace-shell" class="app-screen-layer">
-        <!-- 
-           Your locked header, permanent search bar, sliding menu, 
-           middle content window, and bottom navigation will be pasted 
-           directly in here later. For now, leave it empty to test.
-        -->
-        <div style="padding: 24px; text-align: center;">
-            <h2>🎉 Inside Locked Workspace Shell Frame!</h2>
-            <p>You have successfully bypassed the login wall.</p>
+        
+        <!-- A. LOCKED TOP HEADER BAR & INTERNAL SEARCH -->
+        <header class="app-header">
+            <div class="header-top-row">
+                <div class="header-left-side">
+                    <button id="menu-open-btn" class="icon-btn">☰</button>
+                    <h1 class="app-branding-title">EduDocs</h1>
+                </div>
+                <!-- New Log-out Action Button Trigger -->
+                <button id="header-logout-btn" class="header-logout-trigger">🚪 Out</button>
+            </div>
+            <div class="search-wrapper">
+                <input type="text" id="internal-search-input" placeholder="Quick search internal content...">
+            </div>
+        </header>
+
+        <!-- B. CENTRAL WORKSPACE INTERIOR LAYOUT ZONE -->
+        <div class="middle-workspace-pane">
+            
+            <!-- Dark Dimming Backdrop Layer -->
+            <div id="sidebar-backdrop" class="menu-backdrop-overlay"></div>
+            
+            <!-- HIDDEN SLIDING LEFT SIDEBAR MENU -->
+            <nav id="sliding-left-menu" class="navigation-sidebar">
+                <div class="sidebar-meta-header">
+                    <h2>Course Syllabus</h2>
+                    <button id="menu-close-btn" class="icon-btn">✕</button>
+                </div>
+                <button class="syllabus-tab active" data-target="box-intro">Section 1: App Introduction</button>
+                <button class="syllabus-tab" data-target="box-html">Section 2: HTML Foundations</button>
+                <button class="syllabus-tab" data-target="box-css">Section 3: Structural CSS</button>
+            </nav>
+
+            <!-- PERMANENT MIDDLE TEXT READING DISPLAY WINDOW -->
+            <main class="central-content-canvas">
+                
+                <!-- Inner Box Module 1: Intro -->
+                <div id="box-intro" class="interior-content-box active-box">
+                    <h2>Welcome to the App Platform</h2>
+                    <p>This middle reading zone handles your core learning materials. Tap the top hamburger menu icon to reveal your courses sidebar menu.</p>
+                </div>
+
+                <!-- Inner Box Module 2: HTML -->
+                <div id="box-html" class="interior-content-box">
+                    <h2>Section 2: HTML Structural Layouts</h2>
+                    <p>The layout frame code container wraps everything perfectly.</p>
+                </div>
+
+                <!-- Inner Box Module 3: CSS -->
+                <div id="box-css" class="interior-content-box">
+                    <h2>Section 3: Structural CSS Engineering</h2>
+                    <p>CSS layout modules freeze the screen viewports entirely.</p>
+                </div>
+
+                <!-- Inner Box Module 4: Saves -->
+                <div id="box-saves" class="interior-content-box">
+                    <h2>Your Saved Bookmarks</h2>
+                    <p>Articles or lessons you choose to bookmark will display neatly inside this saved container slot.</p>
+                </div>
+
+            </main>
         </div>
+
+        <!-- C. LOCKED PERMANENT BOTTOM TAB NAVIGATION BAR -->
+        <nav class="permanent-bottom-tab-bar">
+            <button class="bottom-nav-item active" data-target="box-intro">🏠<span>Home</span></button>
+            <button class="bottom-nav-item" data-target="box-saves">🔖<span>Saves</span></button>
+        </nav>
+
     </div>
 
     <script src="app.js"></script>
