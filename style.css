@@ -11,7 +11,7 @@ body, html {
     height: 100%;
     overflow: hidden; /* Locks the total browser viewport completely */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background-color: #080808;
+    background-color: #f8f9fa;
 }
 
 /* ────────── THE TOP LEVEL LAYER TRICK ────────── */
