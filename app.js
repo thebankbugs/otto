@@ -1,4 +1,14 @@
 // ==========================================================================
+// 1. MANUAL USER ACCOUNT DIRECTORY (No external databases)
+// ==========================================================================
+const premiumUserDirectory = [
+    { email: "admin@trading.com", password: "tradeking2026" },
+    { email: "trader1", password: "vipaccess2026" },
+    { email: "member2@docs.com", password: "mypassword99" }
+    // You can manually drop new premium user combinations right here!
+];
+
+// ==========================================================================
 // 1. DYNAMIC INTERNAL CONTENT DATABASE (With Protection Tier Markers)
 // ==========================================================================
 const courseContentDatabase = [
@@ -35,19 +45,19 @@ const menuOpenBtn = document.getElementById('menu-open-btn');
 const menuCloseBtn = document.getElementById('menu-close-btn');
 
 // ==========================================================================
-// 3. MAIN SCREEN ENTRY & EXIT ROUTING ACTIONS
+// 3. SECURE AUTHENTICATION SCREEN ENTRY & EXIT ROUTING ACTIONS
 // ==========================================================================
 function enterAppWorkspace(role) {
-    currentUserRole = role; // Set the global safety barrier
+    currentUserRole = role; // "free" or "premium"
     authScreenLayer.classList.remove('active-layer');
     appWorkspaceShell.classList.add('active-layer');
     
-    // Auto-adjust header branding to reflect membership state
+    // Auto-adjust header branding to reflect membership state safely
     const brandingTitle = document.querySelector('.app-branding-title');
     if (currentUserRole === "premium") {
-        brandingTitle.innerHTML = 'TheBankBugs <span style="color:#eab308; font-size:0.75rem; vertical-align:middle;">⚡ PRO</span>';
+        brandingTitle.innerHTML = 'EduDocs <span style="color:#eab308; font-size:0.75rem; vertical-align:middle;">⚡ PRO</span>';
     } else {
-        brandingTitle.innerHTML = 'TheBankBugs <span style="color:#64748b; font-size:0.75rem; vertical-align:middle;">🌱 FREE</span>';
+        brandingTitle.innerHTML = 'EduDocs <span style="color:#64748b; font-size:0.75rem; vertical-align:middle;">🌱 FREE</span>';
     }
     
     resetToInitialView();
@@ -56,13 +66,46 @@ function enterAppWorkspace(role) {
 function logoutAndExitApp() {
     appWorkspaceShell.classList.remove('active-layer');
     authScreenLayer.classList.add('active-layer');
-    authLoginForm.reset(); 
+    authLoginForm.reset(); // Safely clear old input fields
     internalSearchInput.value = "";
     resetToInitialView();
 }
 
-btnFreeBeginner.addEventListener('click', () => enterAppWorkspace("free"));
-authLoginForm.addEventListener('submit', (e) => { e.preventDefault(); enterAppWorkspace("premium"); });
+// ──────────────────────────────────────────────────────────
+// PATH A: THE FREE BEGINNER PATH (No Username/Password Needed)
+// ──────────────────────────────────────────────────────────
+btnFreeBeginner.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    
+    console.log("Free beginner path triggered. Bypassing login credentials entirely.");
+    enterAppWorkspace("free"); // Grant quick access to free content sections only
+});
+
+// ──────────────────────────────────────────────────────────
+// PATH B: THE PREMIUM FORM AUTH PROCESSOR
+// ──────────────────────────────────────────────────────────
+authLoginForm.addEventListener('submit', (e) => {
+    e.preventDefault(); // Stop the form from submitting and refreshing the page
+    
+    const emailField = document.getElementById('login-email').value.trim();
+    const passwordField = document.getElementById('login-password').value;
+
+    // Scan your hardcoded directory array list for matches
+    const accountMatch = premiumUserDirectory.find(user => 
+        user.email.toLowerCase() === emailField.toLowerCase() && 
+        user.password === passwordField
+    );
+
+    if (accountMatch) {
+        // Success match! 
+        console.log("Manual verification passed. Access Granted.");
+        enterAppWorkspace("premium"); // Unlocks your private trading data infrastructure tabs
+    } else {
+        // Access Denied path
+        alert("🔒 Access Denied: Incorrect premium account name or password keys. Please try again.");
+    }
+});
+
 headerLogoutBtn.addEventListener('click', logoutAndExitApp);
 
 
