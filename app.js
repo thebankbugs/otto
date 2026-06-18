@@ -54,16 +54,17 @@ function enterAppWorkspace(role) {
     authScreenLayer.classList.remove('active-layer');
     appWorkspaceShell.classList.add('active-layer');
     
-    // Auto-adjust header branding to reflect membership state safely
     const brandingTitle = document.querySelector('.app-branding-title');
     if (currentUserRole === "premium") {
-        brandingTitle.innerHTML = 'TheBankBugs <span style="color:#eab308; font-size:0.75rem; vertical-align:middle;">⚡ PRO</span>';
+        // Neon-styled high contrast brand tracker
+        brandingTitle.innerHTML = 'TheBankBugs <span style="color:#00ff00; font-size:0.75rem; font-weight:900; vertical-align:middle; letter-spacing:0.5px;">⚡ PRO</span>';
     } else {
-        brandingTitle.innerHTML = 'TheBankBugs <span style="color:#64748b; font-size:0.75rem; vertical-align:middle;">🌱 FREE</span>';
+        brandingTitle.innerHTML = 'TheBankBugs <span style="color:#929ba2; font-size:0.75rem; font-weight:900; vertical-align:middle; letter-spacing:0.5px;">🌱 FREE</span>';
     }
     
     resetToInitialView();
 }
+
 
 function logoutAndExitApp() {
     appWorkspaceShell.classList.remove('active-layer');
