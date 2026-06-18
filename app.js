@@ -1,7 +1,7 @@
 // ==========================================================================
 // 1. SUPABASE CONNECTION PARAMETERS
 // ==========================================================================
-const SUPABASE_URL = "https://supabase.co"; // Replace with your real URL
+const SUPABASE_URL = "https://lvisbaqirhlqlokektkt.supabase.co/rest/v1/"; // Replace with your real URL
 const SUPABASE_ANON_KEY = "your-anon-public-key";sb_publishable_5ejm_qnarDXItOsIJaIn9g_UVVw7-16          // Replace with your real anon key
 
 const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
