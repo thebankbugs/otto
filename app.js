@@ -5,7 +5,9 @@ const premiumUserDirectory = [
     { email: "admin@trading.com", password: "tradeking2026" },
     { email: "trader1", password: "vipaccess2026" },
     { email: "member2@docs.com", password: "mypassword99" }
+    { email: "member2@doc.com", password: "mypassword9" }
     // You can manually drop new premium user combinations right here!
+    
 ];
 
 // ==========================================================================
@@ -55,9 +57,9 @@ function enterAppWorkspace(role) {
     // Auto-adjust header branding to reflect membership state safely
     const brandingTitle = document.querySelector('.app-branding-title');
     if (currentUserRole === "premium") {
-        brandingTitle.innerHTML = 'EduDocs <span style="color:#eab308; font-size:0.75rem; vertical-align:middle;">⚡ PRO</span>';
+        brandingTitle.innerHTML = 'TheBankBugs <span style="color:#eab308; font-size:0.75rem; vertical-align:middle;">⚡ PRO</span>';
     } else {
-        brandingTitle.innerHTML = 'EduDocs <span style="color:#64748b; font-size:0.75rem; vertical-align:middle;">🌱 FREE</span>';
+        brandingTitle.innerHTML = 'TheBankBugs <span style="color:#64748b; font-size:0.75rem; vertical-align:middle;">🌱 FREE</span>';
     }
     
     resetToInitialView();
