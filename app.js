@@ -5,9 +5,7 @@ const premiumUserDirectory = [
     { email: "admin@trading.com", password: "tradeking2026" },
     { email: "trader1", password: "vipaccess2026" },
     { email: "member2@docs.com", password: "mypassword99" }
-    { email: "member2@doc.com", password: "mypassword9" }
     // You can manually drop new premium user combinations right here!
-    
 ];
 
 // ==========================================================================
