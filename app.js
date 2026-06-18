@@ -1,4 +1,13 @@
 // ==========================================================================
+// 1. SUPABASE CONNECTION PARAMETERS
+// ==========================================================================
+const SUPABASE_URL = "https://supabase.co"; // Replace with your real URL
+const SUPABASE_ANON_KEY = "your-anon-public-key"; sb_secret_gZTMZ5FEqt6EEke84JCa0g_7yUYwNP3          // Replace with your real anon key
+
+const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+
+// ==========================================================================
 // 1. DYNAMIC INTERNAL CONTENT DATABASE (With Protection Tier Markers)
 // ==========================================================================
 const courseContentDatabase = [
@@ -35,25 +44,34 @@ const menuOpenBtn = document.getElementById('menu-open-btn');
 const menuCloseBtn = document.getElementById('menu-close-btn');
 
 // ==========================================================================
-// 3. MAIN SCREEN ENTRY & EXIT ROUTING ACTIONS
+// 3. SECURE AUTHENTICATION SCREEN ENTRY & EXIT ROUTING ACTIONS
 // ==========================================================================
 function enterAppWorkspace(role) {
-    currentUserRole = role; // Set the global safety barrier
+    currentUserRole = role; // Sets the global barrier to "free" or "premium"
     authScreenLayer.classList.remove('active-layer');
     appWorkspaceShell.classList.add('active-layer');
     
-    // Auto-adjust header branding to reflect membership state
+    // Auto-adjust header branding to reflect membership state safely
     const brandingTitle = document.querySelector('.app-branding-title');
     if (currentUserRole === "premium") {
-        brandingTitle.innerHTML = 'TheBankBugs <span style="color:#eab308; font-size:0.75rem; vertical-align:middle;">⚡ PRO</span>';
+        brandingTitle.innerHTML = 'EduDocs <span style="color:#eab308; font-size:0.75rem; vertical-align:middle;">⚡ PRO</span>';
     } else {
-        brandingTitle.innerHTML = 'TheBankBugs <span style="color:#64748b; font-size:0.75rem; vertical-align:middle;">🌱 FREE</span>';
+        brandingTitle.innerHTML = 'EduDocs <span style="color:#64748b; font-size:0.75rem; vertical-align:middle;">🌱 FREE</span>';
     }
     
     resetToInitialView();
 }
 
-function logoutAndExitApp() {
+async function logoutAndExitApp() {
+    // Only call the database signout if the user entered via premium auth
+    if (currentUserRole === "premium") {
+        try {
+            await supabase.auth.signOut();
+        } catch (err) {
+            console.log("Local session cleared.");
+        }
+    }
+
     appWorkspaceShell.classList.remove('active-layer');
     authScreenLayer.classList.add('active-layer');
     authLoginForm.reset(); 
@@ -61,8 +79,61 @@ function logoutAndExitApp() {
     resetToInitialView();
 }
 
-btnFreeBeginner.addEventListener('click', () => enterAppWorkspace("free"));
-authLoginForm.addEventListener('submit', (e) => { e.preventDefault(); enterAppWorkspace("premium"); });
+// ──────────────────────────────────────────────────────────
+// PATH A: THE FREE BEGINNER TRIGGER
+// ──────────────────────────────────────────────────────────
+// This uses a simple CLICK handler. It never looks at or touches Supabase code!
+btnFreeBeginner.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    
+    console.log("Bypassing database checks: Route straight to Free mode.");
+    enterAppWorkspace("free"); 
+});
+
+// ──────────────────────────────────────────────────────────
+// PATH B: THE PREMIUM FORM AUTH PROCESSOR
+// ──────────────────────────────────────────────────────────
+// This uses a SUBMIT form handler. It runs the asynchronous secure password check.
+authLoginForm.addEventListener('submit', async (e) => {
+    e.preventDefault(); // Stop the form from submitting and refreshing the webpage
+    
+    const emailField = document.getElementById('login-email').value;
+    const passwordField = document.getElementById('login-password').value;
+    const submitButton = authLoginForm.querySelector('button[type="submit"]');
+
+    // Freeze the button text so the user doesn't multi-tap while waiting
+    submitButton.textContent = "Verifying Access Key...";
+    submitButton.disabled = true;
+
+    try {
+        // Query your Supabase Auth directory for matches
+        const { data, error } = await supabase.auth.signInWithPassword({
+            email: emailField,
+            password: passwordField,
+        });
+
+        if (error) {
+            alert("🔒 Authentication Failed: " + error.message);
+            submitButton.textContent = "Sign In Securely 🔑";
+            submitButton.disabled = false;
+            return; // Exit function safely, leaving everything else unlocked
+        }
+
+        // Credentials matched! Unfreeze user entry into the premium workspace
+        console.log("Access Granted to Premium ID: ", data.user.id);
+        submitButton.textContent = "Sign In Securely 🔑";
+        submitButton.disabled = false;
+        
+        enterAppWorkspace("premium");
+
+    } catch (err) {
+        console.error("Auth System Error:", err);
+        alert("Server communication error. Please try again.");
+        submitButton.textContent = "Sign In Securely 🔑";
+        submitButton.disabled = false;
+    }
+});
+
 headerLogoutBtn.addEventListener('click', logoutAndExitApp);
 
 
