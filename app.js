@@ -2,7 +2,7 @@
 // 1. SUPABASE CONNECTION PARAMETERS
 // ==========================================================================
 const SUPABASE_URL = "https://lvisbaqirhlqlokektkt.supabase.co/rest/v1/"; // Replace with your real URL
-const SUPABASE_ANON_KEY = "your-anon-public-key";sb_publishable_5ejm_qnarDXItOsIJaIn9g_UVVw7-16          // Replace with your real anon key
+const SUPABASE_ANON_KEY = "your-anon-public-key"; sb_publishable_5ejm_qnarDXItOsIJaIn9g_UVVw7-16          // Replace with your real anon key
 
 const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
@@ -54,9 +54,9 @@ function enterAppWorkspace(role) {
     // Auto-adjust header branding to reflect membership state safely
     const brandingTitle = document.querySelector('.app-branding-title');
     if (currentUserRole === "premium") {
-        brandingTitle.innerHTML = 'EduDocs <span style="color:#eab308; font-size:0.75rem; vertical-align:middle;">⚡ PRO</span>';
+        brandingTitle.innerHTML = 'TheBankBugs <span style="color:#eab308; font-size:0.75rem; vertical-align:middle;">⚡ PRO</span>';
     } else {
-        brandingTitle.innerHTML = 'EduDocs <span style="color:#64748b; font-size:0.75rem; vertical-align:middle;">🌱 FREE</span>';
+        brandingTitle.innerHTML = 'TheBankBugs <span style="color:#64748b; font-size:0.75rem; vertical-align:middle;">🌱 FREE</span>';
     }
     
     resetToInitialView();
