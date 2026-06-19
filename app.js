@@ -44,11 +44,18 @@ const sidebarBackdrop = document.getElementById('sidebar-backdrop');
 const menuOpenBtn = document.getElementById('menu-open-btn');
 const menuCloseBtn = document.getElementById('menu-close-btn');
 
+// CRITICAL FIX: Globally declare the nav layout triggers so the router loop functions perfectly
+const navTriggers = document.querySelectorAll('.nav-trigger');
+
 // ==========================================================================
 // 4. SECURE AUTHENTICATION SCREEN ENTRY & EXIT ROUTING ACTIONS
 // ==========================================================================
 function enterAppWorkspace(role) {
     currentUserRole = role; 
+    
+    // PERSISTENCE STORAGE MATRIX: Save role choice securely in browser memory
+    localStorage.setItem('bankbugs_session_role', role);
+    
     authScreenLayer.classList.remove('active-layer');
     appWorkspaceShell.classList.add('active-layer');
     
@@ -64,6 +71,10 @@ function enterAppWorkspace(role) {
 }
 
 function logoutAndExitApp() {
+    // PURGE DATA MATRIX: Wipe out stored session parameters on explicit logout
+    localStorage.removeItem('bankbugs_session_role');
+    
+    currentUserRole = "free"; 
     appWorkspaceShell.classList.remove('active-layer');
     authScreenLayer.classList.add('active-layer');
     if (authLoginForm) authLoginForm.reset(); 
@@ -71,39 +82,54 @@ function logoutAndExitApp() {
     resetToInitialView();
 }
 
+// AUTOMATED SESSION RESTORATION CHECKER (Fires on page initialization)
+function checkExistingUserSession() {
+    const savedUserRole = localStorage.getItem('bankbugs_session_role');
+    
+    if (savedUserRole === "premium" || savedUserRole === "free") {
+        console.log(`Restoring automated persistent app session parameters for tier: ${savedUserRole}`);
+        enterAppWorkspace(savedUserRole);
+    } else {
+        console.log("No persistent user session found in memory.");
+    }
+}
+
 // PATH A: THE FREE BEGINNER PATH
-btnFreeBeginner.addEventListener('click', (e) => {
-    e.preventDefault(); 
-    enterAppWorkspace("free");
-});
+if (btnFreeBeginner) {
+    btnFreeBeginner.addEventListener('click', (e) => {
+        e.preventDefault(); 
+        enterAppWorkspace("free");
+    });
+}
 
 // PATH B: THE PREMIUM FORM AUTH PROCESSOR
-authLoginForm.addEventListener('submit', (e) => {
-    e.preventDefault(); 
-    
-    const emailField = document.getElementById('login-email').value.trim();
-    const passwordField = document.getElementById('login-password').value;
+if (authLoginForm) {
+    authLoginForm.addEventListener('submit', (e) => {
+        e.preventDefault(); 
+        
+        const emailField = document.getElementById('login-email').value.trim();
+        const passwordField = document.getElementById('login-password').value;
 
-    const accountMatch = premiumUserDirectory.find(user => 
-        user.email.toLowerCase() === emailField.toLowerCase() && 
-        user.password === passwordField
-    );
+        const accountMatch = premiumUserDirectory.find(user => 
+            user.email.toLowerCase() === emailField.toLowerCase() && 
+            user.password === passwordField
+        );
 
-    if (accountMatch) {
-        enterAppWorkspace("premium"); 
-    } else {
-        alert("🔒 Access Denied: Incorrect premium account name or password keys. Please try again.");
-    }
-});
+        if (accountMatch) {
+            enterAppWorkspace("premium"); 
+        } else {
+            alert("🔒 Access Denied: Incorrect premium account name or password keys. Please try again.");
+        }
+    });
+}
 
-headerLogoutBtn.addEventListener('click', logoutAndExitApp);
+if (headerLogoutBtn) headerLogoutBtn.addEventListener('click', logoutAndExitApp);
 if (lockwallReturnBtn) lockwallReturnBtn.addEventListener('click', logoutAndExitApp);
+
 
 // ==========================================================================
 // 5. NAV ROUTER WITH GATEKEEPER LOCK INTERCEPTOR
 // ==========================================================================
-const navTriggers = document.querySelectorAll('.nav-trigger');
-
 navTriggers.forEach(trigger => {
     trigger.addEventListener('click', () => {
         const targetId = trigger.getAttribute('data-target');
@@ -134,44 +160,46 @@ navTriggers.forEach(trigger => {
 function openSidebar() { slidingLeftMenu.classList.add('open'); sidebarBackdrop.classList.add('open'); }
 function closeSidebar() { slidingLeftMenu.classList.remove('open'); sidebarBackdrop.classList.remove('open'); }
 
-menuOpenBtn.addEventListener('click', openSidebar);
-menuCloseBtn.addEventListener('click', closeSidebar);
-sidebarBackdrop.addEventListener('click', closeSidebar);
+if (menuOpenBtn) menuOpenBtn.addEventListener('click', openSidebar);
+if (menuCloseBtn) menuCloseBtn.addEventListener('click', closeSidebar);
+if (sidebarBackdrop) sidebarBackdrop.addEventListener('click', closeSidebar);
 
 // ==========================================================================
 // 7. LIVE GATEKEEPER SEARCH ROUTER
 // ==========================================================================
-internalSearchInput.addEventListener('input', (e) => {
-    const query = e.target.value.toLowerCase().trim();
+if (internalSearchInput) {
+    internalSearchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
 
-    if (query === "") { resetToInitialView(); return; }
+        if (query === "") { resetToInitialView(); return; }
 
-    const filteredMatches = courseContentDatabase.filter(item => {
-        const matchesQuery = item.title.toLowerCase().includes(query) || 
-                             item.snippet.toLowerCase().includes(query) ||
-                             item.label.toLowerCase().includes(query);
-        
-        if (currentUserRole === "free") {
-            return matchesQuery && item.tier === "free"; 
+        const filteredMatches = courseContentDatabase.filter(item => {
+            const matchesQuery = item.title.toLowerCase().includes(query) || 
+                                 item.snippet.toLowerCase().includes(query) ||
+                                 item.label.toLowerCase().includes(query);
+            
+            if (currentUserRole === "free") {
+                return matchesQuery && item.tier === "free"; 
+            }
+            return matchesQuery;
+        });
+
+        hideAllInteriorBoxes();
+        searchResultsOutput.classList.add('active-box');
+
+        if (filteredMatches.length === 0) {
+            searchResultsList.innerHTML = `<p style="color: #64748b; padding: 12px 0;">No matching results found.</p>`;
+        } else {
+            searchResultsList.innerHTML = filteredMatches.map(item => `
+                <div class="search-result-item" style="cursor:pointer; margin-bottom:12px; padding:10px; border-bottom:1px solid #f1f5f9;" onclick="handleSearchResultClick('${item.id}', '${item.tier}')">
+                    <span class="result-category" style="font-size:0.7rem; background:#e2e8f0; padding:2px 6px; border-radius:4px;">${item.category}</span>
+                    <h4 style="margin:4px 0 2px 0;">${item.title}</h4>
+                    <p style="font-size:0.85rem; color:#64748b; margin:0;">${item.snippet}</p>
+                </div>
+            `).join('');
         }
-        return matchesQuery;
     });
-
-    hideAllInteriorBoxes();
-    searchResultsOutput.classList.add('active-box');
-
-    if (filteredMatches.length === 0) {
-        searchResultsList.innerHTML = `<p style="color: #64748b; padding: 12px 0;">No matching results found.</p>`;
-    } else {
-        searchResultsList.innerHTML = filteredMatches.map(item => `
-            <div class="search-result-item" style="cursor:pointer; margin-bottom:12px; padding:10px; border-bottom:1px solid #f1f5f9;" onclick="handleSearchResultClick('${item.id}', '${item.tier}')">
-                <span class="result-category" style="font-size:0.7rem; background:#e2e8f0; padding:2px 6px; border-radius:4px;">${item.category}</span>
-                <h4 style="margin:4px 0 2px 0;">${item.title}</h4>
-                <p style="font-size:0.85rem; color:#64748b; margin:0;">${item.snippet}</p>
-            </div>
-        `).join('');
-    }
-});
+}
 
 // Click processor wrapper specifically for dynamic search elements
 window.handleSearchResultClick = function(targetId, targetTier) {
@@ -183,32 +211,51 @@ window.handleSearchResultClick = function(targetId, targetTier) {
 };
 
 // ==========================================================================
-// 8. INTERIOR INTERFACE VIEW SHIFTERS (DYNAMIC TRADINGVIEW FIXED RE-MOUNT)
+// 8. INTERIOR INTERFACE VIEW SHIFTERS (Helper Functions)
 // ==========================================================================
+function hideAllInteriorBoxes() {
+    const contentBoxes = document.querySelectorAll('.interior-content-box');
+    contentBoxes.forEach(box => box.classList.remove('active-box'));
+}
+
+function showContentBox(boxId) {
+    hideAllInteriorBoxes();
+    if (searchResultsOutput) searchResultsOutput.classList.remove('active-box');
+    
+    const targetBox = document.getElementById(boxId);
+    if (targetBox) {
+        targetBox.classList.add('active-box');
+        
+        // INTERCEPTOR: If opening the watchlist container, initialize TradingView dynamically
+        if (boxId === 'box-watchlist') {
+            loadLiveTradingViewWidget();
+        }
+    }
+}
+
+// DYNAMIC SCRIPT INJECTOR ENGINE: Fixed clean injection format
 function loadLiveTradingViewWidget() {
     const anchor = document.getElementById('tradingview-watchlist-anchor');
     if (!anchor) return;
 
-    // Safely purge any old, frozen frames or failed scripts before loading
     anchor.innerHTML = "";
 
     const widgetWrapper = document.createElement('div');
     widgetWrapper.className = 'tradingview-widget-container';
-    widgetWrapper.style.width = '90%';
-    widgetWrapper.style.height = '90%';
+    widgetWrapper.style.width = '100%';
+    widgetWrapper.style.height = '100%';
 
     const internalWidget = document.createElement('div');
     internalWidget.className = 'tradingview-widget-container__widget';
-    internalWidget.style.width = '90%';
-    internalWidget.style.height = '90%';
+    internalWidget.style.width = '100%';
+    internalWidget.style.height = '100%';
     widgetWrapper.appendChild(internalWidget);
 
     const tvScript = document.createElement('script');
     tvScript.type = 'text/javascript';
-    tvScript.src = 'https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js';
+    tvScript.src = 'https://tradingview.com';
     tvScript.async = true;
 
-    // Corrected, unrestricted institutional ticker combinations
     tvScript.innerHTML = JSON.stringify({
         "colorTheme": "dark",
         "dateRange": "12M",
@@ -246,6 +293,21 @@ function loadLiveTradingViewWidget() {
     anchor.appendChild(widgetWrapper);
 }
 
+function resetToInitialView() {
+    hideAllInteriorBoxes();
+    if (searchResultsOutput) searchResultsOutput.classList.remove('active-box');
+    
+    navTriggers.forEach(btn => {
+        if(btn.getAttribute('data-target') === 'box-intro') {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+
+    const introBox = document.getElementById('box-intro');
+    if (introBox) introBox.classList.add('active-box');
+}
 
 // ==========================================================================
 // 10. FAST BOTTOM TAB TERMINAL DATA REFRESH MATRIX
@@ -256,25 +318,17 @@ if (bottomBarRefreshBtn) {
     bottomBarRefreshBtn.addEventListener('click', () => {
         console.log("Terminal interface refresh cycle requested by user.");
         
-        // 1. Trigger the micro CSS rotation animation feedback on the icon
         bottomBarRefreshBtn.classList.add('spinning-loader-icon');
         setTimeout(() => {
             bottomBarRefreshBtn.classList.remove('spinning-loader-icon');
         }, 500);
 
-        // 2. Clear any cached search query elements to reset layout states
         if (internalSearchInput) internalSearchInput.value = "";
 
-        // 3. Dynamic Cache Buster Reload Interceptor
-        // If the user is currently viewing the Watchlist tab, reload TradingView widget data live
         const watchlistBox = document.getElementById('box-watchlist');
         if (watchlistBox && watchlistBox.classList.contains('active-box') && currentUserRole === "premium") {
-            console.log("Watchlist active. Reloading TradingView live feed instances...");
-            if (typeof loadLiveTradingViewWidget === "function") {
-                loadLiveTradingViewWidget();
-            }
+            loadLiveTradingViewWidget();
         } else {
-            // Fallback: If they are on a standard text module, run the clean container view shifter reset
             const activeBoxBeforeRefresh = document.querySelector('.interior-content-box.active-box');
             if (activeBoxBeforeRefresh) {
                 const currentActiveId = activeBoxBeforeRefresh.getAttribute('id');
@@ -283,3 +337,6 @@ if (bottomBarRefreshBtn) {
         }
     });
 }
+
+// INITIALIZATION BOOTSTRAP
+checkExistingUserSession();
