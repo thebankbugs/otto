@@ -59,12 +59,28 @@
         <h2>My Dashboard</h2>
         <button id="menu-close-btn" class="icon-btn">✕</button>
     </div>
-    <!-- Updated navigation link parameters -->
+    
+    <!-- Main Tabs -->
     <button class="nav-trigger syllabus-tab active" data-target="box-intro" data-tier="free">🏛️ Academy Overview</button>
-    <button class="nav-trigger syllabus-tab" data-target="box-beginner" data-tier="free">🌱 Beginner Starter-Kit</button>
+    
+    <!-- ACCORDION PARENT BUTTON -->
+    <div class="accordion-wrapper">
+        <button id="accordion-toggle-btn" class="syllabus-tab dropdown-trigger">🌱 Beginner Starter-Kit <span class="arrow-indicator">▼</span></button>
+        
+        <!-- SUB-NAVIGATION BUTTONS SUB-PANEL -->
+        <div id="beginner-sub-panel" class="sidebar-sub-panel">
+            <button class="nav-trigger sub-nav-link" data-target="box-m1" data-tier="free">🔹 1. Global Markets</button>
+            <button class="nav-trigger sub-nav-link" data-target="box-m2" data-tier="free">🔹 2. Candlesticks</button>
+            <button class="nav-trigger sub-nav-link" data-target="box-m3" data-tier="free">🔹 3. Platforms</button>
+            <button class="nav-trigger sub-nav-link" data-target="box-m4" data-tier="free">🔹 4. Risk & Pips</button>
+            <button class="nav-trigger sub-nav-link" data-target="box-m5" data-tier="free">🔹 5. Verification</button>
+        </div>
+    </div>
+    
     <button class="nav-trigger syllabus-tab" data-target="box-html" data-tier="free">Section 2: HTML Foundations</button>
     <button class="nav-trigger syllabus-tab" data-target="box-css" data-tier="free">Section 3: Structural CSS</button>
 </nav>
+
 
 
             <!-- PERMANENT MIDDLE TEXT READING DISPLAY WINDOW -->
