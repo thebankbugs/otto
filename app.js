@@ -183,53 +183,32 @@ window.handleSearchResultClick = function(targetId, targetTier) {
 };
 
 // ==========================================================================
-// 8. INTERIOR INTERFACE VIEW SHIFTERS (Helper Functions)
+// 8. INTERIOR INTERFACE VIEW SHIFTERS (DYNAMIC TRADINGVIEW FIXED RE-MOUNT)
 // ==========================================================================
-function hideAllInteriorBoxes() {
-    const contentBoxes = document.querySelectorAll('.interior-content-box');
-    contentBoxes.forEach(box => box.classList.remove('active-box'));
-}
-
-function showContentBox(boxId) {
-    hideAllInteriorBoxes();
-    if (searchResultsOutput) searchResultsOutput.classList.remove('active-box');
-    
-    const targetBox = document.getElementById(boxId);
-    if (targetBox) {
-        targetBox.classList.add('active-box');
-        
-        // INTERCEPTOR: If opening the watchlist container, initialize TradingView dynamically
-        if (boxId === 'box-watchlist') {
-            loadLiveTradingViewWidget();
-        }
-    }
-}
-
-// Dynamic Script Injector Engine updated with explicit IC Markets Broker Tickers
 function loadLiveTradingViewWidget() {
     const anchor = document.getElementById('tradingview-watchlist-anchor');
     if (!anchor) return;
 
-    // Safely purge any old, frozen frames before loading a new one
+    // Safely purge any old, frozen frames or failed scripts before loading
     anchor.innerHTML = "";
 
     const widgetWrapper = document.createElement('div');
     widgetWrapper.className = 'tradingview-widget-container';
-    widgetWrapper.style.width = '100%';
-    widgetWrapper.style.height = '100%';
+    widgetWrapper.style.width = '90%';
+    widgetWrapper.style.height = '90%';
 
     const internalWidget = document.createElement('div');
     internalWidget.className = 'tradingview-widget-container__widget';
-    internalWidget.style.width = '100%';
-    internalWidget.style.height = '100%';
+    internalWidget.style.width = '90%';
+    internalWidget.style.height = '90%';
     widgetWrapper.appendChild(internalWidget);
 
     const tvScript = document.createElement('script');
     tvScript.type = 'text/javascript';
-    tvScript.src = 'https://tradingview.com';
+    tvScript.src = 'https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js';
     tvScript.async = true;
 
-    // JSON payload mapped explicitly to pull institutional IC Markets CFD parameters
+    // Corrected, unrestricted institutional ticker combinations
     tvScript.innerHTML = JSON.stringify({
         "colorTheme": "dark",
         "dateRange": "12M",
@@ -243,21 +222,21 @@ function loadLiveTradingViewWidget() {
         "showFloatingTooltip": false,
         "tabs": [
             {
-                "title": "IC Indices & Metals",
+                "title": "Indices & Gold",
                 "symbols": [
-                    { "s": "ICMARKETS:USTEC", "d": "US100 (Nasdaq Cash)" },
-                    { "s": "ICMARKETS:US500", "d": "US500 (S&P Cash)" },
-                    { "s": "ICMARKETS:US30", "d": "US30 (Dow Jones)" },
-                    { "s": "ICMARKETS:XAUUSD", "d": "Gold / US Dollar" }
+                    { "s": "OANDA:NAS100USD", "d": "US100 (Nasdaq)" },
+                    { "s": "OANDA:SPX500USD", "d": "US500 (S&P 500)" },
+                    { "s": "OANDA:US30USD", "d": "US30 (Dow Jones)" },
+                    { "s": "OANDA:XAUUSD", "d": "Gold / US Dollar" }
                 ]
             },
             {
-                "title": "IC Forex Majors",
+                "title": "Forex Majors",
                 "symbols": [
-                    { "s": "ICMARKETS:EURUSD", "d": "EUR / USD (Raw)" },
-                    { "s": "ICMARKETS:GBPUSD", "d": "GBP / USD (Raw)" },
-                    { "s": "ICMARKETS:AUDUSD", "d": "AUD / USD (Raw)" },
-                    { "s": "ICMARKETS:USDJPY", "d": "USD / JPY (Raw)" }
+                    { "s": "FX_IDC:EURUSD", "d": "EUR / USD" },
+                    { "s": "FX_IDC:GBPUSD", "d": "GBP / USD" },
+                    { "s": "FX_IDC:AUDUSD", "d": "AUD / USD" },
+                    { "s": "FX_IDC:USDJPY", "d": "USD / JPY" }
                 ]
             }
         ]
@@ -266,6 +245,7 @@ function loadLiveTradingViewWidget() {
     widgetWrapper.appendChild(tvScript);
     anchor.appendChild(widgetWrapper);
 }
+
 
 
 function resetToInitialView() {
