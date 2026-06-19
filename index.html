@@ -90,11 +90,88 @@
                     <p>This middle reading zone handles your core learning materials. Tap the top hamburger menu icon to reveal your courses sidebar menu.</p>
                 </div>
 
-                <!-- 2. WATCHLIST WORKSPACE CONTAINER -->
-                <div id="box-watchlist" class="interior-content-box">
-                    <h2>Premium Watchlist Terminal</h2>
-                    <p>Real-time monitored asset pairs, volume profiles, and institutional order blocks.</p>
-                </div>
+<!-- 2. WATCHLIST WORKSPACE CONTAINER (Premium Verified Traders Matrix) -->
+<div id="box-watchlist" class="interior-content-box">
+    <div class="watchlist-header-block">
+        <h2>Premium Watchlist Terminal</h2>
+        <span class="live-pulse-indicator">● LIVE FEED</span>
+    </div>
+    <p class="watchlist-meta-subtitle">Institutional inefficiency zones and market profiles monitored real-time.</p>
+
+    <div class="watchlist-grid-canvas">
+        <!-- Asset Row: US100 -->
+        <div class="watchlist-row-cell" id="ticker-us100">
+            <div class="asset-profile">
+                <span class="asset-symbol-tag">US100</span>
+                <span class="asset-description-label">Nasdaq 100 Index</span>
+            </div>
+            <div class="asset-pricing-data">
+                <span class="asset-live-price">19,842.50</span>
+                <span class="asset-percentage-change up-trend">+1.42%</span>
+            </div>
+        </div>
+
+        <!-- Asset Row: US500 -->
+        <div class="watchlist-row-cell" id="ticker-us500">
+            <div class="asset-profile">
+                <span class="asset-symbol-tag">US500</span>
+                <span class="asset-description-label">S&P 500 Index</span>
+            </div>
+            <div class="asset-pricing-data">
+                <span class="asset-live-price">5,432.10</span>
+                <span class="asset-percentage-change up-trend">+0.88%</span>
+            </div>
+        </div>
+
+        <!-- Asset Row: US30 -->
+        <div class="watchlist-row-cell" id="ticker-us30">
+            <div class="asset-profile">
+                <span class="asset-symbol-tag">US30</span>
+                <span class="asset-description-label">Dow Jones Industrial</span>
+            </div>
+            <div class="asset-pricing-data">
+                <span class="asset-live-price">39,120.40</span>
+                <span class="asset-percentage-change down-trend">-0.15%</span>
+            </div>
+        </div>
+
+        <!-- Asset Row: Gold -->
+        <div class="watchlist-row-cell" id="ticker-xauusd">
+            <div class="asset-profile">
+                <span class="asset-symbol-tag">XAUUSD</span>
+                <span class="asset-description-label">Spot Gold / US Dollar</span>
+            </div>
+            <div class="asset-pricing-data">
+                <span class="asset-live-price">2,342.85</span>
+                <span class="asset-percentage-change up-trend">+2.10%</span>
+            </div>
+        </div>
+
+        <!-- Asset Row: EURUSD -->
+        <div class="watchlist-row-cell" id="ticker-eurusd">
+            <div class="asset-profile">
+                <span class="asset-symbol-tag">EURUSD</span>
+                <span class="asset-description-label">Euro / US Dollar</span>
+            </div>
+            <div class="asset-pricing-data">
+                <span class="asset-live-price">1.07425</span>
+                <span class="asset-percentage-change down-trend">-0.32%</span>
+            </div>
+        </div>
+
+        <!-- Asset Row: GBPUSD -->
+        <div class="watchlist-row-cell" id="ticker-gbpusd">
+            <div class="asset-profile">
+                <span class="asset-symbol-tag">GBPUSD</span>
+                <span class="asset-description-label">Pound / US Dollar</span>
+            </div>
+            <div class="asset-pricing-data">
+                <span class="asset-live-price">1.26840</span>
+                <span class="asset-percentage-change up-trend">+0.11%</span>
+            </div>
+        </div>
+    </div>
+</div>
 
                 <!-- 3. TRADES & CHART BREAK-DOWNS COMBINED FEED -->
                 <div id="box-trades" class="interior-content-box">
