@@ -3,7 +3,7 @@
    ========================================================================== */
 :root {
     /* Pure IC Markets Background Workspace Matrix */
-    --bg-app-dark: #0b0e11;       /* Deep matte black background canvas canvas */
+    --bg-app-dark: #0b0e11;       /* Deep matte black background canvas */
     --bg-panel-surface: #161a1e;  /* Deep metallic obsidian for cells, header, and tabs */
     --bg-card-element: #1e2329;   /* Inner block highlight container layers */
 
@@ -13,7 +13,7 @@
 
     /* High-Voltage Laser Brand Accents */
     --laser-lime-green: #00ff00;  /* Pure signature laser lime accent color parameter */
-    --lime-transparent: rgba(0, 255, 0, 0.1); /* Subtle glowing layout shadow rings */
+    --lime-transparent: rgba(0, 255, 0, 0.08); /* Subtle glowing layout shadow rings */
     --border-dim-gray: #2d333a;   /* Structural frame boundaries grid separator lines */
 }
 
@@ -58,8 +58,8 @@ body, html {
 
 .auth-card {
     background-color: var(--bg-panel-surface);
-    border: 1px solid var(--laser-lime-green); /* Sharp Laser Border Accents */
-    box-shadow: 0 0 20px var(--lime-transparent);
+    border: 1px solid var(--border-dim-gray);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
     padding: 36px 28px;
     border-radius: 16px;
     width: 100%;
@@ -196,8 +196,21 @@ body, html {
 .sidebar-meta-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
 .sidebar-meta-header h2 { font-size: 1rem; color: var(--text-muted-gray); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
 
-.syllabus-tab { width: 100%; text-align: left; padding: 14px; background: none; border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 600; color: var(--text-muted-gray); cursor: pointer; }
-.syllabus-tab.active {
+.sidebar-link, .syllabus-tab { 
+    width: 100%; 
+    text-align: left; 
+    padding: 14px; 
+    background: none; 
+    border: none; 
+    border-radius: 8px; 
+    font-size: 0.95rem; 
+    font-weight: 600; 
+    color: var(--text-muted-gray); 
+    cursor: pointer; 
+    text-decoration: none;
+    display: block;
+}
+.sidebar-link.active, .syllabus-tab.active {
     background-color: var(--lime-transparent);
     color: var(--laser-lime-green);
     border-left: 3px solid var(--laser-lime-green);
@@ -233,46 +246,34 @@ body, html {
 .icon-btn { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-pure-white); }
 .icon-btn:active { color: var(--laser-lime-green); }
 
-/* ────────── PRIVATE INFRASTRUCTURE WATCHLIST DESIGN ROWS ────────── */
-.watchlist-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-.live-pulse-indicator { font-size: 0.75rem; font-weight: 800; color: #000; background-color: var(--laser-lime-green); padding: 4px 10px; border-radius: 6px; letter-spacing: 0.5px; }
-.watchlist-table-container { display: flex; flex-direction: column; gap: 12px; }
+/* ────────── PRIVATE INFRASTRUCTURE ACCENTS & COMPONENTS ────────── */
 
-.watchlist-row-card {
-    background-color: var(--bg-panel-surface);
-    border: 1px solid var(--border-dim-gray);
-    border-radius: 12px;
-    padding: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Custom Clean Look for Premium Intercept Lock */
+#box-premium-lock > div {
+    background-color: var(--bg-panel-surface) !important;
+    border: 1px solid #ef4444 !important; /* Crimson alert border */
+    box-shadow: 0 8px 32px rgba(239, 68, 68, 0.05);
 }
-.watchlist-row-card:active { border-color: var(--laser-lime-green); background-color: var(--bg-card-element); }
-.asset-meta, .asset-data-metrics { display: flex; flex-direction: column; gap: 4px; }
-.asset-data-metrics { text-align: right; }
-.asset-pair-title { font-size: 1.1rem; font-weight: 700; color: var(--text-pure-white); }
-.asset-price-ticker { font-size: 1.1rem; font-weight: 700; color: var(--text-pure-white); font-family: monospace; }
+#box-premium-lock h2 {
+    color: var(--text-pure-white);
+}
 
-.asset-tag { font-size: 0.7rem; font-weight: 800; padding: 2px 6px; border-radius: 4px; width: max-content; text-transform: uppercase; }
-.crypto-tag { background-color: #1e242c; color: #3b82f6; }
-.forex-tag { background-color: #241e30; color: #8b5cf6; }
-.indices-tag { background-color: #2c231a; color: #f97316; }
-
-.asset-percentage { font-size: 0.85rem; font-weight: 700; }
-.text-bullish { color: var(--laser-lime-green); }
-.text-bearish { color: #ff3333; }
-
-/* ────────── LIVE CLIENT-SIDE ENGINE FILTER LISTS ────────── */
+/* Dynamic Live Gatekeeper Search Results Styling */
 .search-result-item {
     background-color: var(--bg-panel-surface);
-    border: 1px solid var(--border-dim-gray);
-    border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 12px;
-    cursor: pointer;
+    border: 1px solid var(--border-dim-gray) !important;
+    border-radius: 8px;
+    padding: 14px !important;
+    transition: transform 0.2s, border-color 0.2s;
 }
-.search-result-item:active { border-color: var(--laser-lime-green); }
-.search-result-item span { font-size: 0.75rem; color: var(--laser-lime-green); font-weight: 700; text-transform: uppercase; }
-.search-result-item h4 { font-size: 1.1rem; color: var(--text-pure-white); margin-top: 2px; margin-bottom: 4px; }
-.search-result-item p { font-size: 0.9rem; color: var(--text-muted-gray); }
-
+.search-result-item:active {
+    transform: scale(0.99);
+    border-color: var(--laser-lime-green) !important;
+}
+.result-category {
+    background-color: var(--bg-card-element) !important;
+    color: var(--laser-lime-green) !important;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
