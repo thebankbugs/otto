@@ -277,17 +277,12 @@ function loadLiveTradingViewWidget() {
                     "showFloatingTooltip": false,
                     "tabs": [
                         {
-                            "title": "Indices & Gold",
+                            "title": "Indices | Gold | Forex",
                             "symbols": [
                                 { "s": "OANDA:NAS100USD", "d": "US100 (Nasdaq)" },
                                 { "s": "OANDA:SPX500USD", "d": "US500 (S&P 500)" },
                                 { "s": "OANDA:US30USD", "d": "US30 (Dow Jones)" },
                                 { "s": "OANDA:XAUUSD", "d": "Gold / US Dollar" }
-                            ]
-                        },
-                        {
-                            "title": "Forex Majors",
-                            "symbols": [
                                 { "s": "FX_IDC:EURUSD", "d": "EUR / USD" },
                                 { "s": "FX_IDC:GBPUSD", "d": "GBP / USD" },
                                 { "s": "FX_IDC:AUDUSD", "d": "AUD / USD" },
