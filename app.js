@@ -233,12 +233,12 @@ function showContentBox(boxId) {
     }
 }
 
-// DYNAMIC IFRAME ENGINE: Consolidated single list layout under one primary header title
+// DYNAMIC IFRAME ENGINE: Bypasses browser injection errors to mount TradingView safely
 function loadLiveTradingViewWidget() {
     const anchor = document.getElementById('tradingview-watchlist-anchor');
     if (!anchor) return;
 
-    // 1. Purge any old instances before mounting a clean window frame
+    // 1. Purge any broken, frozen instances before mounting a clean window frame
     anchor.innerHTML = "";
 
     // 2. Formulate an isolated iframe container element to block styling leaks
@@ -277,12 +277,17 @@ function loadLiveTradingViewWidget() {
                     "showFloatingTooltip": false,
                     "tabs": [
                         {
-                            "title": "Indices | Gold | Forex",
+                            "title": "Indices & Gold",
                             "symbols": [
                                 { "s": "OANDA:NAS100USD", "d": "US100 (Nasdaq)" },
                                 { "s": "OANDA:SPX500USD", "d": "US500 (S&P 500)" },
                                 { "s": "OANDA:US30USD", "d": "US30 (Dow Jones)" },
-                                { "s": "OANDA:XAUUSD", "d": "Gold / US Dollar" },
+                                { "s": "OANDA:XAUUSD", "d": "Gold / US Dollar" }
+                            ]
+                        },
+                        {
+                            "title": "Forex Majors",
+                            "symbols": [
                                 { "s": "FX_IDC:EURUSD", "d": "EUR / USD" },
                                 { "s": "FX_IDC:GBPUSD", "d": "GBP / USD" },
                                 { "s": "FX_IDC:AUDUSD", "d": "AUD / USD" },
@@ -305,6 +310,7 @@ function loadLiveTradingViewWidget() {
     targetDoc.write(iframePayloadContent);
     targetDoc.close();
 }
+
 
 
 
