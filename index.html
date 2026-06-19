@@ -90,7 +90,7 @@
                     <p>This middle reading zone handles your core learning materials. Tap the top hamburger menu icon to reveal your courses sidebar menu.</p>
                 </div>
 
-<!-- 2. WATCHLIST WORKSPACE CONTAINER (Real TradingView Live Stream Target) -->
+<!-- 2. WATCHLIST WORKSPACE CONTAINER (Bulletproof Static Embed) -->
 <div id="box-watchlist" class="interior-content-box">
     <div class="watchlist-header-block">
         <h2>Premium Watchlist Terminal</h2>
@@ -98,8 +98,39 @@
     </div>
     <p class="watchlist-meta-subtitle" style="margin-bottom: 16px;">Real-time asset streaming analytics powered directly by TradingView institutional feeds.</p>
 
-    <!-- The container where JavaScript will safely mount the real widget -->
-    <div id="tradingview-watchlist-anchor" style="width: 100%; height: 500px;"></div>
+    <!-- TradingView Widget Container Begin -->
+    <div class="tradingview-widget-container" style="width: 100%; height: 450px; background: transparent;">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://tradingview.com" async>
+        {
+          "symbols": [
+            ["US100 (Nasdaq)", "OANDA:NAS100USD"],
+            ["US500 (S&P 500)", "OANDA:SPX500USD"],
+            ["US30 (Dow Jones)", "OANDA:US30USD"],
+            ["Gold / US Dollar", "OANDA:XAUUSD"],
+            ["EUR / USD", "FX_IDC:EURUSD"],
+            ["GBP / USD", "FX_IDC:GBPUSD"],
+            ["AUD / USD", "FX_IDC:AUDUSD"],
+            ["USD / JPY", "FX_IDC:USDJPY"]
+          ],
+          "chartOnly": false,
+          "width": "100%",
+          "height": "100%",
+          "locale": "en",
+          "colorTheme": "dark",
+          "gridLineColor": "rgba(42, 46, 57, 0)",
+          "scalePosition": "none",
+          "hasVolume": false,
+          "hasHeadline": false,
+          "hasTimeline": false,
+          "hasSymbolWatermark": false,
+          "volumeUpColor": "rgba(0, 150, 136, 0.3)",
+          "volumeDownColor": "rgba(242, 94, 94, 0.3)",
+          "title": "Indices | Gold | Forex"
+        }
+        </script>
+    </div>
+    <!-- TradingView Widget Container End -->
 </div>
 
 
