@@ -197,7 +197,76 @@ function showContentBox(boxId) {
     const targetBox = document.getElementById(boxId);
     if (targetBox) {
         targetBox.classList.add('active-box');
+        
+        // INTERCEPTOR: If opening the watchlist container, initialize TradingView dynamically
+        if (boxId === 'box-watchlist') {
+            loadLiveTradingViewWidget();
+        }
     }
+}
+
+// Dynamic Script Injector Engine to bypass 'display: none' rendering blockages
+function loadLiveTradingViewWidget() {
+    const anchor = document.getElementById('tradingview-watchlist-anchor');
+    if (!anchor) return;
+
+    // Safely purge any old, frozen frames before loading a new one
+    anchor.innerHTML = "";
+
+    // Reconstruct the official internal structural configuration elements
+    const widgetWrapper = document.createElement('div');
+    widgetWrapper.className = 'tradingview-widget-container';
+    widgetWrapper.style.width = '100%';
+    widgetWrapper.style.height = '100%';
+
+    const internalWidget = document.createElement('div');
+    internalWidget.className = 'tradingview-widget-container__widget';
+    internalWidget.style.width = '100%';
+    internalWidget.style.height = '100%';
+    widgetWrapper.appendChild(internalWidget);
+
+    // Create and configure the true TradingView payload script block
+    const tvScript = document.createElement('script');
+    tvScript.type = 'text/javascript';
+    tvScript.src = 'https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js';
+    tvScript.async = true;
+
+    // Stringify JSON data object layout for direct DOM initialization injection
+    tvScript.innerHTML = JSON.stringify({
+        "colorTheme": "dark",
+        "dateRange": "12M",
+        "showChart": false,
+        "locale": "en",
+        "width": "100%",
+        "height": "100%",
+        "largeChartUrl": "",
+        "isTransparent": true,
+        "showSymbolLogo": true,
+        "showFloatingTooltip": false,
+        "tabs": [
+            {
+                "title": "Indices & Metals",
+                "symbols": [
+                    { "s": "NASDAQ:NDX", "d": "US100 (Nasdaq)" },
+                    { "s": "SP:SPX", "d": "US500 (S&P 500)" },
+                    { "s": "DJ:DJI", "d": "US30 (Dow Jones)" },
+                    { "s": "OANDA:XAUUSD", "d": "Gold / USD" }
+                ]
+            },
+            {
+                "title": "Forex Majors",
+                "symbols": [
+                    { "s": "FX:EURUSD", "d": "EUR / USD" },
+                    { "s": "FX:GBPUSD", "d": "GBP / USD" },
+                    { "s": "FX:AUDUSD", "d": "AUD / USD" },
+                    { "s": "FX:USDJPY", "d": "USD / JPY" }
+                ]
+            }
+        ]
+    });
+
+    widgetWrapper.appendChild(tvScript);
+    anchor.appendChild(widgetWrapper);
 }
 
 function resetToInitialView() {
