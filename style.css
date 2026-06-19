@@ -283,7 +283,7 @@ body, html {
 
 /* Expanded Active State Modifiers */
 .sidebar-sub-panel.expanded {
-    max-height: 300px; /* Gives plenty of viewport scroll headroom */
+    max-height: 100%; /* Gives plenty of viewport scroll headroom */
     margin-top: 4px;
     margin-bottom: 8px;
 }
