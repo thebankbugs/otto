@@ -233,12 +233,12 @@ function showContentBox(boxId) {
     }
 }
 
-// DYNAMIC IFRAME ENGINE: Bypasses browser injection errors to mount TradingView safely
+// DYNAMIC IFRAME ENGINE: Consolidated single list layout under one primary header title
 function loadLiveTradingViewWidget() {
     const anchor = document.getElementById('tradingview-watchlist-anchor');
     if (!anchor) return;
 
-    // 1. Purge any broken, frozen instances before mounting a clean window frame
+    // 1. Purge any old instances before mounting a clean window frame
     anchor.innerHTML = "";
 
     // 2. Formulate an isolated iframe container element to block styling leaks
@@ -282,7 +282,7 @@ function loadLiveTradingViewWidget() {
                                 { "s": "OANDA:NAS100USD", "d": "US100 (Nasdaq)" },
                                 { "s": "OANDA:SPX500USD", "d": "US500 (S&P 500)" },
                                 { "s": "OANDA:US30USD", "d": "US30 (Dow Jones)" },
-                                { "s": "OANDA:XAUUSD", "d": "Gold / US Dollar" }
+                                { "s": "OANDA:XAUUSD", "d": "Gold / US Dollar" },
                                 { "s": "FX_IDC:EURUSD", "d": "EUR / USD" },
                                 { "s": "FX_IDC:GBPUSD", "d": "GBP / USD" },
                                 { "s": "FX_IDC:AUDUSD", "d": "AUD / USD" },
@@ -305,6 +305,7 @@ function loadLiveTradingViewWidget() {
     targetDoc.write(iframePayloadContent);
     targetDoc.close();
 }
+
 
 
 // ==========================================================================
