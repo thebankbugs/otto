@@ -44,18 +44,11 @@ const sidebarBackdrop = document.getElementById('sidebar-backdrop');
 const menuOpenBtn = document.getElementById('menu-open-btn');
 const menuCloseBtn = document.getElementById('menu-close-btn');
 
-// CRITICAL FIX: Globally declare the nav layout triggers so the router loop functions perfectly
-const navTriggers = document.querySelectorAll('.nav-trigger');
-
 // ==========================================================================
 // 4. SECURE AUTHENTICATION SCREEN ENTRY & EXIT ROUTING ACTIONS
 // ==========================================================================
 function enterAppWorkspace(role) {
     currentUserRole = role; 
-    
-    // PERSISTENCE STORAGE MATRIX: Save role choice securely in browser memory
-    localStorage.setItem('bankbugs_session_role', role);
-    
     authScreenLayer.classList.remove('active-layer');
     appWorkspaceShell.classList.add('active-layer');
     
@@ -71,10 +64,6 @@ function enterAppWorkspace(role) {
 }
 
 function logoutAndExitApp() {
-    // PURGE DATA MATRIX: Wipe out stored session parameters on explicit logout
-    localStorage.removeItem('bankbugs_session_role');
-    
-    currentUserRole = "free"; 
     appWorkspaceShell.classList.remove('active-layer');
     authScreenLayer.classList.add('active-layer');
     if (authLoginForm) authLoginForm.reset(); 
@@ -82,54 +71,39 @@ function logoutAndExitApp() {
     resetToInitialView();
 }
 
-// AUTOMATED SESSION RESTORATION CHECKER (Fires on page initialization)
-function checkExistingUserSession() {
-    const savedUserRole = localStorage.getItem('bankbugs_session_role');
-    
-    if (savedUserRole === "premium" || savedUserRole === "free") {
-        console.log(`Restoring automated persistent app session parameters for tier: ${savedUserRole}`);
-        enterAppWorkspace(savedUserRole);
-    } else {
-        console.log("No persistent user session found in memory.");
-    }
-}
-
 // PATH A: THE FREE BEGINNER PATH
-if (btnFreeBeginner) {
-    btnFreeBeginner.addEventListener('click', (e) => {
-        e.preventDefault(); 
-        enterAppWorkspace("free");
-    });
-}
+btnFreeBeginner.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    enterAppWorkspace("free");
+});
 
 // PATH B: THE PREMIUM FORM AUTH PROCESSOR
-if (authLoginForm) {
-    authLoginForm.addEventListener('submit', (e) => {
-        e.preventDefault(); 
-        
-        const emailField = document.getElementById('login-email').value.trim();
-        const passwordField = document.getElementById('login-password').value;
+authLoginForm.addEventListener('submit', (e) => {
+    e.preventDefault(); 
+    
+    const emailField = document.getElementById('login-email').value.trim();
+    const passwordField = document.getElementById('login-password').value;
 
-        const accountMatch = premiumUserDirectory.find(user => 
-            user.email.toLowerCase() === emailField.toLowerCase() && 
-            user.password === passwordField
-        );
+    const accountMatch = premiumUserDirectory.find(user => 
+        user.email.toLowerCase() === emailField.toLowerCase() && 
+        user.password === passwordField
+    );
 
-        if (accountMatch) {
-            enterAppWorkspace("premium"); 
-        } else {
-            alert("🔒 Access Denied: Incorrect premium account name or password keys. Please try again.");
-        }
-    });
-}
+    if (accountMatch) {
+        enterAppWorkspace("premium"); 
+    } else {
+        alert("🔒 Access Denied: Incorrect premium account name or password keys. Please try again.");
+    }
+});
 
-if (headerLogoutBtn) headerLogoutBtn.addEventListener('click', logoutAndExitApp);
+headerLogoutBtn.addEventListener('click', logoutAndExitApp);
 if (lockwallReturnBtn) lockwallReturnBtn.addEventListener('click', logoutAndExitApp);
-
 
 // ==========================================================================
 // 5. NAV ROUTER WITH GATEKEEPER LOCK INTERCEPTOR
 // ==========================================================================
+const navTriggers = document.querySelectorAll('.nav-trigger');
+
 navTriggers.forEach(trigger => {
     trigger.addEventListener('click', () => {
         const targetId = trigger.getAttribute('data-target');
@@ -160,46 +134,44 @@ navTriggers.forEach(trigger => {
 function openSidebar() { slidingLeftMenu.classList.add('open'); sidebarBackdrop.classList.add('open'); }
 function closeSidebar() { slidingLeftMenu.classList.remove('open'); sidebarBackdrop.classList.remove('open'); }
 
-if (menuOpenBtn) menuOpenBtn.addEventListener('click', openSidebar);
-if (menuCloseBtn) menuCloseBtn.addEventListener('click', closeSidebar);
-if (sidebarBackdrop) sidebarBackdrop.addEventListener('click', closeSidebar);
+menuOpenBtn.addEventListener('click', openSidebar);
+menuCloseBtn.addEventListener('click', closeSidebar);
+sidebarBackdrop.addEventListener('click', closeSidebar);
 
 // ==========================================================================
 // 7. LIVE GATEKEEPER SEARCH ROUTER
 // ==========================================================================
-if (internalSearchInput) {
-    internalSearchInput.addEventListener('input', (e) => {
-        const query = e.target.value.toLowerCase().trim();
+internalSearchInput.addEventListener('input', (e) => {
+    const query = e.target.value.toLowerCase().trim();
 
-        if (query === "") { resetToInitialView(); return; }
+    if (query === "") { resetToInitialView(); return; }
 
-        const filteredMatches = courseContentDatabase.filter(item => {
-            const matchesQuery = item.title.toLowerCase().includes(query) || 
-                                 item.snippet.toLowerCase().includes(query) ||
-                                 item.label.toLowerCase().includes(query);
-            
-            if (currentUserRole === "free") {
-                return matchesQuery && item.tier === "free"; 
-            }
-            return matchesQuery;
-        });
-
-        hideAllInteriorBoxes();
-        searchResultsOutput.classList.add('active-box');
-
-        if (filteredMatches.length === 0) {
-            searchResultsList.innerHTML = `<p style="color: #64748b; padding: 12px 0;">No matching results found.</p>`;
-        } else {
-            searchResultsList.innerHTML = filteredMatches.map(item => `
-                <div class="search-result-item" style="cursor:pointer; margin-bottom:12px; padding:10px; border-bottom:1px solid #f1f5f9;" onclick="handleSearchResultClick('${item.id}', '${item.tier}')">
-                    <span class="result-category" style="font-size:0.7rem; background:#e2e8f0; padding:2px 6px; border-radius:4px;">${item.category}</span>
-                    <h4 style="margin:4px 0 2px 0;">${item.title}</h4>
-                    <p style="font-size:0.85rem; color:#64748b; margin:0;">${item.snippet}</p>
-                </div>
-            `).join('');
+    const filteredMatches = courseContentDatabase.filter(item => {
+        const matchesQuery = item.title.toLowerCase().includes(query) || 
+                             item.snippet.toLowerCase().includes(query) ||
+                             item.label.toLowerCase().includes(query);
+        
+        if (currentUserRole === "free") {
+            return matchesQuery && item.tier === "free"; 
         }
+        return matchesQuery;
     });
-}
+
+    hideAllInteriorBoxes();
+    searchResultsOutput.classList.add('active-box');
+
+    if (filteredMatches.length === 0) {
+        searchResultsList.innerHTML = `<p style="color: #64748b; padding: 12px 0;">No matching results found.</p>`;
+    } else {
+        searchResultsList.innerHTML = filteredMatches.map(item => `
+            <div class="search-result-item" style="cursor:pointer; margin-bottom:12px; padding:10px; border-bottom:1px solid #f1f5f9;" onclick="handleSearchResultClick('${item.id}', '${item.tier}')">
+                <span class="result-category" style="font-size:0.7rem; background:#e2e8f0; padding:2px 6px; border-radius:4px;">${item.category}</span>
+                <h4 style="margin:4px 0 2px 0;">${item.title}</h4>
+                <p style="font-size:0.85rem; color:#64748b; margin:0;">${item.snippet}</p>
+            </div>
+        `).join('');
+    }
+});
 
 // Click processor wrapper specifically for dynamic search elements
 window.handleSearchResultClick = function(targetId, targetTier) {
@@ -228,34 +200,20 @@ function showContentBox(boxId) {
     }
 }
 
-// ==========================================================================
-// 10. FAST BOTTOM TAB TERMINAL DATA REFRESH MATRIX
-// ==========================================================================
-const bottomBarRefreshBtn = document.getElementById('bottom-bar-refresh-btn');
-
-if (bottomBarRefreshBtn) {
-    bottomBarRefreshBtn.addEventListener('click', () => {
-        console.log("Terminal interface refresh cycle requested by user.");
-        
-        bottomBarRefreshBtn.classList.add('spinning-loader-icon');
-        setTimeout(() => {
-            bottomBarRefreshBtn.classList.remove('spinning-loader-icon');
-        }, 500);
-
-        if (internalSearchInput) internalSearchInput.value = "";
-
-        const watchlistBox = document.getElementById('box-watchlist');
-        if (watchlistBox && watchlistBox.classList.contains('active-box') && currentUserRole === "premium") {
-            loadLiveTradingViewWidget();
+function resetToInitialView() {
+    hideAllInteriorBoxes();
+    if (searchResultsOutput) searchResultsOutput.classList.remove('active-box');
+    
+    navTriggers.forEach(btn => {
+        if(btn.getAttribute('data-target') === 'box-intro') {
+            btn.classList.add('active');
         } else {
-            const activeBoxBeforeRefresh = document.querySelector('.interior-content-box.active-box');
-            if (activeBoxBeforeRefresh) {
-                const currentActiveId = activeBoxBeforeRefresh.getAttribute('id');
-                showContentBox(currentActiveId);
-            }
+            btn.classList.remove('active');
         }
     });
+
+    const introBox = document.getElementById('box-intro');
+    if (introBox) introBox.classList.add('active-box');
 }
 
-// INITIALIZATION BOOTSTRAP
-checkExistingUserSession();
+
