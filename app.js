@@ -247,9 +247,9 @@ function loadLiveTradingViewWidget() {
             {
                 "title": "Indices & Metals",
                 "symbols": [
-                    { "s": "NASDAQ:NDX", "d": "US100 (Nasdaq)" },
-                    { "s": "SP:SPX", "d": "US500 (S&P 500)" },
-                    { "s": "DJ:DJI", "d": "US30 (Dow Jones)" },
+                    { "s": "IC Markets:USTEC", "d": "US100 (Nasdaq)" },
+                    { "s": "IC Markets:US500", "d": "US500 (S&P 500)" },
+                    { "s": "IC Markets:US30", "d": "US30 (Dow Jones)" },
                     { "s": "OANDA:XAUUSD", "d": "Gold / USD" }
                 ]
             },
