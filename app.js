@@ -233,81 +233,84 @@ function showContentBox(boxId) {
     }
 }
 
-// DYNAMIC SCRIPT INJECTOR ENGINE: Fixed clean injection format
+// DYNAMIC IFRAME ENGINE: Bypasses browser injection errors to mount TradingView safely
 function loadLiveTradingViewWidget() {
     const anchor = document.getElementById('tradingview-watchlist-anchor');
     if (!anchor) return;
 
+    // 1. Purge any broken, frozen instances before mounting a clean window frame
     anchor.innerHTML = "";
 
-    const widgetWrapper = document.createElement('div');
-    widgetWrapper.className = 'tradingview-widget-container';
-    widgetWrapper.style.width = '100%';
-    widgetWrapper.style.height = '100%';
+    // 2. Formulate an isolated iframe container element to block styling leaks
+    const frameElement = document.createElement('iframe');
+    frameElement.style.width = "100%";
+    frameElement.style.height = "100%";
+    frameElement.style.border = "none";
+    frameElement.style.background = "transparent";
 
-    const internalWidget = document.createElement('div');
-    internalWidget.className = 'tradingview-widget-container__widget';
-    internalWidget.style.width = '100%';
-    internalWidget.style.height = '100%';
-    widgetWrapper.appendChild(internalWidget);
+    // 3. Mount the frame directly to our layout canvas anchor box slot
+    anchor.appendChild(frameElement);
 
-    const tvScript = document.createElement('script');
-    tvScript.type = 'text/javascript';
-    tvScript.src = 'https://tradingview.com';
-    tvScript.async = true;
+    // 4. Formulate the official TradingView document script configuration structure
+    const iframePayloadContent = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <style>
+                html, body { margin:0; padding:0; width:100%; height:100%; overflow:hidden; background:transparent; }
+            </style>
+        </head>
+        <body>
+            <div class="tradingview-widget-container" style="width:100%; height:100%;">
+                <div class="tradingview-widget-container__widget" style="width:100%; height:100%;"></div>
+                <script type="text/javascript" src="https://tradingview.com" async>
+                {
+                    "colorTheme": "dark",
+                    "dateRange": "12M",
+                    "showChart": false,
+                    "locale": "en",
+                    "width": "100%",
+                    "height": "100%",
+                    "largeChartUrl": "",
+                    "isTransparent": true,
+                    "showSymbolLogo": true,
+                    "showFloatingTooltip": false,
+                    "tabs": [
+                        {
+                            "title": "Indices & Gold",
+                            "symbols": [
+                                { "s": "OANDA:NAS100USD", "d": "US100 (Nasdaq)" },
+                                { "s": "OANDA:SPX500USD", "d": "US500 (S&P 500)" },
+                                { "s": "OANDA:US30USD", "d": "US30 (Dow Jones)" },
+                                { "s": "OANDA:XAUUSD", "d": "Gold / US Dollar" }
+                            ]
+                        },
+                        {
+                            "title": "Forex Majors",
+                            "symbols": [
+                                { "s": "FX_IDC:EURUSD", "d": "EUR / USD" },
+                                { "s": "FX_IDC:GBPUSD", "d": "GBP / USD" },
+                                { "s": "FX_IDC:AUDUSD", "d": "AUD / USD" },
+                                { "s": "FX_IDC:USDJPY", "d": "USD / JPY" }
+                            ]
+                        }
+                    ]
+                }
+                <\/script>
+            </div>
+        </body>
+        </html>
+    `;
 
-    tvScript.innerHTML = JSON.stringify({
-        "colorTheme": "dark",
-        "dateRange": "12M",
-        "showChart": false,
-        "locale": "en",
-        "width": "100%",
-        "height": "100%",
-        "largeChartUrl": "",
-        "isTransparent": true,
-        "showSymbolLogo": true,
-        "showFloatingTooltip": false,
-        "tabs": [
-            {
-                "title": "Indices & Gold",
-                "symbols": [
-                    { "s": "OANDA:NAS100USD", "d": "US100 (Nasdaq)" },
-                    { "s": "OANDA:SPX500USD", "d": "US500 (S&P 500)" },
-                    { "s": "OANDA:US30USD", "d": "US30 (Dow Jones)" },
-                    { "s": "OANDA:XAUUSD", "d": "Gold / US Dollar" }
-                ]
-            },
-            {
-                "title": "Forex Majors",
-                "symbols": [
-                    { "s": "FX_IDC:EURUSD", "d": "EUR / USD" },
-                    { "s": "FX_IDC:GBPUSD", "d": "GBP / USD" },
-                    { "s": "FX_IDC:AUDUSD", "d": "AUD / USD" },
-                    { "s": "FX_IDC:USDJPY", "d": "USD / JPY" }
-                ]
-            }
-        ]
-    });
+    // 5. Open the iframe content thread channel and write the widget data live
+    const frameDocument = frameElement.contentWindow || frameElement.contentDocument;
+    const targetDoc = frameDocument.document ? frameDocument.document : frameDocument;
 
-    widgetWrapper.appendChild(tvScript);
-    anchor.appendChild(widgetWrapper);
+    targetDoc.open();
+    targetDoc.write(iframePayloadContent);
+    targetDoc.close();
 }
 
-function resetToInitialView() {
-    hideAllInteriorBoxes();
-    if (searchResultsOutput) searchResultsOutput.classList.remove('active-box');
-    
-    navTriggers.forEach(btn => {
-        if(btn.getAttribute('data-target') === 'box-intro') {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
-        }
-    });
-
-    const introBox = document.getElementById('box-intro');
-    if (introBox) introBox.classList.add('active-box');
-}
 
 // ==========================================================================
 // 10. FAST BOTTOM TAB TERMINAL DATA REFRESH MATRIX
