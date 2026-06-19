@@ -277,36 +277,4 @@ body, html {
     font-weight: 700;
     letter-spacing: 0.5px;
 }
-/* ────────── REFRESH NAVIGATION ITEM DESIGN ADAPTER ────────── */
-.bottom-nav-item-refresh {
-    background: none;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    color: var(--text-muted-gray);
-    cursor: pointer;
-    font-size: 1.3rem;
-    transition: color 0.2s, transform 0.1s;
-}
 
-.bottom-nav-item-refresh span {
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.bottom-nav-item-refresh:active {
-    color: var(--laser-lime-green);
-}
-
-/* Fast layout spinning effect for visual feedback */
-.spinning-loader-icon {
-    animation: quick-spin-axis 0.5s ease-in-out;
-}
-
-@keyframes quick-spin-axis {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
