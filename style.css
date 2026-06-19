@@ -277,3 +277,107 @@ body, html {
     font-weight: 700;
     letter-spacing: 0.5px;
 }
+/* ────────── PRIVATE INFRASTRUCTURE WATCHLIST DESIGN ROWS ────────── */
+.watchlist-header-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.live-pulse-indicator {
+    font-size: 0.75rem;
+    font-weight: 900;
+    color: var(--laser-lime-green);
+    background-color: var(--lime-transparent);
+    padding: 4px 8px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    animation: pulse-glow 2s infinite ease-in-out;
+}
+
+.watchlist-meta-subtitle {
+    margin-bottom: 24px !important;
+}
+
+.watchlist-grid-canvas {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.watchlist-row-cell {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-panel-surface);
+    border: 1px solid var(--border-dim-gray);
+    padding: 16px;
+    border-radius: 12px;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.watchlist-row-cell:active {
+    background-color: var(--bg-card-element);
+    border-color: var(--border-dim-gray);
+}
+
+.asset-profile {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.asset-symbol-tag {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--text-pure-white);
+}
+
+.asset-description-label {
+    font-size: 0.8rem;
+    color: var(--text-muted-gray);
+    font-weight: 500;
+}
+
+.asset-pricing-data {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.asset-live-price {
+    font-family: monospace;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-pure-white);
+    transition: color 0.15s linear;
+}
+
+.asset-percentage-change {
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.up-trend {
+    color: var(--laser-lime-green);
+    background-color: var(--lime-transparent);
+}
+
+.down-trend {
+    color: #ef4444;
+    background-color: rgba(239, 68, 68, 0.08);
+}
+
+/* Flash Animations for Price Fluctuations */
+.price-flash-green { color: var(--laser-lime-green) !important; }
+.price-flash-red { color: #ef4444 !important; }
+
+@keyframes pulse-glow {
+    0% { opacity: 0.4; }
+    50% { opacity: 1; }
+    100% { opacity: 0.4; }
+}
