@@ -247,22 +247,6 @@ function loadLiveTradingViewWidget() {
 }
 
 
-
-function resetToInitialView() {
-    hideAllInteriorBoxes();
-    if (searchResultsOutput) searchResultsOutput.classList.remove('active-box');
-    
-    navTriggers.forEach(btn => {
-        if(btn.getAttribute('data-target') === 'box-intro') {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
-        }
-    });
-
-    const introBox = document.getElementById('box-intro');
-    if (introBox) introBox.classList.add('active-box');
-}
 // ==========================================================================
 // 10. FAST BOTTOM TAB TERMINAL DATA REFRESH MATRIX
 // ==========================================================================
