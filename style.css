@@ -245,36 +245,3 @@ body, html {
 /* Universal Vector Icons Modifier Utilities */
 .icon-btn { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-pure-white); }
 .icon-btn:active { color: var(--laser-lime-green); }
-
-/* ────────── PRIVATE INFRASTRUCTURE ACCENTS & COMPONENTS ────────── */
-
-/* Custom Clean Look for Premium Intercept Lock */
-#box-premium-lock > div {
-    background-color: var(--bg-panel-surface) !important;
-    border: 1px solid #ef4444 !important; /* Crimson alert border */
-    box-shadow: 0 8px 32px rgba(239, 68, 68, 0.05);
-}
-#box-premium-lock h2 {
-    color: var(--text-pure-white);
-}
-
-/* Dynamic Live Gatekeeper Search Results Styling */
-.search-result-item {
-    background-color: var(--bg-panel-surface);
-    border: 1px solid var(--border-dim-gray) !important;
-    border-radius: 8px;
-    padding: 14px !important;
-    transition: transform 0.2s, border-color 0.2s;
-}
-.search-result-item:active {
-    transform: scale(0.99);
-    border-color: var(--laser-lime-green) !important;
-}
-.result-category {
-    background-color: var(--bg-card-element) !important;
-    color: var(--laser-lime-green) !important;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-}
-
