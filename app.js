@@ -284,3 +284,39 @@ function resetToInitialView() {
     const introBox = document.getElementById('box-intro');
     if (introBox) introBox.classList.add('active-box');
 }
+// ==========================================================================
+// 10. FAST BOTTOM TAB TERMINAL DATA REFRESH MATRIX
+// ==========================================================================
+const bottomBarRefreshBtn = document.getElementById('bottom-bar-refresh-btn');
+
+if (bottomBarRefreshBtn) {
+    bottomBarRefreshBtn.addEventListener('click', () => {
+        console.log("Terminal interface refresh cycle requested by user.");
+        
+        // 1. Trigger the micro CSS rotation animation feedback on the icon
+        bottomBarRefreshBtn.classList.add('spinning-loader-icon');
+        setTimeout(() => {
+            bottomBarRefreshBtn.classList.remove('spinning-loader-icon');
+        }, 500);
+
+        // 2. Clear any cached search query elements to reset layout states
+        if (internalSearchInput) internalSearchInput.value = "";
+
+        // 3. Dynamic Cache Buster Reload Interceptor
+        // If the user is currently viewing the Watchlist tab, reload TradingView widget data live
+        const watchlistBox = document.getElementById('box-watchlist');
+        if (watchlistBox && watchlistBox.classList.contains('active-box') && currentUserRole === "premium") {
+            console.log("Watchlist active. Reloading TradingView live feed instances...");
+            if (typeof loadLiveTradingViewWidget === "function") {
+                loadLiveTradingViewWidget();
+            }
+        } else {
+            // Fallback: If they are on a standard text module, run the clean container view shifter reset
+            const activeBoxBeforeRefresh = document.querySelector('.interior-content-box.active-box');
+            if (activeBoxBeforeRefresh) {
+                const currentActiveId = activeBoxBeforeRefresh.getAttribute('id');
+                showContentBox(currentActiveId);
+            }
+        }
+    });
+}
