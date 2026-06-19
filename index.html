@@ -90,90 +90,11 @@
                     <p>This middle reading zone handles your core learning materials. Tap the top hamburger menu icon to reveal your courses sidebar menu.</p>
                 </div>
 
-                <!-- 2. WATCHLIST WORKSPACE CONTAINER (Production Live Market Stream) -->
-<div id="box-watchlist" class="interior-content-box">
-    <div class="watchlist-header-block">
-        <h2>Indices | Gold | Forex</h2>
-        <span class="live-pulse-indicator" id="market-status-pulse">● LIVE STREAM</span>
-    </div>
-    <p class="watchlist-meta-subtitle" style="margin-bottom: 20px; color: var(--text-muted-gray); font-size: 0.9rem;">Real-time global market data streaming via live fintech socket protocols.</p>
-
-    <div class="watchlist-grid-canvas">
-        <!-- US100 -->
-        <div class="watchlist-row-cell" id="live-us100">
-            <div class="asset-profile">
-                <span class="asset-symbol-tag">US100</span>
-                <span class="asset-description-label">Nasdaq 100 Index</span>
-            </div>
-            <div class="asset-pricing-data">
-                <span class="asset-live-price" id="price-us100">Loading...</span>
-                <span class="asset-percentage-change" id="change-us100">--</span>
-            </div>
-        </div>
-
-        <!-- US500 -->
-        <div class="watchlist-row-cell" id="live-us500">
-            <div class="asset-profile">
-                <span class="asset-symbol-tag">US500</span>
-                <span class="asset-description-label">S&P 500 Index</span>
-            </div>
-            <div class="asset-pricing-data">
-                <span class="asset-live-price" id="price-us500">Loading...</span>
-                <span class="asset-percentage-change" id="change-us500">--</span>
-            </div>
-        </div>
-
-        <!-- US30 -->
-        <div class="watchlist-row-cell" id="live-us30">
-            <div class="asset-profile">
-                <span class="asset-symbol-tag">US30</span>
-                <span class="asset-description-label">Dow Jones Industrial</span>
-            </div>
-            <div class="asset-pricing-data">
-                <span class="asset-live-price" id="price-us30">Loading...</span>
-                <span class="asset-percentage-change" id="change-us30">--</span>
-            </div>
-        </div>
-
-        <!-- Gold -->
-        <div class="watchlist-row-cell" id="live-xauusd">
-            <div class="asset-profile">
-                <span class="asset-symbol-tag">XAUUSD</span>
-                <span class="asset-description-label">Gold / US Dollar</span>
-            </div>
-            <div class="asset-pricing-data">
-                <span class="asset-live-price" id="price-xauusd">Loading...</span>
-                <span class="asset-percentage-change" id="change-xauusd">--</span>
-            </div>
-        </div>
-
-        <!-- EURUSD -->
-        <div class="watchlist-row-cell" id="live-eurusd">
-            <div class="asset-profile">
-                <span class="asset-symbol-tag">EURUSD</span>
-                <span class="asset-description-label">Euro / US Dollar</span>
-            </div>
-            <div class="asset-pricing-data">
-                <span class="asset-live-price" id="price-eurusd">Loading...</span>
-                <span class="asset-percentage-change" id="change-eurusd">--</span>
-            </div>
-        </div>
-
-        <!-- GBPUSD -->
-        <div class="watchlist-row-cell" id="live-gbpusd">
-            <div class="asset-profile">
-                <span class="asset-symbol-tag">GBPUSD</span>
-                <span class="asset-description-label">Pound / US Dollar</span>
-            </div>
-            <div class="asset-pricing-data">
-                <span class="asset-live-price" id="price-gbpusd">Loading...</span>
-                <span class="asset-percentage-change" id="change-gbpusd">--</span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
+                <!-- 2. WATCHLIST WORKSPACE CONTAINER -->
+                <div id="box-watchlist" class="interior-content-box">
+                    <h2>Premium Watchlist Terminal</h2>
+                    <p>Real-time monitored asset pairs, volume profiles, and institutional order blocks.</p>
+                </div>
 
                 <!-- 3. TRADES & CHART BREAK-DOWNS COMBINED FEED -->
                 <div id="box-trades" class="interior-content-box">
@@ -204,8 +125,6 @@
         <nav class="permanent-bottom-tab-bar">
             <button class="nav-trigger bottom-nav-item active" data-target="box-intro" data-tier="free">🏠<span>Home</span></button>
             <button class="nav-trigger bottom-nav-item" data-target="box-watchlist" data-tier="premium">📊<span>Watchlist</span></button>
-          <!-- NEW: Dedicated Fast Center Refresh Trigger Button -->
-            <button id="bottom-bar-refresh-btn" class="bottom-nav-item-refresh">🔄<span>Refresh</span></button>
             <button class="nav-trigger bottom-nav-item" data-target="box-trades" data-tier="premium">⚡<span>Trades</span></button>
             <button class="nav-trigger bottom-nav-item" data-target="box-journal" data-tier="premium">📓<span>Journal</span></button>
         </nav>
@@ -215,3 +134,4 @@
     <script src="app.js"></script>
 </body>
 </html>
+
