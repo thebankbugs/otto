@@ -90,48 +90,89 @@
                     <p>This middle reading zone handles your core learning materials. Tap the top hamburger menu icon to reveal your courses sidebar menu.</p>
                 </div>
 
-<!-- 2. WATCHLIST WORKSPACE CONTAINER (Bulletproof Static Embed) -->
+                <!-- 2. WATCHLIST WORKSPACE CONTAINER (Production Live Market Stream) -->
 <div id="box-watchlist" class="interior-content-box">
     <div class="watchlist-header-block">
-        <h2>Premium Watchlist Terminal</h2>
-        <span class="live-pulse-indicator">● LIVE MARKET</span>
+        <h2>Indices | Gold | Forex</h2>
+        <span class="live-pulse-indicator" id="market-status-pulse">● LIVE STREAM</span>
     </div>
-    <p class="watchlist-meta-subtitle" style="margin-bottom: 16px;">Real-time asset streaming analytics powered directly by TradingView institutional feeds.</p>
+    <p class="watchlist-meta-subtitle" style="margin-bottom: 20px; color: var(--text-muted-gray); font-size: 0.9rem;">Real-time global market data streaming via live fintech socket protocols.</p>
 
-    <!-- TradingView Widget Container Begin -->
-    <div class="tradingview-widget-container" style="width: 100%; height: 450px; background: transparent;">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://tradingview.com" async>
-        {
-          "symbols": [
-            ["US100 (Nasdaq)", "OANDA:NAS100USD"],
-            ["US500 (S&P 500)", "OANDA:SPX500USD"],
-            ["US30 (Dow Jones)", "OANDA:US30USD"],
-            ["Gold / US Dollar", "OANDA:XAUUSD"],
-            ["EUR / USD", "FX_IDC:EURUSD"],
-            ["GBP / USD", "FX_IDC:GBPUSD"],
-            ["AUD / USD", "FX_IDC:AUDUSD"],
-            ["USD / JPY", "FX_IDC:USDJPY"]
-          ],
-          "chartOnly": false,
-          "width": "100%",
-          "height": "100%",
-          "locale": "en",
-          "colorTheme": "dark",
-          "gridLineColor": "rgba(42, 46, 57, 0)",
-          "scalePosition": "none",
-          "hasVolume": false,
-          "hasHeadline": false,
-          "hasTimeline": false,
-          "hasSymbolWatermark": false,
-          "volumeUpColor": "rgba(0, 150, 136, 0.3)",
-          "volumeDownColor": "rgba(242, 94, 94, 0.3)",
-          "title": "Indices | Gold | Forex"
-        }
-        </script>
+    <div class="watchlist-grid-canvas">
+        <!-- US100 -->
+        <div class="watchlist-row-cell" id="live-us100">
+            <div class="asset-profile">
+                <span class="asset-symbol-tag">US100</span>
+                <span class="asset-description-label">Nasdaq 100 Index</span>
+            </div>
+            <div class="asset-pricing-data">
+                <span class="asset-live-price" id="price-us100">Loading...</span>
+                <span class="asset-percentage-change" id="change-us100">--</span>
+            </div>
+        </div>
+
+        <!-- US500 -->
+        <div class="watchlist-row-cell" id="live-us500">
+            <div class="asset-profile">
+                <span class="asset-symbol-tag">US500</span>
+                <span class="asset-description-label">S&P 500 Index</span>
+            </div>
+            <div class="asset-pricing-data">
+                <span class="asset-live-price" id="price-us500">Loading...</span>
+                <span class="asset-percentage-change" id="change-us500">--</span>
+            </div>
+        </div>
+
+        <!-- US30 -->
+        <div class="watchlist-row-cell" id="live-us30">
+            <div class="asset-profile">
+                <span class="asset-symbol-tag">US30</span>
+                <span class="asset-description-label">Dow Jones Industrial</span>
+            </div>
+            <div class="asset-pricing-data">
+                <span class="asset-live-price" id="price-us30">Loading...</span>
+                <span class="asset-percentage-change" id="change-us30">--</span>
+            </div>
+        </div>
+
+        <!-- Gold -->
+        <div class="watchlist-row-cell" id="live-xauusd">
+            <div class="asset-profile">
+                <span class="asset-symbol-tag">XAUUSD</span>
+                <span class="asset-description-label">Gold / US Dollar</span>
+            </div>
+            <div class="asset-pricing-data">
+                <span class="asset-live-price" id="price-xauusd">Loading...</span>
+                <span class="asset-percentage-change" id="change-xauusd">--</span>
+            </div>
+        </div>
+
+        <!-- EURUSD -->
+        <div class="watchlist-row-cell" id="live-eurusd">
+            <div class="asset-profile">
+                <span class="asset-symbol-tag">EURUSD</span>
+                <span class="asset-description-label">Euro / US Dollar</span>
+            </div>
+            <div class="asset-pricing-data">
+                <span class="asset-live-price" id="price-eurusd">Loading...</span>
+                <span class="asset-percentage-change" id="change-eurusd">--</span>
+            </div>
+        </div>
+
+        <!-- GBPUSD -->
+        <div class="watchlist-row-cell" id="live-gbpusd">
+            <div class="asset-profile">
+                <span class="asset-symbol-tag">GBPUSD</span>
+                <span class="asset-description-label">Pound / US Dollar</span>
+            </div>
+            <div class="asset-pricing-data">
+                <span class="asset-live-price" id="price-gbpusd">Loading...</span>
+                <span class="asset-percentage-change" id="change-gbpusd">--</span>
+            </div>
+        </div>
     </div>
-    <!-- TradingView Widget Container End -->
 </div>
+
 
 
                 <!-- 3. TRADES & CHART BREAK-DOWNS COMBINED FEED -->
