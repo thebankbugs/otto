@@ -90,87 +90,53 @@
                     <p>This middle reading zone handles your core learning materials. Tap the top hamburger menu icon to reveal your courses sidebar menu.</p>
                 </div>
 
-<!-- 2. WATCHLIST WORKSPACE CONTAINER (Premium Verified Traders Matrix) -->
+<!-- 2. WATCHLIST WORKSPACE CONTAINER (Real TradingView Live Stream) -->
 <div id="box-watchlist" class="interior-content-box">
     <div class="watchlist-header-block">
         <h2>Premium Watchlist Terminal</h2>
-        <span class="live-pulse-indicator">● LIVE FEED</span>
+        <span class="live-pulse-indicator">● LIVE MARKET</span>
     </div>
-    <p class="watchlist-meta-subtitle">Institutional inefficiency zones and market profiles monitored real-time.</p>
+    <p class="watchlist-meta-subtitle" style="margin-bottom: 16px;">Real-time asset streaming analytics powered directly by TradingView institutional feeds.</p>
 
-    <div class="watchlist-grid-canvas">
-        <!-- Asset Row: US100 -->
-        <div class="watchlist-row-cell" id="ticker-us100">
-            <div class="asset-profile">
-                <span class="asset-symbol-tag">US100</span>
-                <span class="asset-description-label">Nasdaq 100 Index</span>
-            </div>
-            <div class="asset-pricing-data">
-                <span class="asset-live-price">19,842.50</span>
-                <span class="asset-percentage-change up-trend">+1.42%</span>
-            </div>
-        </div>
-
-        <!-- Asset Row: US500 -->
-        <div class="watchlist-row-cell" id="ticker-us500">
-            <div class="asset-profile">
-                <span class="asset-symbol-tag">US500</span>
-                <span class="asset-description-label">S&P 500 Index</span>
-            </div>
-            <div class="asset-pricing-data">
-                <span class="asset-live-price">5,432.10</span>
-                <span class="asset-percentage-change up-trend">+0.88%</span>
-            </div>
-        </div>
-
-        <!-- Asset Row: US30 -->
-        <div class="watchlist-row-cell" id="ticker-us30">
-            <div class="asset-profile">
-                <span class="asset-symbol-tag">US30</span>
-                <span class="asset-description-label">Dow Jones Industrial</span>
-            </div>
-            <div class="asset-pricing-data">
-                <span class="asset-live-price">39,120.40</span>
-                <span class="asset-percentage-change down-trend">-0.15%</span>
-            </div>
-        </div>
-
-        <!-- Asset Row: Gold -->
-        <div class="watchlist-row-cell" id="ticker-xauusd">
-            <div class="asset-profile">
-                <span class="asset-symbol-tag">XAUUSD</span>
-                <span class="asset-description-label">Spot Gold / US Dollar</span>
-            </div>
-            <div class="asset-pricing-data">
-                <span class="asset-live-price">2,342.85</span>
-                <span class="asset-percentage-change up-trend">+2.10%</span>
-            </div>
-        </div>
-
-        <!-- Asset Row: EURUSD -->
-        <div class="watchlist-row-cell" id="ticker-eurusd">
-            <div class="asset-profile">
-                <span class="asset-symbol-tag">EURUSD</span>
-                <span class="asset-description-label">Euro / US Dollar</span>
-            </div>
-            <div class="asset-pricing-data">
-                <span class="asset-live-price">1.07425</span>
-                <span class="asset-percentage-change down-trend">-0.32%</span>
-            </div>
-        </div>
-
-        <!-- Asset Row: GBPUSD -->
-        <div class="watchlist-row-cell" id="ticker-gbpusd">
-            <div class="asset-profile">
-                <span class="asset-symbol-tag">GBPUSD</span>
-                <span class="asset-description-label">Pound / US Dollar</span>
-            </div>
-            <div class="asset-pricing-data">
-                <span class="asset-live-price">1.26840</span>
-                <span class="asset-percentage-change up-trend">+0.11%</span>
-            </div>
-        </div>
+    <!-- TradingView Widget Container Frame Begin -->
+    <div class="tradingview-widget-container" style="width: 100%; height: 500px;">
+        <div class="tradingview-widget-container__widget" style="width: 100%; height: 100%;"></div>
+        <script type="text/javascript" src="https://tradingview.com" async>
+        {
+          "colorTheme": "dark",
+          "dateRange": "12M",
+          "showChart": false,
+          "locale": "en",
+          "width": "100%",
+          "height": "100%",
+          "largeChartUrl": "",
+          "isTransparent": true,
+          "showSymbolLogo": true,
+          "showFloatingTooltip": false,
+          "tabs": [
+            {
+              "title": "Indices & Metals",
+              "symbols": [
+                { "s": "NASDAQ:NDX", "d": "US100 (Nasdaq)" },
+                { "s": "SPCE:SPX", "d": "US500 (S&P 500)" },
+                { "s": "DJ:DJI", "d": "US30 (Dow Jones)" },
+                { "s": "OANDA:XAUUSD", "d": "Gold / USD" }
+              ]
+            },
+            {
+              "title": "Forex Majors",
+              "symbols": [
+                { "s": "FX:EURUSD", "d": "EUR / USD" },
+                { "s": "FX:GBPUSD", "d": "GBP / USD" },
+                { "s": "FX:AUDUSD", "d": "AUD / USD" },
+                { "s": "FX:USDJPY", "d": "USD / JPY" }
+              ]
+            }
+          ]
+        }
+        </script>
     </div>
+    <!-- TradingView Widget Container Frame End -->
 </div>
 
                 <!-- 3. TRADES & CHART BREAK-DOWNS COMBINED FEED -->
