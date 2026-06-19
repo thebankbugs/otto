@@ -191,6 +191,10 @@ body, html {
     z-index: 100;
     transform: translateX(-100%);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+   /* 🛠️ THE MINI-SCROLLER FIX FOR THEBANKBUGS */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Ensures smooth thumb scrolling on mobile */
 }
 .navigation-sidebar.open { transform: translateX(0); }
 .sidebar-meta-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
