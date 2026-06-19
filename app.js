@@ -144,7 +144,10 @@ sidebarBackdrop.addEventListener('click', closeSidebar);
 internalSearchInput.addEventListener('input', (e) => {
     const query = e.target.value.toLowerCase().trim();
 
-    if (query === "") { resetToInitialView(); return; }
+    if (query === "") { 
+        resetToInitialView(); 
+        return; 
+    }
 
     const filteredMatches = courseContentDatabase.filter(item => {
         const matchesQuery = item.title.toLowerCase().includes(query) || 
@@ -157,63 +160,66 @@ internalSearchInput.addEventListener('input', (e) => {
         return matchesQuery;
     });
 
-    hideAllInteriorBoxes();
-    searchResultsOutput.classList.add('active-box');
-
-    if (filteredMatches.length === 0) {
-        searchResultsList.innerHTML = `<p style="color: #64748b; padding: 12px 0;">No matching results found.</p>`;
-    } else {
-        searchResultsList.innerHTML = filteredMatches.map(item => `
-            <div class="search-result-item" style="cursor:pointer; margin-bottom:12px; padding:10px; border-bottom:1px solid #f1f5f9;" onclick="handleSearchResultClick('${item.id}', '${item.tier}')">
-                <span class="result-category" style="font-size:0.7rem; background:#e2e8f0; padding:2px 6px; border-radius:4px;">${item.category}</span>
-                <h4 style="margin:4px 0 2px 0;">${item.title}</h4>
-                <p style="font-size:0.85rem; color:#64748b; margin:0;">${item.snippet}</p>
-            </div>
-        `).join('');
-    }
+    renderSearchResults(filteredMatches);
 });
 
-// Click processor wrapper specifically for dynamic search elements
-window.handleSearchResultClick = function(targetId, targetTier) {
-    if (currentUserRole === "free" && targetTier === "premium") {
-        showContentBox('box-premium-lock');
-    } else {
-        showContentBox(targetId);
+// Helper function to safely output search engine results to HTML
+function renderSearchResults(matches) {
+    if (!searchResultsList || !searchResultsOutput) return;
+    searchResultsList.innerHTML = "";
+
+       // Hide standard modules to clear space for search rendering
+    const allContentBoxes = document.querySelectorAll('.interior-content-box');
+    allContentBoxes.forEach(box => box.classList.remove('active-box'));
+
+    if (matches.length === 0) {
+        searchResultsList.innerHTML = '<p style="color: var(--text-muted-gray); padding: 10px 0;">No matching course or system logs found.</p>';
+        searchResultsOutput.classList.add('active-box');
+        return;
     }
-};
 
-// ==========================================================================
-// 8. INTERIOR INTERFACE VIEW SHIFTERS (Helper Functions)
-// ==========================================================================
-function hideAllInteriorBoxes() {
-    const contentBoxes = document.querySelectorAll('.interior-content-box');
-    contentBoxes.forEach(box => box.classList.remove('active-box'));
-}
+    matches.forEach(item => {
+        const itemElement = document.createElement('div');
+        itemElement.style.padding = "14px";
+        itemElement.style.marginBottom = "10px";
+        itemElement.style.backgroundColor = "var(--bg-card-element)";
+        itemElement.style.border = "1px solid var(--border-dim-gray)";
+        itemElement.style.borderRadius = "8px";
+        itemElement.style.cursor = "pointer";
 
-function showContentBox(boxId) {
-    hideAllInteriorBoxes();
-    if (searchResultsOutput) searchResultsOutput.classList.remove('active-box');
-    
-    const targetBox = document.getElementById(boxId);
-    if (targetBox) {
-        targetBox.classList.add('active-box');
-    }
-}
+        itemElement.innerHTML = `
+            <small style="color: var(--laser-lime-green); font-weight: bold; text-transform: uppercase;">${item.category} • ${item.label}</small>
+            <h3 style="margin: 4px 0; color: #fff;">${item.title}</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted-gray);">${item.snippet}</p>
+        `;
 
-function resetToInitialView() {
-    hideAllInteriorBoxes();
-    if (searchResultsOutput) searchResultsOutput.classList.remove('active-box');
-    
-    navTriggers.forEach(btn => {
-        if(btn.getAttribute('data-target') === 'box-intro') {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
-        }
+        itemElement.addEventListener('click', () => {
+            showContentBox(item.id);
+            internalSearchInput.value = "";
+            searchResultsOutput.classList.remove('active-box');
+        });
+
+        searchResultsList.appendChild(itemElement);
     });
 
-    const introBox = document.getElementById('box-intro');
-    if (introBox) introBox.classList.add('active-box');
+    searchResultsOutput.classList.add('active-box');
 }
 
+// System reset layout execution script
+function resetToInitialView() {
+    if (searchResultsOutput) searchResultsOutput.classList.remove('active-box');
+    showContentBox('box-intro');
+}
+
+// Primary layout frame view switcher script
+function showContentBox(boxId) {
+    const allContentBoxes = document.querySelectorAll('.interior-content-box');
+    allContentBoxes.forEach(box => {
+        if (box.id === boxId) {
+            box.classList.add('active-box'); // Synchronized to match CSS
+        } else {
+            box.classList.remove('active-box');
+        }
+    });
+}
 
