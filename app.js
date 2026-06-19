@@ -13,13 +13,19 @@ const premiumUserDirectory = [
 // 2. DYNAMIC INTERNAL CONTENT DATABASE (With Protection Tier Markers)
 // ==========================================================================
 const courseContentDatabase = [
-    { id: "box-intro", tier: "free", category: "Syllabus", label: "Section 1: App Introduction", title: "Welcome to the App Platform", snippet: "This middle reading zone handles your core learning materials. Tap the top hamburger menu icon to reveal your courses sidebar menu." },
+    { id: "box-intro", tier: "free", category: "Syllabus", label: "Academy Map", title: "TheBankBugs Trading Academy", snippet: "Welcome, Team PNG! This platform is your complete gateway from absolute beginner to trading live." },
+    { id: "box-m1", tier: "free", category: "Starter-Kit", label: "Module 1", title: "Introduction to Global Markets", snippet: "What forex trading actually is, how currency pairs move, and how retail market participants interface with liquidity networks." },
+    { id: "box-m2", tier: "free", category: "Starter-Kit", label: "Module 2", title: "Understanding Candlesticks & Charts", snippet: "Reading price action canvases. Learn to interpret open, high, low, and close values across multiple timeframe structures." },
+    { id: "box-m3", tier: "free", category: "Starter-Kit", label: "Module 3", title: "Navigating Your Trading Platform", snippet: "Setting up your live interface layout framework, placing orders, executing market execution keys, and setting basic parameters." },
+    { id: "box-m4", tier: "free", category: "Starter-Kit", label: "Module 4", title: "The Math of Survival: Lot Sizes & Pips", snippet: "How to calculate financial risk metrics before taking trades. Protecting capital balances using strict position sizing calculations." },
+    { id: "box-m5", tier: "free", category: "Starter-Kit", label: "Module 5", title: "IC Markets Verification Pipeline", snippet: "Step-by-step guidance on setting up your partner account, submitting PNG identification keys, and unlocking live system codes." },
     { id: "box-html", tier: "free", category: "Syllabus", label: "Section 2: HTML Foundations", title: "Section 2: HTML Structural Layouts", snippet: "The HTML layout frame code container wraps everything perfectly. It sets up rigid blocks for layouts." },
     { id: "box-css", tier: "free", category: "Syllabus", label: "Section 3: Structural CSS", title: "Section 3: Structural CSS Engineering", snippet: "CSS layout modules freeze the screen viewports entirely. We utilize flexbox layouts to lock panels." },
     { id: "box-watchlist", tier: "premium", category: "Private Data", label: "Market Watchlist", title: "Premium Watchlist Terminal", snippet: "Real-time monitored asset pairs, volume profiles, and institutional order blocks." },
     { id: "box-trades", tier: "premium", category: "Private Data", label: "Active Trade Signals", title: "Live Trades & Break-downs", snippet: "Algorithmic entries, target take-profits, and explicit stop-loss risk parameters." },
     { id: "box-journal", tier: "premium", category: "Private Data", label: "Trading Journal Workspace", title: "Private Notebook Journal", snippet: "Member trade logging mechanics, tracking rule sets, and emotional data charts." }
 ];
+
 
 // ==========================================================================
 // 3. DOM SELECTORS & STATE MANAGEMENT
@@ -222,4 +228,32 @@ function showContentBox(boxId) {
         }
     });
 }
+
+// ==========================================================================
+// 8. SIDEBAR EXPANDING ACCORDION CONTROLLER ENGINE
+// ==========================================================================
+document.addEventListener('DOMContentLoaded', () => {
+    const accordionToggleBtn = document.getElementById('accordion-toggle-btn');
+    const beginnerSubPanel = document.getElementById('beginner-sub-panel');
+    const subNavLinks = document.querySelectorAll('.sub-nav-link');
+
+    if (accordionToggleBtn && beginnerSubPanel) {
+        accordionToggleBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Toggle active animation style classes
+            accordionToggleBtn.classList.toggle('expanded');
+            beginnerSubPanel.classList.toggle('expanded');
+        });
+    }
+
+    // Highlighting fix specifically for nested sub-navigation buttons
+    subNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            subNavLinks.forEach(item => item.classList.remove('active'));
+            link.classList.add('active');
+        });
+    });
+});
 
