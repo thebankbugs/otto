@@ -90,7 +90,7 @@
                     <p>This middle reading zone handles your core learning materials. Tap the top hamburger menu icon to reveal your courses sidebar menu.</p>
                 </div>
 
-<!-- 2. WATCHLIST WORKSPACE CONTAINER (Real TradingView Live Stream) -->
+<!-- 2. WATCHLIST WORKSPACE CONTAINER (Real TradingView Live Stream Target) -->
 <div id="box-watchlist" class="interior-content-box">
     <div class="watchlist-header-block">
         <h2>Premium Watchlist Terminal</h2>
@@ -98,46 +98,10 @@
     </div>
     <p class="watchlist-meta-subtitle" style="margin-bottom: 16px;">Real-time asset streaming analytics powered directly by TradingView institutional feeds.</p>
 
-    <!-- TradingView Widget Container Frame Begin -->
-    <div class="tradingview-widget-container" style="width: 100%; height: 500px;">
-        <div class="tradingview-widget-container__widget" style="width: 100%; height: 100%;"></div>
-        <script type="text/javascript" src="https://tradingview.com" async>
-        {
-          "colorTheme": "dark",
-          "dateRange": "12M",
-          "showChart": false,
-          "locale": "en",
-          "width": "100%",
-          "height": "100%",
-          "largeChartUrl": "",
-          "isTransparent": true,
-          "showSymbolLogo": true,
-          "showFloatingTooltip": false,
-          "tabs": [
-            {
-              "title": "Indices & Metals",
-              "symbols": [
-                { "s": "NASDAQ:NDX", "d": "US100 (Nasdaq)" },
-                { "s": "SPCE:SPX", "d": "US500 (S&P 500)" },
-                { "s": "DJ:DJI", "d": "US30 (Dow Jones)" },
-                { "s": "OANDA:XAUUSD", "d": "Gold / USD" }
-              ]
-            },
-            {
-              "title": "Forex Majors",
-              "symbols": [
-                { "s": "FX:EURUSD", "d": "EUR / USD" },
-                { "s": "FX:GBPUSD", "d": "GBP / USD" },
-                { "s": "FX:AUDUSD", "d": "AUD / USD" },
-                { "s": "FX:USDJPY", "d": "USD / JPY" }
-              ]
-            }
-          ]
-        }
-        </script>
-    </div>
-    <!-- TradingView Widget Container Frame End -->
+    <!-- The container where JavaScript will safely mount the real widget -->
+    <div id="tradingview-watchlist-anchor" style="width: 100%; height: 500px;"></div>
 </div>
+
 
                 <!-- 3. TRADES & CHART BREAK-DOWNS COMBINED FEED -->
                 <div id="box-trades" class="interior-content-box">
