@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>TheBankBugs|Otto Eric</title>
+    <title>TheBankBugs | Otto Eric</title>
     <link rel="stylesheet" href="style.css">    
 </head>
 <body>
@@ -40,7 +40,6 @@
                     <button id="menu-open-btn" class="icon-btn">☰</button>
                     <h1 class="app-branding-title">TheBankBugs</h1>
                 </div>
-                <!-- New Log-out Action Button Trigger -->
                 <button id="header-logout-btn" class="header-logout-trigger">Log out</button>
             </div>
             <div class="search-wrapper">
@@ -60,72 +59,74 @@
                     <h2>My Dashboard</h2>
                     <button id="menu-close-btn" class="icon-btn">✕</button>
                 </div>
-                <button class="syllabus-tab active" data-target="box-intro">Section 1: App Introduction</button>
-                <button class="syllabus-tab" data-target="box-html">Section 2: HTML Foundations</button>
-                <button class="syllabus-tab" data-target="box-css">Section 3: Structural CSS</button>
+                <!-- Dynamic links or statically gated buttons -->
+                <button class="nav-trigger syllabus-tab active" data-target="box-intro" data-tier="free">Section 1: App Introduction</button>
+                <button class="nav-trigger syllabus-tab" data-target="box-html" data-tier="free">Section 2: HTML Foundations</button>
+                <button class="nav-trigger syllabus-tab" data-target="box-css" data-tier="free">Section 3: Structural CSS</button>
             </nav>
 
             <!-- PERMANENT MIDDLE TEXT READING DISPLAY WINDOW -->
-<main class="central-content-canvas">
-     <!-- NEW PREMIUM LOCK WALL CONTAINER SCREEN -->
-    <div id="box-premium-lock" class="interior-content-box">
-        <div style="text-align: center; padding: 40px 20px; background: #fff; border-radius: 12px; border: 1px solid #e2e8f0;">
-            <span style="font-size: 3rem; display: block; margin-bottom: 12px;">🔒</span>
-            <h2>Premium Access Required</h2>
-            <p style="color: #64748b; margin-top: 8px; margin-bottom: 20px;">Live Market Data is Reserved, exclusively FREE for Verified 'IC Markets' Traders under Our Partnership.</p>
-            <button onclick="logoutAndExitApp()" class="auth-btn login-btn" style="width: auto; padding: 10px 20px; margin: 0 auto;">Return to Sign In</button>
-        </div>
-    </div>
-    <!-- Inner Box Dynamic Search Results Slot -->
-    <div id="search-results-output" class="interior-content-box">
-        <h2>Search Results</h2>
-        <div id="search-results-list"></div>
-    </div>
+            <main class="central-content-canvas">
+                
+                <!-- NEW PREMIUM LOCK WALL CONTAINER SCREEN -->
+                <div id="box-premium-lock" class="interior-content-box">
+                    <div style="text-align: center; padding: 40px 20px; background: #fff; border-radius: 12px; border: 1px solid #e2e8f0;">
+                        <span style="font-size: 3rem; display: block; margin-bottom: 12px;">🔒</span>
+                        <h2>Premium Access Required</h2>
+                        <p style="color: #64748b; margin-top: 8px; margin-bottom: 20px;">Live Market Data is Reserved, exclusively FREE for Verified 'IC Markets' Traders under Our Partnership.</p>
+                        <button id="lockwall-return-btn" class="auth-btn login-btn" style="width: auto; padding: 10px 20px; margin: 0 auto;">Return to Sign In</button>
+                    </div>
+                </div>
 
-    <!-- 1. HOME MODULE CONTAINER (Active on load) -->
-    <div id="box-intro" class="interior-content-box active-box">
-        <h2>Welcome to the App Platform</h2>
-        <p>This middle reading zone handles your core learning materials. Tap the top hamburger menu icon to reveal your courses sidebar menu.</p>
-    </div>
+                <!-- Inner Box Dynamic Search Results Slot -->
+                <div id="search-results-output" class="interior-content-box">
+                    <h2>Search Results</h2>
+                    <div id="search-results-list"></div>
+                </div>
 
-    <!-- 2. WATCHLIST WORKSPACE CONTAINER -->
-    <div id="box-watchlist" class="interior-content-box">
-        <h2>Market Watchlist</h2>
-        <p>Private asset ticker rows and tracked pairs live here.</p>
-    </div>
+                <!-- 1. HOME MODULE CONTAINER (Active on load) -->
+                <div id="box-intro" class="interior-content-box active-box">
+                    <h2>Welcome to the App Platform</h2>
+                    <p>This middle reading zone handles your core learning materials. Tap the top hamburger menu icon to reveal your courses sidebar menu.</p>
+                </div>
 
-    <!-- 3. TRADES & CHART BREAK-DOWNS COMBINED FEED -->
-    <div id="box-trades" class="interior-content-box">
-        <h2>Active Trades & Break-downs</h2>
-        <p>Algorithmic signals, execution entries, and stop-loss coordinates linked with chart analysis projections.</p>
-    </div>
+                <!-- 2. WATCHLIST WORKSPACE CONTAINER -->
+                <div id="box-watchlist" class="interior-content-box">
+                    <h2>Premium Watchlist Terminal</h2>
+                    <p>Real-time monitored asset pairs, volume profiles, and institutional order blocks.</p>
+                </div>
 
-    <!-- 4. TRADING JOURNAL CONTAINER -->
-    <div id="box-journal" class="interior-content-box">
-        <h2>Trading Journal</h2>
-        <p>Log your execution rules, daily mindset, and performance metrics.</p>
-    </div>
+                <!-- 3. TRADES & CHART BREAK-DOWNS COMBINED FEED -->
+                <div id="box-trades" class="interior-content-box">
+                    <h2>Live Trades & Break-downs</h2>
+                    <p>Algorithmic entries, target take-profits, and explicit stop-loss risk parameters.</p>
+                </div>
 
-    <!-- KEEP INDEPENDENT SYLLABUS BOXES BELOW SO SIDEBAR CONTINUES TO WORK -->
-    <div id="box-html" class="interior-content-box">
-        <h2>Section 2: HTML Foundations</h2>
-        <p>The HTML layout frame code container wraps everything perfectly. It sets up rigid blocks for layouts.</p>
-    </div>
-    <div id="box-css" class="interior-content-box">
-        <h2>Section 3: Structural CSS</h2>
-        <p>CSS layout modules freeze the screen viewports entirely. We utilize flexbox layouts to lock panels.</p>
-    </div>
+                <!-- 4. TRADING JOURNAL CONTAINER -->
+                <div id="box-journal" class="interior-content-box">
+                    <h2>Private Notebook Journal</h2>
+                    <p>Member trade logging mechanics, tracking rule sets, and emotional data charts.</p>
+                </div>
 
-</main>
+                <!-- KEEP INDEPENDENT SYLLABUS BOXES BELOW SO SIDEBAR CONTINUES TO WORK -->
+                <div id="box-html" class="interior-content-box">
+                    <h2>Section 2: HTML Structural Layouts</h2>
+                    <p>The HTML layout frame code container wraps everything perfectly. It sets up rigid blocks for layouts.</p>
+                </div>
+                <div id="box-css" class="interior-content-box">
+                    <h2>Section 3: Structural CSS Engineering</h2>
+                    <p>CSS layout modules freeze the screen viewports entirely. We utilize flexbox layouts to lock panels.</p>
+                </div>
 
+            </main>
         </div>
 
         <!-- C. LOCKED PERMANENT BOTTOM TAB NAVIGATION BAR -->
         <nav class="permanent-bottom-tab-bar">
-            <button class="bottom-nav-item active" data-target="box-intro">🏠<span>Home</span></button>
-            <button class="bottom-nav-item" data-target="box-watchlist">📊<span>Watchlist</span></button>
-            <button class="bottom-nav-item" data-target="box-trades">⚡<span>Trades</span></button>
-            <button class="bottom-nav-item" data-target="box-journal">📓<span>Journal</span></button>
+            <button class="nav-trigger bottom-nav-item active" data-target="box-intro" data-tier="free">🏠<span>Home</span></button>
+            <button class="nav-trigger bottom-nav-item" data-target="box-watchlist" data-tier="premium">📊<span>Watchlist</span></button>
+            <button class="nav-trigger bottom-nav-item" data-target="box-trades" data-tier="premium">⚡<span>Trades</span></button>
+            <button class="nav-trigger bottom-nav-item" data-target="box-journal" data-tier="premium">📓<span>Journal</span></button>
         </nav>
 
     </div>
