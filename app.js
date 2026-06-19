@@ -216,3 +216,52 @@ function resetToInitialView() {
     if (introBox) introBox.classList.add('active-box');
 }
 
+// ==========================================================================
+// 9. HIGH-FREQUENCY MOCK TERMINAL MARKET MOTOR
+// ==========================================================================
+function initiateLiveWatchlistTickerLoop() {
+    const assetsConfig = {
+        'ticker-us100': { decimals: 2, vol: 4.50 },
+        'ticker-us500': { decimals: 2, vol: 0.90 },
+        'ticker-us30':  { decimals: 2, vol: 6.00 },
+        'ticker-xauusd':{ decimals: 2, vol: 0.65 },
+        'ticker-eurusd':{ decimals: 5, vol: 0.00015 },
+        'ticker-gbpusd':{ decimals: 5, vol: 0.00022 }
+    };
+
+    setInterval(() => {
+        // Only run mutations if premium workspace layout panel is active on canvas
+        if (currentUserRole !== "premium" || !appWorkspaceShell.classList.contains('active-layer')) return;
+
+        const assetIds = Object.keys(assetsConfig);
+        const randomTargetId = assetIds[Math.floor(Math.random() * assetIds.length)];
+        const rowNode = document.getElementById(randomTargetId);
+        
+        if (!rowNode) return;
+
+        const priceNode = rowNode.querySelector('.asset-live-price');
+        const config = assetsConfig[randomTargetId];
+
+        let currentPrice = parseFloat(priceNode.textContent.replace(/,/g, ''));
+        const directionFactor = Math.random() > 0.48 ? 1 : -1;
+        const priceDelta = (Math.random() * config.vol) * directionFactor;
+        
+        currentPrice += priceDelta;
+
+        // Formats numbers with proper regional comma positioning grouping
+        priceNode.textContent = currentPrice.toLocaleString('en-US', {
+            minimumFractionDigits: config.decimals,
+            maximumFractionDigits: config.decimals
+        });
+
+        // Flash metric text display colors momentarily to mirror live terminal behavior
+        const flashClass = directionFactor > 0 ? 'price-flash-green' : 'price-flash-red';
+        priceNode.classList.add(flashClass);
+        setTimeout(() => priceNode.classList.remove(flashClass), 180);
+
+    }, 450); // High frequency execution update pump interval cycles every 450ms
+}
+
+// Fire engine sequence directly on initial thread setup orchestration
+initiateLiveWatchlistTickerLoop();
+
