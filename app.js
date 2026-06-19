@@ -205,7 +205,7 @@ function showContentBox(boxId) {
     }
 }
 
-// Dynamic Script Injector Engine to bypass 'display: none' rendering blockages
+// Dynamic Script Injector Engine updated with explicit IC Markets Broker Tickers
 function loadLiveTradingViewWidget() {
     const anchor = document.getElementById('tradingview-watchlist-anchor');
     if (!anchor) return;
@@ -213,7 +213,6 @@ function loadLiveTradingViewWidget() {
     // Safely purge any old, frozen frames before loading a new one
     anchor.innerHTML = "";
 
-    // Reconstruct the official internal structural configuration elements
     const widgetWrapper = document.createElement('div');
     widgetWrapper.className = 'tradingview-widget-container';
     widgetWrapper.style.width = '100%';
@@ -225,13 +224,12 @@ function loadLiveTradingViewWidget() {
     internalWidget.style.height = '100%';
     widgetWrapper.appendChild(internalWidget);
 
-    // Create and configure the true TradingView payload script block
     const tvScript = document.createElement('script');
     tvScript.type = 'text/javascript';
-    tvScript.src = 'https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js';
+    tvScript.src = 'https://tradingview.com';
     tvScript.async = true;
 
-    // Stringify JSON data object layout for direct DOM initialization injection
+    // JSON payload mapped explicitly to pull institutional IC Markets CFD parameters
     tvScript.innerHTML = JSON.stringify({
         "colorTheme": "dark",
         "dateRange": "12M",
@@ -245,21 +243,21 @@ function loadLiveTradingViewWidget() {
         "showFloatingTooltip": false,
         "tabs": [
             {
-                "title": "Indices & Metals",
+                "title": "IC Indices & Metals",
                 "symbols": [
-                    { "s": "IC Markets:USTEC", "d": "US100 (Nasdaq)" },
-                    { "s": "IC Markets:US500", "d": "US500 (S&P 500)" },
-                    { "s": "IC Markets:US30", "d": "US30 (Dow Jones)" },
-                    { "s": "OANDA:XAUUSD", "d": "Gold / USD" }
+                    { "s": "ICMARKETS:USTEC", "d": "US100 (Nasdaq Cash)" },
+                    { "s": "ICMARKETS:US500", "d": "US500 (S&P Cash)" },
+                    { "s": "ICMARKETS:US30", "d": "US30 (Dow Jones)" },
+                    { "s": "ICMARKETS:XAUUSD", "d": "Gold / US Dollar" }
                 ]
             },
             {
-                "title": "Forex Majors",
+                "title": "IC Forex Majors",
                 "symbols": [
-                    { "s": "FX:EURUSD", "d": "EUR / USD" },
-                    { "s": "FX:GBPUSD", "d": "GBP / USD" },
-                    { "s": "FX:AUDUSD", "d": "AUD / USD" },
-                    { "s": "FX:USDJPY", "d": "USD / JPY" }
+                    { "s": "ICMARKETS:EURUSD", "d": "EUR / USD (Raw)" },
+                    { "s": "ICMARKETS:GBPUSD", "d": "GBP / USD (Raw)" },
+                    { "s": "ICMARKETS:AUDUSD", "d": "AUD / USD (Raw)" },
+                    { "s": "ICMARKETS:USDJPY", "d": "USD / JPY (Raw)" }
                 ]
             }
         ]
@@ -268,6 +266,7 @@ function loadLiveTradingViewWidget() {
     widgetWrapper.appendChild(tvScript);
     anchor.appendChild(widgetWrapper);
 }
+
 
 function resetToInitialView() {
     hideAllInteriorBoxes();
