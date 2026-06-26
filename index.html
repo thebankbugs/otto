@@ -5,6 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>TheBankBugs | Login Terminal</title>
     <link rel="stylesheet" href="css/style.css">    
+    <style>
+        /* ────────── SLEEK LIVE MARKET TICKER PANEL CONTAINER ────────── */
+        .market-ticker-wrapper {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 520px;
+            height: 46px;
+            overflow: hidden;
+            background: rgba(22, 26, 30, 0.45);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-dim-gray);
+            border-radius: 30px;
+            z-index: 100;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Adjusting the default widget wrapper formatting inside your box layout */
+        .tradingview-widget-container {
+            width: 100% !important;
+            height: 100% !important;
+        }
+        
+        /* Smooth fade-in animation for loading data */
+        .market-ticker-wrapper iframe {
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+        .market-ticker-wrapper iframe:hover {
+            opacity: 1;
+        }
+    </style>
 </head>
 <body>
 
@@ -17,6 +55,33 @@
             <source src="https://mixkit.co" type="video/mp4">
         </video>
         <div class="video-bg-overlay"></div>
+    </div>
+
+    <!-- ========================================================== -->
+    <!-- LIVE INSTITUTIONAL TRADINGVIEW TICKER TAPE INTERFACE       -->
+    <!-- ========================================================== -->
+    <div class="market-ticker-wrapper">
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://tradingview.com" async>
+            {
+                "symbols": [
+                    { "proName": "FX_IDC:EURUSD", "title": "EURUSD" },
+                    { "proName": "FX_IDC:GBPUSD", "title": "GBPUSD" },
+                    { "proName": "FX_IDC:AUDUSD", "title": "AUDUSD" },
+                    { "proName": "FX:XAUUSD", "title": "XAUUSD" },
+                    { "proName": "GLOBALPRIME:US500", "title": "US500" },
+                    { "proName": "GLOBALPRIME:US100", "title": "US100" },
+                    { "proName": "GLOBALPRIME:DJI", "title": "US30" }
+                ],
+                "showSymbolLogo": false,
+                "colorTheme": "dark",
+                "isTransparent": true,
+                "displayMode": "adaptive",
+                "locale": "en"
+            }
+            </script>
+        </div>
     </div>
 
     <!-- ========================================================== -->
@@ -36,7 +101,7 @@
                 <button type="submit" class="auth-btn login-btn">Log in</button>
             </form>
 
-            <!-- 🛠️ SPONSOR & DEVELOPER FOOTER ATTRIBUTION -->
+            <!-- 🛠 Honor System Sponsor Notice -->
             <p style="font-size: 0.75rem; color: var(--text-muted-gray); line-height: 1.4; margin-top: 24px; border-top: 1px dashed var(--border-dim-gray); padding-top: 16px; letter-spacing: 0.3px;">
                 This app is developed by trader <strong>Otto Eric</strong>.<br>
                 Sponsored by <strong>IC Markets</strong>. Built for traders.
