@@ -2,10 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script>
+        // 🚨 INSTANT INLINE GATEKEEPER LOCK SCREEN SCRIPT
+        (function() {
+            if (!document.cookie.split('; ').find(row => row.startsWith('auth_session='))) {
+                alert("🔒 Secure Workspace Intercepted: Please authenticate your trading account credentials first.");
+                window.location.replace("../index.html");
+            }
+        })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>TheBankBugs | PRO Workspace</title>
-    <!-- Stepping out one folder level to find assets -->
-    <link rel="stylesheet" href="../css/style.css">    
+    <title>TheBankBugs | Premium Member Terminal</title>
+    <link rel="stylesheet" href="../style.css">    
 </head>
 <body>
 
