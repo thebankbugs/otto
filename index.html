@@ -6,7 +6,7 @@
     <title>TheBankBugs | Login Terminal</title>
     <link rel="stylesheet" href="css/style.css">    
     <style>
-        /* ────────── BULLETPROOF LIVE MARKET TICKER PANEL ────────── */
+        /* ────────── SLEEK LIVE MARKET TICKER PANEL CONTAINER ────────── */
         .market-ticker-wrapper {
             position: absolute;
             top: 20px;
@@ -14,7 +14,7 @@
             transform: translateX(-50%);
             width: 90%;
             max-width: 520px;
-            height: 46px; /* Forces explicit height calculation */
+            height: 46px;
             overflow: hidden;
             background: rgba(22, 26, 30, 0.6) !important;
             backdrop-filter: blur(16px);
@@ -25,15 +25,15 @@
             box-shadow: 0 12px 40px rgba(0,0,0,0.7);
         }
 
-        /* Forces the web component to render explicitly inside absolute parents */
+        /* Forces the web component iframe to stretch and display correctly */
         .market-ticker-wrapper tv-ticker-tape {
             width: 100% !important;
             height: 100% !important;
             display: block !important;
         }
     </style>
-    <!-- Official Web Component Loader Module -->
-    <script type="module" src="https://widgets.tradingview-widget.com/w/en/tv-ticker-tape.js"></script>
+    <!-- Official TradingView Web Component Loader Engine -->
+    <script type="module" src="https://tradingview-widget.com"></script>
 </head>
 <body>
 
@@ -41,6 +41,7 @@
     <!-- LIVE VIDEO BACKGROUND SYSTEM LAYER                          -->
     <!-- ========================================================== -->
     <div class="video-bg-container">
+        <!-- REPLACE THE SRC LINK BELOW WITH YOUR MP4 TRADING BACKGROUND LOOP -->
         <video autoplay loop muted playsinline class="video-bg-media">
             <source src="https://mixkit.co" type="video/mp4">
         </video>
@@ -51,8 +52,9 @@
     <!-- NATIVE BULLETPROOF TRADINGVIEW TICKER LAYER                -->
     <!-- ========================================================== -->
     <div class="market-ticker-wrapper">
+        <!-- Using highly stable, explicit TradingView exchange mappings -->
         <tv-ticker-tape
-            symbols="FX_IDC:EURUSD|EURUSD,FX_IDC:GBPUSD|GBPUSD,FX_IDC:AUDUSD|AUDUSD,FX:XAUUSD|XAUUSD,GLOBALPRIME:US500|US500,GLOBALPRIME:US100|US100,GLOBALPRIME:DJI|US30"
+            symbols="FX:EURUSD,FX:GBPUSD,FX:AUDUSD,FX:XAUUSD,FOREXCOM:SPXUSD,FOREXCOM:NSXUSD,FOREXCOM:DJI"
             color-theme="dark"
             is-transparent="true"
             display-mode="adaptive"
