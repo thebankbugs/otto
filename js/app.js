@@ -1,15 +1,30 @@
 // ==========================================================================
-// 2. DYNAMIC INTERNAL CONTENT DATABASE (With Protection Tier Markers)
+// 2. DYNAMIC INTERNAL CONTENT DATABASE (Updated for 14-Step Track)
 // ==========================================================================
 const courseContentDatabase = [
     { id: "box-intro", tier: "free", category: "Syllabus", label: "Academy Map", title: "TheBankBugs Trading Academy", snippet: "Welcome, Team PNG! This platform is your complete gateway from absolute beginner to trading live." },
-    { id: "box-m1", tier: "free", category: "Starter-Kit", label: "Module 1", title: "Introduction to Global Markets", snippet: "What forex trading actually is, how currency pairs move, and how retail market participants interface with liquidity networks." },
-    { id: "box-m2", tier: "free", category: "Starter-Kit", label: "Module 2", title: "Understanding Candlesticks & Charts", snippet: "Reading price action canvases. Learn to interpret open, high, low, and close values across multiple timeframe structures." },
-    { id: "box-m3", tier: "free", category: "Starter-Kit", label: "Module 3", title: "Navigating Your Trading Platform", snippet: "Setting up your live interface layout framework, placing orders, executing market execution keys, and setting basic parameters." },
-    { id: "box-m4", tier: "free", category: "Starter-Kit", label: "Module 4", title: "The Math of Survival: Lot Sizes & Pips", snippet: "How to calculate financial risk metrics before taking trades. Protecting capital balances using strict position sizing calculations." },
-    { id: "box-m5", tier: "free", category: "Starter-Kit", label: "Module 5", title: "IC Markets Verification Pipeline", snippet: "Step-by-step guidance on setting up your partner account, submitting PNG identification keys, and unlocking live system codes." },
+    
+    // 🛠️ NEW 14-STEP BEGINNER STARTER-KIT DICTIONARY LOGS
+    { id: "box-b1", tier: "free", category: "Starter-Kit", label: "Module 1", title: "Overview - READ ME first", snippet: "Welcome message, training roadmap targets, and the exact mindset required to navigate capital fields safely." },
+    { id: "box-b2", tier: "free", category: "Starter-Kit", label: "Module 2", title: "Introduction", snippet: "What the Foreign Exchange financial markets actually are, currency asset fluctuations, and data metrics." },
+    { id: "box-b3", tier: "free", category: "Starter-Kit", label: "Module 3", title: "Trading platforms", snippet: "Deep dive breakdown analyzing processing terminals like MetaTrader 5 (MT5) and cTrader dashboards." },
+    { id: "box-b4", tier: "free", category: "Starter-Kit", label: "Module 4", title: "Local and international brokers", snippet: "Understanding liquidity channels. Processing differences between local commercial banks and global firms." },
+    { id: "box-b5", tier: "free", category: "Starter-Kit", label: "Module 5", title: "Broker to use", snippet: "Partner selection parameters explaining spreads matrix, execution velocities, and fee schedules." },
+    { id: "box-b6", tier: "free", category: "Starter-Kit", label: "Module 6", title: "Broker requirements", snippet: "Detailed verification document listings including accepted regional passport files, NID cards, and licenses." },
+    { id: "box-b7", tier: "free", category: "Starter-Kit", label: "Module 7", title: "Overview - broker verification process", snippet: "Guidance on navigating compliance screening, avoiding upload faults, and passing safety firewalls." },
+    { id: "box-b8", tier: "free", category: "Starter-Kit", label: "Module 8", title: "Opening a broker account", snippet: "Live onboarding guide demonstrating profile setups and system registration flows via tracking links." },
+    { id: "box-b9", tier: "free", category: "Starter-Kit", label: "Module 9", title: "Opening a real/demo trading account", snippet: "Configuring platform terminal architectures, leverage bounds, asset profiles, and secure password keys." },
+    { id: "box-b10", tier: "free", category: "Starter-Kit", label: "Module 10", title: "deposit/ withdrawal process", snippet: "Fund routing methods detailing local bank wire interactions, card processors, and transaction times." },
+    { id: "box-b11", tier: "free", category: "Starter-Kit", label: "Module 11", title: "Connecting trading account to trading platforms", snippet: "Mapping login IDs, selecting explicit backend server networks, and verifying MT5 system access states." },
+    { id: "box-b12", tier: "free", category: "Starter-Kit", label: "Module 12", title: "Basic charting tools MT5", snippet: "Interfacing with candlestick layouts, installing trendlines, support/resistance boxes, and timeframes." },
+    { id: "box-b13", tier: "free", category: "Starter-Kit", label: "Module 13", title: "Demo trading 101", snippet: "Risk-free simulation guidelines. Placing market execution orders, adjusting lot sizes, and testing positions." },
+    { id: "box-b14", tier: "free", category: "Starter-Kit", label: "Module 14", title: "What's Next? Level up to ELITE", snippet: "Transition guidelines from free tracks to premium. Activating active live signals, notebooks, and watchlists." },
+    
+    // GLOBAL ARCHITECTURE LINKS
     { id: "box-html", tier: "free", category: "Syllabus", label: "Section 2: HTML Foundations", title: "Section 2: HTML Structural Layouts", snippet: "The HTML layout frame code container wraps everything perfectly. It sets up rigid blocks for layouts." },
     { id: "box-css", tier: "free", category: "Syllabus", label: "Section 3: Structural CSS", title: "Section 3: Structural CSS Engineering", snippet: "CSS layout modules freeze the screen viewports entirely. We utilize flexbox layouts to lock panels." },
+    
+    // PREMIUM TIERS
     { id: "box-watchlist", tier: "premium", category: "Private Data", label: "Market Watchlist", title: "Premium Watchlist Terminal", snippet: "Real-time monitored asset pairs, volume profiles, and institutional order blocks." },
     { id: "box-trades", tier: "premium", category: "Private Data", label: "Active Trade Signals", title: "Live Trades & Break-downs", snippet: "Algorithmic entries, target take-profits, and explicit stop-loss risk parameters." },
     { id: "box-journal", tier: "premium", category: "Private Data", label: "Trading Journal Workspace", title: "Private Notebook Journal", snippet: "Member trade logging mechanics, tracking rule sets, and emotional data charts." }
