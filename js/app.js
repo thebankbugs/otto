@@ -2,7 +2,7 @@
 // 1. MANUAL USER ACCOUNT DIRECTORY (No external databases)
 // ==========================================================================
 const premiumUserDirectory = [
-    { email: "trader1", password: "vipaccess2026" },
+    { email: "trader@thebankbugs.app", password: "vipaccess2026" },
     { email: "admin@thebankbugs.app", password: "ddfee773429a" }
 ];
 
