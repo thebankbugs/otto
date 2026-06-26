@@ -316,3 +316,48 @@ body, html {
     color: #ffffff;
 }
 
+/* Custom Mini Scrollbar Styling for Sidebar Workspace */
+.navigation-sidebar::-webkit-scrollbar {
+    width: 4px; /* Thin line */
+}
+.navigation-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+.navigation-sidebar::-webkit-scrollbar-thumb {
+    background-color: var(--border-dim-gray);
+    border-radius: 10px;
+}
+
+/* ────────── LIVE VIDEO BACKGROUND INTEGRATION LAYERS ────────── */
+.video-bg-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.video-bg-file {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    filter: brightness(25%) contrast(110%); /* Highly darkens video loops for maximum text legibility */
+}
+
+/* Glassmorphism Auth Card Modifiers to blend over the Live Video background */
+#auth-screen-layer .auth-card {
+    position: relative;
+    z-index: 10;
+    background: rgba(22, 26, 30, 0.65); /* Semi-transparent panel surface overlay */
+    backdrop-filter: blur(16px) saturate(120%);
+    -webkit-backdrop-filter: blur(16px) saturate(120%);
+    border: 1px solid rgba(45, 51, 58, 0.5);
+}
