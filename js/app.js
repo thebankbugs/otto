@@ -83,18 +83,20 @@ if (authLoginForm) {
         const passwordField = document.getElementById('login-password').value;
 
         try {
-            // Send credentials securely to your Vercel serverless function
             const apiResponse = await fetch('/api/login', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email: emailField, password: passwordField })
             });
 
             const data = await apiResponse.json();
 
             if (data.success) {
+                // 🔐 SET SECURE SESSION PASS-KEY (Valid for 1 Day)
+                const date = new Date();
+                date.setTime(date.getTime() + (24 * 60 * 60 * 1000));
+                document.cookie = "auth_session=true; path=/; expires=" + date.toUTCString() + "; SameSite=Strict; Secure";
+                
                 enterAppWorkspace("premium"); 
             } else {
                 alert("🔒 Access Denied: Incorrect premium account name or password keys. Please try again.");
