@@ -58,7 +58,10 @@ function enterAppWorkspace(role) {
 }
 
 function logoutAndExitApp() {
-    // If inside subfolders, step out back to login page directory
+    // 🪓 DESTROY THE SECURE SESSION COOKIE IMMEDIATELY
+    document.cookie = "auth_session=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC; SameSite=Strict; Secure";
+    
+    // Redirect cleanly back to the base entry platform
     if (window.location.pathname.includes('/members/')) {
         window.location.href = "../index.html";
     } else {
