@@ -3,15 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>TheBankBugs | Otto Eric</title>
-    <link rel="stylesheet" href="style.css">    
+    <title>TheBankBugs | Login Terminal</title>
+    <link rel="stylesheet" href="css/style.css">    
 </head>
 <body>
 
     <!-- ========================================================== -->
-    <!-- FOUNDATION BLOCK 1: ENTRY SCREEN (Visible first)           -->
+    <!-- LIVE VIDEO BACKGROUND SYSTEM LAYER                          -->
     <!-- ========================================================== -->
-    <div id="auth-screen-layer" class="app-screen-layer active-layer">
+    <div class="video-bg-container">
+        <!-- REPLACE THE SRC LINK BELOW WITH YOUR MP4 TRADING BACKGROUND LOOP -->
+        <video autoplay loop muted playsinline class="video-bg-media">
+            <source src="https://mixkit.co" type="video/mp4">
+        </video>
+        <div class="video-bg-overlay"></div>
+    </div>
+
+    <!-- ========================================================== -->
+    <!-- GATEWAY AUTHENTICATION FRAME OVERLAY                       -->
+    <!-- ========================================================== -->
+    <div id="auth-screen-layer" class="app-screen-layer active-layer static-auth-position">
         <div class="auth-card">
             <h2>Welcome to TheBankBugs</h2>
             <p>Start your Trading Journey using our:</p>
@@ -21,192 +32,13 @@
             <div class="auth-divider">OR</div>
             
             <form id="auth-login-form">
-                <input type="email" id="login-email" placeholder="Email" required>
+                <input type="text" id="login-email" placeholder="Email / Username" required>
                 <input type="password" id="login-password" placeholder="Password" required>
                 <button type="submit" class="auth-btn login-btn">Log in</button>
             </form>
         </div>
     </div>
 
-    <!-- ========================================================== -->
-    <!-- FOUNDATION BLOCK 2: THE PERMANENT LOCKED WORKSPACE FRAMES  -->
-    <!-- ========================================================== -->
-    <div id="app-workspace-shell" class="app-screen-layer">
-        
-        <!-- A. LOCKED TOP HEADER BAR & INTERNAL SEARCH -->
-        <header class="app-header">
-            <div class="header-top-row">
-                <div class="header-left-side">
-                    <button id="menu-open-btn" class="icon-btn">☰</button>
-                    <h1 class="app-branding-title">TheBankBugs</h1>
-                </div>
-                <button id="header-logout-btn" class="header-logout-trigger">Log out</button>
-            </div>
-            <div class="search-wrapper">
-                <input type="text" id="internal-search-input" placeholder="Quick search internal content...">
-            </div>
-        </header>
-
-        <!-- B. CENTRAL WORKSPACE INTERIOR LAYOUT ZONE -->
-        <div class="middle-workspace-pane">
-            
-            <!-- Dark Dimming Backdrop Layer -->
-            <div id="sidebar-backdrop" class="menu-backdrop-overlay"></div>
-            
-           <!-- HIDDEN SLIDING LEFT SIDEBAR MENU -->
-<nav id="sliding-left-menu" class="navigation-sidebar">
-    <div class="sidebar-meta-header">
-        <h2>My Dashboard</h2>
-        <button id="menu-close-btn" class="icon-btn">✕</button>
-    </div>
-    
-    <!-- Main Tabs -->
-    <button class="nav-trigger syllabus-tab active" data-target="box-intro" data-tier="free">🏛️ Academy Overview</button>
-    
-    <!-- ACCORDION PARENT BUTTON -->
-    <div class="accordion-wrapper">
-        <button id="accordion-toggle-btn" class="syllabus-tab dropdown-trigger">🌱 Beginner Starter-Kit <span class="arrow-indicator">▼</span></button>
-        
-       <!-- EXPANDED SUB-NAVIGATION BUTTONS SUB-PANEL -->
-<div id="beginner-sub-panel" class="sidebar-sub-panel">
-    <!-- REPLACED MODULE NUMBERINGS WITH MODERN VISUAL EMOJIS -->
-    <button class="nav-trigger sub-nav-link" data-target="box-m1" data-tier="free">🌐 1. Global Markets</button>
-    <button class="nav-trigger sub-nav-link" data-target="box-m2" data-tier="free">📊 2. Candlesticks</button>
-    <button class="nav-trigger sub-nav-link" data-target="box-m3" data-tier="free">🖥️ 3. Platforms</button>
-    <button class="nav-trigger sub-nav-link" data-target="box-m4" data-tier="free">📐 4. Risk & Pips</button>
-    <button class="nav-trigger sub-nav-link" data-target="box-m5" data-tier="free">🆔 5. Verification</button>
-    <button class="nav-trigger sub-nav-link" data-target="box-m6" data-tier="free">🚀 6. Want to Start?</button>
-    <button class="nav-trigger sub-nav-link" data-target="box-m7" data-tier="free">🏢 7. Recommended Brokers</button>
-    <button class="nav-trigger sub-nav-link" data-target="box-m8" data-tier="free">📄 8. KYC Requirements</button>
-    <button class="nav-trigger sub-nav-link" data-target="box-m9" data-tier="free">🖋️ 9. Sign-Up Process</button>
-    <button class="nav-trigger sub-nav-link" data-target="box-m10" data-tier="free">🖥️ 10. Broker Dashboard</button>
-    <button class="nav-trigger sub-nav-link" data-target="box-m11" data-tier="free">📊 11. Setting Up MT5</button>
-    <button class="nav-trigger sub-nav-link" data-target="box-m12" data-tier="free">💳 12. Deposit & Withdrawal</button>
-    <button class="nav-trigger sub-nav-link" data-target="box-m13" data-tier="free">✅ 13. Done, What's Next?</button>
-</div>
-    </div>
-    
-    <button class="nav-trigger syllabus-tab" data-target="box-html" data-tier="free">Section 2: HTML Foundations</button>
-    <button class="nav-trigger syllabus-tab" data-target="box-css" data-tier="free">Section 3: Structural CSS</button>
-</nav>
-
-
-
-            <!-- PERMANENT MIDDLE TEXT READING DISPLAY WINDOW -->
-            <main class="central-content-canvas">
-                
-                <!-- NEW PREMIUM LOCK WALL CONTAINER SCREEN -->
-                <div id="box-premium-lock" class="interior-content-box">
-                    <div style="text-align: center; padding: 40px 20px; background: #fff; border-radius: 12px; border: 1px solid #e2e8f0;">
-                        <span style="font-size: 3rem; display: block; margin-bottom: 12px;">🔒</span>
-                        <h2>Premium Access Required</h2>
-                        <p style="color: #64748b; margin-top: 8px; margin-bottom: 20px;">Live Market Data is Reserved, exclusively FREE for Verified 'IC Markets' Traders under Our Partnership.</p>
-                        <button id="lockwall-return-btn" class="auth-btn login-btn" style="width: auto; padding: 10px 20px; margin: 0 auto;">Return to Sign In</button>
-                    </div>
-                </div>
-
-                <!-- Inner Box Dynamic Search Results Slot -->
-                <div id="search-results-output" class="interior-content-box">
-                    <h2>Search Results</h2>
-                    <div id="search-results-list"></div>
-                </div>
-
-  <!-- 1. HOME MODULE CONTAINER: APP OVERVIEW ROADMAP -->
-<div id="box-intro" class="interior-content-box active-box">
-    <section class="onboarding-welcome-zone" style="margin-bottom: 24px;">
-        <h2>TheBankBugs Trading Academy</h2>
-        <p style="margin-bottom: 20px;">Welcome, Team PNG! This platform is your complete gateway from absolute beginner to trading live with institutional systems.</p>
-        
-        <!-- VISUAL APP ROADMAP MATRIX -->
-        <div class="app-roadmap-card" style="background: var(--bg-panel-surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border-dim-gray);">
-            <h3 style="font-size: 1.1rem; color: var(--laser-lime-green); margin-bottom: 12px; font-weight: 700;">🗺️ YOUR TRAINING ROADMAP</h3>
-            <ul style="list-style: none; padding-left: 0; font-size: 0.95rem; display: flex; flex-direction: column; gap: 12px;">
-                <li><strong style="color: #fff;">1. 🌱 Beginner Track:</strong> The 5 foundational free modules to get you market-ready. Open the sidebar menu to begin.</li>
-                <li><strong style="color: #fff;">2. 📈 Intermediate Tier:</strong> Building custom execution strategies and risk engines.</li>
-                <li><strong style="color: #fff;">3. ⚡ Advanced Pro Terminal:</strong> Live setups, institutional order blocks, and order tracking.</li>
-                <li><strong style="color: #fff;">4. 📓 Automated Workspace:</strong> Private trade journaling and psychology metrics.</li>
-            </ul>
-        </div>
-    </section>
-</div>
-
-<!-- MODULE 1 READING WINDOW DISPLAY PANEL -->
-<div id="box-m1" class="interior-content-box">
-    <span style="font-size: 0.8rem; color: var(--laser-lime-green); font-weight: bold; text-transform: uppercase;">Module 1 • Free Starter-Kit</span>
-    <h2 style="margin-top: 4px;">Introduction to Global Markets</h2>
-    <p>What forex trading actually is, how currency pairs move, and how retail market participants interface with liquidity networks across global centers.</p>
-</div>
-
-<!-- MODULE 2 READING WINDOW DISPLAY PANEL -->
-<div id="box-m2" class="interior-content-box">
-    <span style="font-size: 0.8rem; color: var(--laser-lime-green); font-weight: bold; text-transform: uppercase;">Module 2 • Free Starter-Kit</span>
-    <h2 style="margin-top: 4px;">Understanding Candlesticks & Charts</h2>
-    <p>Reading price action canvases. Learn to interpret open, high, low, and close values across multiple timeframes like the Daily, H4, and M15 charts.</p>
-</div>
-
-<!-- MODULE 3 READING WINDOW DISPLAY PANEL -->
-<div id="box-m3" class="interior-content-box">
-    <span style="font-size: 0.8rem; color: var(--laser-lime-green); font-weight: bold; text-transform: uppercase;">Module 3 • Free Starter-Kit</span>
-    <h2 style="margin-top: 4px;">Navigating Your Trading Platform</h2>
-    <p>Setting up your live interface layout framework, placing market execution entries, installing pending orders, and handling margin calls safely.</p>
-</div>
-
-<!-- MODULE 4 READING WINDOW DISPLAY PANEL -->
-<div id="box-m4" class="interior-content-box">
-    <span style="font-size: 0.8rem; color: var(--laser-lime-green); font-weight: bold; text-transform: uppercase;">Module 4 • Free Starter-Kit</span>
-    <h2 style="margin-top: 4px;">The Math of Survival: Lot Sizes & Pips</h2>
-    <p>How to calculate financial risk metrics before pulling the trigger. Stop blowing accounts by protecting capital tracking parameters using tight lot size rule sets.</p>
-</div>
-
-<!-- MODULE 5 READING WINDOW DISPLAY PANEL -->
-<div id="box-m5" class="interior-content-box">
-    <span style="font-size: 0.8rem; color: var(--laser-lime-green); font-weight: bold; text-transform: uppercase;">Module 5 • Free Starter-Kit</span>
-    <h2 style="margin-top: 4px;">IC Markets Verification Pipeline</h2>
-    <p>Step-by-step guidance on setting up your partner account, submitting valid Papua New Guinea identification documents, and linking up with our verified system tracking codes.</p>
-</div>
-
-                <!-- 2. WATCHLIST WORKSPACE CONTAINER -->
-                <div id="box-watchlist" class="interior-content-box">
-                    <h2>Premium Watchlist Terminal</h2>
-                    <p>Real-time monitored asset pairs, volume profiles, and institutional order blocks.</p>
-                </div>
-
-                <!-- 3. TRADES & CHART BREAK-DOWNS COMBINED FEED -->
-                <div id="box-trades" class="interior-content-box">
-                    <h2>Live Trades & Break-downs</h2>
-                    <p>Algorithmic entries, target take-profits, and explicit stop-loss risk parameters.</p>
-                </div>
-
-                <!-- 4. TRADING JOURNAL CONTAINER -->
-                <div id="box-journal" class="interior-content-box">
-                    <h2>Private Notebook Journal</h2>
-                    <p>Member trade logging mechanics, tracking rule sets, and emotional data charts.</p>
-                </div>
-
-                <!-- KEEP INDEPENDENT SYLLABUS BOXES BELOW SO SIDEBAR CONTINUES TO WORK -->
-                <div id="box-html" class="interior-content-box">
-                    <h2>Section 2: HTML Structural Layouts</h2>
-                    <p>The HTML layout frame code container wraps everything perfectly. It sets up rigid blocks for layouts.</p>
-                </div>
-                <div id="box-css" class="interior-content-box">
-                    <h2>Section 3: Structural CSS Engineering</h2>
-                    <p>CSS layout modules freeze the screen viewports entirely. We utilize flexbox layouts to lock panels.</p>
-                </div>
-
-            </main>
-        </div>
-
-        <!-- C. LOCKED PERMANENT BOTTOM TAB NAVIGATION BAR -->
-        <nav class="permanent-bottom-tab-bar">
-            <button class="nav-trigger bottom-nav-item active" data-target="box-intro" data-tier="free">🏠<span>Home</span></button>
-            <button class="nav-trigger bottom-nav-item" data-target="box-watchlist" data-tier="premium">📊<span>Watchlist</span></button>
-            <button class="nav-trigger bottom-nav-item" data-target="box-trades" data-tier="premium">⚡<span>Trades</span></button>
-            <button class="nav-trigger bottom-nav-item" data-target="box-journal" data-tier="premium">📓<span>Journal</span></button>
-        </nav>
-
-    </div>
-
-    <script src="app.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
-
