@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>TheBankBugs | Login Terminal</title>
+    <!-- Links to your master stylesheet in the css folder -->
     <link rel="stylesheet" href="css/style.css">    
     <style>
         /* ────────── SLEEK LIVE MARKET TICKER PANEL CONTAINER ────────── */
@@ -14,7 +15,7 @@
             transform: translateX(-50%);
             width: 100%;
             max-width: 520px;
-            height: 40px;
+            height: 46px;
             overflow: hidden;
             background: rgba(22, 26, 30, 0.45);
             backdrop-filter: blur(16px);
@@ -28,15 +29,11 @@
             justify-content: center;
         }
 
-        /* Enforce absolute visibility blocks on the live component */
-        tv-ticker-tape {
+        .tradingview-widget-container {
             width: 100% !important;
             height: 100% !important;
-            display: block !important;
         }
     </style>
-    <!-- 📈 OFFICIAL TRADINGVIEW WEBPACK MODULE ENGINE -->
-    <script type="module" src="https://www.tradingview-widget.com/w/en/tv-ticker-tape.js"></script>
 </head>
 <body>
 
@@ -44,6 +41,7 @@
     <!-- LIVE VIDEO BACKGROUND SYSTEM LAYER                          -->
     <!-- ========================================================== -->
     <div class="video-bg-container">
+        <!-- REPLACE THE SRC LINK BELOW WITH YOUR MP4 TRADING BACKGROUND LOOP -->
         <video autoplay loop muted playsinline class="video-bg-media">
             <source src="https://mixkit.co" type="video/mp4">
         </video>
@@ -51,16 +49,30 @@
     </div>
 
     <!-- ========================================================== -->
-    <!-- LIVE WEB-COMPONENT TRADINGVIEW TICKER TAPE INTERFACE       -->
+    <!-- LIVE ASSET FEED: TRADINGVIEW TICKER TAPE INTERFACE         -->
     <!-- ========================================================== -->
     <div class="market-ticker-wrapper">
-        <tv-ticker-tape
-            symbols="FX_IDC:EURUSD,FX_IDC:GBPUSD,FX_IDC:AUDUSD,FX:XAUUSD,GLOBALPRIME:US500,GLOBALPRIME:US100,GLOBALPRIME:DJI"
-            color-theme="dark"
-            is-transparent="true"
-            display-mode="adaptive"
-            locale="en">
-        </tv-ticker-tape>
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://tradingview.com" async>
+            {
+                "symbols": [
+                    { "proName": "FX_IDC:EURUSD", "title": "EURUSD" },
+                    { "proName": "FX_IDC:GBPUSD", "title": "GBPUSD" },
+                    { "proName": "FX_IDC:AUDUSD", "title": "AUDUSD" },
+                    { "proName": "FX:XAUUSD", "title": "XAUUSD" },
+                    { "proName": "GLOBALPRIME:US500", "title": "US500" },
+                    { "proName": "GLOBALPRIME:US100", "title": "US100" },
+                    { "proName": "GLOBALPRIME:DJI", "title": "US30" }
+                ],
+                "showSymbolLogo": false,
+                "colorTheme": "dark",
+                "isTransparent": true,
+                "displayMode": "adaptive",
+                "locale": "en"
+            }
+            </script>
+        </div>
     </div>
 
     <!-- ========================================================== -->
@@ -88,6 +100,7 @@
         </div>
     </div>
 
+    <!-- Links to your script inside the js folder -->
     <script src="js/app.js"></script>
 </body>
 </html>
