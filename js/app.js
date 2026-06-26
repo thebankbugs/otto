@@ -1,12 +1,4 @@
 // ==========================================================================
-// 1. MANUAL USER ACCOUNT DIRECTORY (No external databases)
-// ==========================================================================
-const premiumUserDirectory = [
-    { email: "trader@thebankbugs.app", password: "vipaccess2026" },
-    { email: "admin@thebankbugs.app", password: "ddfee773429a" }
-];
-
-// ==========================================================================
 // 2. DYNAMIC INTERNAL CONTENT DATABASE (With Protection Tier Markers)
 // ==========================================================================
 const courseContentDatabase = [
@@ -84,21 +76,32 @@ if (btnFreeBeginner) {
 
 // PATH B: THE PREMIUM FORM AUTH PROCESSOR INTERCEPTOR
 if (authLoginForm) {
-    authLoginForm.addEventListener('submit', (e) => {
+    authLoginForm.addEventListener('submit', async (e) => {
         e.preventDefault(); 
         
         const emailField = document.getElementById('login-email').value.trim();
         const passwordField = document.getElementById('login-password').value;
 
-        const accountMatch = premiumUserDirectory.find(user => 
-            user.email.toLowerCase() === emailField.toLowerCase() && 
-            user.password === passwordField
-        );
+        try {
+            // Send credentials securely to your Vercel serverless function
+            const apiResponse = await fetch('/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: emailField, password: passwordField })
+            });
 
-        if (accountMatch) {
-            enterAppWorkspace("premium"); 
-        } else {
-            alert("🔒 Access Denied: Incorrect premium account name or password keys. Please try again.");
+            const data = await apiResponse.json();
+
+            if (data.success) {
+                enterAppWorkspace("premium"); 
+            } else {
+                alert("🔒 Access Denied: Incorrect premium account name or password keys. Please try again.");
+            }
+        } catch (error) {
+            console.error("Authentication Error:", error);
+            alert("⚠️ Connection Error: Failed to contact the authentication server.");
         }
     });
 }
