@@ -1,1 +1,318 @@
+/* ==========================================================================
+   IC MARKETS BRAND PARTNER SPECIFIC DARK THEME (Fully Responsive)
+   ========================================================================== */
+:root {
+    /* Pure IC Markets Background Workspace Matrix */
+    --bg-app-dark: #0b0e11;       /* Deep matte black background canvas */
+    --bg-panel-surface: #161a1e;  /* Deep metallic obsidian for cells, header, and tabs */
+    --bg-card-element: #1e2329;   /* Inner block highlight container layers */
+
+    /* Typography Execution Layers */
+    --text-pure-white: #ffffff;   /* Primary bold metrics and system headers text color */
+    --text-muted-gray: #929ba2;   /* Secondary description snippet labels */
+
+    /* High-Voltage Laser Brand Accents */
+    --laser-lime-green: #00ff00;  /* Pure signature laser lime accent color parameter */
+    --lime-transparent: rgba(0, 255, 0, 0.08); /* Subtle glowing layout shadow rings */
+    --border-dim-gray: #2d333a;   /* Structural frame boundaries grid separator lines */
+}
+
+/* Core Structural Reset Override */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-app-dark);
+    color: var(--text-pure-white);
+}
+
+/* ────────── DUAL LAYER ACCORDION VIEWPORT SWAP ENGINE ────────── */
+.app-screen-layer {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.app-screen-layer.active-layer {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ────────── MODERN GATEWAY AUTH LAYER RESCALE ────────── */
+#auth-screen-layer {
+    background: linear-gradient(180deg, #12161a 0%, var(--bg-app-dark) 100%);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.auth-card {
+    background-color: rgba(22, 26, 30, 0.75); /* Soft transparent card overlay */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-dim-gray);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+    padding: 36px 28px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    z-index: 2; /* Sits cleanly above video levels */
+}
+
+.auth-card h2 { margin-bottom: 8px; color: var(--text-pure-white); font-weight: 800; }
+.auth-card p { font-size: 0.9rem; color: var(--text-muted-gray); margin-bottom: 24px; }
+
+/* Pure Brand Button Infrastructure Layout */
+.auth-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.free-btn {
+    background: transparent;
+    color: var(--laser-lime-green);
+    border: 1px solid var(--laser-lime-green);
+}
+.free-btn:active {
+    background-color: var(--lime-transparent);
+}
+
+.login-btn {
+    background-color: var(--laser-lime-green);
+    color: #000000; /* High contrast text overlay on bright button blocks */
+    border: none;
+}
+.login-btn:active {
+    background-color: #00cc00;
+}
+
+.auth-divider {
+    margin: 24px 0;
+    color: var(--text-muted-gray);
+    font-size: 0.8rem;
+    font-weight: bold;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.auth-divider::before, .auth-divider::after { content: ""; flex: 1; height: 1px; background: var(--border-dim-gray); }
+
+#auth-login-form input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    background-color: var(--bg-app-dark);
+    border: 1px solid var(--border-dim-gray);
+    color: var(--text-pure-white);
+    font-size: 1rem;
+    outline: none;
+}
+#auth-login-form input:focus {
+    border-color: var(--laser-lime-green);
+    box-shadow: 0 0 8px var(--lime-transparent);
+}
+
+/* ────────── TERMINAL CORE FIXED FRAMES WORKSPACE ────────── */
+.app-header {
+    background-color: var(--bg-panel-surface);
+    border-bottom: 1px solid var(--border-dim-gray);
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.header-top-row { display: flex; justify-content: space-between; align-items: center; }
+.header-left-side { display: flex; align-items: center; gap: 12px; }
+.app-branding-title { font-size: 1.3rem; font-weight: 800; color: var(--text-pure-white); letter-spacing: -0.5px; }
+
+/* Rigid Header Top Exit Parameter */
+.header-logout-trigger {
+    background-color: transparent;
+    border: 1px solid #ef4444;
+    color: #ef4444;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.header-logout-trigger:active { background-color: rgba(239, 68, 68, 0.1); }
+
+/* Unified Integrated Deep Field Search Box */
+.search-wrapper input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    border: 1px solid var(--border-dim-gray);
+    border-radius: 10px;
+    background-color: var(--bg-app-dark);
+    color: var(--text-pure-white);
+    outline: none;
+}
+.search-wrapper input:focus {
+    border-color: var(--laser-lime-green);
+}
+
+/* Middle Layout Core Pane */
+.middle-workspace-pane { position: relative; flex: 1; display: flex; overflow: hidden; background-color: var(--bg-app-dark); }
+
+/* Left Swipe Interactive Navigation Menu */
+.navigation-sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 290px;
+    height: 100%;
+    background-color: var(--bg-panel-surface);
+    border-right: 1px solid var(--border-dim-gray);
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 100;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+   /* 🛠️ THE MINI-SCROLLER FIX FOR THEBANKBUGS */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Ensures smooth thumb scrolling on mobile */
+}
+.navigation-sidebar.open { transform: translateX(0); }
+.sidebar-meta-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.sidebar-meta-header h2 { font-size: 1rem; color: var(--text-muted-gray); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+
+.sidebar-link, .syllabus-tab { 
+    width: 100%; 
+    text-align: left; 
+    padding: 14px; 
+    background: none; 
+    border: none; 
+    border-radius: 8px; 
+    font-size: 0.95rem; 
+    font-weight: 600; 
+    color: var(--text-muted-gray); 
+    cursor: pointer; 
+    text-decoration: none;
+    display: block;
+}
+.sidebar-link.active, .syllabus-tab.active {
+    background-color: var(--lime-transparent);
+    color: var(--laser-lime-green);
+    border-left: 3px solid var(--laser-lime-green);
+    border-radius: 0 8px 8px 0;
+}
+
+/* Dim Dark Background Shadow Overlay Shield */
+.menu-backdrop-overlay { position: absolute; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); z-index: 99; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+.menu-backdrop-overlay.open { opacity: 1; pointer-events: auto; }
+
+/* Main Reading Window Canvas Area */
+.central-content-canvas { flex: 1; padding: 24px; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.interior-content-box { display: none; }
+.interior-content-box.active-box { display: block; }
+.interior-content-box h2 { font-size: 1.6rem; color: var(--text-pure-white); margin-bottom: 16px; font-weight: 800; }
+.interior-content-box p { font-size: 1.05rem; line-height: 1.6; color: var(--text-muted-gray); }
+
+/* Locked Bottom Menu Interface Panel */
+.permanent-bottom-tab-bar {
+    height: 65px;
+    background-color: var(--bg-panel-surface);
+    border-top: 1px solid var(--border-dim-gray);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: env(safe-area-inset-bottom);
+}
+.bottom-nav-item { background: none; border: none; display: flex; flex-direction: column; align-items: center; gap: 4px; color: var(--text-muted-gray); cursor: pointer; font-size: 1.3rem; }
+.bottom-nav-item span { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
+.bottom-nav-item.active { color: var(--laser-lime-green); }
+
+/* Universal Vector Icons Modifier Utilities */
+.icon-btn { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-pure-white); }
+.icon-btn:active { color: var(--laser-lime-green); }
+
+/* ────────── SIDEBAR SUB-NAVIGATION ACCORDION SYSTEM ────────── */
+.accordion-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.arrow-indicator {
+    font-size: 0.75rem;
+    transition: transform 0.2s ease;
+}
+
+/* Collapsed State Layout Settings */
+.sidebar-sub-panel {
+    max-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-left: 14px;
+    border-left: 1px dashed var(--border-dim-gray);
+    margin-left: 14px;
+    transition: max-height 0.25s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.25s;
+}
+
+/* Expanded Active State Modifiers */
+.sidebar-sub-panel.expanded {
+    max-height: 100%; /* Gives plenty of viewport scroll headroom */
+    margin-top: 4px;
+    margin-bottom: 8px;
+}
+
+.dropdown-trigger.expanded .arrow-indicator {
+    transform: rotate(180deg);
+    color: var(--laser-lime-green);
+}
+
+/* Indented Sub Menu Items Layout */
+.sub-nav-link {
+    width: 100%;
+    text-align: left;
+    padding: 10px 12px;
+    background: none;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted-gray);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.sub-nav-link:active, .sub-nav-link.active {
+    background-color: rgba(255, 255, 255, 0.03);
+    color: #ffffff;
+}
 
