@@ -71,9 +71,9 @@ function enterAppWorkspace(role) {
 function logoutAndExitApp() {
     // If inside subfolders, step out back to login page directory
     if (window.location.pathname.includes('/members/')) {
-        window.location.href = "../login.html";
+        window.location.href = "../index.html";
     } else {
-        window.location.href = "login.html";
+        window.location.href = "index.html";
     }
 }
 
