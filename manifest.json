@@ -43,14 +43,26 @@
       "short_name": "Members",
       "description": "Go straight to the members dashboard",
       "url": "/members/",
-      "icons": [{ "src": "/images/shortcut-members.png", "sizes": "192x192" }]
+      "icons": [
+        { 
+          "src": "icon-192.png", 
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
     },
     {
       "name": "Free Resources",
       "short_name": "Resources",
       "description": "View free training resources",
       "url": "/free-resources.html",
-      "icons": [{ "src": "/images/shortcut-resources.png", "sizes": "192x192" }]
+      "icons": [
+        { 
+          "src": "icon-192.png", 
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
     }
   ]
 }
