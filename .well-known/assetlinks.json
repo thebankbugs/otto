@@ -1,14 +1,8 @@
-[
-  {
-    "relation": [
-      "delegate_permission/common.handle_all_urls"
-    ],
-    "target": {
-      "namespace": "android_app",
-      "package_name": "YOUR_ANDROID_PACKAGE_NAME",
-      "sha256_cert_fingerprints": [
-        "YOUR_SHA256_FINGERPRINT_FROM_PWABUILDER"
-      ]
-    }
-  }
-}
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "app.vercel.thebankbugs.twa",
+        "sha256_cert_fingerprints": ["06:E0:C1:A1:3B:28:E7:AC:1B:63:87:CE:A6:F2:7F:BA:7D:1F:F8:BF:D1:2E:DD:65:72:61:90:9B:93:6A:A3:08"]
+      }
+    }]
