@@ -425,6 +425,10 @@ body, html {
     animation: livePulse 2s infinite ease-in-out;
 }
 .brand-highlight {
+    display: inline-block;
     color: #00ff00;
+    border-radius: 16px;      /* Rounded glow corners */
+    padding: 2px 8px;
+    box-shadow: 0 0 12px rgba(0, 255, 0, 0.35);
     animation: livePulse 2s infinite ease-in-out;
 }
