@@ -9,30 +9,24 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="manifest" href="/manifest.json">
 
-    <!-- Meta Upgrade -->
     <meta name="theme-color" content="#000000">
     <meta name="description" content="TheBankBugs - Elite trading ecosystem with structured learning, MT5 integration, and market execution systems.">
-
 </head>
 
 <body>
 
-<!-- ============================= -->
-<!-- SYSTEM STATUS BAR (TOP FEEL) -->
-<!-- ============================= -->
+<!-- SYSTEM STATUS -->
 <div class="system-status">
     <span class="dot"></span>
-    Market System Online • Live Environment Active
+    Market System Online • Secure Gateway Active
 </div>
 
-<!-- ============================= -->
-<!-- AUTH GATEWAY OVERLAY -->
-<!-- ============================= -->
+<!-- AUTH OVERLAY -->
 <div id="auth-screen-layer" class="app-screen-layer active-layer static-auth-position">
 
     <div class="auth-card">
 
-        <!-- BRAND HEADER -->
+        <!-- BRAND -->
         <div class="brand-header">
             <h1>THEBANKBUGS</h1>
             <p class="tagline">Trading Terminal Access Gateway</p>
@@ -44,40 +38,41 @@
             Real Market Education • MT5 Integration • Risk-Based Systems
         </div>
 
-        <!-- ENTRY OPTIONS -->
-        <div class="auth-actions">
+        <!-- FREE PATH -->
+        <button id="btn-free-beginner" class="auth-btn free-btn">
+            Start Free Beginner Path
+        </button>
 
-            <button id="btn-free-beginner" class="auth-btn free-btn">
-                Start Free Beginner Path
-            </button>
+        <!-- DIVIDER -->
+        <div class="auth-divider">ELITE ACCESS TERMINAL</div>
 
-            <div class="auth-divider">OR</div>
+        <!-- ELITE LOGIN TERMINAL -->
+        <div class="login-terminal">
 
-            <button id="btn-pro-login" class="auth-btn login-btn">
-                Access Elite Trader Account
-            </button>
+            <p class="terminal-label">
+                Enter credentials to access Elite Trader System
+            </p>
+
+            <form id="auth-login-form">
+
+                <input type="text" id="login-email" placeholder="Email / Username" required>
+
+                <input type="password" id="login-password" placeholder="Password" required>
+
+                <button type="submit" class="auth-btn login-btn">
+                    Login to Terminal
+                </button>
+
+            </form>
 
         </div>
 
-        <!-- LOGIN FORM -->
-        <form id="auth-login-form">
-
-            <input type="text" id="login-email" placeholder="Email / Username" required>
-
-            <input type="password" id="login-password" placeholder="Password" required>
-
-            <button type="submit" class="auth-btn login-submit-btn">
-                Login to Terminal
-            </button>
-
-        </form>
-
-        <!-- PROGRESSION HINT -->
+        <!-- PROGRESSION -->
         <p class="progress-hint">
             Starter → Elite → Live Market Execution
         </p>
 
-        <!-- FOOTER ATTRIBUTION -->
+        <!-- FOOTER -->
         <div class="auth-footer">
             App developed by trader <strong>Otto Eric</strong><br>
             Sponsored by <strong>IC Markets</strong> • Built for Traders
@@ -86,10 +81,7 @@
     </div>
 </div>
 
-<!-- ============================= -->
 <!-- SCRIPTS -->
-<!-- ============================= -->
-
 <script>
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
