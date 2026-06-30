@@ -384,3 +384,12 @@ body, html {
     box-shadow: 0 0 25px rgba(0, 255, 0, 0.8), 0 0 10px rgba(0, 255, 0, 0.4);
     transform: translateY(-1px);
 }
+.auth-footer {
+    font-size: 0.65rem;
+    font-weight: 300;
+    opacity: 0.45;
+    margin-top: 24px;
+    line-height: 1.4;
+    letter-spacing: 0.2px;
+    color: var(--text-muted-gray);
+}
