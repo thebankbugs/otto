@@ -393,3 +393,8 @@ body, html {
     letter-spacing: 0.2px;
     color: var(--text-muted-gray);
 }
+.brand-highlight {
+    color: #00ff00;
+    text-shadow: 0 0 6px rgba(0, 255, 0, 0.4),
+                 0 0 12px rgba(0, 255, 0, 0.15);
+}
