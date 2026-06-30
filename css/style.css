@@ -398,3 +398,33 @@ body, html {
     text-shadow: 0 0 6px rgba(0, 255, 0, 0.4),
                  0 0 12px rgba(0, 255, 0, 0.15);
 }
+/* =========================
+   LIVE SYSTEM PULSE KEYFRAME
+========================= */
+@keyframes livePulse {
+    0% {
+        opacity: 0.4;
+        box-shadow: 0 0 0px rgba(0, 255, 0, 0);
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.35);
+    }
+    100% {
+        opacity: 0.4;
+        box-shadow: 0 0 0px rgba(0, 255, 0, 0);
+    }
+}
+.system-status .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00ff00;
+    display: inline-block;
+    margin-right: 8px;
+    animation: livePulse 2s infinite ease-in-out;
+}
+.brand-highlight {
+    color: #00ff00;
+    animation: livePulse 2s infinite ease-in-out;
+}
