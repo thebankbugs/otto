@@ -4,6 +4,6 @@ window.addEventListener("load", () => {
 
         window.location.href = "login.html";
 
-    },8000);
+    },5500);
 
 });
