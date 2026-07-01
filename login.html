@@ -1,118 +1,98 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
-<title>TheBankBugs | Login</title>
+    <title>TheBankBugs | Trading Terminal</title>
 
-<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="/manifest.json">
 
-<meta name="theme-color" content="#ffffff">
-<meta name="description" content="TheBankBugs Trading Ecosystem">
-
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="TheBankBugs - Elite trading ecosystem with structured learning, MT5 integration, and market execution systems.">
 </head>
 
 <body>
 
-<div class="login-wrapper">
+<!-- SYSTEM STATUS -->
+<div class="system-status">
+    <span class="dot"></span>
+    Market System Online • Secure Gateway Active
+</div>
 
-    <div class="login-card">
+<!-- AUTH OVERLAY -->
+<div id="auth-screen-layer" class="app-screen-layer active-layer static-auth-position">
 
-        <img src="logo.png" class="logo" alt="BankBugs Logo">
+    <div class="auth-card">
 
-        <h1>Welcome Back</h1>
-
-        <p class="subtitle">
-            Sign in to continue your trading journey.
-        </p>
-
-        <form id="auth-login-form">
-
-            <label>Email or Username</label>
-
-            <input
-                type="text"
-                id="login-email"
-                placeholder="Enter your email"
-                required
-            >
-
-            <label>Password</label>
-
-            <input
-                type="password"
-                id="login-password"
-                placeholder="Enter your password"
-                required
-            >
-
-            <a href="#" class="forgot">
-                Forgot Password?
-            </a>
-
-            <button
-                type="submit"
-                class="login-btn">
-                Secure Login
-            </button>
-
-        </form>
-
-        <div class="divider">
-            <span>OR</span>
+        <!-- BRAND -->
+        <div class="brand-header">
+            <h1>THE<span class="brand-highlight">BANKBUGS</span></h1>
+            <p class="tagline">Trading Terminal Access Gateway</p>
+            <p class="sub-text">Trade smarter. Learn faster. Build capital systems.</p>
         </div>
 
-        <button
-            id="btn-free-beginner"
-            class="beginner-btn">
+        <!-- TRUST STRIP -->
+        <div class="trust-strip">
+            Real Market Education • MT5 Integration • Risk-Based Systems
+        </div>
 
-            Continue as Beginner
-
+        <!-- FREE PATH -->
+        <button id="btn-free-beginner" class="auth-btn free-btn">
+            Start Free Beginner Path
         </button>
 
-        <div class="features">
+        <!-- DIVIDER -->
+        <div class="auth-divider">ELITE ACCESS TERMINAL</div>
 
-            <div class="feature">
-                ✓ Beginner Friendly
-            </div>
+        <!-- ELITE LOGIN TERMINAL -->
+        <div class="login-terminal">
 
-            <div class="feature">
-                ✓ MT5 Integration
-            </div>
-
-            <div class="feature">
-                ✓ Elite Learning
-            </div>
-
-            <div class="feature">
-                ✓ Risk Management
-            </div>
-
-        </div>
-
-        <div class="footer">
-
-            <strong>BANKBUGS</strong>
-
-            <p>
-                PNG's Premier Digital Trading Ecosystem
+            <p class="terminal-label">
+                Enter credentials to access Elite Trader System
             </p>
 
-            <small>
-                Developed by Otto Eric
-            </small>
+            <form id="auth-login-form">
+
+                <input type="text" id="login-email" placeholder="Email / Username" required>
+
+                <input type="password" id="login-password" placeholder="Password" required>
+
+                <button type="submit" class="auth-btn login-btn">
+                    Login to Terminal
+                </button>
+
+            </form>
 
         </div>
 
-    </div>
+        <!-- PROGRESSION -->
+        <p class="progress-hint">
+            Starter → Elite → Live Market Execution
+        </p>
 
+        <!-- FOOTER -->
+        <div class="auth-footer">
+    App developed by trader Otto Eric<br>
+    Sponsored by IC Markets • Built for Traders
 </div>
+    </div>
+</div>
+
+<!-- SCRIPTS -->
+<script>
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then((reg) => console.log('Service Worker active:', reg.scope))
+            .catch((err) => console.error('Service Worker failed:', err));
+    });
+}
+</script>
 
 <script src="js/app.js"></script>
 
 </body>
 </html>
-```
+
