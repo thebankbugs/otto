@@ -68,7 +68,7 @@ function enterAppWorkspace(role) {
     if (currentUserRole === "premium") {
         window.location.href = "members/dashboard.html";
     } else {
-        window.location.href = "free-resources.html";
+        window.location.href = "free/free-resources.html";
     }
 }
 
