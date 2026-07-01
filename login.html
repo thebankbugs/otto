@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,30 +10,24 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="manifest" href="/manifest.json">
 
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="TheBankBugs Trading Ecosystem">
 </head>
-
 
 <body>
 
-<div id="auth-screen-layer" class="app-screen-layer active-layer">
+<!-- LOGIN SCREEN -->
+<div id="auth-screen-layer" class="app-screen-layer active-layer static-auth-position">
 
     <div class="auth-card">
 
-        <!-- Logo -->
+        <!-- BRAND -->
         <div class="brand-header">
-
-            <img src="logo.png" class="logo" alt="BankBugs">
-
-            <h1>BANK<span class="brand-highlight">BUGS</span></h1>
-
-            <p class="tagline">
-                Sign in to continue
-            </p>
-
+            <h1>THE<span class="brand-highlight">BANKBUGS</span></h1>
+            <p class="tagline">Sign in to continue</p>
         </div>
 
-        <!-- Login -->
-
+        <!-- LOGIN FORM -->
         <form id="auth-login-form">
 
             <input
@@ -50,25 +45,39 @@
             <button
                 type="submit"
                 class="auth-btn login-btn">
-
                 Log In
-
             </button>
 
         </form>
 
+        <div class="auth-divider">
+            <span>OR</span>
+        </div>
+
+        <!-- FREE BEGINNER -->
         <button
             id="btn-free-beginner"
             class="auth-btn free-btn">
-
             Continue as Free Beginner
-
         </button>
 
     </div>
 
 </div>
 
+<!-- SERVICE WORKER -->
+<script>
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then((reg) => console.log('Service Worker active:', reg.scope))
+            .catch((err) => console.error('Service Worker failed:', err));
+    });
+}
+</script>
+
 <script src="js/app.js"></script>
 
 </body>
+</html>
+```
