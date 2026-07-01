@@ -55,7 +55,7 @@
       "name": "Free Resources",
       "short_name": "Resources",
       "description": "View free training resources",
-      "url": "/free-resources.html",
+      "url": "free/free-resources.html",
       "icons": [
         { 
           "src": "icon-192.png", 
