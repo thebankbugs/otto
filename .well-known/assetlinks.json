@@ -3,6 +3,6 @@
       "target": {
         "namespace": "android_app",
         "package_name": "app.vercel.thebankbugs.twa",
-        "sha256_cert_fingerprints": ["8B:A2:AF:59:74:AF:94:50:BC:B3:DA:7F:42:48:D7:F0:73:07:70:4C:F9:B6:1C:C7:89:D0:81:1D:98:15:CC:2F"]
+        "sha256_cert_fingerprints": ["54:16:61:B3:B5:04:6B:31:93:37:C3:F6:82:83:6E:A5:A5:7E:4D:72:6B:E9:AE:69:30:D8:BE:AD:94:53:B0:EF"]
       }
     }]
