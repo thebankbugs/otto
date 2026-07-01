@@ -80,7 +80,7 @@ function logoutAndExitApp() {
     if (window.location.pathname.includes('/members/')) {
         window.location.href = "../login.html";
     } else {
-        window.location.href = "login.html";
+        window.location.href = "../login.html";
     }
 }
 
