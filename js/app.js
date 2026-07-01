@@ -78,9 +78,9 @@ function logoutAndExitApp() {
     
     // Redirect cleanly back to the base entry platform
     if (window.location.pathname.includes('/members/')) {
-        window.location.href = "../index.html";
+        window.location.href = "../login.html";
     } else {
-        window.location.href = "index.html";
+        window.location.href = "login.html";
     }
 }
 
