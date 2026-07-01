@@ -2,7 +2,7 @@
   "name": "TheBankBugs",
   "short_name": "TheBankBugs",
   "description": "Access your premium dashboard, member tools, and free training resources on TheBankBugs.",
-  "start_url": "/",
+  "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#121212",
   "theme_color": "#1e1e2e",
