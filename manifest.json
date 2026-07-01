@@ -1,7 +1,7 @@
 {
   "id": "thebankbugs-pwa",
-  "name": "TheBankBugs",
-  "short_name": "BankBugs Lite",
+  "name": "The Bank Bugs Trading App",
+  "short_name": "Bank Bugs",
   "description": "Access free trading modules, dashboards, and tools instantly.",
   "lang": "en-US",
   "start_url": "/index.html",
@@ -9,10 +9,14 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "icon-192x192.png",
+      "src": "/icons/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
-   
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
   ]
 }
