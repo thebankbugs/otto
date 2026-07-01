@@ -1,68 +1,25 @@
 {
-  "name": "TheBankBugs",
-  "short_name": "TheBankBugs",
-  "description": "Access your premium dashboard, member tools, and free training resources on TheBankBugs.",
+  "id": "thebankbugs-pwa",
+  "name": "The Bank Bugs Trading App",
+  "short_name": "Bank Bugs",
+  "description": "Access free trading modules, dashboards, and tools instantly.",
+  "lang": "en-US",
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#121212",
-  "theme_color": "#1e1e2e",
   "orientation": "portrait-primary",
-  "categories": ["productivity", "utilities"],
-  "dir": "ltr",
-  "lang": "en-US",
-  "prefer_related_applications": false,
+  "theme_color": "#1f2937",
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "/icons/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "icon-192-maskable.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "icon-512.png",
+      "src": "/icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
-    },
-    {
-      "src": "icon-512-maskable.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Members Portal",
-      "short_name": "Members",
-      "description": "Go straight to the members dashboard",
-      "url": "/members/",
-      "icons": [
-        { 
-          "src": "icon-192.png", 
-          "sizes": "192x192",
-          "type": "image/png"
-        }
-      ]
-    },
-    {
-      "name": "Free Resources",
-      "short_name": "Resources",
-      "description": "View free training resources",
-      "url": "free/free-resources.html",
-      "icons": [
-        { 
-          "src": "icon-192.png", 
-          "sizes": "192x192",
-          "type": "image/png"
-        }
-      ]
     }
   ]
 }
