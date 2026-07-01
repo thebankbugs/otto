@@ -1,8 +1,1 @@
-[{
-      "relation": ["delegate_permission/common.handle_all_urls"],
-      "target": {
-        "namespace": "android_app",
-        "package_name": "app.vercel.thebankbugs.twa",
-        "sha256_cert_fingerprints": ["F8:21:9C:3D:0F:9D:85:D1:E4:C8:13:4F:EE:3B:7A:29:6B:E7:52:FE:F7:0F:BA:19:09:56:25:F9:4E:FC:AD:A1"]
-      }
-    }]
+
