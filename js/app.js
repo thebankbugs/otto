@@ -285,50 +285,54 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 (function() {
-  // Clean, individual public API endpoints
-  const BTC_URL = 'https://binance.com';
-  const ETH_URL = 'https://binance.com';
-  const FOREX_URL = 'https://er-api.com';
+  // Public public endpoints natively delivering open CORS permissions to client browsers
+  const BTC_URL = 'https://coinbase.com';
+  const ETH_URL = 'https://coinbase.com';
+  const EUR_URL = 'https://coinbase.com';
+  const GBP_URL = 'https://coinbase.com';
 
   async function updateTickerFeed() {
     const ticker = document.getElementById('live-ticker');
     if (!ticker) return;
 
     try {
-      // Fetch all endpoints simultaneously to maximize performance
-      const [btcRes, ethRes, forexRes] = await Promise.all([
+      // Fire requests simultaneously to fetch asset valuations smoothly
+      const [btcRes, ethRes, eurRes, gbpRes] = await Promise.all([
         fetch(BTC_URL),
         fetch(ETH_URL),
-        fetch(FOREX_URL)
+        fetch(EUR_URL),
+        fetch(GBP_URL)
       ]);
 
-      // Ensure all network requests completed successfully
-      if (!btcRes.ok || !ethRes.ok || !forexRes.ok) throw new Error('Data streams offline');
+      if (!btcRes.ok || !ethRes.ok || !eurRes.ok || !gbpRes.ok) {
+        throw new Error('CORS endpoints network delay');
+      }
 
       const btcData = await btcRes.json();
       const ethData = await ethRes.json();
-      const forexData = await forexRes.json();
+      const eurData = await eurRes.json();
+      const gbpData = await gbpRes.json();
 
-      // Parse current pricing structures 
-      const btcPrice = parseFloat(btcData.price);
-      const ethPrice = parseFloat(ethData.price);
-      const eurUsd = 1 / forexData.rates.EUR;
-      const gbpUsd = 1 / forexData.rates.GBP;
+      // Convert responses down into standard floats safely
+      const btcPrice = parseFloat(btcData.data.amount);
+      const ethPrice = parseFloat(ethData.data.amount);
+      const eurPrice = parseFloat(eurData.data.amount);
+      const gbpPrice = parseFloat(gbpData.data.amount);
 
-      // Build out clean array lists (using zero-neutral baselines for simple rendering)
+      // Build text segments (using small placeholder trends for simple rendering layout)
       const items = [
-        formatItem('BTC', btcPrice, 0.45),
-        formatItem('ETH', ethPrice, -0.12),
-        formatItem('EUR/USD', eurUsd, 0.08),
-        formatItem('GBP/USD', gbpUsd, -0.04)
+        formatItem('BTC', btcPrice, 1.25),
+        formatItem('ETH', ethPrice, -0.42),
+        formatItem('EUR/USD', eurPrice, 0.11),
+        formatItem('GBP/USD', gbpPrice, -0.08)
       ];
 
-      // Double the array to allow for a smooth infinite layout transition
+      // Blend data array twice to guarantee seamless conveyor looping
       ticker.innerHTML = [...items, ...items].join('');
       
     } catch (error) {
-      console.error('Ticker Connection Error:', error);
-      ticker.innerHTML = `<span class="ticker-loading" style="color: #cc3300;">Reconnecting to live markets...</span>`;
+      console.error('Ticker Safe Fallback Exception:', error);
+      ticker.innerHTML = `<span class="ticker-loading" style="color: #cc3300;">Synchronizing secure live feeds...</span>`;
     }
   }
 
@@ -337,6 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const indicator = isUp ? '▲' : '▼';
     const colorClass = isUp ? 'ticker-green' : 'ticker-red';
     
+    // Auto-truncate or padd asset strings by overall asset weight values
     const decimalCount = price < 5 ? 4 : 2;
     const formattedPrice = price.toLocaleString(undefined, {
       minimumFractionDigits: decimalCount, 
@@ -351,9 +356,9 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
   }
 
-  // Fire tracking sequence
+  // Initial runtime execute execution 
   updateTickerFeed();
 
-  // Keep data fresh by checking every 60 seconds
+  // Refresh price feeds every 60 seconds safely
   setInterval(updateTickerFeed, 60000);
 })();
