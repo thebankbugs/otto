@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    </script>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>TheBankBugs | Premium Member Terminal</title>
-    <link rel="stylesheet" href="../css/style.css">   
+    <title>TheBankBugs | Starter-Kit Terminal</title>
+    <link rel="stylesheet" href="../css/style.css">    
 </head>
 <body>
 
     <div id="app-workspace-shell" class="app-screen-layer active-layer">
         
-        <!-- A. PREMIUM TOP HEADER -->
+        <!-- A. HEADER BAR -->
         <header class="app-header">
             <div class="header-top-row">
                 <div class="header-left-side">
                     <button id="menu-open-btn" class="icon-btn">☰</button>
-                    <h1 class="app-branding-title">TheBankBugs <span style="color:#00ff00; font-size:0.75rem; font-weight:900; vertical-align:middle; letter-spacing:0.5px;">⚡ PRO</span></h1>
+                    <h1 class="app-branding-title">TheBankBugs <span style="color:#929ba2; font-size:0.75rem; font-weight:900; vertical-align:middle; letter-spacing:0.5px;">🌱 FREE</span></h1>
                 </div>
                 <button id="header-logout-btn" class="header-logout-trigger">Log out</button>
             </div>
@@ -24,27 +24,38 @@
             </div>
         </header>
 
-        <!-- B. CENTRAL PRIVATE SPACE WORKSPACE -->
+        <!-- B. MAIN INTERIOR CORE PANE -->
         <div class="middle-workspace-pane">
             <div id="sidebar-backdrop" class="menu-backdrop-overlay"></div>
             
-            <!-- SECURE WORKSPACE SIDEBAR -->
+            <!-- SLIDING SIDEBAR NAVIGATION -->
             <nav id="sliding-left-menu" class="navigation-sidebar">
                 <div class="sidebar-meta-header">
-                    <h2>PRO Dashboard</h2>
+                    <h2>FREE DASHBOARD</h2>
                     <button id="menu-close-btn" class="icon-btn">✕</button>
                 </div>
                 
-                <button class="nav-trigger syllabus-tab active" data-target="box-intro" data-tier="premium">🏛️ Dashboard Overview</button>
+                <button class="nav-trigger syllabus-tab active" data-target="box-intro" data-tier="free">🏛️ Dashboard Overview</button>
                 
                 <div class="accordion-wrapper">
                     <button id="accordion-toggle-btn" class="syllabus-tab dropdown-trigger">🌱 Beginner Starter-Kit <span class="arrow-indicator">▼</span></button>
+                    
+                    <!-- 🛠️ NEW 14 SUB-NAVIGATION CHANNELS FOR TEAM PNG -->
                     <div id="beginner-sub-panel" class="sidebar-sub-panel">
-                        <button class="nav-trigger sub-nav-link" data-target="box-m1" data-tier="free">🌐 1. Global Markets</button>
-                        <button class="nav-trigger sub-nav-link" data-target="box-m2" data-tier="free">📊 2. Candlesticks</button>
-                        <button class="nav-trigger sub-nav-link" data-target="box-m3" data-tier="free">🖥️ 3. Platforms</button>
-                        <button class="nav-trigger sub-nav-link" data-target="box-m4" data-tier="free">📐 4. Risk & Pips</button>
-                        <button class="nav-trigger sub-nav-link" data-target="box-m5" data-tier="free">🆔 5. Verification</button>
+                        <button class="nav-trigger sub-nav-link" data-target="box-b1" data-tier="free">📋Overview-READ ME first</button>
+                        <button class="nav-trigger sub-nav-link" data-target="box-b2" data-tier="free">🌐Introduction</button>
+                        <button class="nav-trigger sub-nav-link" data-target="box-b3" data-tier="free">🖥️Trading Platforms</button>
+                        <button class="nav-trigger sub-nav-link" data-target="box-b4" data-tier="free">🏢Local & International Brokers</button>
+                        <button class="nav-trigger sub-nav-link" data-target="box-b5" data-tier="free">✅Broker to USE</button>
+                        <button class="nav-trigger sub-nav-link" data-target="box-b6" data-tier="free">📄Broker Requirements</button>
+                        <button class="nav-trigger sub-nav-link" data-target="box-b7" data-tier="free">🔍Overview-Broker KYC</button>
+                        <button class="nav-trigger sub-nav-link" data-target="box-b8" data-tier="free">🖋️Opening Broker Acc</button>
+                        <button class="nav-trigger sub-nav-link" data-target="box-b9" data-tier="free">📊Opening Real/DEMO Acc</button>
+                        <button class="nav-trigger sub-nav-link" data-target="box-b10" data-tier="free">💳Deposit/Withdrawal Process</button>
+                        <button class="nav-trigger sub-nav-link" data-target="box-b11" data-tier="free">🔌Connecting Platforms-Broker/MT5</button>
+                        <button class="nav-trigger sub-nav-link" data-target="box-b12" data-tier="free">📐Basic Charting Tools-MT5</button>
+                        <button class="nav-trigger sub-nav-link" data-target="box-b13" data-tier="free">🎮DEMO Trading 101</button>
+                        <button class="nav-trigger sub-nav-link" data-target="box-b14" data-tier="free">⚡What's Next? Level up-ELITE</button>
                     </div>
                 </div>
                 
@@ -52,71 +63,131 @@
                 <button class="nav-trigger syllabus-tab" data-target="box-css" data-tier="free">Section 3: Structural CSS</button>
             </nav>
 
+            <!-- READING CANVAS WINDOW -->
             <main class="central-content-canvas">
                 
-                <!-- INNER BOX SEARCH OUTPUT TARGET -->
+                <!-- PREMIUM INTERCEPT WALL -->
+                <div id="box-premium-lock" class="interior-content-box">
+                    <div style="text-align: center; padding: 40px 20px; background: var(--bg-panel-surface); border-radius: 12px; border: 1px solid var(--border-dim-gray);">
+                        <span style="font-size: 3rem; display: block; margin-bottom: 12px;">🔒</span>
+                        <h2>Premium Access Required</h2>
+                        <p style="color: var(--text-muted-gray); margin-top: 8px; margin-bottom: 20px;">Live Market Data is Reserved, exclusively FREE for Verified 'IC Markets' Traders under Our Partnership.</p>
+                        <button id="lockwall-return-btn" class="auth-btn login-btn" style="width: auto; padding: 10px 20px; margin: 0 auto;">Return to Sign In</button>
+                    </div>
+                </div>
+
+                <!-- SEARCH TERMINAL MODULE -->
                 <div id="search-results-output" class="interior-content-box">
                     <h2>Search Results</h2>
                     <div id="search-results-list"></div>
                 </div>
 
-                <!-- OVERVIEW SYSTEM PANEL -->
+                <!-- OVERVIEW HOME CONTEXT -->
                 <div id="box-intro" class="interior-content-box active-box">
                     <section class="onboarding-welcome-zone" style="margin-bottom: 24px;">
-                        <h2>TheBankBugs Pro Terminal</h2>
-                        <p style="margin-bottom: 20px;">Welcome Back, Elite Trader! This is your complete gateway to institutional risk matrices and premium asset analysis feeds.</p>
+                        <h2>TheBankBugs Trading Ecosystem</h2>
+                        <p style="margin-bottom: 20px;">Welcome, Team PNG! This platform is your complete gateway from absolute beginner to trading live with institutional systems.</p>
                         
                         <div class="app-roadmap-card" style="background: var(--bg-panel-surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border-dim-gray);">
-                            <h3 style="font-size: 1.1rem; color: var(--laser-lime-green); margin-bottom: 12px; font-weight: 700;">🗺️ ELITE Trader Portal</h3>
+                            <h3 style="font-size: 1.1rem; color: var(--laser-lime-green); margin-bottom: 12px; font-weight: 700;">🗺️ YOUR Trading ROADMAP</h3>
                             <ul style="list-style: none; padding-left: 0; font-size: 0.95rem; display: flex; flex-direction: column; gap: 12px;">
-                                <li><strong style="color: #fff;">1. 🌱 All Beginner Modules:</strong> Fully unlocked in your sidebar list.</li>
-                                <li><strong style="color: #fff;">2. 📈 Watchlist Terminal:</strong> Live asset tracking, order-blocks and volume spikes.</li>
-                                <li><strong style="color: #fff;">3. ⚡ Live Signal Feed:</strong> Real-time positions execution logs.</li>
+                                <li><strong style="color: #fff;">1. 🌱 Beginner Track:</strong> The foundational free modules to get you market-ready. Open the sidebar menu to begin.</li>
+                                <li><strong style="color: #fff;">2. 📈 Intermediate Tier:</strong> Building custom execution strategies and risk engines.</li>
+                                <li><strong style="color: #fff;">3. ⚡ Advanced Pro Terminal:</strong> Live setups, institutional order blocks, and order tracking.</li>
                             </ul>
                         </div>
                     </section>
                 </div>
 
-                <!-- ALL FREE MODULE COPIES REMAIN FOR PREMIUM MEMBERS TOO -->
-                <div id="box-m1" class="interior-content-box">
+                <!-- 🛠️ NEW CONTENT CONTAINERS GRID DISPLAY -->
+                <div id="box-b1" class="interior-content-box">
                     <span style="font-size: 0.8rem; color: var(--laser-lime-green); font-weight: bold; text-transform: uppercase;">Module 1 • Free Starter-Kit</span>
-                    <h2 style="margin-top: 4px;">Introduction to Global Markets</h2>
-                    <p>What forex trading actually is, how currency pairs move, and how retail market participants interface with liquidity networks across global centers.</p>
-                </div>
-                <div id="box-m2" class="interior-content-box">
-                    <span style="font-size: 0.8rem; color: var(--laser-lime-green); font-weight: bold; text-transform: uppercase;">Module 2 • Free Starter-Kit</span>
-                    <h2 style="margin-top: 4px;">Understanding Candlesticks & Charts</h2>
-                    <p>Reading price action canvases. Learn to interpret open, high, low, and close values across multiple timeframes like the Daily, H4, and M15 charts.</p>
-                </div>
-                <div id="box-m3" class="interior-content-box">
-                    <span style="font-size: 0.8rem; color: var(--laser-lime-green); font-weight: bold; text-transform: uppercase;">Module 3 • Free Starter-Kit</span>
-                    <h2 style="margin-top: 4px;">Navigating Your Trading Platform</h2>
-                    <p>Setting up your live interface layout framework, placing market execution entries, installing pending orders, and handling margin calls safely.</p>
-                </div>
-                <div id="box-m4" class="interior-content-box">
-                    <span style="font-size: 0.8rem; color: var(--laser-lime-green); font-weight: bold; text-transform: uppercase;">Module 4 • Free Starter-Kit</span>
-                    <h2 style="margin-top: 4px;">The Math of Survival: Lot Sizes & Pips</h2>
-                    <p>How to calculate financial risk metrics before pulling the trigger. Stop blowing accounts by protecting capital tracking parameters using tight lot size rule sets.</p>
-                </div>
-                <div id="box-m5" class="interior-content-box">
-                    <span style="font-size: 0.8rem; color: var(--laser-lime-green); font-weight: bold; text-transform: uppercase;">Module 5 • Free Starter-Kit</span>
-                    <h2 style="margin-top: 4px;">IC Markets Verification Pipeline</h2>
-                    <p>Step-by-step guidance on setting up your partner account, submitting valid Papua New Guinea identification documents, and linking up with our verified system tracking codes.</p>
+                    <h2 style="margin-top: 4px; margin-bottom: 12px;">Overview - READ ME first</h2>
+                    <p>Welcome to TheBankBugs Academy. This guide lays down the complete framework for your training roadmap, rules of engagement, and clear tracking milestones required to transition safely from demo fields into real market environments.</p>
                 </div>
 
-                <!-- PREMIUM REALIZED DATA CORES -->
-                <div id="box-watchlist" class="interior-content-box">
-                    <h2>Premium Watchlist Terminal</h2>
-                    <p>Real-time monitored asset pairs, volume profiles, and institutional order blocks.</p>
+                <div id="box-b2" class="interior-content-box">
+                    <span style="font-size: 0.8rem; color: var(--laser-lime-green); font-weight: bold; text-transform: uppercase;">Module 2 • Free Starter-Kit</span>
+                    <h2 style="margin-top: 4px; margin-bottom: 12px;">Introduction</h2>
+                    <p>Understanding the fundamental structure of global currency exchange. Learn how decentralized markets operate, what exchange metrics signify, and how buyers and sellers move financial data globally.</p>
                 </div>
-                <div id="box-trades" class="interior-content-box">
-                    <h2>Live Trades & Break-downs</h2>
-                    <p>Algorithmic entries, target take-profits, and explicit stop-loss risk parameters.</p>
+
+                <div id="box-b3" class="interior-content-box">
+                    <span style="font-size: 0.8rem; color: var(--laser-lime-green); font-weight: bold; text-transform: uppercase;">Module 3 • Free Starter-Kit</span>
+                    <h2 style="margin-top: 4px; margin-bottom: 12px;">Trading platforms</h2>
+                    <p>An objective breakdown of processing consoles. Learn how terminal software networks like MetaTrader 5 (MT5) channel instant live pricing streams straight to your mobile or desktop hardware.</p>
                 </div>
-                <div id="box-journal" class="interior-content-box">
-                    <h2>Private Notebook Journal</h2>
-                    <p>Member trade logging mechanics, tracking rule sets, and emotional data charts.</p>
+
+                <div id="box-b4" class="interior-content-box">
+                    <span style="font-size: 0.8rem; color: var(--laser-lime-green); font-weight: bold; text-transform: uppercase;">Module 4 • Free Starter-Kit</span>
+                    <h2 style="margin-top: 4px; margin-bottom: 12px;">Local and international brokers</h2>
+                    <p>Evaluating financial liquidity channels. Discover why standard local PNG commercial banks operate under different processing mechanisms compared to fully international, multi-regulated clearing firms.</p>
                 </div>
+
+                <div id="box-b5" class="interior-content-box">
+                    <span style="font-size: 0.8rem; color: var(--laser-lime-green); font-weight: bold; text-transform: uppercase;">Module 5 • Free Starter-Kit</span>
+                    <h2 style="margin-top: 4px; margin-bottom: 12px;">Broker to use</h2>
+                    <p>Why we run our institutional system tracking pipelines via our partner portal selection parameters. Analyzing minimal spread layers, zero-slippage execution speeds, and low transaction commission costs.</p>
+                </div>
+
+                <div id="box-b6" class="interior-content-box">
+                    <span style="font-size: 0.8rem; color: var(--laser-lime-green); font-weight: bold; text-transform: uppercase;">Module 6 • Free Starter-Kit</span>
+                    <h2 style="margin-top: 4px; margin-bottom: 12px;">Broker requirements</h2>
+                    <p>Preparing compliance documentation keys. Clear lists detailing accepted national photo IDs (NID cards, valid driver licenses, passports) and residency statements needed for seamless registration approval.</p>
+                </div>
+
+                <div id="box-b7" class="interior-content-box">
+                    <span style="font-size: 0.8rem; color: var(--laser-lime-green); font-weight: bold; text-transform: uppercase;">Module 7 • Free Starter-Kit</span>
+                    <h2 style="margin-top: 4px; margin-bottom: 12px;">Overview - broker verification process</h2>
+                    <p>Navigating the global KYC (Know Your Customer) portal pipelines smoothly. Avoid submission faults, handle file formats accurately, and pass safety firewalls without verification lag.</p>
+                </div>
+
+                <div id="box-b8" class="interior-content-box">
+                    <span style="font-size: 0.8rem; color: var(--laser-lime-green); font-weight: bold; text-transform: uppercase;">Module 8 • Free Starter-Kit</span>
+                    <h2 style="margin-top: 4px; margin-bottom: 12px;">Opening a broker account</h2>
+                    <p>Onboarding guide for setting up your profile data under our verified partner channel link. Correct parameters to choose for account types, currencies, and tracking groups.</p>
+                </div>
+
+                <div id="box-b9" class="interior-content-box">
+                    <span style="font-size: 0.8rem; color: var(--laser-lime-green); font-weight: bold; text-transform: uppercase;">Module 9 • Free Starter-Kit</span>
+                    <h2 style="margin-top: 4px; margin-bottom: 12px;">Opening a real/demo trading account</h2>
+                    <p>Generating specific trading console accounts within your broker space. Configuring leverage restrictions (e.g., 1:500) and managing platform security codes safely.</p>
+                </div>
+
+                <div id="box-b10" class="interior-content-box">
+                    <span style="font-size: 0.8rem; color: var(--laser-lime-green); font-weight: bold; text-transform: uppercase;">Module 10 • Free Starter-Kit</span>
+                    <h2 style="margin-top: 4px; margin-bottom: 12px;">deposit/ withdrawal process</h2>
+                    <p>Capital transit procedures. Detailed walk-through on moving funds to and from Papua New Guinea banks via debit cards, international wires, and processing windows.</p>
+                </div>
+
+                <div id="box-b11" class="interior-content-box">
+                    <span style="font-size: 0.8rem; color: var(--laser-lime-green); font-weight: bold; text-transform: uppercase;">Module 11 • Free Starter-Kit</span>
+                    <h2 style="margin-top: 4px; margin-bottom: 12px;">Connecting trading trading account to trading platforms</h2>
+                    <p>Synchronizing systems. Step-by-step procedure to enter your trading account number, private password keys, and precise data server strings inside the MetaTrader 5 platform interface.</p>
+                </div>
+
+                <div id="box-b12" class="interior-content-box">
+                    <span style="font-size: 0.8rem; color: var(--laser-lime-green); font-weight: bold; text-transform: uppercase;">Module 12 • Free Starter-Kit</span>
+                    <h2 style="margin-top: 4px; margin-bottom: 12px;">Basic charting tools MT5</h2>
+                    <p>Interfacing with the digital graph layout. Learn how to format candlestick colors, apply technical horizontal trend tools, adjust timeframes, and set up clear workspace clean templates.</p>
+                </div>
+
+                <div id="box-b13" class="interior-content-box">
+                    <span style="font-size: 0.8rem; color: var(--laser-lime-green); font-weight: bold; text-transform: uppercase;">Module 13 • Free Starter-Kit</span>
+                    <h2 style="margin-top: 4px; margin-bottom: 12px;">Demo trading 101</h2>
+                    <p>Risk-free trade simulation instructions. Practice calculating position lot sizes, executing immediate market buy/sell keys, and configuring protective stop-loss parameters with zero financial exposure.</p>
+                </div>
+
+                <div id="box-b14" class="interior-content-box">
+                    <span style="font-size: 0.8rem; color: var(--laser-lime-green); font-weight: bold; text-transform: uppercase;">Module 14 • Free Starter-Kit</span>
+                    <h2 style="margin-top: 4px; margin-bottom: 12px;">What's Next? Level up to ELITE</h2>
+                    <p style="margin-bottom: 16px;">Congratulations on exhausting the basic starter modules! You have successfully mastered your platform orientation parameters.</p>
+                    <div style="background: rgba(0, 255, 0, 0.05); border: 1px dashed var(--laser-lime-green); padding: 16px; border-radius: 8px;">
+                        <h4 style="color: #fff; margin-bottom: 6px;">⚡ ACTIVATE ELITE PREMIUM TIERS</h4>
+                        <p style="font-size: 0.9rem; line-height: 1.5;">To lift your system access restrictions and unlock active live signals, premium watchlists, and algorithmic execution tracking notebooks, verify your broker profile state through our master partnership. Reach out to Otto Eric directly to activate your PRO passkey.</p>
+                    </div>
+                </div>
+
                 <div id="box-html" class="interior-content-box">
                     <h2>Section 2: HTML Structural Layouts</h2>
                     <p>The HTML layout frame code container wraps everything perfectly. It sets up rigid blocks for layouts.</p>
@@ -129,18 +200,17 @@
             </main>
         </div>
 
-        <!-- C. PREMIUM NAVIGATION PANEL -->
         <nav class="permanent-bottom-tab-bar">
-            <button class="nav-trigger bottom-nav-item active" data-target="box-intro" data-tier="premium">🏠<span>Home</span></button>
-            <button class="nav-trigger bottom-nav-item" data-target="box-watchlist" data-tier="premium">📊<span>Watchlist</span></button>
-            <button class="nav-trigger bottom-nav-item" data-target="box-trades" data-tier="premium">⚡<span>Trades</span></button>
-            <button class="nav-trigger bottom-nav-item" data-target="box-journal" data-tier="premium">📓<span>Journal</span></button>
+            <button class="nav-trigger bottom-nav-item active" data-target="box-intro" data-tier="free">🏠<span>Home</span></button>
+            <button class="nav-trigger bottom-nav-item" data-target="box-premium-lock" data-tier="premium">📊<span>Watchlist</span></button>
+            <button class="nav-trigger bottom-nav-item" data-target="box-premium-lock" data-tier="premium">⚡<span>Trades</span></button>
+            <button class="nav-trigger bottom-nav-item" data-target="box-premium-lock" data-tier="premium">📓<span>Journal</span></button>
         </nav>
 
     </div>
 
-    <!-- Stepping up one folder level to link engine script -->
     <script src="../js/app.js"></script>
 </body>
 </html>
+
 
