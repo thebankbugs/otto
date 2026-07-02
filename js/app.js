@@ -284,3 +284,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Self-contained logic for the live asset ticker
+(function() {
+  // Free public endpoint tracking Bitcoin, Ethereum, Ripple, and Cardano
+  const API_URL = 'https://coingecko.com';
+
+  async function updateTickerFeed() {
+    const ticker = document.getElementById('live-ticker');
+    if (!ticker) return;
+
+    try {
+      const response = await fetch(API_URL);
+      if (!response.ok) throw new Error('Network response failure');
+      
+      const data = await response.json();
+      
+      // Map out the asset data into clean HTML elements
+      const items = [
+        formatItem('BTC', data.bitcoin.usd, data.bitcoin.usd_24h_change),
+        formatItem('ETH', data.ethereum.usd, data.ethereum.usd_24h_change),
+        formatItem('XRP', data.ripple.usd, data.ripple.usd_24h_change),
+        formatItem('ADA', data.cardano.usd, data.cardano.usd_24h_change)
+      ];
+
+      // Duplicate the array items to ensure a seamless visual loop in the scrolling animation
+      ticker.innerHTML = [...items, ...items].join('');
+      
+    } catch (error) {
+      console.error('Ticker Error:', error);
+      ticker.innerHTML = `<span class="ticker-loading" style="color: #cc3300;">Feed temporarily unavailable</span>`;
+    }
+  }
+
+  function formatItem(symbol, price, change) {
+    const isUp = change >= 0;
+    const indicator = isUp ? '▲' : '▼';
+    const colorClass = isUp ? 'ticker-green' : 'ticker-red';
+    
+    // Formats price to 4 decimals for small assets (like XRP), 2 decimals for large assets
+    const formattedPrice = price < 5 ? price.toFixed(4) : price.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    const formattedChange = change.toFixed(2);
+
+    return `
+      <span class="ticker-item">
+        ${symbol}: $${formattedPrice}
+        <span class="${colorClass}">${indicator} ${formattedChange}%</span>
+      </span>
+    `;
+  }
+
+  // Run immediately on page load
+  updateTickerFeed();
+
+  // Refresh every 60 seconds to comply safely with public rate limits
+  setInterval(updateTickerFeed, 60000);
+})();
