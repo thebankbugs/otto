@@ -285,80 +285,89 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 (function() {
-  // Public public endpoints natively delivering open CORS permissions to client browsers
-  const BTC_URL = 'https://coinbase.com';
-  const ETH_URL = 'https://coinbase.com';
-  const EUR_URL = 'https://coinbase.com';
-  const GBP_URL = 'https://coinbase.com';
+  // Global state object to store live asset prices
+  const marketData = {
+    BTC: { price: 0, change: 0.85 },
+    ETH: { price: 0, change: -0.32 },
+    EUR: { price: 1.0850, change: 0.05 }, // Base fallback configurations
+    GBP: { price: 1.2680, change: -0.02 }
+  };
 
-  async function updateTickerFeed() {
+  let ws;
+
+  function initMarketSocket() {
     const ticker = document.getElementById('live-ticker');
     if (!ticker) return;
 
-    try {
-      // Fire requests simultaneously to fetch asset valuations smoothly
-      const [btcRes, ethRes, eurRes, gbpRes] = await Promise.all([
-        fetch(BTC_URL),
-        fetch(ETH_URL),
-        fetch(EUR_URL),
-        fetch(GBP_URL)
-      ]);
+    // Direct WebSocket connection bypassing HTTP CORS engines completely
+    ws = new WebSocket('wss://ws-feed.exchange.coinbase.com');
 
-      if (!btcRes.ok || !ethRes.ok || !eurRes.ok || !gbpRes.ok) {
-        throw new Error('CORS endpoints network delay');
-      }
+    ws.onopen = () => {
+      // Subscribe immediately to real-time price updates
+      const subscribeMsg = {
+        type: 'subscribe',
+        product_ids: ['BTC-USD', 'ETH-USD'],
+        channels: ['ticker']
+      };
+      ws.send(JSON.stringify(subscribeMsg));
+      renderTickerUI();
+    };
 
-      const btcData = await btcRes.json();
-      const ethData = await ethRes.json();
-      const eurData = await eurRes.json();
-      const gbpData = await gbpRes.json();
-
-      // Convert responses down into standard floats safely
-      const btcPrice = parseFloat(btcData.data.amount);
-      const ethPrice = parseFloat(ethData.data.amount);
-      const eurPrice = parseFloat(eurData.data.amount);
-      const gbpPrice = parseFloat(gbpData.data.amount);
-
-      // Build text segments (using small placeholder trends for simple rendering layout)
-      const items = [
-        formatItem('BTC', btcPrice, 1.25),
-        formatItem('ETH', ethPrice, -0.42),
-        formatItem('EUR/USD', eurPrice, 0.11),
-        formatItem('GBP/USD', gbpPrice, -0.08)
-      ];
-
-      // Blend data array twice to guarantee seamless conveyor looping
-      ticker.innerHTML = [...items, ...items].join('');
+    ws.onmessage = (event) => {
+      const data = JSON.parse(event.data);
       
-    } catch (error) {
-      console.error('Ticker Safe Fallback Exception:', error);
-      ticker.innerHTML = `<span class="ticker-loading" style="color: #cc3300;">Synchronizing secure live feeds...</span>`;
-    }
+      // Update our pricing map dynamically when a trade occurs
+      if (data.type === 'ticker' && data.price) {
+        const symbol = data.product_id.split('-')[0]; // Extracted string token
+        if (marketData[symbol]) {
+          marketData[symbol].price = parseFloat(data.price);
+          renderTickerUI(); // Instantly update the ticker display
+        }
+      }
+    };
+
+    ws.onerror = (error) => {
+      console.error('Socket Connection Error:', error);
+    };
+
+    ws.onclose = () => {
+      // Auto-reconnect safety loop if the stream gets interrupted
+      setTimeout(initMarketSocket, 5000);
+    };
   }
 
-  function formatItem(symbol, price, change) {
-    const isUp = change >= 0;
-    const indicator = isUp ? '▲' : '▼';
-    const colorClass = isUp ? 'ticker-green' : 'ticker-red';
-    
-    // Auto-truncate or padd asset strings by overall asset weight values
-    const decimalCount = price < 5 ? 4 : 2;
-    const formattedPrice = price.toLocaleString(undefined, {
-      minimumFractionDigits: decimalCount, 
-      maximumFractionDigits: decimalCount
+  function renderTickerUI() {
+    const ticker = document.getElementById('live-ticker');
+    if (!ticker) return;
+
+    // Generate output list nodes dynamically
+    const items = Object.keys(marketData).map(symbol => {
+      const asset = marketData[symbol];
+      const isUp = asset.change >= 0;
+      const indicator = isUp ? '▲' : '▼';
+      const colorClass = isUp ? 'ticker-green' : 'ticker-red';
+      
+      // Pad out floating decimals by specific currency parameters
+      const decimalCount = asset.price < 5 ? 4 : 2;
+      const displayPrice = asset.price > 0 ? asset.price.toLocaleString(undefined, {
+        minimumFractionDigits: decimalCount,
+        maximumFractionDigits: decimalCount
+      }) : 'Connecting...';
+
+      const label = symbol === 'EUR' || symbol === 'GBP' ? `${symbol}/USD` : symbol;
+
+      return `
+        <span class="ticker-item">
+          ${label}: $${displayPrice}
+          <span class="${colorClass}">${indicator} ${Math.abs(asset.change).toFixed(2)}%</span>
+        </span>
+      `;
     });
 
-    return `
-      <span class="ticker-item">
-        ${symbol}: $${formattedPrice}
-        <span class="${colorClass}">${indicator} ${Math.abs(change).toFixed(2)}%</span>
-      </span>
-    `;
+    // Mirror array outputs twice to form an uninterrupted scrolling loop
+    ticker.innerHTML = [...items, ...items].join('');
   }
 
-  // Initial runtime execute execution 
-  updateTickerFeed();
-
-  // Refresh price feeds every 60 seconds safely
-  setInterval(updateTickerFeed, 60000);
+  // Initialize the stream on page load
+  initMarketSocket();
 })();
