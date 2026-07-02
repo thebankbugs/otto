@@ -378,3 +378,52 @@ document.addEventListener('DOMContentLoaded', () => {
   // Fire execution sequence
   initMarketSocket();
 })();
+
+(function() {
+  // Safe default value if the external network takes a second to load
+  let pgkToUsdRate = 0.2278; 
+  const FETCH_URL = 'https://er-api.com';
+
+  async function initCurrencyConverter() {
+    const rateDisplay = document.getElementById('live-pgk-rate');
+    const pgkInput = document.getElementById('pgk-amount-input');
+    const usdOutput = document.getElementById('usd-result-output');
+
+    if (!rateDisplay || !pgkInput || !usdOutput) return;
+
+    try {
+      // Pulling active cross rates securely from the endpoint
+      const response = await fetch(FETCH_URL);
+      if (!response.ok) throw new Error('Exchange metrics latency');
+      
+      const data = await response.json();
+      
+      // Calculate inverse valuation safely from USD anchor (1 / USD to PGK rate)
+      if (data.rates && data.rates.PGK) {
+        pgkToUsdRate = 1 / data.rates.PGK;
+        rateDisplay.textContent = pgkToUsdRate.toFixed(4);
+      }
+    } catch (error) {
+      console.warn('Using standard offline backup rate for PGK conversion:', error);
+    }
+
+    // Input monitoring logic to convert live as the user types
+    pgkInput.addEventListener('input', () => {
+      const value = parseFloat(pgkInput.value);
+      
+      if (isNaN(value) || value <= 0) {
+        usdOutput.textContent = '$0.00 USD';
+        return;
+      }
+      
+      const convertedValue = value * pgkToUsdRate;
+      usdOutput.textContent = `$${convertedValue.toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      })} USD`;
+    });
+  }
+
+  // Fire tracking runtime loop on page ready state
+  initCurrencyConverter();
+})();
