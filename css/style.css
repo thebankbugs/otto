@@ -533,8 +533,13 @@ body, html {
 .converted-result {
   font-size: 13px;
   font-weight: bold;
-  color: #2ed573; /* Smooth accent green highlight */
+  color: #2ed573;
   font-family: monospace;
   white-space: nowrap;
-}
-
+  
+  /* FIXED WIDTH SETTINGS: Prevents elements from expanding */
+  width: 100px;         /* Anchors the visual space strictly to 100px */
+  text-align: left;     /* Keeps text left-aligned inside the bounded box */
+  overflow: hidden;     /* Hides any wild digits beyond bounds */
+  text-overflow: ellipsis; /* Appends "..." if a number becomes incredibly huge */
+  display: inline-block;
