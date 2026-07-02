@@ -544,7 +544,7 @@ body, html {
   text-overflow: ellipsis; /* Appends "..." if a number becomes incredibly huge */
   display: inline-block;
 
-/* Trade with Otto Button */
+/* Replaces all previous complicated layouts with a clean, standard button */
 .sidebar-login-styled-btn {
   width: calc(100% - 32px); /* Automatically calculates width with normal sidebar padding margins */
   margin: 16px;
