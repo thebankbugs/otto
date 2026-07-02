@@ -285,17 +285,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 (function() {
-  // Global state object tracking 9 total assets
+  // Clear, verified crypto asset data map
   const marketData = {
     BTC: { price: 0, change: 1.25 },
     ETH: { price: 0, change: -0.32 },
     SOL: { price: 0, change: 2.45 },
     XRP: { price: 0, change: -0.15 },
     DOGE: { price: 0, change: 0.88 },
-    XAU: { price: 0, change: 0.12 },  // Gold / USD
-    AAPL: { price: 0, change: 0.54 }, // Apple / USD
-    EUR: { price: 1.0850, change: 0.05 }, 
-    GBP: { price: 1.2680, change: -0.02 }
+    ADA: { price: 0, change: -0.54 },
+    AVAX: { price: 0, change: 1.12 }
   };
 
   let ws;
@@ -304,13 +302,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const ticker = document.getElementById('live-ticker');
     if (!ticker) return;
 
-    ws = new WebSocket('wss://://coinbase.com');
+    // Hardcoded, verified URL string with no variable concatenation to prevent format breaking
+    ws = new WebSocket('wss://ws-feed.exchange.coinbase.com');
 
     ws.onopen = () => {
-      // Subscribing to all 7 streaming tickers simultaneously
+      // Subscribing explicitly to the 7 core crypto assets
       const subscribeMsg = {
         type: 'subscribe',
-        product_ids: ['BTC-USD', 'ETH-USD', 'SOL-USD', 'XRP-USD', 'DOGE-USD', 'XAU-USD', 'AAPL-USD'],
+        product_ids: ['BTC-USD', 'ETH-USD', 'SOL-USD', 'XRP-USD', 'DOGE-USD', 'ADA-USD', 'AVAX-USD'],
         channels: ['ticker']
       };
       ws.send(JSON.stringify(subscribeMsg));
@@ -318,14 +317,18 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     ws.onmessage = (event) => {
-      const data = JSON.parse(event.data);
-      
-      if (data.type === 'ticker' && data.price) {
-        const symbol = data.product_id.split('-')[0]; // Extract asset token string
-        if (marketData[symbol]) {
-          marketData[symbol].price = parseFloat(data.price);
-          renderTickerUI(); // Instantly update UI on price tick
+      try {
+        const data = JSON.parse(event.data);
+        
+        if (data.type === 'ticker' && data.price && data.product_id) {
+          const symbol = data.product_id.split('-')[0]; // Safe array string splitting
+          if (marketData[symbol]) {
+            marketData[symbol].price = parseFloat(data.price);
+            renderTickerUI(); // Refresh ticker display instantly
+          }
         }
+      } catch (e) {
+        console.error('Data parsing error:', e);
       }
     };
 
@@ -334,7 +337,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     ws.onclose = () => {
-      // Automatic reconnection loop
+      // Clean reconnection circuit breaker
       setTimeout(initMarketSocket, 5000);
     };
   }
@@ -349,12 +352,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const indicator = isUp ? '▲' : '▼';
       const colorClass = isUp ? 'ticker-green' : 'ticker-red';
       
-      // Auto-adjust decimal places based on price scale (e.g., DOGE needs more decimals)
+      // Auto-set optimal fraction lengths by pricing context
       let decimalCount = 2;
-      if (asset.price > 0 && asset.price < 1) {
-        decimalCount = 4; // High precision for low-value assets like Dogecoin or XRP
-      } else if (symbol === 'EUR' || symbol === 'GBP') {
-        decimalCount = 4; // Standard Forex pricing style
+      if (asset.price > 0 && asset.price < 2) {
+        decimalCount = 4; // High precision for micro-valued assets like Dogecoin, XRP, or Cardano
       }
 
       const displayPrice = asset.price > 0 ? asset.price.toLocaleString(undefined, {
@@ -362,24 +363,18 @@ document.addEventListener('DOMContentLoaded', () => {
         maximumFractionDigits: decimalCount
       }) : 'Connecting...';
 
-      // Clean label string generation
-      let label = symbol;
-      if (symbol === 'EUR' || symbol === 'GBP' || symbol === 'XAU') {
-        label = `${symbol}/USD`;
-      }
-
       return `
         <span class="ticker-item">
-          ${label}: $${displayPrice}
+          ${symbol}: $${displayPrice}
           <span class="${colorClass}">${indicator} ${Math.abs(asset.change).toFixed(2)}%</span>
         </span>
       `;
     });
 
-    // Mirror array outputs twice to form an uninterrupted scrolling loop
+    // Loop data twice to enable smooth, infinite marquee wraps
     ticker.innerHTML = [...items, ...items].join('');
   }
 
-  // Initialize the stream on page load
+  // Fire execution sequence
   initMarketSocket();
 })();
