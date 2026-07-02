@@ -433,4 +433,47 @@ body, html {
     box-shadow: 0 0 12px rgba(0, 255, 0, 0.35);
     animation: livePulse 2s infinite ease-in-out;
 }
+/* Takes the spot of your old search wrapper */
+.ticker-wrapper {
+  flex-grow: 1;
+  max-width: 500px; /* Adjust this to match your navigation bar's layout */
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.05); 
+  border-radius: 4px;
+  padding: 6px 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Moving conveyor belt */
+.ticker-content {
+  display: flex;
+  white-space: nowrap;
+  padding-left: 100%;
+  animation: ticker-scroll 20s linear infinite;
+}
+
+/* Individual pricing components */
+.ticker-item {
+  padding: 0 1.5rem;
+  font-family: monospace;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.ticker-loading {
+  font-size: 12px;
+  padding-left: 15px;
+  color: #888888;
+}
+
+/* Color classes for market trends */
+.ticker-green { color: #00aa66; }
+.ticker-red { color: #cc3300; }
+
+/* Continuous sliding animation */
+@keyframes ticker-scroll {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-100%, 0, 0); }
+}
 
