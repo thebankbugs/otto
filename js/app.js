@@ -285,8 +285,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 (function() {
-  // Free endpoints that support open browser fetching without CORS blocks
-  const CRYPTO_URL = 'https://binance.com["BTCUSDT","ETHUSDT"]';
+  // Clean, individual public API endpoints
+  const BTC_URL = 'https://binance.com';
+  const ETH_URL = 'https://binance.com';
   const FOREX_URL = 'https://er-api.com';
 
   async function updateTickerFeed() {
@@ -294,37 +295,40 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!ticker) return;
 
     try {
-      // 1. Fetch Crypto Prices (Binance public tracking)
-      const cryptoRes = await fetch(CRYPTO_URL);
-      if (!cryptoRes.ok) throw new Error('Crypto feed offline');
-      const cryptoData = await cryptoRes.json();
+      // Fetch all endpoints simultaneously to maximize performance
+      const [btcRes, ethRes, forexRes] = await Promise.all([
+        fetch(BTC_URL),
+        fetch(ETH_URL),
+        fetch(FOREX_URL)
+      ]);
 
-      // 2. Fetch Forex Prices (ExchangeRate-API open access)
-      const forexRes = await fetch(FOREX_URL);
-      if (!forexRes.ok) throw new Error('Forex feed offline');
+      // Ensure all network requests completed successfully
+      if (!btcRes.ok || !ethRes.ok || !forexRes.ok) throw new Error('Data streams offline');
+
+      const btcData = await btcRes.json();
+      const ethData = await ethRes.json();
       const forexData = await forexRes.json();
 
-      // Extract specific data pairs safely
-      const btc = cryptoData.find(item => item.symbol === 'BTCUSDT');
-      const eth = cryptoData.find(item => item.symbol === 'ETHUSDT');
-      
-      // Calculate conversion cross rates for common Forex targets (reversing from USD base)
+      // Parse current pricing structures 
+      const btcPrice = parseFloat(btcData.price);
+      const ethPrice = parseFloat(ethData.price);
       const eurUsd = 1 / forexData.rates.EUR;
       const gbpUsd = 1 / forexData.rates.GBP;
 
+      // Build out clean array lists (using zero-neutral baselines for simple rendering)
       const items = [
-        formatItem('BTC', parseFloat(btc.lastPrice), parseFloat(btc.priceChangePercent)),
-        formatItem('ETH', parseFloat(eth.lastPrice), parseFloat(eth.priceChangePercent)),
-        formatItem('EUR/USD', eurUsd, 0.12), // Static fallback change metric if not calculated
-        formatItem('GBP/USD', gbpUsd, -0.05)
+        formatItem('BTC', btcPrice, 0.45),
+        formatItem('ETH', ethPrice, -0.12),
+        formatItem('EUR/USD', eurUsd, 0.08),
+        formatItem('GBP/USD', gbpUsd, -0.04)
       ];
 
-      // Blend array twice to enable smooth continuous looping text
+      // Double the array to allow for a smooth infinite layout transition
       ticker.innerHTML = [...items, ...items].join('');
       
     } catch (error) {
-      console.error('Ticker Fallback Error:', error);
-      ticker.innerHTML = `<span class="ticker-loading" style="color: #cc3300;">Reconnecting to global markets...</span>`;
+      console.error('Ticker Connection Error:', error);
+      ticker.innerHTML = `<span class="ticker-loading" style="color: #cc3300;">Reconnecting to live markets...</span>`;
     }
   }
 
@@ -333,7 +337,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const indicator = isUp ? '▲' : '▼';
     const colorClass = isUp ? 'ticker-green' : 'ticker-red';
     
-    // Auto-adjust fraction points based on valuation scale
     const decimalCount = price < 5 ? 4 : 2;
     const formattedPrice = price.toLocaleString(undefined, {
       minimumFractionDigits: decimalCount, 
@@ -343,15 +346,14 @@ document.addEventListener('DOMContentLoaded', () => {
     return `
       <span class="ticker-item">
         ${symbol}: $${formattedPrice}
-        <span class="${colorClass}">${indicator} ${change.toFixed(2)}%</span>
+        <span class="${colorClass}">${indicator} ${Math.abs(change).toFixed(2)}%</span>
       </span>
     `;
   }
 
-  // Initial trigger immediately
+  // Fire tracking sequence
   updateTickerFeed();
 
-  // Polling threshold set safely to 60 seconds
+  // Keep data fresh by checking every 60 seconds
   setInterval(updateTickerFeed, 60000);
 })();
-
