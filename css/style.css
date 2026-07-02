@@ -433,14 +433,15 @@ body, html {
     box-shadow: 0 0 12px rgba(0, 255, 0, 0.35);
     animation: livePulse 2s infinite ease-in-out;
 }
-/* Takes the spot of your old search wrapper */
+/* Update your old block with these explicit flex parameters */
 .ticker-wrapper {
   flex-grow: 1;
-  max-width: 500px; /* Adjust this to match your navigation bar's layout */
+  width: 100%;            /* Forces the container to expand full-width */
+  max-width: 100% !important; /* Overrides any hidden restrictions from the nav bar */
   overflow: hidden;
   background: rgba(0, 0, 0, 0.05); 
   border-radius: 4px;
-  padding: 6px 0;
+  padding: 8px 0;
   display: flex;
   align-items: center;
 }
