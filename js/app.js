@@ -66,7 +66,7 @@ function enterAppWorkspace(role) {
     
     // Split Architecture Folder Page Router Matrix
     if (currentUserRole === "premium") {
-        window.location.href = "members/dashboard.html";
+        window.location.href = "dashboard.html";
     } else {
         window.location.href = "free-resources.html";
     }
