@@ -285,11 +285,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 (function() {
-  // Global state object to store live asset prices
+  // Global state object tracking 9 total assets
   const marketData = {
-    BTC: { price: 0, change: 0.85 },
+    BTC: { price: 0, change: 1.25 },
     ETH: { price: 0, change: -0.32 },
-    EUR: { price: 1.0850, change: 0.05 }, // Base fallback configurations
+    SOL: { price: 0, change: 2.45 },
+    XRP: { price: 0, change: -0.15 },
+    DOGE: { price: 0, change: 0.88 },
+    XAU: { price: 0, change: 0.12 },  // Gold / USD
+    AAPL: { price: 0, change: 0.54 }, // Apple / USD
+    EUR: { price: 1.0850, change: 0.05 }, 
     GBP: { price: 1.2680, change: -0.02 }
   };
 
@@ -299,14 +304,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const ticker = document.getElementById('live-ticker');
     if (!ticker) return;
 
-    // Direct WebSocket connection bypassing HTTP CORS engines completely
-    ws = new WebSocket('wss://ws-feed.exchange.coinbase.com');
+    ws = new WebSocket('wss://://coinbase.com');
 
     ws.onopen = () => {
-      // Subscribe immediately to real-time price updates
+      // Subscribing to all 7 streaming tickers simultaneously
       const subscribeMsg = {
         type: 'subscribe',
-        product_ids: ['BTC-USD', 'ETH-USD'],
+        product_ids: ['BTC-USD', 'ETH-USD', 'SOL-USD', 'XRP-USD', 'DOGE-USD', 'XAU-USD', 'AAPL-USD'],
         channels: ['ticker']
       };
       ws.send(JSON.stringify(subscribeMsg));
@@ -316,12 +320,11 @@ document.addEventListener('DOMContentLoaded', () => {
     ws.onmessage = (event) => {
       const data = JSON.parse(event.data);
       
-      // Update our pricing map dynamically when a trade occurs
       if (data.type === 'ticker' && data.price) {
-        const symbol = data.product_id.split('-')[0]; // Extracted string token
+        const symbol = data.product_id.split('-')[0]; // Extract asset token string
         if (marketData[symbol]) {
           marketData[symbol].price = parseFloat(data.price);
-          renderTickerUI(); // Instantly update the ticker display
+          renderTickerUI(); // Instantly update UI on price tick
         }
       }
     };
@@ -331,7 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     ws.onclose = () => {
-      // Auto-reconnect safety loop if the stream gets interrupted
+      // Automatic reconnection loop
       setTimeout(initMarketSocket, 5000);
     };
   }
@@ -340,21 +343,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const ticker = document.getElementById('live-ticker');
     if (!ticker) return;
 
-    // Generate output list nodes dynamically
     const items = Object.keys(marketData).map(symbol => {
       const asset = marketData[symbol];
       const isUp = asset.change >= 0;
       const indicator = isUp ? '▲' : '▼';
       const colorClass = isUp ? 'ticker-green' : 'ticker-red';
       
-      // Pad out floating decimals by specific currency parameters
-      const decimalCount = asset.price < 5 ? 4 : 2;
+      // Auto-adjust decimal places based on price scale (e.g., DOGE needs more decimals)
+      let decimalCount = 2;
+      if (asset.price > 0 && asset.price < 1) {
+        decimalCount = 4; // High precision for low-value assets like Dogecoin or XRP
+      } else if (symbol === 'EUR' || symbol === 'GBP') {
+        decimalCount = 4; // Standard Forex pricing style
+      }
+
       const displayPrice = asset.price > 0 ? asset.price.toLocaleString(undefined, {
         minimumFractionDigits: decimalCount,
         maximumFractionDigits: decimalCount
       }) : 'Connecting...';
 
-      const label = symbol === 'EUR' || symbol === 'GBP' ? `${symbol}/USD` : symbol;
+      // Clean label string generation
+      let label = symbol;
+      if (symbol === 'EUR' || symbol === 'GBP' || symbol === 'XAU') {
+        label = `${symbol}/USD`;
+      }
 
       return `
         <span class="ticker-item">
