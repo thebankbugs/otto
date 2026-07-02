@@ -476,4 +476,10 @@ body, html {
   0% { transform: translate3d(0, 0, 0); }
   100% { transform: translate3d(-100%, 0, 0); }
 }
+.ticker-content {
+  display: flex;
+  white-space: nowrap;
+  padding-left: 100%;
+  animation: ticker-scroll 35s linear infinite; /* Increased from 20s for a smoother roll */
+}
 
