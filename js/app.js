@@ -414,3 +414,30 @@ if (menuOpenBtn) menuOpenBtn.addEventListener('click', openSidebar);
 if (menuCloseBtn) menuCloseBtn.addEventListener('click', closeSidebar);
 if (sidebarBackdrop) sidebarBackdrop.addEventListener('click', closeSidebar);
 
+// ==========================================================================
+// 9. PERMANENT BOTTOM NAVIGATION CONTROLLER ENGINE
+// ==========================================================================
+document.addEventListener('DOMContentLoaded', () => {
+    const bottomNavItems = document.querySelectorAll('.bottom-nav-item');
+
+    bottomNavItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            // 1. Remove the active neon glow from all other bottom items
+            bottomNavItems.forEach(nav => nav.classList.remove('active'));
+
+            // 2. Add the active matrix green state to the clicked item
+            item.classList.add('active');
+
+            // 3. Optional: Sync view switching logic if your dashboard content changes
+            const targetBoxId = item.getAttribute('data-target');
+            const tierLevel = item.getAttribute('data-tier');
+            
+            console.log(`Navigating to view: ${targetBoxId} [Tier: ${tierLevel}]`);
+            
+            // If you have a separate function that swaps content boxes, call it here:
+            // if (typeof switchDashboardView === 'function') {
+            //     switchDashboardView(targetBoxId, tierLevel);
+            // }
+        });
+    });
+});
