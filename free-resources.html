@@ -43,7 +43,7 @@
         <div class="middle-workspace-pane">
             <div id="sidebar-backdrop" class="menu-backdrop-overlay"></div>
                        
-           <!-- SLIDING SIDEBAR NAVIGATION -->
+        <!-- SLIDING SIDEBAR NAVIGATION -->
 <nav id="sliding-left-menu" class="navigation-sidebar">
     <div class="sidebar-meta-header">
         <h2>DASHBOARD Menu</h2>
@@ -51,7 +51,7 @@
     </div>
     
     <!-- SYSTEM SUMMARY TERMINAL DATA -->
-    <a href="/dashboard" class="nav-trigger syllabus-tab active" data-tier="free">🏛️ Dashboard Overview</a>
+    <a href="/dashboard" class="nav-trigger syllabus-tab active" data-tier="free" style="text-decoration: none; display: block;">🏛️ Dashboard Overview</a>
 
     <!-- 🚀 STEP 0: THE PERMANENT PREMIUM CONVERSION LINK -->
     <a href="/premium/go-pro" class="nav-trigger syllabus-tab go-pro-btn" data-tier="premium" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: #38bdf8; font-weight: 700; border: 1px solid #38bdf8; box-shadow: 0px 0px 15px rgba(56, 189, 248, 0.25); letter-spacing: 0.05em; margin: 8px 0 16px 0; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; border-radius: 4px; padding: 12px 0;">
@@ -60,66 +60,76 @@
     
     <!-- 🏁 STEP 1: GETTING STARTED (ONBOARDING ROUTE) -->
     <div class="accordion-wrapper">
-        <button class="syllabus-tab dropdown-trigger" style="border-left: 3px solid #38bdf8; width: 100%; text-align: left;">🏁 STEP 1: Getting Started <span class="arrow-indicator">▼</span></button>
+        <button class="syllabus-tab dropdown-trigger" style="border-left: 3px solid #38bdf8; width: 100%; text-align: left; background: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+            <span>🏁 STEP 1: Getting Started</span> <span class="arrow-indicator">▼</span>
+        </button>
         <div class="sidebar-sub-panel" style="display: block;"> <!-- Keep open by default to guide new signups -->
-            <a href="/starter-kit/overview" class="sub-nav-link" data-tier="free"><span class="nav-icon">ℹ</span> Overview-READ ME first</a>
-            <a href="/starter-kit/brokers-overview" class="sub-nav-link" data-tier="free"><span class="nav-icon">🏦</span> Brokers Overview</a>
-            <a href="/starter-kit/liquidity-channels" class="sub-nav-link" data-tier="free"><span class="nav-icon">🌎</span> Local & International</a>
-            <a href="/starter-kit/partner-broker" class="sub-nav-link" data-tier="free"><span class="nav-icon">✓</span> Broker to USE (Partner)</a>
-            <a href="/starter-kit/broker-requirements" class="sub-nav-link" data-tier="free"><span class="nav-icon">▤</span> Broker Requirements</a>
-            <a href="/starter-kit/broker-kyc" class="sub-nav-link" data-tier="free"><span class="nav-icon">🔍</span> Overview-Broker KYC</a>
-            <a href="/starter-kit/open-broker-account" class="sub-nav-link" data-tier="free"><span class="nav-icon">✎</span> Opening Broker Acc</a>
-            <a href="/starter-kit/open-trading-account" class="sub-nav-link" data-tier="free"><span class="nav-icon">📊</span> Opening Real/DEMO Acc</a>
-            <a href="/starter-kit/money-transit" class="sub-nav-link" data-tier="free"><span class="nav-icon">⇄</span> Deposit/Withdrawal Process</a>
-            <a href="/starter-kit/connect-mt5" class="sub-nav-link" data-tier="free"><span class="nav-icon">☍</span> Connecting Platforms-Broker/MT5</a>
+            <a href="/starter-kit/overview" class="sub-nav-link" data-tier="free" style="text-decoration: none; display: block;"><span class="nav-icon">ℹ</span> Overview-READ ME first</a>
+            <a href="/starter-kit/brokers-overview" class="sub-nav-link" data-tier="free" style="text-decoration: none; display: block;"><span class="nav-icon">🏦</span> Brokers Overview</a>
+            <a href="/starter-kit/liquidity-channels" class="sub-nav-link" data-tier="free" style="text-decoration: none; display: block;"><span class="nav-icon">🌎</span> Local & International</a>
+            <a href="/starter-kit/partner-broker" class="sub-nav-link" data-tier="free" style="text-decoration: none; display: block;"><span class="nav-icon">✓</span> Broker to USE (Partner)</a>
+            <a href="/starter-kit/broker-requirements" class="sub-nav-link" data-tier="free" style="text-decoration: none; display: block;"><span class="nav-icon">▤</span> Broker Requirements</a>
+            <a href="/starter-kit/broker-kyc" class="sub-nav-link" data-tier="free" style="text-decoration: none; display: block;"><span class="nav-icon">🔍</span> Overview-Broker KYC</a>
+            <a href="/starter-kit/open-broker-account" class="sub-nav-link" data-tier="free" style="text-decoration: none; display: block;"><span class="nav-icon">✎</span> Opening Broker Acc</a>
+            <a href="/starter-kit/open-trading-account" class="sub-nav-link" data-tier="free" style="text-decoration: none; display: block;"><span class="nav-icon">📊</span> Opening Real/DEMO Acc</a>
+            <a href="/starter-kit/money-transit" class="sub-nav-link" data-tier="free" style="text-decoration: none; display: block;"><span class="nav-icon">⇄</span> Deposit/Withdrawal Process</a>
+            <a href="/starter-kit/connect-mt5" class="sub-nav-link" data-tier="free" style="text-decoration: none; display: block;"><span class="nav-icon">☍</span> Connecting Platforms-Broker/MT5</a>
         </div>
     </div>
 
     <!-- 🧠 STEP 2: BEGINNER MODELS (EDUCATION & STRATEGY) -->
     <div class="accordion-wrapper">
-        <button class="syllabus-tab dropdown-trigger" style="border-left: 3px solid #a855f7; width: 100%; text-align: left;">🧠 STEP 2: Beginner Models <span class="arrow-indicator">▼</span></button>
-        <div class="sidebar-sub-panel">
-            <a href="/academy/intro-forex-cfd" class="sub-nav-link" data-tier="free"><span class="nav-icon">◈</span> Intro to Forex & CFDs</a>
-            <a href="/academy/trading-platforms" class="sub-nav-link" data-tier="free"><span class="nav-icon">🖳</span> Trading Platforms Intro</a>
-            <a href="/academy/charting-tools-mt5" class="sub-nav-link" data-tier="free"><span class="nav-icon">📐</span> Basic Charting Tools-MT5</a>
-            <a href="/academy/economic-news" class="sub-nav-link" data-tier="free"><span class="nav-icon">📰</span> When to Trade: Economic News</a>
+        <button class="syllabus-tab dropdown-trigger" style="border-left: 3px solid #a855f7; width: 100%; text-align: left; background: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+            <span>🧠 STEP 2: Beginner Models</span> <span class="arrow-indicator">▼</span>
+        </button>
+        <div class="sidebar-sub-panel" style="display: none;">
+            <a href="/academy/intro-forex-cfd" class="sub-nav-link" data-tier="free" style="text-decoration: none; display: block;"><span class="nav-icon">◈</span> Intro to Forex & CFDs</a>
+            <a href="/academy/trading-platforms" class="sub-nav-link" data-tier="free" style="text-decoration: none; display: block;"><span class="nav-icon">🖳</span> Trading Platforms Intro</a>
+            <a href="/academy/charting-tools-mt5" class="sub-nav-link" data-tier="free" style="text-decoration: none; display: block;"><span class="nav-icon">📐</span> Basic Charting Tools-MT5</a>
+            <a href="/academy/economic-news" class="sub-nav-link" data-tier="free" style="text-decoration: none; display: block;"><span class="nav-icon">📰</span> When to Trade: Economic News</a>
         </div>
     </div>
 
     <!-- 🛡️ STEP 3: RISK MANAGEMENT & SIMULATION -->
     <div class="accordion-wrapper">
-        <button class="syllabus-tab dropdown-trigger" style="border-left: 3px solid #f43f5e; width: 100%; text-align: left;">🛡️ STEP 3: Risk Management <span class="arrow-indicator">▼</span></button>
-        <div class="sidebar-sub-panel">
-            <a href="/risk/demo-trading-101" class="sub-nav-link" data-tier="free"><span class="nav-icon">▶</span> DEMO Trading 101 Engine</a>
-            <a href="/risk/propfirms-scaling" class="sub-nav-link" data-tier="free"><span class="nav-icon">💼</span> Propfirms for Scaling</a>
-            <a href="/risk/whats-next" class="sub-nav-link" data-tier="free"><span class="nav-icon">▲</span> What's Next? Level up-ELITE</a>
+        <button class="syllabus-tab dropdown-trigger" style="border-left: 3px solid #f43f5e; width: 100%; text-align: left; background: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+            <span>🛡️ STEP 3: Risk Management</span> <span class="arrow-indicator">▼</span>
+        </button>
+        <div class="sidebar-sub-panel" style="display: none;">
+            <a href="/risk/demo-trading-101" class="sub-nav-link" data-tier="free" style="text-decoration: none; display: block;"><span class="nav-icon">▶</span> DEMO Trading 101 Engine</a>
+            <a href="/risk/propfirms-scaling" class="sub-nav-link" data-tier="free" style="text-decoration: none; display: block;"><span class="nav-icon">💼</span> Propfirms for Scaling</a>
+            <a href="/risk/whats-next" class="sub-nav-link" data-tier="free" style="text-decoration: none; display: block;"><span class="nav-icon">▲</span> What's Next? Level up-ELITE</a>
         </div>
     </div>
 
     <!-- 🕹️ STEP 4: ACTIVE DEMO FIELDS (COMMUNITY & REWARD) -->
     <div class="accordion-wrapper">
-        <button class="syllabus-tab dropdown-trigger" style="border-left: 3px solid #22c55e; width: 100%; text-align: left;">🕹️ STEP 4: Active Demo Fields <span class="arrow-indicator">▼</span></button>
-        <div class="sidebar-sub-panel">
-            <a href="/fields/competitions" class="sub-nav-link" data-tier="free"><span class="nav-icon">✦</span> Local Competitions</a>
-            <a href="/fields/chat-support" class="sub-nav-link" data-tier="free"><span class="nav-icon">▼</span> Live Chat Support Desk</a>
-            <a href="/fields/communities" class="sub-nav-link" data-tier="free"><span class="nav-icon">●</span> WhatsApp Teams & Networks</a>
+        <button class="syllabus-tab dropdown-trigger" style="border-left: 3px solid #22c55e; width: 100%; text-align: left; background: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+            <span>🕹️ STEP 4: Active Demo Fields</span> <span class="arrow-indicator">▼</span>
+        </button>
+        <div class="sidebar-sub-panel" style="display: none;">
+            <a href="/fields/competitions" class="sub-nav-link" data-tier="free" style="text-decoration: none; display: block;"><span class="nav-icon">✦</span> Local Competitions</a>
+            <a href="/fields/chat-support" class="sub-nav-link" data-tier="free" style="text-decoration: none; display: block;"><span class="nav-icon">▼</span> Live Chat Support Desk</a>
+            <a href="/fields/communities" class="sub-nav-link" data-tier="free" style="text-decoration: none; display: block;"><span class="nav-icon">●</span> WhatsApp Teams & Networks</a>
         </div>
     </div>
 
     <!-- 🔒 LOCKED PREMIUM ENGINE CHANNELS -->
     <div class="accordion-wrapper" style="margin-top: 12px; background: rgba(30, 41, 59, 0.4); border-radius: 6px;">
-        <button class="syllabus-tab dropdown-trigger" style="color: #94a3b8; width: 100%; text-align: left;"><span class="nav-icon">💎</span> PREMIUM SYSTEMS [🔒] <span class="arrow-indicator">▼</span></button>
-        <div class="sidebar-sub-panel">
-            <a href="/premium/elite-traders" class="sub-nav-link" data-tier="premium" style="color: #cbd5e1;"><span class="nav-icon">◈</span> Elite Traders (IC)</a>
-            <a href="/premium/advanced-systems" class="sub-nav-link" data-tier="premium" style="color: #cbd5e1;"><span class="nav-icon">▲</span> Advanced Trading Systems</a>
-            <a href="/premium/eas-indicators" class="sub-nav-link" data-tier="premium" style="color: #cbd5e1;"><span class="nav-icon">⚙</span> EAs & Indicators</a>
+        <button class="syllabus-tab dropdown-trigger" style="color: #94a3b8; width: 100%; text-align: left; background: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+            <span>💎 PREMIUM SYSTEMS [🔒]</span> <span class="arrow-indicator">▼</span>
+        </button>
+        <div class="sidebar-sub-panel" style="display: none;">
+            <a href="/premium/elite-traders" class="sub-nav-link" data-tier="premium" style="color: #cbd5e1; text-decoration: none; display: block;"><span class="nav-icon">◈</span> Elite Traders (IC)</a>
+            <a href="/premium/advanced-systems" class="sub-nav-link" data-tier="premium" style="color: #cbd5e1; text-decoration: none; display: block;"><span class="nav-icon">▲</span> Advanced Trading Systems</a>
+            <a href="/premium/eas-indicators" class="sub-nav-link" data-tier="premium" style="color: #cbd5e1; text-decoration: none; display: block;"><span class="nav-icon">⚙</span> EAs & Indicators</a>
         </div>
     </div>
 
     <!-- ⚙️ SYSTEM INFO & OVERVIEW -->
     <div style="margin-top: 16px; padding-top: 12px; border-top: 1px solid rgba(148, 163, 184, 0.1);">
-        <a href="/system/app-flow" class="sub-nav-link" data-tier="free" style="font-size: 12px; opacity: 0.7; display: block;"><span class="nav-icon">⇄</span> App System Flow</a>
-        <a href="/system/about" class="sub-nav-link" data-tier="free" style="font-size: 12px; opacity: 0.7; display: block;"><span class="nav-icon">ⓘ</span> About Platform</a>
+        <a href="/system/app-flow" class="sub-nav-link" data-tier="free" style="font-size: 12px; opacity: 0.7; display: block; text-decoration: none;"><span class="nav-icon">⇄</span> App System Flow</a>
+        <a href="/system/about" class="sub-nav-link" data-tier="free" style="font-size: 12px; opacity: 0.7; display: block; text-decoration: none;"><span class="nav-icon">ⓘ</span> About Platform</a>
     </div>
 
 </nav>
