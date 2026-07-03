@@ -426,3 +426,34 @@ document.querySelectorAll('.accordion-wrapper').forEach(wrapper => {
         hasActiveChild.classList.add('active-page-style'); // Highlight active page style
     }
 });
+
+document.querySelectorAll('.accordion-wrapper').forEach(wrapper => {
+    const trigger = wrapper.querySelector('.dropdown-trigger');
+    const panel = wrapper.querySelector('.sidebar-sub-panel');
+    const arrow = wrapper.querySelector('.arrow-indicator');
+
+    // Establish CSS heights dynamically for transition support
+    if (panel.style.display === 'none' || !panel.style.display) {
+        panel.style.maxHeight = '0px';
+    } else {
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+    }
+
+    trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        const isOpen = panel.style.maxHeight !== '0px';
+        
+        panel.style.maxHeight = isOpen ? '0px' : panel.scrollHeight + 'px';
+        arrow.textContent = isOpen ? '▼' : '▲';
+    });
+
+    // Auto-Expand current folder path on page reload execution
+    const currentPath = window.location.pathname;
+    const activeLink = wrapper.querySelector(`a[href="${currentPath}"]`);
+    
+    if (activeLink) {
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        arrow.textContent = '▲';
+        activeLink.classList.add('active-page-style');
+    }
+});
