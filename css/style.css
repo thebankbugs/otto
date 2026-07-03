@@ -552,3 +552,11 @@ body, html {
     font-size: 0.9em;
     text-align: center;
 }
+.sidebar-sub-panel .nav-icon {
+    display: inline-block;
+    width: 18px;
+    margin-right: 6px;
+    opacity: 0.5; /* Dims the icon slightly to prioritize the text */
+    font-size: 0.85em;
+    text-align: center;
+}
