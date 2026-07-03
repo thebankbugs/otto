@@ -544,3 +544,11 @@ body, html {
   text-overflow: ellipsis; /* Appends "..." if a number becomes incredibly huge */
   display: inline-block;
 }
+.nav-icon {
+    display: inline-block;
+    width: 20px;
+    margin-right: 8px;
+    opacity: 0.7;
+    font-size: 0.9em;
+    text-align: center;
+}
