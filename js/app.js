@@ -427,3 +427,25 @@ document.addEventListener('DOMContentLoaded', () => {
   // Fire tracking runtime loop on page ready state
   initCurrencyConverter();
 })();
+
+document.querySelectorAll('.accordion-wrapper').forEach(wrapper => {
+    const trigger = wrapper.querySelector('.dropdown-trigger');
+    const panel = wrapper.querySelector('.sidebar-sub-panel');
+    const arrow = wrapper.querySelector('.arrow-indicator');
+
+    // Click handler to manually toggle open/close
+    trigger.addEventListener('click', () => {
+        const isHidden = panel.style.display === 'none';
+        panel.style.display = isHidden ? 'block' : 'none';
+        arrow.textContent = isHidden ? '▲' : '▼';
+    });
+
+    // Smart Persistence: Auto-opens folder if a child link matches current URL path
+    const path = window.location.pathname;
+    const hasActiveChild = wrapper.querySelector(`a[href="${path}"]`);
+    if (hasActiveChild) {
+        panel.style.display = 'block';
+        arrow.textContent = '▲';
+        hasActiveChild.classList.add('active-page-style'); // Highlight active page style
+    }
+});
