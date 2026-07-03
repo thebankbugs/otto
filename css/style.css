@@ -222,67 +222,6 @@ nav.permanent-bottom-tab-bar .bottom-nav-item.active span {
     text-shadow: 0px 0px 8px rgba(0, 255, 0, 0.8) !important;
 }
 
-
-/* Nav Item Layout */
-.bottom-nav-item { 
-    background: none; 
-    border: none; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    gap: 4px; 
-    color: #888888; /* Desaturated gray for unselected links */
-    cursor: pointer; 
-    font-size: 1.2rem; 
-    transition: all 0.2s ease;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-}
-
-.bottom-nav-item span { 
-    font-size: 0.65rem; 
-    font-weight: 700; 
-    text-transform: uppercase; 
-    letter-spacing: 0.05em;
-}
-
-/* Matrix Hover & Tap Feedback */
-.bottom-nav-item:hover {
-    color: #ffffff;
-}
-
-/* Active Selection Theme */
-.bottom-nav-item.active { 
-    color: #00ff00; /* Active text changes to Neon Matrix Green */
-    text-shadow: 0px 0px 8px rgba(0, 255, 0, 0.6); /* Text ambient glow */
-}
-
-.bottom-nav-item.active span {
-    color: #00ff00;
-}
-
-/* Premium Tier Dimmed State */
-.bottom-nav-item[data-tier="premium"] {
-    color: #444444; /* Dark gray for restricted status */
-}
-.bottom-nav-item[data-tier="premium"]:hover {
-    color: #00ff00;
-}
-
-/* Universal Vector Icons Modifier Utilities */
-.icon-btn { 
-    background: none; 
-    border: none; 
-    font-size: 1.5rem; 
-    cursor: pointer; 
-    color: #ffffff; 
-    transition: color 0.2s ease;
-}
-.icon-btn:active { 
-    color: var(--matrix-green); 
-}
-
 /* ────────── MAIN SIDEBAR SLIDING MECHANICS ────────── */
 .navigation-sidebar {
     position: fixed;
