@@ -259,7 +259,30 @@ function showContentBox(boxId) {
     });
 }
 
+// ==========================================================================
+// 8. SIDEBAR EXPANDING ACCORDION CONTROLLER ENGINE
+// ==========================================================================
+document.addEventListener('DOMContentLoaded', () => {
+    const accordionToggleBtn = document.getElementById('accordion-toggle-btn');
+    const beginnerSubPanel = document.getElementById('beginner-sub-panel');
+    const subNavLinks = document.querySelectorAll('.sub-nav-link');
 
+    if (accordionToggleBtn && beginnerSubPanel) {
+        accordionToggleBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            accordionToggleBtn.classList.toggle('expanded');
+            beginnerSubPanel.classList.toggle('expanded');
+        });
+    }
+
+    subNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            subNavLinks.forEach(item => item.classList.remove('active'));
+            link.classList.add('active');
+        });
+    });
+});
 
 (function() {
   // Clear, verified crypto asset data map
