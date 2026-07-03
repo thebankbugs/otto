@@ -191,22 +191,37 @@ body, html {
 .interior-content-box p { font-size: 1.05rem; line-height: 1.6; color: var(--text-muted-gray); }
 
 /* Pinned Bottom Menu Interface Panel Theme */
-.permanent-bottom-tab-bar {
-    position: fixed; /* Keep frozen to viewport bottom */
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 65px;
-    background-color: #000000; /* True Black Background */
-    border-top: 1px solid #00ff00; /* Neon Matrix Green Upper Borderline */
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding-bottom: env(safe-area-inset-bottom);
-    box-shadow: 0px -6px 15px rgba(0, 255, 0, 0.15); /* Adds a futuristic neon upward cast glow */
-    z-index: 990; /* Right below the sidebar menu level */
-    box-sizing: border-box;
+/* FORCE OVERRIDE FOR TRUE BLACK & NEON OUTLINE */
+nav.permanent-bottom-tab-bar, 
+body nav.permanent-bottom-tab-bar {
+    position: fixed !important; 
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 65px !important;
+    background-color: #000000 !important; /* True Black */
+    border-top: 2px solid #00ff00 !important; /* Vivid Neon Green Line */
+    display: flex !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    z-index: 9999 !important; /* Forces it to the very top layer */
+    box-sizing: border-box !important;
 }
+
+/* FORCE OVERRIDE FOR BUTTONS */
+nav.permanent-bottom-tab-bar .bottom-nav-item {
+    background: transparent !important;
+    border: none !important;
+    color: #888888 !important;
+}
+
+/* FORCE OVERRIDE FOR ACTIVE STATE */
+nav.permanent-bottom-tab-bar .bottom-nav-item.active,
+nav.permanent-bottom-tab-bar .bottom-nav-item.active span {
+    color: #00ff00 !important; /* Active text changes to Neon Matrix Green */
+    text-shadow: 0px 0px 8px rgba(0, 255, 0, 0.8) !important;
+}
+
 
 /* Nav Item Layout */
 .bottom-nav-item { 
@@ -254,7 +269,6 @@ body, html {
 .bottom-nav-item[data-tier="premium"]:hover {
     color: #00ff00;
 }
-
 
 /* Universal Vector Icons Modifier Utilities */
 .icon-btn { 
