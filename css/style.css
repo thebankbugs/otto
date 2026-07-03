@@ -1,3 +1,35 @@
+/* FORCE OVERRIDE FOR TRUE BLACK & NEON OUTLINE */
+nav.permanent-bottom-tab-bar, 
+body nav.permanent-bottom-tab-bar {
+    position: fixed !important; 
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 65px !important;
+    background-color: #000000 !important; /* True Black */
+    border-top: 2px solid #00ff00 !important; /* Vivid Neon Green Line */
+    display: flex !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    z-index: 9999 !important; /* Forces it to the very top layer */
+    box-sizing: border-box !important;
+}
+
+/* FORCE OVERRIDE FOR BUTTONS */
+nav.permanent-bottom-tab-bar .bottom-nav-item {
+    background: transparent !important;
+    border: none !important;
+    color: #888888 !important;
+}
+
+/* FORCE OVERRIDE FOR ACTIVE STATE */
+nav.permanent-bottom-tab-bar .bottom-nav-item.active,
+nav.permanent-bottom-tab-bar .bottom-nav-item.active span {
+    color: #00ff00 !important; /* Active text changes to Neon Matrix Green */
+    text-shadow: 0px 0px 8px rgba(0, 255, 0, 0.8) !important;
+}
+
+
 /* ==========================================================================
    IC MARKETS BRAND PARTNER SPECIFIC DARK THEME (Fully Responsive) 
    ========================================================================== */
@@ -191,36 +223,7 @@ body, html {
 .interior-content-box p { font-size: 1.05rem; line-height: 1.6; color: var(--text-muted-gray); }
 
 /* Pinned Bottom Menu Interface Panel Theme */
-/* FORCE OVERRIDE FOR TRUE BLACK & NEON OUTLINE */
-nav.permanent-bottom-tab-bar, 
-body nav.permanent-bottom-tab-bar {
-    position: fixed !important; 
-    bottom: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 65px !important;
-    background-color: #000000 !important; /* True Black */
-    border-top: 2px solid #00ff00 !important; /* Vivid Neon Green Line */
-    display: flex !important;
-    justify-content: space-around !important;
-    align-items: center !important;
-    z-index: 9999 !important; /* Forces it to the very top layer */
-    box-sizing: border-box !important;
-}
 
-/* FORCE OVERRIDE FOR BUTTONS */
-nav.permanent-bottom-tab-bar .bottom-nav-item {
-    background: transparent !important;
-    border: none !important;
-    color: #888888 !important;
-}
-
-/* FORCE OVERRIDE FOR ACTIVE STATE */
-nav.permanent-bottom-tab-bar .bottom-nav-item.active,
-nav.permanent-bottom-tab-bar .bottom-nav-item.active span {
-    color: #00ff00 !important; /* Active text changes to Neon Matrix Green */
-    text-shadow: 0px 0px 8px rgba(0, 255, 0, 0.8) !important;
-}
 
 /* ────────── MAIN SIDEBAR SLIDING MECHANICS ────────── */
 .navigation-sidebar {
