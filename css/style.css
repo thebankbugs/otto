@@ -544,25 +544,3 @@ body, html {
   text-overflow: ellipsis; /* Appends "..." if a number becomes incredibly huge */
   display: inline-block;
 }
-/* Replaces all previous complicated layouts with a clean, standard button */
-.sidebar-login-styled-btn {
-  width: calc(100% - 32px); /* Automatically calculates width with normal sidebar padding margins */
-  margin: 16px;
-  background-color: #2ed573; /* Your exact dashboard green accent color */
-  color: #ffffff;
-  border: none;
-  border-radius: 6px;
-  padding: 12px;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  text-align: center;
-  transition: background-color 0.2s ease;
-}
-
-/* Subtle change when tapped or hovered */
-.sidebar-login-styled-btn:hover,
-.sidebar-login-styled-btn:active {
-  background-color: #26b962; /* Slightly darker green tone on interaction */
-}
-
