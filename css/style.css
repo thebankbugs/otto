@@ -190,31 +190,83 @@ body, html {
 .interior-content-box h2 { font-size: 1.6rem; color: var(--text-pure-white); margin-bottom: 16px; font-weight: 800; }
 .interior-content-box p { font-size: 1.05rem; line-height: 1.6; color: var(--text-muted-gray); }
 
-/* Locked Bottom Menu Interface Panel */
+/* Pinned Bottom Menu Interface Panel Theme */
 .permanent-bottom-tab-bar {
+    position: fixed; /* Ensures it stays permanently locked to viewport bottom */
+    bottom: 0;
+    left: 0;
+    width: 100%;
     height: 65px;
-    background-color: var(--bg-panel-surface);
-    border-top: 1px solid var(--border-dim-gray);
+    background-color: var(--bg-pure-black);
+    border-top: 1px solid var(--matrix-dim-green);
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding-bottom: env(safe-area-inset-bottom);
+    box-shadow: 0px -4px 15px rgba(0, 255, 0, 0.08); /* Cyberpunk ambient bottom glow */
+    z-index: 990; /* Right below the sidebar menu level */
+    box-sizing: border-box;
 }
-.bottom-nav-item { background: none; border: none; display: flex; flex-direction: column; align-items: center; gap: 4px; color: var(--text-muted-gray); cursor: pointer; font-size: 1.3rem; }
-.bottom-nav-item span { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
-.bottom-nav-item.active { color: var(--laser-lime-green); }
+
+/* Nav Item Layout */
+.bottom-nav-item { 
+    background: none; 
+    border: none; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 4px; 
+    color: var(--text-muted-gray); 
+    cursor: pointer; 
+    font-size: 1.2rem; 
+    transition: all 0.2s ease;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+.bottom-nav-item span { 
+    font-size: 0.65rem; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    letter-spacing: 0.05em;
+}
+
+/* Matrix Hover & Tap Feedback */
+.bottom-nav-item:hover {
+    color: #ffffff;
+}
+
+/* Active Selection Glow Theme */
+.bottom-nav-item.active { 
+    color: var(--matrix-green); 
+    text-shadow: 0px 0px 8px rgba(0, 255, 0, 0.6);
+}
+
+.bottom-nav-item.active span {
+    color: var(--matrix-green);
+}
+
+/* Premium Restrict / Tier Aesthetic Override */
+.bottom-nav-item[data-tier="premium"] {
+    color: #555555; /* Dimmed state to show it requires premium level clearance */
+}
+.bottom-nav-item[data-tier="premium"]:hover {
+    color: var(--matrix-green);
+    border-top: 1px solid var(--matrix-green);
+}
 
 /* Universal Vector Icons Modifier Utilities */
-.icon-btn { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-pure-white); }
-.icon-btn:active { color: var(--laser-lime-green); }
-
-/* ────────── THEME SYSTEM CONSTANTS ────────── */
-:root {
-    --bg-pure-black: #000000;
-    --matrix-green: #00ff00;
-    --matrix-dim-green: rgba(0, 255, 0, 0.2);
-    --border-dim-gray: #222222; /* Clean edge contrast for dark panels */
-    --text-muted-gray: #888888;
+.icon-btn { 
+    background: none; 
+    border: none; 
+    font-size: 1.5rem; 
+    cursor: pointer; 
+    color: #ffffff; 
+    transition: color 0.2s ease;
+}
+.icon-btn:active { 
+    color: var(--matrix-green); 
 }
 
 /* ────────── MAIN SIDEBAR SLIDING MECHANICS ────────── */
