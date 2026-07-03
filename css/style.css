@@ -208,11 +208,102 @@ body, html {
 .icon-btn { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-pure-white); }
 .icon-btn:active { color: var(--laser-lime-green); }
 
+/* ────────── THEME SYSTEM CONSTANTS ────────── */
+:root {
+    --bg-pure-black: #000000;
+    --matrix-green: #00ff00;
+    --matrix-dim-green: rgba(0, 255, 0, 0.2);
+    --border-dim-gray: #222222; /* Clean edge contrast for dark panels */
+    --text-muted-gray: #888888;
+}
+
+/* ────────── MAIN SIDEBAR SLIDING MECHANICS ────────── */
+.navigation-sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Hidden offscreen on the left */
+    width: 300px;
+    height: 100vh;
+    background: var(--bg-pure-black);
+    border-right: 1px solid var(--matrix-dim-green);
+    z-index: 999;
+    overflow-y: auto;
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+    padding: 20px;
+    color: #ffffff;
+}
+
+/* Base header styles matching your dashboard titles */
+.sidebar-meta-header h2 {
+    color: var(--matrix-green);
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.icon-btn {
+    background: transparent;
+    border: 1px solid var(--matrix-dim-green);
+    color: var(--matrix-green);
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+.icon-btn:hover {
+    background: var(--matrix-dim-green);
+}
+
+/* Matched to your JS .classList.add('open') */
+.navigation-sidebar.open {
+    left: 0; 
+    box-shadow: 5px 0px 25px rgba(0, 255, 0, 0.15);
+}
+
+/* Backdrop Overlay Settings */
+.sidebar-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(2px);
+    z-index: 998;
+    display: none;
+}
+.sidebar-backdrop.open {
+    display: block;
+}
+
 /* ────────── SIDEBAR SUB-NAVIGATION ACCORDION SYSTEM ────────── */
 .accordion-wrapper {
     width: 100%;
     display: flex;
     flex-direction: column;
+}
+
+/* Main standard buttons styling inside the nav layout */
+.syllabus-tab {
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    padding: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+.syllabus-tab:hover {
+    color: var(--matrix-green);
+    background: rgba(0, 255, 0, 0.05);
+}
+.syllabus-tab.active {
+    color: var(--bg-pure-black);
+    background: var(--matrix-green) !important;
 }
 
 .dropdown-trigger {
@@ -224,9 +315,9 @@ body, html {
 .arrow-indicator {
     font-size: 0.75rem;
     transition: transform 0.2s ease;
+    color: var(--text-muted-gray);
 }
 
-/* Collapsed State Layout Settings */
 .sidebar-sub-panel {
     max-height: 0;
     overflow: hidden;
@@ -234,21 +325,24 @@ body, html {
     flex-direction: column;
     gap: 4px;
     padding-left: 14px;
-    border-left: 1px dashed var(--border-dim-gray);
+    border-left: 1px dashed var(--matrix-dim-green);
     margin-left: 14px;
-    transition: max-height 0.25s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.25s;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.25s;
 }
 
-/* Expanded Active State Modifiers */
+/* FIXED: Changed 100% to fixed height for optimal transition speed */
 .sidebar-sub-panel.expanded {
-    max-height: 100%; /* Gives plenty of viewport scroll headroom */
+    max-height: 650px; 
     margin-top: 4px;
     margin-bottom: 8px;
 }
 
+.dropdown-trigger.expanded {
+    color: var(--matrix-green);
+}
 .dropdown-trigger.expanded .arrow-indicator {
     transform: rotate(180deg);
-    color: var(--laser-lime-green);
+    color: var(--matrix-green);
 }
 
 /* Indented Sub Menu Items Layout */
@@ -264,22 +358,27 @@ body, html {
     color: var(--text-muted-gray);
     cursor: pointer;
     text-decoration: none;
+    transition: all 0.2s ease;
 }
-
-.sub-nav-link:active, .sub-nav-link.active {
-    background-color: rgba(255, 255, 255, 0.03);
+.sub-nav-link:hover {
     color: #ffffff;
 }
 
-/* Custom Mini Scrollbar Styling for Sidebar Workspace */
+.sub-nav-link:active, .sub-nav-link.active {
+    background-color: var(--matrix-dim-green);
+    color: var(--matrix-green);
+    border-left: 2px solid var(--matrix-green);
+}
+
+/* Custom Scrollbar Styling */
 .navigation-sidebar::-webkit-scrollbar {
-    width: 4px; /* Thin line */
+    width: 4px;
 }
 .navigation-sidebar::-webkit-scrollbar-track {
     background: transparent;
 }
 .navigation-sidebar::-webkit-scrollbar-thumb {
-    background-color: var(--border-dim-gray);
+    background-color: var(--matrix-dim-green);
     border-radius: 10px;
 }
 
