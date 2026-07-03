@@ -156,25 +156,6 @@ navTriggers.forEach(trigger => {
     });
 });
 
-// ==========================================================================
-// 6. SLIDING NAVIGATION SIDEBAR MECHANICS
-// ==========================================================================
-function openSidebar() { 
-    if (slidingLeftMenu && sidebarBackdrop) {
-        slidingLeftMenu.classList.add('open'); 
-        sidebarBackdrop.classList.add('open'); 
-    }
-}
-function closeSidebar() { 
-    if (slidingLeftMenu && sidebarBackdrop) {
-        slidingLeftMenu.classList.remove('open'); 
-        sidebarBackdrop.classList.remove('open'); 
-    }
-}
-
-if (menuOpenBtn) menuOpenBtn.addEventListener('click', openSidebar);
-if (menuCloseBtn) menuCloseBtn.addEventListener('click', closeSidebar);
-if (sidebarBackdrop) sidebarBackdrop.addEventListener('click', closeSidebar);
 
 // ==========================================================================
 // 7. LIVE GATEKEEPER SEARCH ROUTER
@@ -259,30 +240,6 @@ function showContentBox(boxId) {
     });
 }
 
-// ==========================================================================
-// 8. SIDEBAR EXPANDING ACCORDION CONTROLLER ENGINE
-// ==========================================================================
-document.addEventListener('DOMContentLoaded', () => {
-    const accordionToggleBtn = document.getElementById('accordion-toggle-btn');
-    const beginnerSubPanel = document.getElementById('beginner-sub-panel');
-    const subNavLinks = document.querySelectorAll('.sub-nav-link');
-
-    if (accordionToggleBtn && beginnerSubPanel) {
-        accordionToggleBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            accordionToggleBtn.classList.toggle('expanded');
-            beginnerSubPanel.classList.toggle('expanded');
-        });
-    }
-
-    subNavLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            subNavLinks.forEach(item => item.classList.remove('active'));
-            link.classList.add('active');
-        });
-    });
-});
 
 (function() {
   // Clear, verified crypto asset data map
@@ -427,4 +384,33 @@ document.addEventListener('DOMContentLoaded', () => {
   // Fire tracking runtime loop on page ready state
   initCurrencyConverter();
 })();
+
+
+// ==========================================================================
+// CENTRALIZED COMPONENT SELECTORS (Verified Layout Match)
+// ==========================================================================
+const slidingLeftMenu = document.getElementById('sliding-left-menu');
+const sidebarBackdrop = document.getElementById('sidebar-backdrop');
+const menuCloseBtn = document.getElementById('menu-close-btn');
+const menuOpenBtn = document.getElementById('menu-open-btn'); // Now completely matched!
+
+// ==========================================================================
+// 6. SLIDING NAVIGATION SIDEBAR MECHANICS
+// ==========================================================================
+function openSidebar() { 
+    if (slidingLeftMenu && sidebarBackdrop) {
+        slidingLeftMenu.classList.add('open'); 
+        sidebarBackdrop.classList.add('open'); 
+    }
+}
+function closeSidebar() { 
+    if (slidingLeftMenu && sidebarBackdrop) {
+        slidingLeftMenu.classList.remove('open'); 
+        sidebarBackdrop.classList.remove('open'); 
+    }
+}
+
+if (menuOpenBtn) menuOpenBtn.addEventListener('click', openSidebar);
+if (menuCloseBtn) menuCloseBtn.addEventListener('click', closeSidebar);
+if (sidebarBackdrop) sidebarBackdrop.addEventListener('click', closeSidebar);
 
