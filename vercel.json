@@ -1,6 +1,15 @@
 {
-  "cleanUrls": true,
-  "framework": null,
-  "buildCommand": null,
-  "outputDirectory": "."
+  "version": 2,
+  "publics": [
+    {
+      "src": "index.html",
+      "dest": "index.html"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "index.html"
+    }
+  ]
 }
